@@ -6,6 +6,7 @@
     "@babel/runtime": "^7.0.0-beta.54",
     "classnames": "^2.2.6",
     "gatsby": "next",
+    "gatsby-plugin-cockpit": "^1.0.39",
     "gatsby-plugin-postcss": "^1.0.0",
     "gatsby-plugin-react-helmet": "next",
     "react": "^16.4.1",
