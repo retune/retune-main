@@ -10,6 +10,9 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy-key
 - ssh-add /tmp/deploy-key
+jobs:
+  include:
+  - script: npm run build
 deploy:
   provider: script
   skip_cleanup: true
