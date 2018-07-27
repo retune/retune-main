@@ -16,6 +16,8 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy":
+      "rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/public retune@borrelly.uberspace.de:/home/retune/html/site",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
