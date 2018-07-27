@@ -1,0 +1,36 @@
+.Intro {
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    to bottom left,
+    #76cbc3,
+    #ba7be4,
+    #24d7c0,
+    #24d7c0
+  );
+}
+
+.Intro > * {
+  color: #000;
+}
+
+.isFullViewport {
+  height: calc(100vh - var(--retune-masthead-h));
+  width: 100vw;
+}
+
+.break {
+  display: table;
+}
+
+.title {
+  color: #fff;
+}
+
+.subtitle {
+}
+
+.info {
+  margin-top: auto;
+}

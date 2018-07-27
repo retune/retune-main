@@ -1,10 +1,11 @@
 import React from 'react'
 
-import Layout from '../components/layout'
+import Intro from '../components/Intro'
+import Layout from '../components/Layout'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Retune</h1>
+    <Intro />
   </Layout>
 )
 

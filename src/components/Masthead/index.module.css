@@ -1,0 +1,23 @@
+.Masthead {
+  display: flex;
+  align-items: center;
+
+  height: var(--retune-masthead-h);
+
+  font-size: 25px;
+  color: var(--retune-col-blue);
+  background: #e6e6e6;
+}
+
+.Masthead:before {
+  content: " ";
+
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-right: 22px;
+
+  background-color: var(--retune-col-blue);
+  border: solid 2px var(--retune-col-blue);
+  border-radius: 100%;
+}
