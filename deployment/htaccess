@@ -1,0 +1,2 @@
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule (.*) /site/$1
