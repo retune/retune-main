@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - "lts/*"
 addons:
-  ssh_known_hosts: "<deploy-host>"
+  ssh_known_hosts: "borrelly.uberspace.de"
 cache:
   directories:
   - node_modules
