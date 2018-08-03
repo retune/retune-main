@@ -17,6 +17,10 @@ body {
     sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --retune-col-blue: #000096;
   --retune-masthead-h: 55px;
