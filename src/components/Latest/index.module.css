@@ -17,9 +17,14 @@
   width: 350px;
 
   padding: 0 23px;
-
   color: #fff;
+
   border-right: 3px solid #fff;
+}
+
+.EventItem a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .EventItem:last-child {
@@ -59,7 +64,18 @@
   width: 298px;
   height: 165px;
 
-  margin: 25px 0;
+  margin: 24px 0;
 
   outline: 1px solid grey;
+}
+
+.date,
+.ticket {
+  display: block;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -32,6 +32,7 @@ export const query = graphql`
           startTime
           endDate
           endTime
+          ticketURL
         }
       }
     }

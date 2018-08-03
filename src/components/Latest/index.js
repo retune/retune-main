@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 
 import FormattedDate from '../FormattedDate'
 
@@ -15,15 +16,20 @@ const labelForEvenType = type => {
   }
 }
 
-const EventItem = ({ type, title, subtitle, startDate }) => (
+const EventItem = ({ type, title, subtitle, startDate, ticketURL }) => (
   <div className={styles.EventItem}>
     <p className={styles.type}>{labelForEvenType(type)}</p>
     <div className={styles.image} />
-    <h2 className={styles.title}>{title}</h2>
-    <p className={styles.subtitle}>{subtitle}</p>
-    <time className={styles.date} datetime={startDate}>
+    <h2 className={classnames(styles.title, styles.ellipsis)}>{title}</h2>
+    <p className={classnames(styles.subtitle, styles.ellipsis)}>{subtitle}</p>
+    <time className={styles.date} dateTime={startDate}>
       <FormattedDate date={startDate} />
     </time>
+    {ticketURL ? (
+      <a className={styles.ticket} href={ticketURL}>
+        Book ticket
+      </a>
+    ) : null}
   </div>
 )
 
