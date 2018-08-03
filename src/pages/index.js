@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <h1>{data.homepage.values.tagline}</h1>
     <Intro />
   </Layout>
 )
