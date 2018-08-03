@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Masthead from '../Masthead'
+
 import './index.css'
 
 const Layout = ({ children, data }) => (
