@@ -9,6 +9,7 @@
     "gatsby-plugin-cockpit": "^1.0.39",
     "gatsby-plugin-postcss": "^1.0.0",
     "gatsby-plugin-react-helmet": "next",
+    "luxon": "^1.3.3",
     "postcss-custom-media": "^6.0.0",
     "postcss-import": "^11.1.0",
     "react": "^16.4.1",
