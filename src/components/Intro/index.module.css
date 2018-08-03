@@ -1,3 +1,5 @@
+@import '../MediaQuery/index.css';
+
 .Intro {
   display: flex;
   flex-direction: column;
@@ -11,12 +13,43 @@
   );
 }
 
+@media (--small) {
+  .Intro {
+    padding: 10px 18px 31px 18px;
+  }
+
+  .title,
+  .subtitle,
+  .info {
+    font-size: 25px;
+  }
+}
+
+@media (--large) {
+  .Intro {
+    padding: 18px 50px 66px 50px;
+  }
+
+  .title,
+  .subtitle,
+  .info {
+    font-size: 65px;
+    line-height: 75px;
+  }
+}
+
 .Intro > * {
   color: #000;
+  font-weight: normal;
+}
+
+.title,
+.subtitle {
+  margin: 0;
 }
 
 .isFullViewport {
-  height: calc(100vh - var(--retune-masthead-h));
+  min-height: calc(100vh - var(--retune-masthead-h));
   width: 100vw;
 }
 
@@ -29,8 +62,10 @@
 }
 
 .subtitle {
+  padding-bottom: 32px;
 }
 
 .info {
   margin-top: auto;
+  margin-bottom: 0;
 }
