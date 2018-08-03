@@ -6,14 +6,14 @@ import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <h1>{data.tagline.values.tagline}</h1>
+    <h1>{data.homepage.values.tagline}</h1>
     <Intro />
   </Layout>
 )
 
 export const query = graphql`
   {
-    tagline: region(name: { eq: "homepage" }) {
+    homepage: region(name: { eq: "homepage" }) {
       values {
         tagline
       }
