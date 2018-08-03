@@ -21,6 +21,13 @@ body {
   box-sizing: border-box;
 }
 
+a,
+a:link,
+a:hover,
+a:visited {
+  color: var(--retune-col-blue);
+}
+
 :root {
   --retune-col-blue: #000096;
   --retune-masthead-h: 55px;
