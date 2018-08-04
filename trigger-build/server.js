@@ -40,8 +40,10 @@ app.post('/hook', async (req, res) => {
   triggerTravisBuild().then(apiResponse => {
     if (apiResponse.ok) {
       res.json({ ok: true }).end()
+      console.log('Triggered build ok')
     } else {
       res.json({ bad: true }).end()
+      console.log('Error triggering build')
     }
   })
 })
