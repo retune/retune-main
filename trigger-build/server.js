@@ -37,6 +37,9 @@ const triggerTravisBuild = () => {
 
 app.get('/', (req, res) => res.send('UP'))
 app.post('/hook', async (req, res) => {
+  console.log('Received hook')
+  console.log(JSON.stringify(req.body))
+
   triggerTravisBuild().then(apiResponse => {
     if (apiResponse.ok) {
       res.json({ ok: true }).end()
