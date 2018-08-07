@@ -5,14 +5,15 @@ const path = require('path')
 const app = express()
 
 const triggerTravisBuild = () => {
-  const apiToken = fs.readFileSync(
-    path.join(__dirname, '/retune-travis-api-token.txt')
-  )
+  const tokenPath = path.join(__dirname, '/retune-travis-api-token.txt')
 
-  if (!apiToken) {
-    console.log('API token cannot be found')
+  if (!fs.existsSync(tokenPath)) {
+    console.log('API token file cannot be found')
+    console.log('Tried: ', tokenPath)
     return
   }
+
+  const apiToken = fs.readFileSync(tokenPath)
 
   const org = 'retune'
   const repo = 'retune-main'
