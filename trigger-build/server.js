@@ -8,9 +8,7 @@ const triggerTravisBuild = () => {
   const tokenPath = path.join(__dirname, '/retune-travis-api-token.txt')
 
   if (!fs.existsSync(tokenPath)) {
-    console.log('API token file cannot be found')
-    console.log('Tried: ', tokenPath)
-    return
+    throw new Error(`API token file cannot be found at "${tokenPath}"`)
   }
 
   const apiToken = fs.readFileSync(tokenPath)
@@ -41,7 +39,8 @@ app.post('/hook', async (req, res) => {
   console.log('Received hook')
   console.log(JSON.stringify(req.body))
 
-  triggerTravisBuild().then(apiResponse => {
+  try {
+    const apiResponse = triggerTravisBuild()
     if (apiResponse.ok) {
       res.json({ ok: true }).end()
       console.log('Triggered build ok')
@@ -49,7 +48,11 @@ app.post('/hook', async (req, res) => {
       res.json({ bad: true }).end()
       console.log('Error triggering build')
     }
-  })
+  } catch (error) {
+    console.log('Error triggering build')
+    console.log(error.message)
+    res.json({ error: true }).end()
+  }
 })
 
 const port = process.env.PORT || 3000
