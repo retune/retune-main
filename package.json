@@ -29,8 +29,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "deploy": "rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/public/ retune@borrelly.uberspace.de:/home/retune/html/site",
-    "format": "prettier --write 'src/**/*.js'"
+    "deploy":
+      "rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/public/ retune@borrelly.uberspace.de:/home/retune/html/site",
+    "format": "prettier --write 'src/**/*.js'",
+    "service:trigger-build": "node trigger-build/server"
   },
   "devDependencies": {
     "prettier": "^1.12.0"
