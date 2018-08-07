@@ -11,7 +11,10 @@ const triggerTravisBuild = () => {
     throw new Error(`API token file cannot be found at "${tokenPath}"`)
   }
 
-  const apiToken = fs.readFileSync(tokenPath)
+  const apiToken = fs
+    .readFileSync(tokenPath)
+    .toString()
+    .trim()
 
   const org = 'retune'
   const repo = 'retune-main'
@@ -40,7 +43,7 @@ app.post('/hook', async (req, res) => {
   console.log(JSON.stringify(req.body))
 
   try {
-    const apiResponse = triggerTravisBuild()
+    const apiResponse = await triggerTravisBuild()
     if (apiResponse.ok) {
       res.json({ ok: true }).end()
       console.log('Triggered build ok')
