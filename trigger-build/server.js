@@ -10,7 +10,7 @@ const triggerTravisBuild = () => {
   )
 
   if (!apiToken) {
-    console.error('API token cannot be found')
+    console.log('API token cannot be found')
     return
   }
 
