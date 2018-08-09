@@ -2,6 +2,7 @@
 import * as React from 'react'
 
 import EventType from '../EventType'
+import isNully from '../../lib/isNully'
 
 import styles from './index.module.css'
 
@@ -12,7 +13,11 @@ const Event = ({ event }) => (
     </p>
     <div className={styles.image} />
     <h4 className={styles.title}>
-      <a href="">{event.title}</a>
+      <a href="">
+        {event.title}
+        {isNully(event.subtitle) ? '' : ': '}
+        {event.subtitle}
+      </a>
     </h4>
     <p className={styles.summary}>{event.summary}</p>
   </li>
