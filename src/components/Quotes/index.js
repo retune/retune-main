@@ -27,7 +27,6 @@ const Quotes = ({ quotes }) => (
     naturalSlideWidth={1440}
     naturalSlideHeight={755}
     totalSlides={quotes.length}
-    //isPlaying
   >
     <section className={styles.Quotes}>
       <Slider>
