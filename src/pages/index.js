@@ -9,6 +9,7 @@ import Layout from '../components/Layout'
 import Promo from '../components/Promo'
 import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
+import EventArchive from '../components/EventArchive'
 
 const findEventsByIds = (events, ids) => map(ids, id => find(events, { id }))
 
@@ -29,6 +30,7 @@ const IndexPage = ({ data }) => {
       )}
       <Featured events={featuredEvents} />
       <Quotes quotes={quotes} />
+      <EventArchive events={events} />
     </Layout>
   )
 }

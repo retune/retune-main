@@ -1,0 +1,87 @@
+.EventArchive {
+  padding: 100px 48px 48px 48px;
+  background-color: rgba(175, 229, 221, 0.14);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 91px;
+}
+
+.heading {
+  font-size: 65px;
+  line-height: 1.15;
+  font-weight: normal;
+
+  margin: 0 auto 0 0;
+}
+
+.info {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  height: 72px;
+  vertical-align: top;
+
+  text-align: left;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.table td {
+  height: 49px;
+  font-size: 25px;
+}
+
+.table tbody tr {
+  cursor: pointer;
+}
+
+.table th,
+.table td {
+  color: var(--retune-col-blue);
+  border-bottom: 1px solid var(--retune-col-blue);
+}
+
+.table .type {
+  width: 25%;
+}
+
+.table .title {
+  width: 51%;
+}
+
+.table .date {
+  width: 20%;
+}
+
+.table .type {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 28px;
+}
+
+.table .link {
+  vertical-align: middle;
+}
+
+.table .link a {
+  color: #000;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.table .link a,
+.table .link a:visited,
+.table .link a:hover {
+  text-decoration: none;
+}
