@@ -77,12 +77,12 @@
 }
 
 .image {
-  width: 100%;
+  /* width: 100%;
   height: auto;
-  min-height: 100px;
+  min-height: 100px; */
 
   margin: 0 0 16px 0;
 
-  outline: 1px solid grey;
-  background-color: #eee;
+  /* outline: 1px solid grey;
+  background-color: #eee; */
 }

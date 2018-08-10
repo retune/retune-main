@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import EventType from '../EventType'
+import Image from '../Image'
 import isNully from '../../lib/isNully'
 
 import styles from './index.module.css'
@@ -10,7 +11,9 @@ const Event = ({ event }) => (
     <p className={styles.type}>
       <EventType plural type={event.type} />
     </p>
-    <div className={styles.image} />
+
+    <Image className={styles.image} source={event.mainImage} />
+
     <h4 className={styles.title}>
       <a href="">
         {event.title}

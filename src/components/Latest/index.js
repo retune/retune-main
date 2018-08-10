@@ -3,15 +3,30 @@ import classnames from 'classnames'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
+import Image from '../Image'
 
 import styles from './index.module.css'
 
-const EventItem = ({ type, title, subtitle, startDate, ticketURL }) => (
+const EventItem = ({
+  type,
+  title,
+  subtitle,
+  startDate,
+  ticketURL,
+  mainImage,
+}) => (
   <div className={styles.EventItem}>
     <p className={styles.type}>
       <EventType type={type} />
     </p>
-    <div className={styles.image} />
+
+    <Image
+      className={styles.image}
+      source={mainImage}
+      width={298}
+      height={165}
+    />
+
     <h2 className={classnames(styles.title, styles.ellipsis)}>{title}</h2>
     <p className={classnames(styles.subtitle, styles.ellipsis)}>{subtitle}</p>
     <time className={styles.date} dateTime={startDate}>
