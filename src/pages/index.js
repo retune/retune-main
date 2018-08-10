@@ -8,6 +8,7 @@ import Latest from '../components/Latest'
 import Layout from '../components/Layout'
 import Promo from '../components/Promo'
 import Featured from '../components/Featured'
+import Quotes from '../components/Quotes'
 
 const findEventsByIds = (events, ids) => map(ids, id => find(events, { id }))
 
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
   const featuredIds = map(data.homepage.values.featured, 'id')
   const featuredEvents = findEventsByIds(events, featuredIds)
+  const quotes = mergeResultsIntoItems(data.quotes)
 
   return (
     <Layout>
@@ -26,6 +28,7 @@ const IndexPage = ({ data }) => {
         <Promo url={data.homepage.values.promoURL} />
       )}
       <Featured events={featuredEvents} />
+      <Quotes quotes={quotes} />
     </Layout>
   )
 }
@@ -59,6 +62,16 @@ export const query = graphql`
               publicURL
             }
           }
+        }
+      }
+    }
+    quotes: allQuote {
+      edges {
+        node {
+          id
+          text
+          name
+          position
         }
       }
     }

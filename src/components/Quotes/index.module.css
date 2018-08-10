@@ -1,0 +1,44 @@
+.Quotes {
+  height: 755px;
+  padding: 70px;
+  background-color: var(--retune-col-blue);
+}
+
+.Quote {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  color: #fff;
+
+  font-style: normal;
+}
+
+.quote {
+  order: 1;
+
+  margin: 0;
+  padding: 0;
+  font-size: 65px;
+}
+
+.quote:before {
+  content: open-quote;
+}
+
+.quote:after {
+  content: close-quote;
+}
+
+.citation {
+  order: 0;
+
+  display: block;
+  margin-bottom: 60px;
+
+  font-size: 25px;
+}
+
+/* .name:after {
+  content: ' \2014 ';
+} */
