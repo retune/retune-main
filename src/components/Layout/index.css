@@ -30,5 +30,6 @@ a:visited {
 
 :root {
   --retune-col-blue: #000096;
+  --retune-col-selected: #4a90e2;
   --retune-masthead-h: 55px;
 }

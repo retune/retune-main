@@ -1,6 +1,8 @@
 .Quotes {
+  position: relative;
+
   height: 755px;
-  padding: 70px;
+  padding: 70px 70px 120px 70px;
   background-color: var(--retune-col-blue);
 }
 
@@ -39,6 +41,31 @@
   font-size: 25px;
 }
 
-/* .name:after {
-  content: ' \2014 ';
-} */
+.DotGroup {
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 95px;
+}
+
+.DotGroup > * {
+  width: 16px;
+  height: 16px;
+  margin-right: 20px;
+  padding: 0;
+
+  border-radius: 100%;
+  border: 1px solid transparent;
+  background-color: #fff;
+}
+
+.DotGroup > *:disabled {
+  background-color: var(--retune-col-selected);
+}
+
+.DotGroup > *:last-child {
+  margin-right: 0;
+}

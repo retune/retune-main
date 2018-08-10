@@ -1,4 +1,14 @@
 import * as React from 'react'
+import {
+  CarouselProvider,
+  Dot,
+  DotGroup,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from 'pure-react-carousel'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 import styles from './index.module.css'
 
@@ -13,9 +23,24 @@ const Quote = ({ quote }) => (
 )
 
 const Quotes = ({ quotes }) => (
-  <section className={styles.Quotes}>
-    {quotes.map(quote => <Quote key={quote.id} quote={quote} />)}
-  </section>
+  <CarouselProvider
+    naturalSlideWidth={1440}
+    naturalSlideHeight={755}
+    totalSlides={quotes.length}
+    //isPlaying
+  >
+    <section className={styles.Quotes}>
+      <Slider>
+        {quotes.map((quote, index) => (
+          <Slide key={quote.id} index={index}>
+            <Quote quote={quote} />
+          </Slide>
+        ))}
+      </Slider>
+
+      <DotGroup className={styles.DotGroup} />
+    </section>
+  </CarouselProvider>
 )
 
 export default Quotes
