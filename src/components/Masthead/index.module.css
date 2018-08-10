@@ -1,17 +1,32 @@
 @import '../MediaQuery/index.css';
 
 .Masthead {
-  display: flex;
-  align-items: center;
+  position: relative;
 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   height: var(--retune-masthead-h);
 
-  font-size: 25px;
   color: var(--retune-col-blue);
   background: #e6e6e6;
 }
 
-.Masthead:before {
+.MastheadInner {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 25px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.MastheadInner:before {
   content: ' ';
 
   display: block;

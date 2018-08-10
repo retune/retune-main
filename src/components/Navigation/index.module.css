@@ -1,0 +1,18 @@
+.Navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--retune-masthead-h);
+
+  height: 544px;
+  background-color: #e6e6e6;
+
+  overflow: hidden;
+}
+
+.isOpen {
+}
+
+.isClosed {
+  height: 0;
+}
