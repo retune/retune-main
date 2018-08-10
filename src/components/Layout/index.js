@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Masthead from '../Masthead'
+import Footer from '../Footer'
 
 import './index.css'
 
@@ -29,6 +30,7 @@ const Layout = ({ children, data }) => (
         />
         <Masthead siteTitle={data.site.siteMetadata.title} />
         <div>{children}</div>
+        <Footer />
       </>
     )}
   />
