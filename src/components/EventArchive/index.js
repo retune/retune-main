@@ -5,36 +5,10 @@ import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import isNully from '../../lib/isNully'
 
-import styles from './index.module.css'
+import Header from './Header'
+import Row from './Row'
 
-const Header = () => (
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Title</th>
-      <th>Date</th>
-      <th />
-    </tr>
-  </thead>
-)
-const Row = ({ event }) => (
-  <tr onClick={() => console.log('navigate')}>
-    <td className={styles.type}>
-      <EventType type={event.type} />
-    </td>
-    <td className={styles.title}>
-      {event.title}
-      {isNully(event.subtitle) ? '' : ': '}
-      {event.subtitle}
-    </td>
-    <td className={styles.date}>
-      <FormattedDate date={event.startDate} />
-    </td>
-    <td className={styles.link}>
-      <a href="">-&gt;</a>
-    </td>
-  </tr>
-)
+import styles from './index.module.css'
 
 const EventArchive = ({ events }) => (
   <section className={styles.EventArchive}>
