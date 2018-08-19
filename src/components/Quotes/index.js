@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 import {
   CarouselProvider,
   Dot,
@@ -14,8 +15,10 @@ import styles from './index.module.css'
 
 const Quote = ({ quote }) => (
   <div className={styles.Quote}>
-    <blockquote className={styles.quote}>{quote.text}</blockquote>
-    <cite className={styles.citation}>
+    <blockquote className={classnames(styles.quote, 'mql-xl mqs-xl')}>
+      {quote.text}
+    </blockquote>
+    <cite className={classnames(styles.citation, 'mql-m mqs-s')}>
       <span className={styles.name}>{quote.name}</span> &mdash;{' '}
       <span className={styles.position}>{quote.position}</span>
     </cite>
@@ -24,8 +27,8 @@ const Quote = ({ quote }) => (
 
 const Quotes = ({ quotes }) => (
   <CarouselProvider
-    naturalSlideWidth={1440}
-    naturalSlideHeight={755}
+    naturalSlideWidth={375}
+    naturalSlideHeight={293 - 32 - 10}
     totalSlides={quotes.length}
   >
     <section className={styles.Quotes}>

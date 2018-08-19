@@ -1,3 +1,2 @@
-@custom-media --small (max-width: 375px);
-/* @custom-media --medium (min-width: 375px); */
-@custom-media --large (min-width: 375px);
+@custom-media --small (max-width: 480px);
+@custom-media --large (min-width: 480px);

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'

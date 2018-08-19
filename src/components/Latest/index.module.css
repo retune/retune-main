@@ -1,8 +1,10 @@
-.Latest {
-  height: 500px;
-  width: 100vw;
+@import '../MediaQuery/index.css';
 
-  margin-bottom: 58px;
+.Latest {
+  width: 100vw;
+  height: 256px;
+
+  margin-bottom: 34px;
 
   overflow-y: hidden;
   overflow-x: visible;
@@ -12,7 +14,18 @@
 
 .Inner {
   display: flex;
-  margin: 85px 0 55px 0;
+  margin: 42px 0 34px 0;
+}
+
+@media (--large) {
+  .Latest {
+    height: 500px;
+    margin-bottom: 58px;
+  }
+
+  .Inner {
+    margin: 85px 0 55px 0;
+  }
 }
 
 .EventItem {
@@ -36,26 +49,21 @@
 
 .EventItem > * {
   margin: 0;
-  line-height: 1.2;
-  font-size: 1.56rem;
   font-weight: normal;
 }
 
 .type {
   display: flex;
   align-items: center;
-
-  font-family: serif;
-  font-size: 29px;
 }
 
 .type:before {
   content: ' ';
 
   display: block;
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
 
   flex-shrink: 0;
 
@@ -64,10 +72,25 @@
 }
 
 .image {
-  width: 298px;
-  height: 165px;
+  width: 133px;
+  height: 83px;
 
-  margin: 24px 0;
+  margin: 12px 0;
+}
+
+@media (--large) {
+  .type:before {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  .image {
+    width: 298px;
+    height: 165px;
+
+    margin: 24px 0;
+  }
 }
 
 .date,

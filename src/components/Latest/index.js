@@ -15,8 +15,8 @@ const EventItem = ({
   ticketURL,
   mainImage,
 }) => (
-  <div className={styles.EventItem}>
-    <p className={styles.type}>
+  <div className={classnames(styles.EventItem, 'mql-m mqs-m')}>
+    <p className={classnames(styles.type, 'serif', 'mql-l mqs-m')}>
       <EventType type={type} />
     </p>
 
@@ -25,6 +25,7 @@ const EventItem = ({
       source={mainImage}
       width={298}
       height={165}
+      auto
     />
 
     <h2 className={classnames(styles.title, styles.ellipsis)}>{title}</h2>

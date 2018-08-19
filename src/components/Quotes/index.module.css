@@ -1,8 +1,9 @@
+@import '../MediaQuery/index.css';
+
 .Quotes {
   position: relative;
 
-  height: 755px;
-  padding: 70px 70px 120px 70px;
+  padding: 0;
   background-color: var(--retune-col-blue);
 }
 
@@ -11,17 +12,33 @@
   flex-direction: column;
 
   margin: 0;
+  padding: 26px 19px 0 19px; /* .Dot provides bottom padding */
   color: #fff;
 
   font-style: normal;
 }
 
+@media (--large) {
+  .Quote {
+    padding: 70px 70px 0 70px; /* .Dot provides bottom padding */
+  }
+}
+
 .quote {
   order: 1;
 
+  max-width: 970px;
+
   margin: 0;
   padding: 0;
-  font-size: 65px;
+
+  line-height: 1.27;
+}
+
+@media (--large) {
+  .quote {
+    line-height: 1.15;
+  }
 }
 
 .quote:before {
@@ -38,28 +55,38 @@
   display: block;
   margin-bottom: 60px;
 
-  font-size: 25px;
+  font-style: normal;
 }
 
 .DotGroup {
   display: flex;
   justify-content: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 95px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .DotGroup > * {
-  width: 16px;
-  height: 16px;
-  margin-right: 20px;
+  width: 10px;
+  height: 10px;
+  margin-right: 13px;
   padding: 0;
 
   border-radius: 100%;
   border: 1px solid transparent;
   background-color: #fff;
+}
+
+@media (--large) {
+  .DotGroup {
+    padding-bottom: 95px;
+  }
+
+  .DotGroup > * {
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+  }
 }
 
 .DotGroup > *:disabled {
