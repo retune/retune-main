@@ -1,10 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
 
-import EventType from '../EventType'
-import FormattedDate from '../FormattedDate'
-import isNully from '../../lib/isNully'
-
 import Header from './Header'
 import Row from './Row'
 
@@ -13,8 +9,8 @@ import styles from './index.module.css'
 const EventArchive = ({ events }) => (
   <section className={styles.EventArchive}>
     <div className={styles.meta}>
-      <h2 className={styles.heading}>Archive</h2>
-      <p className={styles.info}>
+      <h2 className={classnames(styles.heading, 'mql-xl mqs-xl')}>Archive</h2>
+      <p className={classnames(styles.info, 'mql-m mqs-s')}>
         Retune is a Berlin-based community platform at the intersection of Art,
         Design and Technology. We organize the biennial Retune Festival, Studio
         Visits and workshops.

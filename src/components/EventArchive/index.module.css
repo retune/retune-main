@@ -1,46 +1,60 @@
+@import '../MediaQuery/index.css';
+
 .EventArchive {
-  padding: 100px 48px 48px 48px;
+  padding: 30px 19px 19px 19px;
   background-color: rgba(175, 229, 221, 0.14);
 }
 
-.meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@media (--large) {
+  .EventArchive {
+    padding: 100px 48px 48px 48px;
+  }
+}
 
-  margin-bottom: 91px;
+.meta {
+  display: block;
+  margin-bottom: 35px;
 }
 
 .heading {
-  font-size: 65px;
-  line-height: 1.15;
   font-weight: normal;
 
-  margin: 0 auto 0 0;
+  margin: 0 auto 14px 0;
+}
+
+@media (--large) {
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 91px;
+  }
+
+  .heading {
+    margin-bottom: 0;
+  }
 }
 
 .info {
   margin: 0;
-  font-size: 25px;
-  line-height: 1.2;
 }
 
 .table {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
 }
 
 .table th {
-  height: 72px;
+  height: 29px;
   vertical-align: top;
 
   text-align: left;
-  font-size: 25px;
   font-weight: normal;
 }
 
 .table td {
-  height: 49px;
-  font-size: 25px;
+  height: auto;
 }
 
 .table tbody tr {
@@ -49,35 +63,72 @@
 
 .table th,
 .table td {
+  padding: 6px;
+  vertical-align: top;
+
   color: var(--retune-col-blue);
-  border-bottom: 1px solid var(--retune-col-blue);
 }
 
-.table .type {
-  width: 25%;
+@media (--large) {
+  .table th {
+    height: 72px;
+  }
+
+  .table td {
+    height: 49px;
+  }
+
+  .table th,
+  .table td {
+    padding: 13px;
+    border-bottom: 1px solid var(--retune-col-blue);
+  }
 }
 
-.table .title {
-  width: 51%;
+.table th.type {
+  width: 43%;
+}
+
+.table th.title {
+  /* width: 51%; */
 }
 
 .table .date {
-  width: 20%;
-}
-
-.table .type {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 28px;
+  display: none;
 }
 
 .table .link {
-  vertical-align: middle;
+  display: none;
+}
+
+@media (--large) {
+  .table th.type {
+    width: 25%;
+  }
+
+  .table th.title {
+    width: 51%;
+  }
+
+  .table th.date {
+    width: 20%;
+  }
+
+  .table .date {
+    display: table-cell;
+  }
+
+  .table .link {
+    display: table-cell;
+  }
+}
+
+.table .link {
+  /* vertical-align: middle; */
 }
 
 .table .link a {
   color: #000;
-  font-size: 15px;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 .table .link a,
