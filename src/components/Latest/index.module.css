@@ -34,7 +34,9 @@
   border-right: 3px solid #fff;
 }
 
-.EventItem a {
+.EventItem a,
+.EventItem a:visited,
+.EventItem a:hover {
   color: #fff;
   text-decoration: none;
 }
