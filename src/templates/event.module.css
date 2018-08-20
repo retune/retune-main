@@ -1,0 +1,52 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 75px;
+  background: #e6e6e6;
+
+  text-align: center;
+  color: var(--retune-col-blue);
+}
+
+.bannerTitle {
+  flex: 1;
+}
+
+.inner {
+  margin: 40px 45px;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.icon {
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.title,
+.startDate {
+  margin: 0;
+
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.13;
+}
+
+.body {
+  max-width: 647px;
+}
+
+.body {
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.ticket {
+  text-align: center;
+  font-size: 40px;
+  font-weight: normal;
+}

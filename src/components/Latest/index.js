@@ -5,7 +5,7 @@ import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 
-import { eventsPath } from '../../lib/urls'
+import { eventPath } from '../../lib/urls'
 
 import styles from './index.module.css'
 
@@ -19,7 +19,7 @@ const EventItem = ({
   mainImage,
 }) => (
   <div className={classnames(styles.EventItem, 'mql-m mqs-m')}>
-    <a href={eventsPath({ id })}>
+    <a href={eventPath({ id })}>
       <p className={classnames(styles.type, 'serif', 'mql-l mqs-m')}>
         <EventType type={type} />
       </p>
