@@ -74,6 +74,12 @@
   margin: 12px 0;
 }
 
+.title,
+.subtitle {
+  font-weight: normal;
+  margin: 0;
+}
+
 @media (--large) {
   .type:before {
     width: 30px;
