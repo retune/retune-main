@@ -47,58 +47,59 @@ a:visited {
 }
 
 /* Typography */
-.mqs-xl,
-.mqs-xl > * {
+.mqs-xl {
   font-size: 25px;
   line-height: 1.2;
 }
 
-.mqs-l,
-.mqs-l > * {
+.mqs-l {
   font-size: 18px;
   line-height: 1.2;
 }
 
-.mqs-m,
-.mqs-m > * {
+.mqs-m {
   font-size: 15px;
   line-height: 1.2;
 }
 
-.mqs-s,
-.mqs-s > * {
+.mqs-s {
   font-size: 12px;
   line-height: 1.2;
 }
 
-.mqs-xs,
-.mqs-xs > * {
+.mqs-xs {
   font-size: 8px;
   line-height: 1.2;
 }
 
 @media (--large) {
-  .mql-xl,
-  .mql-xl > * {
+  .mql-xl {
     font-size: 65px;
     line-height: 1.2;
   }
 
-  .mql-l,
-  .mql-l > * {
+  .mql-l {
     font-size: 29px;
     line-height: 1.2;
   }
 
-  .mql-m,
-  .mql-m > * {
+  .mql-m {
     font-size: 25px;
     line-height: 1.2;
   }
 
-  .mql-s,
-  .mql-s > * {
+  .mql-s {
     font-size: 15px;
     line-height: 1.2;
   }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

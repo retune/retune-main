@@ -28,8 +28,8 @@ const EventItem = ({
       auto
     />
 
-    <h2 className={classnames(styles.title, styles.ellipsis)}>{title}</h2>
-    <p className={classnames(styles.subtitle, styles.ellipsis)}>{subtitle}</p>
+    <h2 className={classnames(styles.title, 'ellipsis')}>{title}</h2>
+    <p className={classnames(styles.subtitle, 'ellipsis')}>{subtitle}</p>
     <time className={styles.date} dateTime={startDate}>
       <FormattedDate date={startDate} />
     </time>

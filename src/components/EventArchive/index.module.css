@@ -40,9 +40,14 @@
 }
 
 .table {
-  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+}
+
+@media (--large) {
+  .table {
+    table-layout: fixed;
+  }
 }
 
 .table th {
@@ -86,7 +91,7 @@
 }
 
 .table th.type {
-  width: 43%;
+  /* width: 43%; */
 }
 
 .table th.title {
