@@ -2,8 +2,6 @@
 
 .Latest {
   width: 100vw;
-  height: 256px;
-
   margin-bottom: 34px;
 
   overflow-y: hidden;
@@ -19,7 +17,6 @@
 
 @media (--large) {
   .Latest {
-    height: 500px;
     margin-bottom: 58px;
   }
 
@@ -29,7 +26,6 @@
 }
 
 .EventItem {
-  height: 363px;
   width: 350px;
 
   padding: 0 23px;
