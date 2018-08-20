@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 
 import styles from './index.module.css'
 
@@ -15,7 +16,7 @@ const Infos = () => (
       <a href="">👉 Get our Newsletter!</a>
     </div>
 
-    <ul className={styles.links}>
+    <ul className={classnames(styles.links, 'mql-m mqs-s')}>
       <li>
         <a href="">Imprint</a>
       </li>
@@ -30,7 +31,7 @@ const Infos = () => (
       </li>
     </ul>
 
-    <p className={styles.imprint}>
+    <p className={classnames(styles.imprint, 'mql-s mqs-xs')}>
       Accountability for the internet pages retune.de and retune.org is:<br />{' '}
       Retune Creative Technology GmbH, Glogauer Str. 21, 10999 Berlin<br />
       webmaster@retune.de, HRB 174120 B

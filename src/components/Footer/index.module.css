@@ -1,5 +1,7 @@
+@import '../MediaQuery/index.css';
+
 .Footer {
-  padding: 48px;
+  padding: 25px 19px;
   font-size: 25px;
 
   color: #fff;
@@ -13,15 +15,13 @@
   text-decoration: none;
 }
 
-/* Grid layout */
 .Infos {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .company {
-  line-height: 1.2;
+  display: none;
 }
 
 .company > * {
@@ -29,6 +29,7 @@
 }
 
 .links {
+  order: 10;
   align-self: end;
 
   list-style: none;
@@ -52,8 +53,37 @@
 
 .imprint {
   align-self: end;
-  margin: 0;
+  margin: 0 0 9px 0;
+}
 
-  font-size: 15px;
-  line-height: 1.33;
+.newsletter {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 68px 0;
+}
+
+/* Grid layout */
+@media (--large) {
+  .Footer {
+    padding: 48px;
+  }
+
+  .Infos {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .company {
+    display: block;
+  }
+
+  .newsletter {
+    display: block;
+    justify-content: center;
+  }
+
+  .links {
+    order: 0;
+  }
 }
