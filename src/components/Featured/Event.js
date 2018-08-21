@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import EventType from '../EventType'
 import Image from '../Image'
 import isNully from '../../lib/isNully'
+import { eventPath } from '../../lib/urls'
 
 import styles from './index.module.css'
 
@@ -16,7 +17,7 @@ const Event = ({ event }) => (
     <Image className={styles.image} source={event.mainImage} />
 
     <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
-      <a href="">
+      <a href={eventPath({ id: event.id })}>
         {event.title}
         {isNully(event.subtitle) ? '' : ': '}
         {event.subtitle}

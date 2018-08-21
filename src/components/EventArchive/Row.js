@@ -4,13 +4,14 @@ import classnames from 'classnames'
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import isNully from '../../lib/isNully'
+import { eventPath } from '../../lib/urls'
 
 import styles from './index.module.css'
 
 const classes = cl => classnames(cl, 'mql-m mqs-s')
 
 const Row = ({ event }) => (
-  <tr onClick={() => console.log('navigate')}>
+  <tr onClick={() => (window.location = eventPath({ id: event.id }))}>
     <td className={classnames(styles.type, 'mql-m mqs-m serif')}>
       {event.title}
     </td>
@@ -19,7 +20,7 @@ const Row = ({ event }) => (
       <FormattedDate date={event.startDate} />
     </td>
     <td className={classes(styles.link)}>
-      <a href="" className="mono no-wrap">
+      <a href={eventPath({ id: event.id })} className="mono no-wrap">
         -&gt;
       </a>
     </td>
