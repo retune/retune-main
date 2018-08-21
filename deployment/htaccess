@@ -1,2 +1,12 @@
+RewriteEngine  on
+
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule (.*) /site/$1
+RewriteRule (.*) /site/$1 [PT]
+
+RewriteCond         "%{DOCUMENT_ROOT}/site/%{REQUEST_URI}"  -f
+RewriteRule "^(.+)" "%{DOCUMENT_ROOT}/site/$1"  [PT]
+
+RewriteCond         "%{DOCUMENT_ROOT}/site/%{REQUEST_URI}/index.html"  -f
+RewriteRule "^(.+)" "%{DOCUMENT_ROOT}/site/$1/index.html"  [PT]
+
+DirectoryIndex index.html
