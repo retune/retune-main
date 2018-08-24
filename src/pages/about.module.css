@@ -1,0 +1,72 @@
+.About {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 54px;
+  grid-template-areas: 'heading info' '. .' '. .' 'team team';
+
+  padding: 24px 50px 239px;
+}
+
+.section {
+  border-top: 1px solid var(--retune-col-blue);
+  padding-top: 20px;
+  padding-bottom: 85px;
+}
+
+.heading {
+  grid-area: heading;
+}
+
+.info {
+  grid-area: info;
+}
+
+.heading,
+.info {
+  padding-bottom: 179px;
+}
+
+.team {
+  grid-area: team;
+  justify-content: start;
+
+  width: calc(100vw - 100px);
+}
+
+.teamList {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.teamListInner {
+}
+
+.team ul,
+.team li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team ul {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 50px;
+  margin-bottom: 20px; /* for scroll bar */
+
+  color: var(--retune-col-blue);
+}
+
+.Member .avatar {
+  display: block;
+  border-radius: 100%;
+  margin-bottom: 23px;
+}
