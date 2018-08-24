@@ -15,7 +15,7 @@ import styles from './index.module.css'
 
 const Quote = ({ quote }) => (
   <div className={styles.Quote}>
-    <blockquote className={classnames(styles.quote, 'mql-xl mqs-xl')}>
+    <blockquote className={classnames(styles.quote, 'mql-xxl mqs-xl')}>
       {quote.text}
     </blockquote>
     <cite className={classnames(styles.citation, 'mql-m mqs-s')}>

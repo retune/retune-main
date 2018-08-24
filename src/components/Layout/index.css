@@ -19,6 +19,15 @@ body {
     sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
 .serif {
   font-family: 'Times New Roman', Times, serif;
 }
@@ -73,8 +82,13 @@ a:visited {
 }
 
 @media (--large) {
-  .mql-xl {
+  .mql-xxl {
     font-size: 65px;
+    line-height: 1.2;
+  }
+
+  .mql-xl {
+    font-size: 40px;
     line-height: 1.2;
   }
 
@@ -89,6 +103,11 @@ a:visited {
   }
 
   .mql-s {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .mql-xs {
     font-size: 15px;
     line-height: 1.2;
   }
