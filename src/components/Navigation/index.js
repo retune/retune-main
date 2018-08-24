@@ -7,7 +7,7 @@ import * as urls from '../../lib/urls'
 import styles from './index.module.css'
 
 const NavigationLink = ({ children, to }) => (
-  <Link className={classnames(styles.NavigationLink)} to={urls.aboutPath()}>
+  <Link className={classnames(styles.NavigationLink)} to={to}>
     {children}
   </Link>
 )
@@ -20,6 +20,17 @@ const Navigation = ({ open }) => (
     })}
   >
     <div className={classnames(styles.sections, 'mql-m')}>
+      <div className={classnames(styles.section, styles.events)}>
+        <h3 className={styles.header}>Events</h3>
+        <ul className={classnames(styles.links, 'list-reset')}>
+          <li>
+            <NavigationLink to={urls.festivalsPath()}>
+              Retune Festival
+            </NavigationLink>
+          </li>
+        </ul>
+      </div>
+
       <div className={classnames(styles.section, styles.information)}>
         <h3 className={styles.header}>Information</h3>
         <ul className={classnames(styles.links, 'list-reset')}>

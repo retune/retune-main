@@ -8,6 +8,8 @@
   background-color: #e6e6e6;
 
   overflow: hidden;
+
+  z-index: 50;
 }
 
 .isOpen {
