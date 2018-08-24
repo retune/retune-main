@@ -31,7 +31,7 @@ const AboutRetune = (
 
 const AboutPage = ({ data }) => {
   return (
-    <Layout className={styles.About}>
+    <Layout className={styles.About} pageTitle="Retune — since 2001">
       <Heading className={styles.heading} title={AboutRetune} />
       <Info className={styles.info} />
 

@@ -7,19 +7,15 @@ import Navigation from '../Navigation'
 
 import styles from './index.module.css'
 
-const composeData = data => {
-  const text = get(data, 'masthead.values.featureText')
-  const url = get(data, 'masthead.values.featureURL')
-  const obj = {
-    feature: null,
-  }
+// const Title = ({ url, text }) => {
+//   if (url) {
+//     return <a href={url}>{text}</a>
+//   } else if (text) {
+//     return text
+//   }
 
-  if (text && url) {
-    obj.feature = { text, url }
-  }
-
-  return obj
-}
+//   return null
+// }
 
 class Masthead extends React.Component {
   state = {
@@ -29,7 +25,7 @@ class Masthead extends React.Component {
   toggle = () => this.setState({ open: !this.state.open })
 
   render() {
-    const { feature } = this.props
+    const { pageTitle = '' } = this.props
     const { open } = this.state
 
     return (
@@ -41,13 +37,15 @@ class Masthead extends React.Component {
       >
         <button className={styles.MastheadInner} onClick={this.toggle}>
           <div className={styles.site}>
-            Retune<span className={styles.tagline}>
+            Retune
+            <span className={styles.tagline}>
               {' '}
               – Creative Technology Laboratory
             </span>
           </div>
           <div className={styles.feature}>
-            <a href={feature.url}>{feature.text}</a>
+            {/*<Title text={pageTitle} />*/}
+            {pageTitle}
           </div>
         </button>
 
@@ -57,20 +55,4 @@ class Masthead extends React.Component {
   }
 }
 
-const MastheadWithQuery = () => (
-  <StaticQuery
-    query={graphql`
-      {
-        masthead: region(name: { eq: "masthead" }) {
-          values {
-            featureText
-            featureURL
-          }
-        }
-      }
-    `}
-    render={data => <Masthead feature={composeData(data).feature} />}
-  />
-)
-
-export default MastheadWithQuery
+export default Masthead

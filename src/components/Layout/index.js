@@ -8,7 +8,13 @@ import Footer from '../Footer'
 
 import './index.css'
 
-const Layout = ({ className = '', children, data, wrapped = true }) => (
+const Layout = ({
+  className = '',
+  children,
+  data,
+  pageTitle,
+  wrapped = true,
+}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -28,7 +34,12 @@ const Layout = ({ className = '', children, data, wrapped = true }) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
-        {wrapped && <Masthead siteTitle={data.site.siteMetadata.title} />}
+        {wrapped && (
+          <Masthead
+            siteTitle={data.site.siteMetadata.title}
+            pageTitle={pageTitle}
+          />
+        )}
         <div className={className}>{children}</div>
         {wrapped && <Footer />}
       </>

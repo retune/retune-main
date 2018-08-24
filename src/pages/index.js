@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
   const quotes = mergeResultsIntoItems(data.quotes)
 
   return (
-    <Layout>
+    <Layout pageTitle={data.masthead.values.featureText}>
       <Intro />
       <Latest items={events} />
       {data.homepage.values.showPromo && (
@@ -42,6 +42,12 @@ export const query = graphql`
         featured {
           id: _id
         }
+      }
+    }
+    masthead: region(name: { eq: "masthead" }) {
+      values {
+        featureText
+        featureURL
       }
     }
     events: allEvent {

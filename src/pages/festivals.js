@@ -91,7 +91,10 @@ const FestivalsPage = ({ data }) => {
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
 
   return (
-    <Layout className={styles.Festivals}>
+    <Layout
+      className={styles.Festivals}
+      pageTitle="Retune Festival — Art, Design and Technology"
+    >
       <div className={styles.intro}>
         <Heading className={styles.heading} title={Title} />
         <div className={classnames(styles.info, 'mql-m mqs-s')}>
