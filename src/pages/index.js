@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import find from 'lodash/find'
 import map from 'lodash/map'
+
+import findEventsByIds from '../lib/findEventsByIds'
+import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import Intro from '../components/Intro'
 import Latest from '../components/Latest'
@@ -10,10 +12,6 @@ import Promo from '../components/Promo'
 import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
 import EventArchive from '../components/EventArchive'
-
-const findEventsByIds = (events, ids) => map(ids, id => find(events, { id }))
-
-const mergeResultsIntoItems = results => results.edges.map(edge => edge.node)
 
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
