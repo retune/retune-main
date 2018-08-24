@@ -44,6 +44,16 @@
   border-radius: 100%;
 }
 
+.Masthead.isOpen .MastheadInner {
+  color: #fff;
+  background: var(--retune-col-blue);
+}
+
+.Masthead.isOpen .MastheadInner:before {
+  background-color: #fff;
+  border-color: #fff;
+}
+
 @media (--large) {
   .MastheadInner:before {
     width: 30px;
@@ -51,6 +61,10 @@
     margin-left: 46px;
     margin-right: 22px;
   }
+}
+
+.site .tagline {
+  display: none;
 }
 
 .feature {
@@ -62,11 +76,15 @@
 }
 
 @media (--large) {
-  .site {
+  .Masthead:not(.isOpen) .site {
     display: none;
   }
 
-  .feature {
+  .site {
+    margin: auto;
+  }
+
+  .Masthead:not(.isOpen) .feature {
     display: block;
     margin-left: auto;
     margin-right: auto;

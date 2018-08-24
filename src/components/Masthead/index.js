@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
+import classnames from 'classnames'
 
 import Navigation from '../Navigation'
 
@@ -32,9 +33,19 @@ class Masthead extends React.Component {
     const { open } = this.state
 
     return (
-      <header className={styles.Masthead}>
+      <header
+        className={classnames(
+          styles.Masthead,
+          open ? styles.isOpen : styles.isClosed
+        )}
+      >
         <button className={styles.MastheadInner} onClick={this.toggle}>
-          <div className={styles.site}>Retune</div>
+          <div className={styles.site}>
+            Retune<span className={styles.tagline}>
+              {' '}
+              – Creative Technology Laboratory
+            </span>
+          </div>
           <div className={styles.feature}>
             <a href={feature.url}>{feature.text}</a>
           </div>
