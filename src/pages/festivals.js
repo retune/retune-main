@@ -3,12 +3,11 @@ import { graphql, Link } from 'gatsby'
 import classnames from 'classnames'
 import times from 'lodash/times'
 
-import Markdown from 'react-markdown'
-
 import { Heading, Info } from '../components/Header'
 import Icon from '../components/Icon'
 import Image from '../components/Image'
 import Layout from '../components/Layout'
+import Markdown from '../components/Markdown'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
