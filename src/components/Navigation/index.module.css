@@ -16,3 +16,42 @@
 .isClosed {
   height: 0;
 }
+
+.sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 'events projects services information';
+
+  margin-top: 56px;
+}
+
+.events {
+  grid-area: projects;
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.services {
+  grid-area: services;
+}
+
+.information {
+  grid-area: information;
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.links {
+}
+
+.NavigationLink,
+.NavigationLink:visited,
+.NavigationLink:hover,
+.NavigationLink:active {
+  text-decoration: none;
+}

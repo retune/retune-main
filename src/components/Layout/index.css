@@ -122,3 +122,14 @@ a:visited {
 .no-wrap {
   white-space: nowrap;
 }
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-reset > li {
+  margin: 0;
+  padding: 0;
+}

@@ -3,3 +3,4 @@
 */
 
 module.exports.eventPath = ({ id }) => `/events${id ? `/${id}/` : ''}`
+module.exports.aboutPath = () => '/about/'
