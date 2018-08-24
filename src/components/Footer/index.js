@@ -1,5 +1,8 @@
 import * as React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
+
+import * as urls from '../../lib/urls'
 
 import styles from './index.module.css'
 
@@ -18,7 +21,7 @@ const Infos = () => (
 
     <ul className={classnames(styles.links, 'mql-m mqs-s')}>
       <li>
-        <a href="">Imprint</a>
+        <Link to={urls.imprintPath()}>Imprint</Link>
       </li>
       <li>
         <a href="">Legal Notice</a>
