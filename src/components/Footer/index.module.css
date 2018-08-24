@@ -9,6 +9,7 @@
 }
 
 .Footer a,
+.Footer a:link,
 .Footer a:visited,
 .Footer a:hover {
   color: #fff;

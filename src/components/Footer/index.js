@@ -27,7 +27,7 @@ const Infos = () => (
         <a href="">Legal Notice</a>
       </li>
       <li>
-        <a href="">Data Protection</a>
+        <Link to={urls.privacyPath()}>Datenschuz / Privacy</Link>
       </li>
       <li>
         <a href="">Contact</a>

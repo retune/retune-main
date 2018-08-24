@@ -50,6 +50,7 @@
 }
 
 .NavigationLink,
+.NavigationLink:link,
 .NavigationLink:visited,
 .NavigationLink:hover,
 .NavigationLink:active {
