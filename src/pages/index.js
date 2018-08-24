@@ -4,6 +4,7 @@ import map from 'lodash/map'
 
 import findEventsByIds from '../lib/findEventsByIds'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
 import Intro from '../components/Intro'
 import Latest from '../components/Latest'
@@ -15,6 +16,7 @@ import EventArchive from '../components/EventArchive'
 
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
+  const split = splitEventsIntoPastAndFuture(events)
   const featuredIds = map(data.homepage.values.featured, 'id')
   const featuredEvents = findEventsByIds(events, featuredIds)
   const quotes = mergeResultsIntoItems(data.quotes)
@@ -22,13 +24,13 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle={data.masthead.values.featureText}>
       <Intro />
-      <Latest items={events} />
+      <Latest items={split.future} />
       {data.homepage.values.showPromo && (
         <Promo url={data.homepage.values.promoURL} />
       )}
       <Featured events={featuredEvents} />
       <Quotes quotes={quotes} />
-      <EventArchive events={events} />
+      <EventArchive events={split.past} />
     </Layout>
   )
 }
@@ -50,7 +52,7 @@ export const query = graphql`
         featureURL
       }
     }
-    events: allEvent {
+    events: allEvent(sort: { fields: [startDate], order: DESC }) {
       edges {
         node {
           id
