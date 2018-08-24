@@ -57,6 +57,7 @@ export const query = graphql`
           endDate
           endTime
           ticketURL
+          externalURL
           mainImage {
             localFile {
               publicURL
