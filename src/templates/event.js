@@ -6,6 +6,7 @@ import FormattedDate from '../components/FormattedDate'
 import Icon from '../components/Icon'
 import Image from '../components/Image'
 import Layout from '../components/Layout'
+import Markdown from '../components/Markdown'
 
 import styles from './event.module.css'
 
@@ -46,9 +47,13 @@ const EventPage = ({ data }) => {
             auto
           />
 
-          <p className={classnames(styles.body, 'mql-m mqs-m')}>
-            {event.summary}
-          </p>
+          <div className={classnames(styles.body, 'mql-m mqs-m')}>
+            {event.description ? (
+              <Markdown source={event.description} />
+            ) : (
+              event.summary
+            )}
+          </div>
 
           {event.ticketURL && (
             <p className={styles.ticket}>
@@ -68,6 +73,7 @@ export const query = graphql`
       title
       subtitle
       summary
+      description
       startDate
       ticketURL
       mainImage {
