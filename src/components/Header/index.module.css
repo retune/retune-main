@@ -1,0 +1,29 @@
+@import '../MediaQuery/index.css';
+
+.meta {
+  display: block;
+  margin-bottom: 35px;
+}
+
+.heading {
+  font-weight: normal;
+
+  margin: 0 auto 14px 0;
+}
+
+@media (--large) {
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 91px;
+  }
+
+  .heading {
+    margin-bottom: 0;
+  }
+}
+
+.info {
+  margin: 0;
+}
