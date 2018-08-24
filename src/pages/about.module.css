@@ -1,16 +1,42 @@
-.About {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 54px;
-  grid-template-areas: 'heading info' '. .' '. .' 'team team';
+@import '../components/MediaQuery/index.css';
 
-  padding: 24px 50px 239px;
+.About {
+  padding: 24px 50px;
+}
+
+.heading,
+.info {
+  padding-bottom: 24px;
 }
 
 .section {
   border-top: 1px solid var(--retune-col-blue);
   padding-top: 20px;
-  padding-bottom: 85px;
+  padding-bottom: 30px;
+}
+
+@media (--large) {
+  .About {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 54px;
+    grid-template-areas: 'heading info' '. .' '. .' 'team team';
+
+    padding: 24px 50px 239px;
+  }
+
+  .heading,
+  .info {
+    padding-bottom: 179px;
+  }
+
+  .heading .break {
+    display: block;
+  }
+
+  .section {
+    padding-bottom: 85px;
+  }
 }
 
 .heading {
@@ -19,11 +45,6 @@
 
 .info {
   grid-area: info;
-}
-
-.heading,
-.info {
-  padding-bottom: 179px;
 }
 
 .team {
@@ -36,9 +57,6 @@
 .teamList {
   width: 100%;
   overflow-x: scroll;
-}
-
-.teamListInner {
 }
 
 .team ul,

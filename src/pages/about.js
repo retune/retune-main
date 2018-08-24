@@ -24,9 +24,9 @@ const Member = ({ name, role, avatar = '' }) => (
 )
 
 const AboutRetune = (
-  <>
-    About<br />Retune
-  </>
+  <React.Fragment>
+    <span className={styles.break}>About</span> Retune
+  </React.Fragment>
 )
 
 const AboutPage = ({ data }) => {
