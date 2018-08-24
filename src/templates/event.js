@@ -16,10 +16,12 @@ const EventPage = ({ data }) => {
     <Layout wrapped={false}>
       <section className={styles.container}>
         <div className={styles.banner}>
-          <p className={classnames(styles.bannerTitle, "mql-l serif")}>{event.title}</p>
-        
+          <p className={classnames(styles.bannerTitle, 'mql-l serif')}>
+            {event.title}
+          </p>
+
           <a className={styles.icon} href="/">
-            <Icon />
+            <Icon type="close" />
           </a>
         </div>
 
