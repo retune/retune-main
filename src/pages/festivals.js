@@ -105,6 +105,20 @@ const FestivalsPage = ({ data }) => {
       <Festival collapsible={false} event={latest} />
 
       {rest.map(event => <Festival key={event.id} event={event} />)}
+
+      <div className={classnames(styles.outro, 'mql-m')}>
+        <p>
+          You wanna participate and be part of the next Retune Studio Visits. Or
+          you have suggestion for the next Studio we have to visits. Feel free
+          to contact us at any time for any problems and related tasks: hey /at/
+          retune.de
+        </p>
+
+        <p>
+          For more info and updates sign up for our newsletter, join us on
+          Slack, and follow us on Twitter, Instagram, Facebook and Flickr.
+        </p>
+      </div>
     </Layout>
   )
 }

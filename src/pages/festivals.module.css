@@ -4,6 +4,7 @@
   padding: 24px 50px;
 }
 
+/* Page intro */
 .intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,6 +34,13 @@
   z-index: 1;
 }
 
+.outro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+}
+
+/* Festival component */
 .Festival {
   padding-top: 47px;
   padding-bottom: 171px;
