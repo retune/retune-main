@@ -28,6 +28,11 @@ const Navigation = ({ open }) => (
               Retune Festival
             </NavigationLink>
           </li>
+          <li>
+            <NavigationLink to={urls.studioVisitsPath()}>
+              Studio Visits
+            </NavigationLink>
+          </li>
         </ul>
       </div>
 
