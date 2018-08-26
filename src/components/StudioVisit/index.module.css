@@ -1,0 +1,46 @@
+.StudioVisit {
+  border-top: 1px solid var(--retune-col-blue);
+  padding: 14px;
+}
+
+.heading {
+  color: var(--retune-col-blue);
+}
+
+.title {
+  display: inline-block;
+  min-width: 276px;
+  margin-right: 72px;
+}
+
+.content {
+  margin-top: 55px;
+  padding: 26px 30px 34px;
+  background-color: #e6e6e6;
+}
+
+.content p {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'info images' 'link caption';
+}
+
+.info {
+  grid-area: info;
+}
+
+.images {
+  grid-area: images;
+}
+
+.link {
+  grid-area: link;
+}
+
+.caption {
+  grid-area: caption;
+}

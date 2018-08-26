@@ -5,6 +5,7 @@ import classnames from 'classnames'
 import { Heading } from '../components/Header'
 import Latest from '../components/Latest'
 import Layout from '../components/Layout'
+import StudioVisit from '../components/StudioVisit'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
@@ -51,7 +52,9 @@ const StudioVisitsPage = ({ data }) => {
       <section>
         <h2 className="mql-xxl">Review</h2>
         {events.past && Array.isArray(events.past)
-          ? events.past.map(event => <p key={event.id}>{event.title}</p>)
+          ? events.past.map(event => (
+              <StudioVisit key={event.id} event={event} />
+            ))
           : 'No past events'}
       </section>
 

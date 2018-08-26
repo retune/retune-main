@@ -28,6 +28,11 @@ h6 {
   font-weight: normal;
 }
 
+.sans {
+  font-family: 'Atlas Grotesk Web', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue';
+}
+
 .serif {
   font-family: 'Times New Roman', Times, serif;
 }

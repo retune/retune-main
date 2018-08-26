@@ -12,6 +12,8 @@
   grid-template-areas: 'left right' 'images images';
 
   margin-bottom: 487px; /* images height 667 - intro height 180px */
+
+  color: #fff;
 }
 
 .heading {
@@ -32,7 +34,9 @@
   left: 0;
   right: 0;
 
-  background-color: #eee;
+  background-blend-mode: multiply;
+  background-image: linear-gradient(to left, #000096, #d8d8d8);
+  border: solid 1px #979797;
 
   width: 100%;
   height: 667px;
