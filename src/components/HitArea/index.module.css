@@ -1,0 +1,9 @@
+.HitArea {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+}

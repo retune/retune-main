@@ -1,15 +1,14 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import classnames from 'classnames'
-import times from 'lodash/times'
 
-import { Heading, Info } from '../components/Header'
-import Icon from '../components/Icon'
-import Image from '../components/Image'
+import DisclosureArrow from '../components/DisclosureArrow'
+import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
-import Markdown from '../components/Markdown'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+
+import Festival from './festivals/Festival'
 
 import styles from './festivals.module.css'
 
@@ -18,73 +17,6 @@ const Title = (
     <span>Retune</span> Festivals
   </React.Fragment>
 )
-
-const DisclosureArrow = () => (
-  <Icon className={styles.disclosureArrow} type="disclosureArrow" />
-)
-
-const HitArea = ({ children, onClick }) => (
-  <button className={styles.HitArea} onClick={onClick}>
-    {children}
-  </button>
-)
-
-class Festival extends React.Component {
-  state = {
-    collapsed: true,
-  }
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    })
-  }
-
-  render() {
-    const { collapsible = true, event } = this.props
-    const { collapsed } = this.state
-
-    const header = (
-      <h2 className={classnames(styles.title, 'mql-xxl')}>
-        {event.title}
-        {collapsible && <DisclosureArrow />}
-      </h2>
-    )
-
-    return (
-      <section
-        className={classnames(
-          styles.Festival,
-          collapsible ? styles.isCollapsible : styles.isNotCollapsible,
-          collapsible && collapsed ? styles.isCollapsed : styles.isNotCollapsed
-        )}
-      >
-        {collapsible ? (
-          <HitArea onClick={this.toggle}>{header}</HitArea>
-        ) : (
-          header
-        )}
-        <div className={styles.content}>
-          <p className={classnames(styles.subtitle, 'mql-xl')}>
-            {event.subtitle}
-          </p>
-          <div className={styles.image}>
-            <Image source={event.mainImage} />
-          </div>
-          <div className={classnames(styles.body, 'mql-l mono')}>
-            <Markdown source={event.description} />
-          </div>
-          <p className={classnames(styles.link, 'mql-xxl')}>
-            ({' '}
-            <span>
-              -&gt; <a href={event.externalURL}>Go to site</a>
-            </span>)
-          </p>
-        </div>
-      </section>
-    )
-  }
-}
 
 const FestivalsPage = ({ data }) => {
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)

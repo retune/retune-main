@@ -1,0 +1,13 @@
+.disclosureArrow {
+  margin-left: auto;
+
+  transition: transform 300ms ease-in-out;
+}
+
+.isOpen {
+  transform: rotate(0);
+}
+
+.isClosed {
+  transform: rotate(-90deg);
+}

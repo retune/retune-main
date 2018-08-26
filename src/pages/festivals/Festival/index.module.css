@@ -1,0 +1,33 @@
+.Festival {
+  padding-top: 47px;
+  padding-bottom: 171px;
+  border-top: 4px solid #000;
+}
+
+.Festival .title,
+.Festival .subtitle,
+.Festival .image,
+.Festival .link {
+  margin: 0 0 58px 0;
+  text-align: center;
+}
+
+.Festival .title {
+  display: flex;
+}
+
+.Festival.isCollapsible .title {
+  text-align: left;
+}
+
+.Festival.isCollapsed .content {
+  display: none;
+}
+
+.Festival .link > span {
+  color: var(--retune-col-blue);
+}
+
+.Festival .link a {
+  text-decoration: none;
+}
