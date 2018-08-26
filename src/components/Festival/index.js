@@ -1,10 +1,10 @@
 import * as React from 'react'
 import classnames from 'classnames'
 
-import DisclosureArrow from '../../../components/DisclosureArrow'
-import HitArea from '../../../components/HitArea'
-import Image from '../../../components/Image'
-import Markdown from '../../../components/Markdown'
+import DisclosureArrow from '../DisclosureArrow'
+import HitArea from '../HitArea'
+import Image from '../Image'
+import Markdown from '../Markdown'
 
 import styles from './index.module.css'
 

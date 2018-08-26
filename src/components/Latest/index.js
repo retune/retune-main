@@ -49,9 +49,14 @@ const EventItem = ({
   </div>
 )
 
-const Latest = ({ items }) => (
-  <div className={styles.Latest}>
-    <div className={styles.Inner}>
+const Latest = ({
+  theme = 'dark',
+  items,
+  className = '',
+  innerClassName = '',
+}) => (
+  <div className={classnames(styles.Latest, styles[theme], className)}>
+    <div className={classnames(styles.Inner, innerClassName)}>
       {items.map(item => <EventItem key={item.id} {...item} />)}
     </div>
   </div>

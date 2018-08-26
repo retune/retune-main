@@ -3,40 +3,57 @@ import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
 import { Heading } from '../components/Header'
-import Festival from '../components/Festival'
+import Latest from '../components/Latest'
 import Layout from '../components/Layout'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
-import styles from './festivals.module.css'
+import styles from './studio-visits.module.css'
 
 const Title = (
   <React.Fragment>
-    <span>Retune</span> Festivals
+    <span>Retune</span> <span className="serif">Studio Visits</span>
   </React.Fragment>
 )
 
-const FestivalsPage = ({ data }) => {
-  const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
+const StudioVisitsPage = ({ data }) => {
+  const events = splitEventsIntoPastAndFuture(
+    mergeResultsIntoItems(data.studioVisits)
+  )
 
   return (
     <Layout
-      className={styles.Festivals}
-      pageTitle="Retune Festival — Art, Design and Technology"
+      className={styles.StudioVisits}
+      pageTitle="Retune Studio Visits — Ongoing Series of Insights and Exchange"
     >
       <div className={styles.intro}>
         <Heading className={styles.heading} title={Title} />
         <div className={classnames(styles.info, 'mql-m mqs-s')}>
-          Creative laboratories at the intersection of art, design and
-          technology.
+          Offering a unique opportunity to get a peek into the workshops of
+          Berlin‘s creative studios. As always, this is not a stiff networking
+          event but a good place to meet nice people and get inspired. And yes,
+          there will be beers!
         </div>
 
         <div className={styles.images} />
       </div>
 
-      <Festival collapsible={false} event={latest} />
+      <section>
+        <h2 className="mql-xxl">Upcoming</h2>
+        {events.future && Array.isArray(events.future) ? (
+          <Latest theme="light" items={events.future} />
+        ) : (
+          'No upcoming events'
+        )}
+      </section>
 
-      {rest.map(event => <Festival key={event.id} event={event} />)}
+      <section>
+        <h2 className="mql-xxl">Review</h2>
+        {events.past && Array.isArray(events.past)
+          ? events.past.map(event => <p key={event.id}>{event.title}</p>)
+          : 'No past events'}
+      </section>
 
       <div className={classnames(styles.outro, 'mql-m')}>
         <p>
@@ -57,8 +74,8 @@ const FestivalsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    festivals: allEvent(
-      filter: { type: { eq: "festival" } }
+    studioVisits: allEvent(
+      filter: { type: { eq: "studio-visit" } }
       sort: { order: DESC, fields: [startDate] }
     ) {
       edges {
@@ -86,4 +103,4 @@ export const query = graphql`
   }
 `
 
-export default FestivalsPage
+export default StudioVisitsPage

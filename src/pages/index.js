@@ -14,6 +14,8 @@ import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
 import EventArchive from '../components/EventArchive'
 
+import styles from './index.module.css'
+
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
   const split = splitEventsIntoPastAndFuture(events)
@@ -24,7 +26,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle={data.masthead.values.featureText}>
       <Intro />
-      <Latest items={split.future} />
+      <Latest
+        className={styles.latest}
+        innerClassName={styles.latestInner}
+        items={split.future}
+      />
       {data.homepage.values.showPromo && (
         <Promo url={data.homepage.values.promoURL} />
       )}

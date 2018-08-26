@@ -1,0 +1,19 @@
+@import '../components/MediaQuery/index.css';
+
+.latest {
+  margin-bottom: 34px;
+}
+
+.latestInner {
+  margin: 42px 0 34px 0;
+}
+
+@media (--large) {
+  .Latest {
+    margin-bottom: 58px;
+  }
+
+  .latestInner {
+    margin: 85px 0 55px 0;
+  }
+}

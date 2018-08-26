@@ -1,6 +1,7 @@
 @import '../components/MediaQuery/index.css';
 
-.Festivals {
+.StudioVisits {
+  position: relative;
   padding: 24px 50px;
 }
 
@@ -9,6 +10,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'left right' 'images images';
+
+  margin-bottom: 487px; /* images height 667 - intro height 180px */
 }
 
 .heading {
@@ -24,7 +27,13 @@
 }
 
 .images {
-  outline: 1px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #eee;
+
   width: 100%;
   height: 667px;
   margin-top: -60px;

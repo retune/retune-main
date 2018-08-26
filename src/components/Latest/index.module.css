@@ -2,43 +2,57 @@
 
 .Latest {
   width: 100vw;
-  margin-bottom: 34px;
 
   overflow-y: hidden;
   overflow-x: visible;
+}
 
+.Latest.dark {
   background-color: #000;
+}
+
+.Latest.light {
+  background-color: transparent;
 }
 
 .Inner {
   display: flex;
-  margin: 42px 0 34px 0;
-}
-
-@media (--large) {
-  .Latest {
-    margin-bottom: 58px;
-  }
-
-  .Inner {
-    margin: 85px 0 55px 0;
-  }
 }
 
 .EventItem {
   width: 350px;
 
   padding: 0 23px;
-  color: #fff;
 
-  border-right: 3px solid #fff;
+  border-right: 3px solid transparent;
+}
+
+.dark .EventItem {
+  color: #fff;
+  border-color: #fff;
+}
+
+.light .EventItem {
+  color: var(--retune-col-blue);
+  border-color: var(--retune-col-blue);
 }
 
 .EventItem a:link,
 .EventItem a:visited,
 .EventItem a:hover {
-  color: #fff;
   text-decoration: none;
+}
+
+.dark .EventItem a:link,
+.dark .EventItem a:visited,
+.dark .EventItem a:hover {
+  color: #fff;
+}
+
+.large .EventItem a:link,
+.large .EventItem a:visited,
+.large .EventItem a:hover {
+  color: var(--retune-col-blue);
 }
 
 .EventItem:last-child {
@@ -65,8 +79,17 @@
 
   flex-shrink: 0;
 
-  border: solid 2px #fff;
+  border: solid 2px transparent;
   border-radius: 100%;
+}
+
+.dark .type:before {
+  border-color: #fff;
+}
+
+.light .type:before {
+  border-color: var(--retune-col-blue);
+  background-color: var(--retune-col-blue);
 }
 
 .image {
