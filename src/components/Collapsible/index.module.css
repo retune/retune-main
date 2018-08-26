@@ -1,0 +1,17 @@
+.title {
+  display: flex;
+  margin: 0;
+  text-align: center;
+}
+
+.disclosureArrow {
+  margin-left: auto;
+}
+
+.isCollapsible .title {
+  text-align: left;
+}
+
+.isCollapsed .content {
+  display: none;
+}

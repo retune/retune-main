@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
+import Collapsible from '../components/Collapsible'
 import { Heading } from '../components/Header'
 import Festival from '../components/Festival'
 import Layout from '../components/Layout'

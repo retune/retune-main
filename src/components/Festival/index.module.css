@@ -16,14 +16,6 @@
   display: flex;
 }
 
-.Festival.isCollapsible .title {
-  text-align: left;
-}
-
-.Festival.isCollapsed .content {
-  display: none;
-}
-
 .Festival .link > span {
   color: var(--retune-col-blue);
 }
