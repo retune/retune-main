@@ -1,15 +1,27 @@
+.Collapsible {
+  border-top: 4px solid #000;
+}
+
+.Collapsible:last-child {
+  border-bottom: 4px solid #000;
+}
+
 .title {
   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 148px;
   margin: 0;
   text-align: center;
 }
 
-.disclosureArrow {
-  margin-left: auto;
+.isCollapsible .title {
+  justify-content: flex-start;
 }
 
-.isCollapsible .title {
-  text-align: left;
+.disclosureArrow {
+  margin-left: auto;
 }
 
 .isCollapsed .content {

@@ -1,6 +1,4 @@
 .StudioVisit {
-  border-top: 1px solid var(--retune-col-blue);
-  padding: 14px;
 }
 
 .heading {
@@ -9,7 +7,6 @@
 
 .title {
   display: inline-block;
-  min-width: 276px;
   margin-right: 72px;
 }
 

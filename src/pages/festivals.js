@@ -35,9 +35,10 @@ const FestivalsPage = ({ data }) => {
         <div className={styles.images} />
       </div>
 
-      <Festival collapsible={false} event={latest} />
-
-      {rest.map(event => <Festival key={event.id} event={event} />)}
+      <div>
+        <Festival collapsible={false} event={latest} />
+        {rest.map(event => <Festival key={event.id} event={event} />)}
+      </div>
 
       <div className={classnames(styles.outro, 'mql-m')}>
         <p>
