@@ -7,16 +7,6 @@ import Navigation from '../Navigation'
 
 import styles from './index.module.css'
 
-// const Title = ({ url, text }) => {
-//   if (url) {
-//     return <a href={url}>{text}</a>
-//   } else if (text) {
-//     return text
-//   }
-
-//   return null
-// }
-
 class Masthead extends React.Component {
   state = {
     open: false,

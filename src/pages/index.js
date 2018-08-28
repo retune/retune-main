@@ -9,6 +9,7 @@ import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 import Intro from '../components/Intro'
 import Latest from '../components/Latest'
 import Layout from '../components/Layout'
+import NowCast from '../components/NowCast'
 import Promo from '../components/Promo'
 import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
@@ -24,7 +25,7 @@ const IndexPage = ({ data }) => {
   const quotes = mergeResultsIntoItems(data.quotes)
 
   return (
-    <Layout pageTitle={data.masthead.values.featureText}>
+    <Layout pageTitle={<NowCast />}>
       <Intro />
       <Latest
         className={styles.latest}
@@ -50,12 +51,6 @@ export const query = graphql`
         featured {
           id: _id
         }
-      }
-    }
-    masthead: region(name: { eq: "masthead" }) {
-      values {
-        featureText
-        featureURL
       }
     }
     events: allEvent(sort: { fields: [startDate], order: DESC }) {
