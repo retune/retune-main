@@ -1,0 +1,94 @@
+@import '../components/MediaQuery/index.css';
+
+.Services {
+  padding-top: 30px;
+  padding-bottom: 314px;
+  background-color: var(--retune-col-grey);
+}
+
+.heading,
+.info {
+  color: var(--retune-col-blue);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.info {
+  padding-top: 20px;
+}
+
+.info p {
+  margin: 0;
+}
+
+.Service {
+  padding: 24px 50px;
+  border-top: 4px solid #fff;
+}
+
+@media (--large) {
+  .Services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 54px;
+    grid-template-areas: 'heading info' '. .' '. .' 'content content';
+
+    /* padding: 24px 50px 239px; */
+  }
+
+  .heading,
+  .info {
+    padding-bottom: 179px;
+  }
+
+  .heading .break {
+    display: block;
+  }
+
+  .section {
+    padding-bottom: 85px;
+  }
+}
+
+.heading {
+  grid-area: heading;
+}
+
+.info {
+  grid-area: info;
+}
+
+.content {
+  grid-area: content;
+}
+
+.Service {
+}
+
+.name {
+  text-align: center;
+  color: var(--retune-col-blue);
+}
+
+.description {
+  color: var(--retune-col-blue);
+}
+
+.clients {
+  text-align: center;
+}
+
+.clients ul,
+.clients ol,
+.clients li {
+  list-style: none;
+  margin: 0;
+}
+
+.DashedUnderlineHeading {
+}
+
+.DashedUnderlineHeading:after {
+  content: attr(data-underline-template);
+  display: block;
+}
