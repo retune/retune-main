@@ -5,6 +5,7 @@ import map from 'lodash/map'
 import findEventsByIds from '../lib/findEventsByIds'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
+import sortItems from '../lib/sortItems'
 
 import Intro from '../components/Intro'
 import Latest from '../components/Latest'
@@ -23,6 +24,8 @@ const IndexPage = ({ data }) => {
   const featuredIds = map(data.homepage.values.featured, 'id')
   const featuredEvents = findEventsByIds(events, featuredIds)
   const quotes = mergeResultsIntoItems(data.quotes)
+  const posts = mergeResultsIntoItems(data.posts)
+  const latest = sortItems([...split.future, ...posts])
 
   return (
     <Layout pageTitle={<NowCast />}>
@@ -30,7 +33,7 @@ const IndexPage = ({ data }) => {
       <Latest
         className={styles.latest}
         innerClassName={styles.latestInner}
-        items={split.future}
+        items={latest}
       />
       {data.homepage.values.showPromo && (
         <Promo url={data.homepage.values.promoURL} />
@@ -53,6 +56,24 @@ export const query = graphql`
         }
       }
     }
+
+    posts: allPost {
+      edges {
+        node {
+          id
+          publishedDate
+          title
+          subtitle
+          summary
+          mainImage {
+            localFile {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+
     events: allEvent(sort: { fields: [startDate], order: DESC }) {
       edges {
         node {
@@ -75,6 +96,7 @@ export const query = graphql`
         }
       }
     }
+
     quotes: allQuote {
       edges {
         node {
