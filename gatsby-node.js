@@ -4,7 +4,19 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const path = require('path')
-const { eventPath } = require('./src/lib/urls')
+const { eventPath, newsPath } = require('./src/lib/urls')
+
+const createItemPage = (templateName, createPage, createPath) => ({ node }) => {
+  createPage({
+    path: createPath({ id: node.id }),
+    component: path.resolve(`./src/templates/${templateName}.js`),
+    context: {
+      // Data passed to context is available
+      // in page queries as GraphQL variables.
+      id: node.id,
+    },
+  })
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -19,19 +31,21 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+
+        allPost {
+          edges {
+            node {
+              id
+            }
+          }
+        }
       }
     `).then(result => {
-      result.data.allEvent.edges.forEach(({ node }) => {
-        createPage({
-          path: eventPath({ id: node.id }),
-          component: path.resolve(`./src/templates/event.js`),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            id: node.id,
-          },
-        })
-      })
+      const events = result.data.allEvent.edges
+      const news = result.data.allPost.edges
+
+      events.forEach(createItemPage('event', createPage, eventPath))
+      news.forEach(createItemPage('news', createPage, newsPath))
 
       resolve()
     })

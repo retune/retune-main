@@ -3,21 +3,21 @@ import { graphql } from 'gatsby'
 
 import ItemPage from '../components/ItemPage'
 
-const EventPage = ({ data }) => {
+const NewsPage = ({ data }) => {
   console.log(data)
-  return <ItemPage item={data.event} />
+
+  return <ItemPage item={data.post} />
 }
 
 export const query = graphql`
   query($id: String!) {
-    event(id: { eq: $id }) {
+    post(id: { eq: $id }) {
       id
+      publishedDate
       title
       subtitle
       summary
-      description
-      startDate
-      ticketURL
+      body
       mainImage {
         localFile {
           publicURL
@@ -27,4 +27,4 @@ export const query = graphql`
   }
 `
 
-export default EventPage
+export default NewsPage
