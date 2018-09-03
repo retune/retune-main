@@ -37,6 +37,7 @@
 }
 
 .legal {
+  margin: 0;
   padding-left: 18px;
   padding-right: 18px;
 }
@@ -47,6 +48,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
     margin-top: 56px;
+    margin-bottom: 74px;
   }
 
   .section:first-child {
@@ -58,7 +60,7 @@
   }
 
   .legal {
-    padding-top: 74px;
+    padding-top: 0;
     padding-bottom: 31px;
   }
 
