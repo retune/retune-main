@@ -39,7 +39,7 @@ const Navigation = ({ open }) => (
             [styles.isClosed]: !open,
           })}
         >
-          <div className={classnames(styles.sections, 'mql-m')}>
+          <div className={classnames(styles.sections, 'mql-m mqs-xl')}>
             <div className={classnames(styles.section, styles.events)}>
               <h3 className={styles.header}>Events</h3>
               <ul className={classnames(styles.links, 'list-reset')}>

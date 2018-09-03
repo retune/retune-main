@@ -1,3 +1,5 @@
+@import '../MediaQuery/index.css';
+
 .Navigation {
   position: absolute;
   left: 0;
@@ -19,28 +21,42 @@
 }
 
 .sections {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  margin-top: 56px;
+  margin-top: 0;
 }
 
 .section:first-child {
-  padding-left: 50px;
-}
-
-.section:last-child {
-  padding-right: 50px;
-}
-
-.legal {
-  padding-top: 74px;
-  padding-bottom: 31px;
+  padding-left: 0;
 }
 
 .header {
   margin-top: 0;
-  margin-bottom: 22px;
+  margin-bottom: 0;
+}
+
+@media (--large) {
+  .sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    margin-top: 56px;
+  }
+
+  .section:first-child {
+    padding-left: 50px;
+  }
+
+  .section:last-child {
+    padding-right: 50px;
+  }
+
+  .legal {
+    padding-top: 74px;
+    padding-bottom: 31px;
+  }
+
+  .header {
+    margin-bottom: 22px;
+  }
 }
 
 .header,
@@ -52,20 +68,29 @@
   color: var(--retune-col-blue);
 }
 
+.links {
+  /* overrides list-reset due to weird gatsby ordering
+  TODO: convert to mixin
+  */
+  padding-left: 50px !important;
+}
+
 .links > li {
   padding: 3px 0;
 }
 
-.information li:nth-last-child(2), /* Penultimate child */
-.information li:last-child {
-  display: inline-block;
-}
+@media (--large) {
+  .information li:nth-last-child(2), /* Penultimate child */
+  .information li:last-child {
+    display: inline-block;
+  }
 
-.information li:last-child:before {
-  content: '•';
-  display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
+  .information li:last-child:before {
+    content: '•';
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .NavigationLink,
