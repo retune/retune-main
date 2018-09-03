@@ -14,6 +14,10 @@
 
 body {
   margin: 0;
+}
+
+body,
+button {
   font-family: 'Atlas Grotesk Web', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
     sans-serif;
@@ -131,11 +135,6 @@ a:visited {
 
 .list-reset {
   list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.list-reset > li {
   margin: 0;
   padding: 0;
 }

@@ -4,7 +4,6 @@
   right: 0;
   top: var(--retune-masthead-h);
 
-  height: 544px;
   background-color: var(--retune-col-grey);
 
   overflow: hidden;
@@ -22,25 +21,21 @@
 .sections {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: 'events projects services information';
 
   margin-top: 56px;
 }
 
-.events {
-  grid-area: projects;
+.section:first-child {
+  padding-left: 50px;
 }
 
-.projects {
-  grid-area: projects;
+.section:last-child {
+  padding-right: 50px;
 }
 
-.services {
-  grid-area: services;
-}
-
-.information {
-  grid-area: information;
+.legal {
+  padding-top: 74px;
+  padding-bottom: 31px;
 }
 
 .header {
@@ -48,7 +43,29 @@
   margin-bottom: 22px;
 }
 
-.links {
+.header,
+.header .NavigationLink,
+.header .NavigationLink:link,
+.header .NavigationLink:visited,
+.header .NavigationLink:hover,
+.header .NavigationLink:active {
+  color: var(--retune-col-blue);
+}
+
+.links > li {
+  padding: 3px 0;
+}
+
+.information li:nth-last-child(2), /* Penultimate child */
+.information li:last-child {
+  display: inline-block;
+}
+
+.information li:last-child:before {
+  content: '•';
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .NavigationLink,
@@ -56,5 +73,6 @@
 .NavigationLink:visited,
 .NavigationLink:hover,
 .NavigationLink:active {
+  color: #000;
   text-decoration: none;
 }

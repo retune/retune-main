@@ -21,7 +21,9 @@ const DashedUnderlineHeading = ({ className, text }) => (
 
 const Service = ({ className = '', service }) => (
   <section className={classnames(styles.Service, className)}>
-    <h2 className={classnames(styles.name, 'mql-xxl')}>{service.name}</h2>
+    <h2 id={service.id} className={classnames(styles.name, 'mql-xxl')}>
+      {service.name}
+    </h2>
 
     <div className={classnames(styles.description, 'mql-l serif')}>
       <Markdown source={service.description} />
