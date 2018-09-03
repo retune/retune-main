@@ -74,7 +74,9 @@ const Navigation = ({ open }) => (
             </div>
 
             <div className={classnames(styles.section, styles.information)}>
-              <h3 className={styles.header}>Information</h3>
+              <h3 className={classnames(styles.header, styles.largeOnly)}>
+                Information
+              </h3>
               <ul className={classnames(styles.links, 'list-reset')}>
                 <li>
                   <NavigationLink to={urls.aboutPath()}>About</NavigationLink>
@@ -84,12 +86,12 @@ const Navigation = ({ open }) => (
                     Newsletter
                   </NavigationLink>
                 </li>
-                <li>
+                <li className={styles.largeOnly}>
                   <NavigationLink to={urls.imprintPath()}>
                     Imprint
                   </NavigationLink>
                 </li>
-                <li>
+                <li className={styles.largeOnly}>
                   <NavigationLink to={urls.privacyPath()}>
                     Privacy
                   </NavigationLink>
@@ -98,10 +100,21 @@ const Navigation = ({ open }) => (
             </div>
           </div>
 
-          <p className={classnames('mono mql-xs', styles.legal)}>
+          <p className={classnames('mono mql-xs mqs-xs', styles.legal)}>
             Retune Creative Technology GmbH, Glogauer Str. 21, 10999 Berlin —
             webmaster@retune.de
           </p>
+
+          <div className={styles.mobileInfo}>
+            <ul className={classnames('list-reset mql-s')}>
+              <li>
+                <NavigationLink to={urls.imprintPath()}>Imprint</NavigationLink>
+              </li>
+              <li>
+                <NavigationLink to={urls.privacyPath()}>Privacy</NavigationLink>
+              </li>
+            </ul>
+          </div>
         </nav>
       )
     }}
