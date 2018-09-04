@@ -7,6 +7,8 @@
 
   border: solid 2px var(--retune-col-blue);
   border-radius: 100%;
+
+  transition: background-color 300ms ease-in-out;
 }
 
 .isOpen {

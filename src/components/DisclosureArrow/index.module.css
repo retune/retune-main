@@ -10,6 +10,14 @@
   transform: rotate(0);
 }
 
+polygon {
+  transition: fill 300ms ease-in-out;
+}
+
+.isClosed polygon {
+  fill: var(--retune-col-blue);
+}
+
 .isClosed {
   transform: rotate(-90deg);
 }
