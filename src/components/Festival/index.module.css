@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.HeroFestival .link {
+  margin-top: 42px;
+}
+
 .Festival .title {
   display: flex;
   color: var(--retune-col-blue);

@@ -17,13 +17,13 @@ const FestivalHero = ({ event }) => (
     <div className={styles.image}>
       <Image source={event.mainImage} />
     </div>
-    <div className={classnames(styles.body, 'mql-l mono')}>
+    <div className={classnames(styles.body, 'mql-s mono')}>
       <Markdown source={event.description} />
     </div>
     <p className={classnames(styles.link, 'mql-xxl')}>
       ({' '}
       <span>
-        -&gt; <a href={event.externalURL}>Go to site</a>
+        -&gt; <a href={event.externalURL}>Go to festival site</a>
       </span>)
     </p>
   </Collapsible>
