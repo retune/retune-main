@@ -5,6 +5,7 @@ import classnames from 'classnames'
 import Collapsible from '../components/Collapsible'
 import { Heading } from '../components/Header'
 import Festival from '../components/Festival'
+import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -36,7 +37,7 @@ const FestivalsPage = ({ data }) => {
       </div>
 
       <div>
-        <Festival collapsible={false} event={latest} />
+        <Hero event={latest} />
         {rest.map(event => <Festival key={event.id} event={event} />)}
       </div>
 
@@ -82,6 +83,9 @@ export const query = graphql`
               publicURL
             }
           }
+          team
+          speakers
+          workshops
         }
       }
     }

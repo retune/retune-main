@@ -18,7 +18,13 @@ class Collapsible extends React.Component {
   }
 
   render() {
-    const { className, children, collapsible = true, heading } = this.props
+    const {
+      className,
+      contentClassName,
+      children,
+      collapsible = true,
+      heading,
+    } = this.props
     const { collapsed } = this.state
 
     const header = (
@@ -47,7 +53,9 @@ class Collapsible extends React.Component {
         ) : (
           header
         )}
-        <div className={styles.content}>{children}</div>
+        <div className={classnames(styles.content, contentClassName)}>
+          {children}
+        </div>
       </section>
     )
   }
