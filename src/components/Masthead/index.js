@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, NavigationLink } from 'gatsby'
 import get from 'lodash/get'
 import classnames from 'classnames'
 
@@ -55,6 +55,22 @@ class Masthead extends React.Component {
     const { pageTitle = '' } = this.props
     const { open } = this.state
 
+    const siteName = (
+      <div className={styles.site}>
+        Retune{' '}
+        <span className={styles.tagline}>
+          {' '}
+          – Creative Technology Laboratory
+        </span>
+      </div>
+    )
+
+    const siteNameWrapper = open ? (
+      <NavigationLink to="/">{siteName}</NavigationLink>
+    ) : (
+      <div>{siteName}</div>
+    )
+
     return (
       <header
         className={classnames(
@@ -64,13 +80,7 @@ class Masthead extends React.Component {
         ref={this.elementRef}
       >
         <button className={styles.MastheadInner} onClick={this.toggle}>
-          <div className={styles.site}>
-            Retune
-            <span className={styles.tagline}>
-              {' '}
-              – Creative Technology Laboratory
-            </span>
-          </div>
+          {siteName}
           <div className={styles.feature}>
             {/*<Title text={pageTitle} />*/}
             {pageTitle}

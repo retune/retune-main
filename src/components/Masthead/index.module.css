@@ -83,6 +83,10 @@
     display: none;
   }
 
+  .Masthead.isOpen .tagline {
+    display: inline-block;
+  }
+
   .site {
     margin: auto;
   }
