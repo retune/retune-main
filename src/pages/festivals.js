@@ -86,6 +86,8 @@ export const query = graphql`
           team
           speakers
           workshops
+          venue
+          location
         }
       }
     }

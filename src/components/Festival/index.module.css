@@ -1,16 +1,16 @@
-.Festival {
-}
+@import '../MediaQuery/index.css';
 
-.Festival .title,
-.Festival .subtitle,
-.Festival .image,
-.Festival .link {
+.HeroFestival .title,
+.HeroFestival .subtitle,
+.HeroFestival .image,
+.HeroFestival .link {
   margin: 0 0 58px 0;
   text-align: center;
 }
 
 .Festival .title {
   display: flex;
+  color: var(--retune-col-blue);
 }
 
 .Festival .link > span {
@@ -21,5 +21,34 @@
   text-decoration: none;
 }
 
+.sectionContent {
+  padding-bottom: 1rem;
+}
+
 .sectionContentHeading {
+}
+
+.sectionContentList {
+  padding-left: 1rem;
+}
+
+.meta {
+  color: var(--retune-col-blue);
+}
+
+@media (--large) {
+  .FestivalContent {
+    padding-bottom: 120px;
+  }
+
+  .twoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+  }
+
+  .meta {
+    padding-top: 22px;
+    padding-bottom: 44px;
+  }
 }

@@ -10,7 +10,7 @@ import styles from './index.module.css'
 const FestivalHero = ({ event }) => (
   <Collapsible
     collapsible={false}
-    className={classnames(styles.Festival)}
+    className={classnames(styles.HeroFestival, styles.Hero)}
     heading={event.title}
   >
     <p className={classnames(styles.subtitle, 'mql-xl')}>{event.subtitle}</p>
