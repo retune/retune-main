@@ -5,6 +5,7 @@ import Collapsible from '../Collapsible'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 import Markdown from '../Markdown'
+import Vimeo from '../Vimeo'
 
 import styles from './index.module.css'
 
@@ -26,6 +27,7 @@ const markdownRendererReplacements = {
 
 const Section = ({
   title,
+  children,
   content,
   collapsible = true,
   initiallyCollapsed = undefined,
@@ -48,6 +50,7 @@ const Section = ({
     >
       {/* All headings should be mapped to h4 */}
       <Markdown source={content} renderers={markdownRendererReplacements} />
+      {children}
     </Collapsible>
   )
 }
@@ -92,7 +95,9 @@ const Festival = ({ collapsible, event, isMain = true }) => (
           title="Information"
           content={event.description}
           collapsible={false}
-        />
+        >
+          {event.videoId && <Vimeo id={event.videoId} />}
+        </Section>
       </div>
 
       <div>

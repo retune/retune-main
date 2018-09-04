@@ -88,6 +88,7 @@ export const query = graphql`
           workshops
           venue
           location
+          videoId
         }
       }
     }
