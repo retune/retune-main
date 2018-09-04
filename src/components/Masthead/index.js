@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { StaticQuery, graphql, NavigationLink } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import classnames from 'classnames'
 
+import Circle from '../Circle'
 import Navigation from '../Navigation'
 
 import styles from './index.module.css'
@@ -55,20 +56,22 @@ class Masthead extends React.Component {
     const { pageTitle = '' } = this.props
     const { open } = this.state
 
-    const siteName = (
-      <div className={styles.site}>
+    const siteNameContent = (
+      <React.Fragment>
         Retune{' '}
         <span className={styles.tagline}>
           {' '}
           – Creative Technology Laboratory
         </span>
-      </div>
+      </React.Fragment>
     )
 
-    const siteNameWrapper = open ? (
-      <NavigationLink to="/">{siteName}</NavigationLink>
+    const siteName = open ? (
+      <Link to="/" className={styles.site}>
+        {siteNameContent}
+      </Link>
     ) : (
-      <div>{siteName}</div>
+      <span className={styles.site}>{siteNameContent}</span>
     )
 
     return (
@@ -79,13 +82,18 @@ class Masthead extends React.Component {
         )}
         ref={this.elementRef}
       >
-        <button className={styles.MastheadInner} onClick={this.toggle}>
+        <div className={styles.MastheadInner}>
+          <button className={styles.opener} onClick={this.toggle}>
+            <Circle isOpen={open} />
+          </button>
+
           {siteName}
+
           <div className={styles.feature}>
             {/*<Title text={pageTitle} />*/}
             {pageTitle}
           </div>
-        </button>
+        </div>
 
         <Navigation open={open} />
       </header>

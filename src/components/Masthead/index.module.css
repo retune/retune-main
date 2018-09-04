@@ -27,11 +27,23 @@
   border: none;
   background: transparent;
   color: var(--retune-col-blue);
-
-  cursor: pointer;
 }
 
-.MastheadInner:before {
+.opener {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 18px;
+}
+
+.isOpen a.site:link,
+.isOpen a.site:hover,
+.isOpen a.site:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* .MastheadInner:before {
   content: ' ';
 
   display: block;
@@ -45,7 +57,7 @@
   background-color: var(--retune-col-blue);
   border: solid 2px var(--retune-col-blue);
   border-radius: 100%;
-}
+} */
 
 .Masthead.isOpen .MastheadInner {
   color: #fff;
