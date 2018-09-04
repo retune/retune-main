@@ -1,0 +1,18 @@
+@import '../MediaQuery/index.css';
+
+.Hero .title,
+.Hero .subtitle,
+.Hero .image,
+.Hero .link {
+  margin: 0 0 58px 0;
+  text-align: center;
+}
+
+.title {
+  padding-top: 42px;
+  color: var(--retune-col-blue);
+}
+
+.link {
+  padding-top: 42px;
+}

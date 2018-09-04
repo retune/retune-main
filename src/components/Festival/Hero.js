@@ -5,13 +5,13 @@ import Collapsible from '../Collapsible'
 import Image from '../Image'
 import Markdown from '../Markdown'
 
-import styles from './index.module.css'
+import styles from './Hero.module.css'
 
 const FestivalHero = ({ event }) => (
   <Collapsible
     collapsible={false}
-    className={classnames(styles.HeroFestival, styles.Hero)}
-    heading={event.title}
+    className={classnames(styles.Hero)}
+    heading={<span className={styles.title}>{event.title}</span>}
   >
     <p className={classnames(styles.subtitle, 'mql-xl')}>{event.subtitle}</p>
     <div className={styles.image}>

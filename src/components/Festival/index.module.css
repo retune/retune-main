@@ -1,17 +1,5 @@
 @import '../MediaQuery/index.css';
 
-.HeroFestival .title,
-.HeroFestival .subtitle,
-.HeroFestival .image,
-.HeroFestival .link {
-  margin: 0 0 58px 0;
-  text-align: center;
-}
-
-.HeroFestival .link {
-  margin-top: 42px;
-}
-
 .Festival .title {
   display: flex;
   color: var(--retune-col-blue);
