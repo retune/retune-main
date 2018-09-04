@@ -29,12 +29,25 @@ class Collapsible extends React.Component {
       children,
       collapsible = true,
       heading,
-      size = 'large',
+      iconType = 'arrow',
+      headingSize = 'large',
+      borderSize = 'large',
+      borderColor = 'black',
     } = this.props
     const { collapsed } = this.state
 
+    const Heading = {
+      large: 'h2',
+      small: 'h3',
+    }[headingSize]
+
+    const headingClasses = {
+      large: 'mql-xxl',
+      small: 'mql-m',
+    }[headingSize]
+
     const icon =
-      size === 'large' ? (
+      iconType === 'arrow' ? (
         <DisclosureArrow
           className={styles.disclosureArrow}
           isOpen={!collapsed}
@@ -43,18 +56,18 @@ class Collapsible extends React.Component {
         <Circle className={styles.disclosureArrow} isOpen={!collapsed} />
       )
 
-    const header =
-      size === 'large' ? (
-        <h2 className={classnames(styles.title, styles.isLarge, 'mql-xxl')}>
-          {heading}
-          {collapsible && icon}
-        </h2>
-      ) : (
-        <h3 className={classnames(styles.title, styles.isSmall, 'mql-m')}>
-          {heading}
-          {collapsible && icon}
-        </h3>
-      )
+    const header = (
+      <Heading
+        className={classnames(
+          styles.title,
+          styles[`${headingSize}Heading`],
+          headingClasses
+        )}
+      >
+        {heading}
+        {collapsible && icon}
+      </Heading>
+    )
 
     return (
       <section
@@ -62,7 +75,8 @@ class Collapsible extends React.Component {
           styles.Collapsible,
           collapsible ? styles.isCollapsible : styles.isNotCollapsible,
           collapsible && collapsed ? styles.isCollapsed : styles.isNotCollapsed,
-          size === 'large' ? styles.isLarge : styles.isSmall,
+          styles[`${borderSize}Border`],
+          styles[`${borderColor}Border`],
           className
         )}
       >

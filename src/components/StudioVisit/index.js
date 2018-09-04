@@ -19,6 +19,8 @@ const StudioVisit = ({ event }) => (
   <Collapsible
     className={classnames(styles.StudioVisit)}
     heading={<Heading event={event} />}
+    borderSize="small"
+    borderColor="blue"
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div className="mql-s mono">

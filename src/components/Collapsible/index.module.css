@@ -1,17 +1,41 @@
-.Collapsible.isLarge {
-  border-top: 4px solid #000;
+.Collapsible {
+  border-top-style: solid;
 }
 
-.Collapsible.isLarge:last-child {
-  border-bottom: 4px solid #000;
+.Collapsible:last-child {
+  border-bottom-style: solid;
 }
 
-.Collapsible.isSmall {
-  border-top: 2px solid var(--retune-col-blue);
+.Collapsible.largeBorder {
+  border-top-width: 4px;
 }
 
-.Collapsible.isSmall:last-child {
-  border-bottom: 2px solid var(--retune-col-blue);
+.Collapsible.largeBorder:last-child {
+  border-bottom-width: 4px;
+}
+
+.Collapsible.smallBorder {
+  border-top-width: 2px;
+}
+
+.Collapsible.smallBorder:last-child {
+  border-bottom-width: 2px;
+}
+
+.Collapsible.blueBorder {
+  border-top-color: var(--retune-col-blue);
+}
+
+.Collapsible.blueBorder:last-child {
+  border-bottom-color: var(--retune-col-blue);
+}
+
+.Collapsible.blackBorder {
+  border-top-color: #000;
+}
+
+.Collapsible.blackBorder:last-child {
+  border-bottom-color: #000;
 }
 
 .title {
@@ -20,15 +44,16 @@
   justify-content: center;
 
   margin: 0;
-}
 
-.title.isLarge {
-  min-height: 148px;
-  text-align: center;
-}
-
-.title.isSmall {
   color: var(--retune-col-blue);
+}
+
+.title.largeHeading {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.title.smallHeading {
   padding-top: 9px;
   padding-bottom: 9px;
 }

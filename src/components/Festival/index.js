@@ -40,7 +40,11 @@ const Section = ({
       contentClassName={classnames(styles.sectionContent, 'mql-xs mono')}
       initiallyCollapsed={initiallyCollapsed}
       heading={title}
-      size="small"
+      iconType="circle"
+      borderSize="small"
+      borderColor="blue"
+      headingSize="small"
+      headingHeight={48}
     >
       {/* All headings should be mapped to h4 */}
       <Markdown source={content} renderers={markdownRendererReplacements} />
