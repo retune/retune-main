@@ -2,6 +2,10 @@
   transition: transform 300ms ease-in-out;
 }
 
+.disclosureArrow.medium {
+  width: 35px;
+}
+
 .isOpen {
   transform: rotate(0);
 }

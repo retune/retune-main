@@ -30,6 +30,7 @@ class Collapsible extends React.Component {
       collapsible = true,
       heading,
       iconType = 'arrow',
+      iconSize = 'large',
       headingSize = 'large',
       borderSize = 'large',
       borderColor = 'black',
@@ -51,9 +52,14 @@ class Collapsible extends React.Component {
         <DisclosureArrow
           className={styles.disclosureArrow}
           isOpen={!collapsed}
+          size={iconSize}
         />
       ) : (
-        <Circle className={styles.disclosureArrow} isOpen={!collapsed} />
+        <Circle
+          className={styles.disclosureArrow}
+          isOpen={!collapsed}
+          size={iconSize}
+        />
       )
 
     const header = (

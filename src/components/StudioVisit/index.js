@@ -18,6 +18,7 @@ const Heading = ({ event }) => (
 const StudioVisit = ({ event }) => (
   <Collapsible
     className={classnames(styles.StudioVisit)}
+    iconSize="medium"
     heading={<Heading event={event} />}
     borderSize="small"
     borderColor="blue"
