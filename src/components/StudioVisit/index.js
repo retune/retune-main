@@ -22,18 +22,23 @@ const StudioVisit = ({ event }) => (
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div className="mql-s mono">
-        <p>
-          Event Date: <FormattedDate date={event.startDate} />
-        </p>
-        <p>Place: {event.location}</p>
-        <p>Visitors: {event.visitors}</p>
-
-        <p className={classnames(styles.summary)}>{event.summary}</p>
-
-        <div className={classnames(styles.body)}>
-          <Markdown source={event.description} />
+        <div className={styles.facts}>
+          <p>
+            Event Date: <FormattedDate date={event.startDate} />
+          </p>
+          {event.location && <p>Place: {event.location}</p>}
+          {event.visitors && <p>Visitors: {event.visitors}</p>}
         </div>
+
+        {event.description == null ? (
+          <p className={classnames(styles.summary)}>{event.summary}</p>
+        ) : (
+          <div className={classnames(styles.body)}>
+            <Markdown source={event.description} />
+          </div>
+        )}
       </div>
+
       <p className={classnames(styles.link, 'mql-m sans')}>
         <a href={event.externalURL}>Go to studio</a>
       </p>

@@ -16,7 +16,11 @@
   background-color: #e6e6e6;
 }
 
-.content p {
+.content .facts {
+  margin-bottom: 50px;
+}
+
+.content .facts p {
   margin: 0;
 }
 
@@ -24,6 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'info images' 'link caption';
+  grid-column-gap: 50px;
 }
 
 .info {
