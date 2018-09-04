@@ -9,8 +9,6 @@
   background-color: var(--retune-col-grey);
 
   overflow: hidden;
-
-  z-index: 50;
 }
 
 .isOpen {
@@ -62,6 +60,8 @@
   .legal {
     padding-top: 0;
     padding-bottom: 31px;
+
+    text-align: center;
   }
 
   .header {
