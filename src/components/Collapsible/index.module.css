@@ -1,9 +1,17 @@
-.Collapsible {
+.Collapsible.isLarge {
   border-top: 4px solid #000;
 }
 
-.Collapsible:last-child {
+.Collapsible.isLarge:last-child {
   border-bottom: 4px solid #000;
+}
+
+.Collapsible.isSmall {
+  border-top: 2px solid var(--retune-col-blue);
+}
+
+.Collapsible.isSmall:last-child {
+  border-bottom: 2px solid var(--retune-col-blue);
 }
 
 .title {
@@ -11,9 +19,18 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 148px;
   margin: 0;
+}
+
+.title.isLarge {
+  min-height: 148px;
   text-align: center;
+}
+
+.title.isSmall {
+  color: var(--retune-col-blue);
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 
 .isCollapsible .title {

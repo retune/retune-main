@@ -1,0 +1,18 @@
+.Circle {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border: solid 2px var(--retune-col-blue);
+  border-radius: 100%;
+}
+
+.isOpen {
+  background-color: #fff;
+}
+
+.isClosed {
+  background-color: var(--retune-col-blue);
+}
