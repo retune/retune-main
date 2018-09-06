@@ -23,7 +23,7 @@ const PhotoGallery = ({ images }) => (
     naturalSlideHeight={357}
     totalSlides={images.length}
   >
-    <section tabIndex={-1} className={styles.PhotoGallery}>
+    <section className={styles.PhotoGallery}>
       <ButtonBack className={classnames(styles.button, styles.ButtonBack)}>
         <Arrow />
       </ButtonBack>

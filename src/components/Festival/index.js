@@ -5,6 +5,7 @@ import Collapsible from '../Collapsible'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 import Markdown from '../Markdown'
+import PhotoGallery from '../PhotoGallery'
 import Vimeo from '../Vimeo'
 
 import styles from './index.module.css'
@@ -97,6 +98,8 @@ const Festival = ({ collapsible, event, isMain = true }) => (
           collapsible={false}
         >
           {event.videoId && <Vimeo id={event.videoId} />}
+
+          {event.photoGallery && <PhotoGallery images={event.photoGallery} />}
         </Section>
       </div>
 
