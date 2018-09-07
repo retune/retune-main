@@ -25,7 +25,7 @@ const PhotoGallery = ({ images }) => (
   >
     <section className={styles.PhotoGallery}>
       <ButtonBack className={classnames(styles.button, styles.ButtonBack)}>
-        <Arrow />
+        <Arrow className={styles.rotate} />
       </ButtonBack>
 
       <Slider className={styles.Slider}>

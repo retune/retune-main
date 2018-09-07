@@ -1,7 +1,8 @@
 import * as React from 'react'
 
-const Arrow = () => (
+const Arrow = ({ className }) => (
   <svg
+    className={className}
     xmlns="http://www.w3.org/2000/svg"
     width="46"
     height="87"

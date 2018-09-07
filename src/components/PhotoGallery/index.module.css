@@ -5,7 +5,8 @@
 }
 
 .button {
-  width: 46px;
+  width: 76px; /* 46 width + 30 padding */
+  padding: 0;
 
   z-index: 2;
 
@@ -16,6 +17,10 @@
   transition: opacity 300ms ease-in-out;
 }
 
+.rotate {
+  transform: rotate(180deg);
+}
+
 .PhotoGallery:hover .button:not(:disabled) {
   opacity: 1;
 }
@@ -24,10 +29,7 @@
   grid-area: left;
   grid-row: 1;
 
-  margin-left: 30px;
-  padding: 0;
-
-  transform: rotate(180deg);
+  padding-left: 30px;
 }
 
 .ButtonNext {
@@ -35,8 +37,7 @@
   grid-row: 1;
   justify-self: end;
 
-  margin-right: 30px;
-  padding: 0;
+  padding-right: 30px;
 }
 
 .Slider {
