@@ -3,6 +3,8 @@ module.exports = {
     title: 'Retune',
   },
   plugins: [
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
     {
