@@ -5,6 +5,7 @@ import times from 'lodash/times'
 
 import { Heading, Info } from '../components/Header'
 import Layout from '../components/Layout'
+import Markdown from '../components/Markdown'
 
 import styles from './about.module.css'
 
@@ -30,56 +31,27 @@ const AboutRetune = (
 )
 
 const AboutPage = ({ data }) => {
+  const region = data.about.values
+
   return (
-    <Layout className={styles.About} pageTitle="Retune — since 2001">
+    <Layout className={styles.About} pageTitle={region.masthead}>
       <Heading className={styles.heading} title={AboutRetune} />
-      <Info className={styles.info} />
+      <Info className={styles.info}>{region.info}</Info>
 
-      <Section title="Founder">
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
+      <Section title={region.section1Title}>
+        <Markdown source={region.section1Content} />
       </Section>
 
-      <Section title="Idea">
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
+      <Section title={region.section2Title}>
+        <Markdown source={region.section2Content} />
       </Section>
 
-      <Section title="Contact">
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
+      <Section title={region.section3Title}>
+        <Markdown source={region.section3Content} />
       </Section>
 
-      <Section title="Network & Partners">
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
+      <Section title={region.section4Title}>
+        <Markdown source={region.section4Content} />
       </Section>
 
       <Section title="Team" className={styles.team}>
@@ -100,5 +72,26 @@ const AboutPage = ({ data }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    about: region(name: { eq: "about" }) {
+      values {
+        title
+        section1Title
+        section1Content
+
+        section2Title
+        section2Content
+
+        section3Title
+        section3Content
+
+        section4Title
+        section4Content
+      }
+    }
+  }
+`
 
 export default AboutPage
