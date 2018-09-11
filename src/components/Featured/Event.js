@@ -10,7 +10,7 @@ import styles from './index.module.css'
 
 const Event = ({ event }) => (
   <li className={styles.Event}>
-    <p className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-l')}>
+    <p className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}>
       <EventType plural type={event.type} />
     </p>
 
