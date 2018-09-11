@@ -16,7 +16,7 @@ import Image from '../Image'
 import Arrow from './Arrow'
 import styles from './index.module.css'
 
-const PhotoGallery = ({ images }) => (
+const PhotoGallery = ({ caption = true, images }) => (
   <CarouselProvider
     className={styles.container}
     naturalSlideWidth={645}
@@ -40,7 +40,7 @@ const PhotoGallery = ({ images }) => (
         <Arrow />
       </ButtonNext>
     </section>
-    <p>Photo Gallery ({images.length} images)</p>
+    {caption && <p>Photo Gallery ({images.length} images)</p>}
   </CarouselProvider>
 )
 
