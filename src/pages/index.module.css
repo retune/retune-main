@@ -5,7 +5,7 @@
 }
 
 .latestInner {
-  margin: 42px 0 34px 0;
+  margin: 22px 0 22px 0;
 }
 
 @media (--large) {
@@ -14,6 +14,6 @@
   }
 
   .latestInner {
-    margin: 85px 0 55px 0;
+    margin: 45px 0 55px 0;
   }
 }
