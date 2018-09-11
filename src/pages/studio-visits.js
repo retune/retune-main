@@ -106,6 +106,15 @@ export const query = graphql`
             }
             localFile {
               publicURL
+              childImageSharp {
+                fluid {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
+                }
+              }
             }
           }
         }
