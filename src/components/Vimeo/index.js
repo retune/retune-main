@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-const Vimeo = ({ id }) => (
+const Vimeo = ({ id, width = '500', height = '281' }) => (
   <iframe
     src={`https://player.vimeo.com/video/${id}`}
-    width="500"
-    height="281"
+    width={width}
+    height={height}
     frameborder="0"
     webkitallowfullscreen
     mozallowfullscreen
