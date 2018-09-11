@@ -100,6 +100,14 @@ export const query = graphql`
               publicURL
             }
           }
+          photoGallery {
+            meta {
+              title
+            }
+            localFile {
+              publicURL
+            }
+          }
         }
       }
     }

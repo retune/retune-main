@@ -5,6 +5,7 @@ import Collapsible from '../Collapsible'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 import Markdown from '../Markdown'
+import PhotoGallery from '../PhotoGallery'
 
 import styles from './index.module.css'
 
@@ -46,8 +47,8 @@ const StudioVisit = ({ event }) => (
         <a href={event.externalURL}>Go to studio</a>
       </p>
 
-      <div className={classnames(styles.image)}>
-        <Image source={event.mainImage} />
+      <div className={classnames(styles.image, 'mono')}>
+        {event.photoGallery && <PhotoGallery images={event.photoGallery} />}
       </div>
     </div>
   </Collapsible>
