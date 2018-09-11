@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 import Collapsible from '../Collapsible'
 import Image from '../Image'
+import Flipbook from '../Flipbook'
 import Markdown from '../Markdown'
 
 import styles from './Hero.module.css'
@@ -15,7 +16,8 @@ const FestivalHero = ({ event }) => (
   >
     <p className={classnames(styles.subtitle, 'mql-xl')}>{event.subtitle}</p>
     <div className={styles.image}>
-      <Image source={event.mainImage} />
+      {/*event.mainImages && <Flipbook images={event.mainImages} />*/}
+      {event.mainImages && <Image source={event.mainImages[0]} />}
     </div>
     <div className={classnames(styles.body, 'mql-s mono')}>
       <Markdown source={event.description} />

@@ -1,0 +1,21 @@
+.Flipbook {
+  position: relative;
+}
+
+.Flipbook .Image:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Image {
+  transition: opacity 100ms ease-out;
+}
+
+.Image.isShown {
+  opacity: 1;
+}
+
+.Image.isHidden {
+  opacity: 0;
+}

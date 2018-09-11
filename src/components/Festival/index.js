@@ -64,7 +64,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
     heading={<span className={styles.title}>{event.title}</span>}
   >
     <div className={styles.image}>
-      <Image source={event.mainImage} />
+      {event.mainImages && <Image source={event.mainImages[0]} />}
     </div>
 
     <div className={classnames(styles.twoCol, styles.meta, 'mql-m')}>
