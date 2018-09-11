@@ -33,12 +33,6 @@ const Infos = () => (
         <a href="">Contact</a>
       </li>
     </ul>
-
-    <p className={classnames(styles.imprint, 'mql-xs mqs-xs')}>
-      Accountability for the internet pages retune.de and retune.org is:<br />{' '}
-      Retune Creative Technology GmbH, Glogauer Str. 21, 10999 Berlin<br />
-      webmaster@retune.de, HRB 174120 B
-    </p>
   </section>
 )
 
