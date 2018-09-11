@@ -11,6 +11,8 @@
     #24d7c0,
     #24d7c0
   );
+
+  /* background: linear-gradient(to bottom left, #9f826b, #ffa682, #c9d1cb); */
 }
 
 @media (--small) {
@@ -36,7 +38,7 @@
 }
 
 .isFullViewport {
-  min-height: calc(100vh - var(--retune-masthead-h));
+  min-height: calc(80vh - var(--retune-masthead-h));
   width: 100vw;
 }
 

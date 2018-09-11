@@ -10,8 +10,8 @@ export default () => (
       Creative Technology <span className={styles.break}>Laboratory</span>
     </p>
 
-    <p className={classnames(styles.info, 'mql-xxl mqs-xl')}>
-      Festivals, Events and Art Production. For clients and our community
+    <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
+      Festivals, Events and Art Production.<br />For clients and our community.
     </p>
   </section>
 )
