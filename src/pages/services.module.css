@@ -62,7 +62,35 @@
   grid-area: content;
 }
 
-.Service {
+@media (--large) {
+  .Service {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 54px;
+    grid-template-areas: 'heading heading heading heading' 'photoGallery photoGallery content content' 'video video video clients';
+  }
+
+  .name {
+    grid-area: heading;
+  }
+
+  .description {
+    grid-area: content;
+    padding-bottom: 33px;
+  }
+
+  .photoGallery {
+    grid-area: photoGallery;
+    padding-bottom: 33px;
+  }
+
+  .video {
+    grid-area: video;
+  }
+
+  .clients {
+    grid-area: clients;
+  }
 }
 
 .name {
@@ -72,6 +100,10 @@
 
 .description {
   color: var(--retune-col-blue);
+}
+
+.description p {
+  margin: 0;
 }
 
 .clients {

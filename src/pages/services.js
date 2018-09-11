@@ -5,6 +5,8 @@ import classnames from 'classnames'
 import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
+import PhotoGallery from '../components/PhotoGallery'
+import Vimeo from '../components/Vimeo'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
@@ -27,6 +29,16 @@ const Service = ({ className = '', service }) => (
 
     <div className={classnames(styles.description, 'mql-l serif')}>
       <Markdown source={service.description} />
+    </div>
+
+    <div className={classnames(styles.photoGallery)}>
+      {service.photoGallery && (
+        <PhotoGallery images={service.photoGallery} caption={false} />
+      )}
+    </div>
+
+    <div className={classnames(styles.video)}>
+      {service.videoId && <Vimeo id={service.videoId} />}
     </div>
 
     {service.clients && (
@@ -78,6 +90,24 @@ export const query = graphql`
           name
           description
           clients
+          videoId
+          photoGallery {
+            meta {
+              title
+            }
+            localFile {
+              publicURL
+              childImageSharp {
+                fluid {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
+                }
+              }
+            }
+          }
         }
       }
     }
