@@ -19,6 +19,7 @@ const Title = (
 )
 
 const FestivalsPage = ({ data }) => {
+  const info = data.page.info
   const images = data.page.images
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
 
@@ -29,10 +30,7 @@ const FestivalsPage = ({ data }) => {
     >
       <div className={styles.intro}>
         <Heading className={styles.heading} title={Title} />
-        <div className={classnames(styles.info, 'mql-m mqs-s')}>
-          Creative laboratories at the intersection of art, design and
-          technology.
-        </div>
+        <div className={classnames(styles.info, 'mql-m mqs-s')}>{info}</div>
 
         <div className={styles.images}>
           <PhotoGallery caption={false} images={images} />
@@ -64,6 +62,7 @@ const FestivalsPage = ({ data }) => {
 export const query = graphql`
   {
     page: festivalsPage {
+      info
       images {
         meta {
           title
