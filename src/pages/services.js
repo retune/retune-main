@@ -65,7 +65,7 @@ const ServicesPage = ({ data }) => {
       pageTitle="Retune Services — Full Range of Contemporary Solutions "
     >
       <Heading className={styles.heading} title={Title} />
-      <div className={styles.info}>
+      <div className={classnames(styles.info, 'mql-m')}>
         <p>We love our clients.</p>
         <p>Our clients love us.</p>
         <p>Call us.</p>
