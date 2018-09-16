@@ -21,7 +21,7 @@ import styles from './index.module.css'
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
   const split = splitEventsIntoPastAndFuture(events)
-  const featuredIds = map(data.homepage.values.featured, 'id')
+  const featuredIds = map(data.homepage.featured, 'id')
   const featuredEvents = findEventsByIds(events, featuredIds)
   const quotes = mergeResultsIntoItems(data.quotes)
   const posts = mergeResultsIntoItems(data.posts)
@@ -35,9 +35,7 @@ const IndexPage = ({ data }) => {
         innerClassName={styles.latestInner}
         items={latest}
       />
-      {data.homepage.values.showPromo && (
-        <Promo url={data.homepage.values.promoURL} />
-      )}
+      {data.homepage.showPromo && <Promo url={data.homepage.promoURL} />}
       <Featured events={featuredEvents} />
       <Quotes quotes={quotes} />
       <EventArchive events={split.past} />
@@ -47,13 +45,11 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    homepage: region(name: { eq: "homepage" }) {
-      values {
-        showPromo
-        promoURL
-        featured {
-          id: _id
-        }
+    homepage: startpage {
+      showPromo
+      promoURL
+      featured {
+        id
       }
     }
 
