@@ -19,19 +19,24 @@
   grid-area: right;
 }
 
+/*
+  Above .images (PhotoGallery)
+*/
+.heading,
+.info {
+  z-index: 1;
+}
+
 .heading span {
   display: block;
 }
 
 .images {
-  outline: 1px solid #eee;
   width: 100%;
   height: 667px;
   margin-top: -60px;
 
   grid-area: images;
-
-  z-index: -1;
 }
 
 .outro {

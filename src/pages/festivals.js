@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
-import Collapsible from '../components/Collapsible'
 import { Heading } from '../components/Header'
 import Festival from '../components/Festival'
 import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
+import PhotoGallery from '../components/PhotoGallery'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
@@ -19,6 +19,7 @@ const Title = (
 )
 
 const FestivalsPage = ({ data }) => {
+  const images = data.page.images
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
 
   return (
@@ -33,7 +34,9 @@ const FestivalsPage = ({ data }) => {
           technology.
         </div>
 
-        <div className={styles.images} />
+        <div className={styles.images}>
+          <PhotoGallery caption={false} images={images} />
+        </div>
       </div>
 
       <div>
@@ -60,6 +63,26 @@ const FestivalsPage = ({ data }) => {
 
 export const query = graphql`
   {
+    page: festivalsPage {
+      images {
+        meta {
+          title
+        }
+        localFile {
+          publicURL
+          childImageSharp {
+            fluid {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
+    }
+
     festivals: allEvent(
       filter: { type: { eq: "festival" } }
       sort: { order: DESC, fields: [startDate] }
