@@ -13,6 +13,12 @@ const NavigationLink = ({ children, to }) => (
   </Link>
 )
 
+const ExternalLink = ({ children, to }) => (
+  <a className={classnames(styles.NavigationLink)} href={to}>
+    {children}
+  </a>
+)
+
 const Navigation = ({ open }) => (
   <StaticQuery
     query={graphql`
@@ -82,9 +88,9 @@ const Navigation = ({ open }) => (
                   <NavigationLink to={urls.aboutPath()}>About</NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink to={urls.newsletterPath()}>
+                  <ExternalLink to={urls.newsletterPath()}>
                     Newsletter
-                  </NavigationLink>
+                  </ExternalLink>
                 </li>
                 <li className={styles.largeOnly}>
                   <NavigationLink to={urls.imprintPath()}>

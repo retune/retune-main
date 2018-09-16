@@ -10,4 +10,4 @@ module.exports.eventPath = ({ id }) => `/events${id ? `/${id}/` : ''}`
 module.exports.newsPath = ({ id }) => `/news${id ? `/${id}/` : ''}`
 module.exports.imprintPath = () => '/imprint/'
 module.exports.privacyPath = () => '/datenschutz/'
-module.exports.newsletterPath = () => '/newsletter/'
+module.exports.newsletterPath = () => 'http://eepurl.com/b3QkdX'

@@ -16,7 +16,7 @@ const Infos = () => (
     </div>
 
     <div className={styles.newsletter}>
-      <a href="">👉 Get our Newsletter!</a>
+      <a href={urls.newsletterPath()}>👉 Get our Newsletter!</a>
     </div>
 
     <ul className={classnames(styles.links, 'mql-m mqs-s')}>
