@@ -97,8 +97,6 @@ const Festival = ({ collapsible, event, isMain = true }) => (
           content={event.description}
           collapsible={false}
         >
-          {event.videoId && <Vimeo id={event.videoId} />}
-
           {event.photoGallery && <PhotoGallery images={event.photoGallery} />}
         </Section>
       </div>
