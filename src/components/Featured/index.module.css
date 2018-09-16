@@ -66,6 +66,10 @@
   text-align: center;
 }
 
+.type > a {
+  color: #000;
+}
+
 .type:before {
   content: '-> ';
   font-weight: normal;
@@ -93,6 +97,7 @@
 .summary {
   max-width: 568px;
   margin: 0;
+  color: #000;
 }
 
 .image {

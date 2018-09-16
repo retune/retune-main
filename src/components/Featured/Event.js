@@ -4,27 +4,47 @@ import classnames from 'classnames'
 import EventType from '../EventType'
 import Image from '../Image'
 import isNully from '../../lib/isNully'
-import { eventPath } from '../../lib/urls'
+import urls from '../../lib/urls'
 
 import styles from './index.module.css'
 
-const Event = ({ event }) => (
-  <li className={styles.Event}>
-    <p className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}>
-      <EventType plural type={event.type} />
-    </p>
+const sectionUrlForType = type => {
+  switch (type) {
+    case 'studio-visit':
+      return urls.studioVisitsPath()
+    case 'festival':
+      return urls.festivalsPath()
+    default:
+      return null
+  }
+}
 
-    <Image className={styles.image} source={event.mainImage} />
+const Event = ({ event }) => {
+  const type = <EventType plural type={event.type} />
+  const typeUrl = sectionUrlForType(event.type)
 
-    <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
-      <a href={eventPath({ id: event.id })}>
-        {event.title}
-        {isNully(event.subtitle) ? '' : ': '}
-        {event.subtitle}
+  return (
+    <li className={styles.Event}>
+      <p
+        className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}
+      >
+        {typeUrl ? <a href={typeUrl}>{type}</a> : typeUrl}
+      </p>
+
+      <a href={urls.eventPath({ id: event.id })}>
+        <Image className={styles.image} source={event.mainImage} />
+
+        <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
+          {event.title}
+          {isNully(event.subtitle) ? '' : ': '}
+          {event.subtitle}
+        </h4>
+        <p className={classnames(styles.summary, 'mqs-m mql-m')}>
+          {event.summary}
+        </p>
       </a>
-    </h4>
-    <p className={classnames(styles.summary, 'mqs-m mql-m')}>{event.summary}</p>
-  </li>
-)
+    </li>
+  )
+}
 
 export default Event
