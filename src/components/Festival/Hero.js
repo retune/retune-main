@@ -22,7 +22,7 @@ const FestivalHero = ({ event }) => (
     <div className={classnames(styles.body, 'mql-s mono')}>
       <Markdown source={event.description} />
     </div>
-    <p className={classnames(styles.link, 'mql-xxl')}>
+    <p className={classnames(styles.link, 'mql-xl')}>
       ({' '}
       <span>
         -&gt; <a href={event.externalURL}>Go to festival site</a>
