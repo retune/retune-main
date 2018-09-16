@@ -12,6 +12,7 @@ export const query = graphql`
   query($id: String!) {
     event(id: { eq: $id }) {
       id
+      type
       title
       subtitle
       summary

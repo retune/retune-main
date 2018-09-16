@@ -1,32 +1,42 @@
 import React from 'react'
 import classnames from 'classnames'
 
+import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import Icon from '../Icon'
 import Image from '../Image'
 import Layout from '../Layout'
 import Markdown from '../Markdown'
 
+import urls from '../../lib/urls'
+
 import styles from './index.module.css'
+
+const sectionUrlForType = type => {
+  switch (type) {
+    case 'studio-visit':
+      return urls.studioVisitsPath()
+    case 'festival':
+      return urls.festivalsPath()
+    default:
+      return null
+  }
+}
 
 const ItemPage = ({ item }) => {
   const date = item.startDate || item.publishedDate
   const body = item.description || item.body
+  const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
+  const typeUrl = sectionUrlForType(item.type)
 
   return (
-    <Layout wrapped={false}>
+    <Layout pageTitle="Retune — Creative Technology Laboratory">
       <section className={styles.container}>
-        <div className={styles.banner}>
-          <p className={classnames(styles.bannerTitle, 'mql-l serif')}>
-            {item.title}
-          </p>
-
-          <a className={styles.icon} href="/">
-            <Icon type="close" />
-          </a>
-        </div>
-
         <div className={styles.inner}>
+          <div className={classnames(styles.type, 'mono', 'mql-s mqs-s')}>
+            {typeUrl ? <a href={typeUrl}>{typeLabel}</a> : typeLabel}
+          </div>
+
           <header className={styles.header}>
             <h1 className={styles.title}>
               {item.title}
@@ -52,7 +62,7 @@ const ItemPage = ({ item }) => {
           </div>
 
           {item.ticketURL && (
-            <p className={styles.ticket}>
+            <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
               <a href={item.ticketURL}>Get ticket</a>
             </p>
           )}

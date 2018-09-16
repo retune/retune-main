@@ -1,30 +1,35 @@
-.banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 75px;
-  background: #e6e6e6;
-
-  text-align: center;
-  color: var(--retune-col-blue);
-}
-
-.bannerTitle {
-  flex: 1;
-}
-
 .inner {
   margin: 40px 45px;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 50px;
+  grid-template-areas: 'type type' 'meta social' 'content image' 'related related';
+  grid-template-rows: 30px;
+}
+
+.type {
+  grid-area: type;
+  align-self: center;
+  justify-self: center;
+}
+
+.type a {
+  text-decoration: none;
+  color: #000;
+}
+
+.type a:before {
+  content: '-> ';
 }
 
 .header {
+  grid-area: meta;
   margin-bottom: 48px;
 }
 
-.icon {
-  margin-left: auto;
-  margin-right: 50px;
+.image {
+  grid-area: image;
 }
 
 .title,
@@ -37,6 +42,7 @@
 }
 
 .body {
+  grid-area: content;
   max-width: 647px;
 }
 
@@ -46,7 +52,7 @@
 }
 
 .ticket {
-  text-align: center;
-  font-size: 40px;
+  grid-area: content;
+  padding-top: 24px;
   font-weight: normal;
 }
