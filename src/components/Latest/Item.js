@@ -5,9 +5,20 @@ import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 
-import { eventPath, newsPath } from '../../lib/urls'
+import urls from '../../lib/urls'
 
 import styles from './index.module.css'
+
+const sectionUrlForType = type => {
+  switch (type) {
+    case 'studio-visit':
+      return urls.studioVisitsPath()
+    case 'festival':
+      return urls.festivalsPath()
+    default:
+      return null
+  }
+}
 
 const Item = ({
   id,
@@ -21,15 +32,16 @@ const Item = ({
 }) => {
   const date = startDate || publishedDate
   const typeLabel = type ? <EventType type={type} /> : 'News'
-  const url = type ? eventPath({ id }) : newsPath({ id })
+  const url = type ? urls.eventPath({ id }) : urls.newsPath({ id })
+  const typeUrl = sectionUrlForType(type)
 
   return (
     <div className={classnames(styles.EventItem, 'mql-m mqs-m')}>
-      <a href={url}>
-        <p className={classnames(styles.type, 'serif', 'mql-l mqs-m')}>
-          {typeLabel}
-        </p>
+      <p className={classnames(styles.type, 'serif', 'mql-l mqs-m')}>
+        {typeUrl ? <a href={typeUrl}>{typeLabel}</a> : typeLabel}
+      </p>
 
+      <a href={url}>
         <Image
           className={styles.image}
           source={mainImage}
