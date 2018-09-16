@@ -2,10 +2,10 @@
   margin: 40px 45px;
 
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px;
   grid-column-gap: 50px;
   grid-template-areas: 'type type' 'meta social' 'content image' 'related related';
-  grid-template-rows: 30px;
 }
 
 .type {

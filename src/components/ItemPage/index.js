@@ -54,7 +54,11 @@ const ItemPage = ({ item, related = [] }) => {
             </time>
           </header>
 
-          {image && <Image className={styles.image} source={image} />}
+          {image && (
+            <div className={styles.image}>
+              <Image source={image} />
+            </div>
+          )}
 
           <div className={classnames(styles.body, 'mql-m mqs-m')}>
             {body ? <Markdown source={body} /> : item.summary}

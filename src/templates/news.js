@@ -3,10 +3,14 @@ import { graphql } from 'gatsby'
 
 import ItemPage from '../components/ItemPage'
 
+import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
+
 const NewsPage = ({ data }) => {
   console.log(data)
-
-  return <ItemPage item={data.post} />
+  const split =
+    splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
+  return <ItemPage item={data.post} related={split.future} />
 }
 
 export const query = graphql`
@@ -22,6 +26,30 @@ export const query = graphql`
         localFile {
           publicURL
           ...fluidImage
+        }
+      }
+    }
+
+    events: allEvent(limit: 5, sort: { fields: [startDate], order: DESC }) {
+      edges {
+        node {
+          id
+          type
+          title
+          subtitle
+          summary
+          startDate
+          startTime
+          endDate
+          endTime
+          ticketURL
+          externalURL
+          mainImages {
+            localFile {
+              publicURL
+              ...fluidImage
+            }
+          }
         }
       }
     }
