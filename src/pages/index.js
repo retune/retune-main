@@ -64,6 +64,7 @@ export const query = graphql`
           mainImage {
             localFile {
               publicURL
+              ...fluidImage
             }
           }
         }
@@ -84,9 +85,10 @@ export const query = graphql`
           endTime
           ticketURL
           externalURL
-          mainImage {
+          mainImages {
             localFile {
               publicURL
+              ...fluidImage
             }
           }
         }

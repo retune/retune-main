@@ -29,11 +29,13 @@ const Item = ({
   startDate,
   ticketURL,
   mainImage,
+  mainImages,
 }) => {
   const date = startDate || publishedDate
   const typeLabel = type ? <EventType type={type} /> : 'News'
   const url = type ? urls.eventPath({ id }) : urls.newsPath({ id })
   const typeUrl = sectionUrlForType(type)
+  const image = mainImages ? mainImages[0] : mainImage
 
   return (
     <div className={classnames(styles.EventItem, 'mql-m mqs-m')}>
@@ -44,7 +46,7 @@ const Item = ({
       <a href={url}>
         <Image
           className={styles.image}
-          source={mainImage}
+          source={image}
           width={298}
           height={165}
           auto

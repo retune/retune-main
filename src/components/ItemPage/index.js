@@ -6,6 +6,7 @@ import FormattedDate from '../FormattedDate'
 import Icon from '../Icon'
 import Image from '../Image'
 import Layout from '../Layout'
+import Latest from '../Latest'
 import Markdown from '../Markdown'
 
 import urls from '../../lib/urls'
@@ -23,11 +24,15 @@ const sectionUrlForType = type => {
   }
 }
 
-const ItemPage = ({ item }) => {
+const ItemPage = ({ item, related = [] }) => {
   const date = item.startDate || item.publishedDate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
   const typeUrl = sectionUrlForType(item.type)
+  const image =
+    item.mainImages && item.mainImages.length > 0
+      ? item.mainImages[0]
+      : item.mainImage
 
   return (
     <Layout pageTitle="Retune — Creative Technology Laboratory">
@@ -49,13 +54,7 @@ const ItemPage = ({ item }) => {
             </time>
           </header>
 
-          <Image
-            className={styles.image}
-            source={item.mainImage}
-            width={298}
-            height={165}
-            auto
-          />
+          {image && <Image className={styles.image} source={image} />}
 
           <div className={classnames(styles.body, 'mql-m mqs-m')}>
             {body ? <Markdown source={body} /> : item.summary}
@@ -65,6 +64,20 @@ const ItemPage = ({ item }) => {
             <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
               <a href={item.ticketURL}>Get ticket</a>
             </p>
+          )}
+
+          {related && (
+            <div className={styles.related}>
+              <h3
+                className={classnames(
+                  styles.relatedHeading,
+                  'mql-s mqs-s mono'
+                )}
+              >
+                Other events
+              </h3>
+              <Latest theme="light" items={related} />
+            </div>
           )}
         </div>
       </section>

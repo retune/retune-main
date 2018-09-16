@@ -39,4 +39,18 @@ const Image = ({
   return image
 }
 
+export const fluidImageFragment = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+  }
+`
+
 export default Image

@@ -69,15 +69,7 @@ export const query = graphql`
         }
         localFile {
           publicURL
-          childImageSharp {
-            fluid {
-              base64
-              aspectRatio
-              src
-              srcSet
-              sizes
-            }
-          }
+          ...fluidImage
         }
       }
     }
@@ -103,15 +95,7 @@ export const query = graphql`
           mainImages {
             localFile {
               publicURL
-              childImageSharp {
-                fluid {
-                  base64
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                }
-              }
+              ...fluidImage
             }
           }
           photoGallery {
@@ -120,15 +104,7 @@ export const query = graphql`
             }
             localFile {
               publicURL
-              childImageSharp {
-                fluid {
-                  base64
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                }
-              }
+              ...fluidImage
             }
           }
           team

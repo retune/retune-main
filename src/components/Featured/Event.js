@@ -32,8 +32,9 @@ const Event = ({ event }) => {
       </p>
 
       <a href={urls.eventPath({ id: event.id })}>
-        <Image className={styles.image} source={event.mainImage} />
-
+        {event.mainImages && (
+          <Image className={styles.image} source={event.mainImages[0]} />
+        )}
         <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
           {event.title}
           {isNully(event.subtitle) ? '' : ': '}

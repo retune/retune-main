@@ -56,3 +56,16 @@
   padding-top: 24px;
   font-weight: normal;
 }
+
+.related {
+  grid-area: related;
+
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 3px solid #000;
+}
+
+.relatedHeading {
+  margin-bottom: 32px;
+  text-align: center;
+}
