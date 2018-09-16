@@ -5,6 +5,7 @@ import classnames from 'classnames'
 import { Heading } from '../components/Header'
 import Latest from '../components/Latest'
 import Layout from '../components/Layout'
+import PhotoGallery from '../components/PhotoGallery'
 import StudioVisit from '../components/StudioVisit'
 
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -19,6 +20,8 @@ const Title = (
 )
 
 const StudioVisitsPage = ({ data }) => {
+  const info = data.page.info
+  const images = data.page.images
   const events = splitEventsIntoPastAndFuture(
     mergeResultsIntoItems(data.studioVisits)
   )
@@ -30,14 +33,11 @@ const StudioVisitsPage = ({ data }) => {
     >
       <div className={styles.intro}>
         <Heading className={styles.heading} title={Title} />
-        <div className={classnames(styles.info, 'mql-m mqs-s')}>
-          Offering a unique opportunity to get a peek into the workshops of
-          Berlin‘s creative studios. As always, this is not a stiff networking
-          event but a good place to meet nice people and get inspired. And yes,
-          there will be beers!
-        </div>
+        <div className={classnames(styles.info, 'mql-m mqs-s')}>{info}</div>
 
-        <div className={styles.images} />
+        <div className={styles.images}>
+          <PhotoGallery caption={false} images={images} />
+        </div>
       </div>
 
       <section>
@@ -77,6 +77,27 @@ const StudioVisitsPage = ({ data }) => {
 
 export const query = graphql`
   {
+    page: studioVisitsPage {
+      info
+      images {
+        meta {
+          title
+        }
+        localFile {
+          publicURL
+          childImageSharp {
+            fluid {
+              base64
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
+    }
+
     studioVisits: allEvent(
       filter: { type: { eq: "studio-visit" } }
       sort: { order: DESC, fields: [startDate] }

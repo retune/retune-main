@@ -3,6 +3,7 @@
 .StudioVisits {
   position: relative;
   padding: 24px 50px;
+  /* margin-top: var(--retune-masthead-h); */
 }
 
 /* Page intro */
@@ -28,23 +29,38 @@
   display: block;
 }
 
+/* Above .images */
+.heading,
+.info {
+  z-index: 1;
+}
+
 .images {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 
-  background-blend-mode: multiply;
-  background-image: linear-gradient(to left, #000096, #d8d8d8);
-  border: solid 1px #979797;
-
-  width: 100%;
-  height: 667px;
-  margin-top: -60px;
-
   grid-area: images;
+}
 
-  z-index: -1;
+.images :global(.carousel__slider) {
+  mix-blend-mode: multiply;
+}
+
+.images:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-image: linear-gradient(
+    to left,
+    hsla(240, 100%, 29%, 1),
+    hsla(0, 0%, 85%, 1)
+  );
 }
 
 .outro {
