@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import ItemPage from '../components/ItemPage'
 
+import { eventPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
@@ -10,7 +11,13 @@ const EventPage = ({ data }) => {
   const split =
     splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
   console.log('data', data)
-  return <ItemPage item={data.event} related={split.future} />
+  return (
+    <ItemPage
+      url={eventPath({ id: data.event.id })}
+      item={data.event}
+      related={split.future}
+    />
+  )
 }
 
 export const query = graphql`

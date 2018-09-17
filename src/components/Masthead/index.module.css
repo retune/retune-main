@@ -41,6 +41,8 @@
 .isOpen a.site:visited {
   color: #fff;
   text-decoration: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 3px;
 }
 
 /* .MastheadInner:before {
@@ -88,6 +90,11 @@
 
 .feature a {
   text-decoration: none;
+}
+
+.sep {
+  display: inline-block;
+  padding: 0 0.5rem;
 }
 
 @media (--large) {

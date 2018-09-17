@@ -6,6 +6,7 @@ import times from 'lodash/times'
 import { Heading, Info } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
+import { imprintPath } from '../lib/urls'
 
 import styles from './imprint.module.css'
 
@@ -24,8 +25,15 @@ const Section = ({
 
 const ImprintPage = ({ data }) => {
   const region = data.imprint.values
+  const breadcrumbs = [
+    {
+      name: region.title,
+      to: imprintPath(),
+    },
+  ]
+
   return (
-    <Layout className={styles.Imprint}>
+    <Layout breadcrumbs={breadcrumbs} className={styles.Imprint}>
       <Heading className={styles.heading} title={region.title} />
       <div className={classnames(styles.info, 'mql-m mqs-s')}>
         <Markdown source={region.info} />

@@ -8,6 +8,7 @@ import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
 
+import { festivalsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './festivals.module.css'
@@ -22,9 +23,16 @@ const FestivalsPage = ({ data }) => {
   const info = data.page.info
   const images = data.page.images
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
+  const breadcrumbs = [
+    {
+      name: 'Festivals',
+      to: festivalsPath(),
+    },
+  ]
 
   return (
     <Layout
+      breadcrumbs={breadcrumbs}
       className={styles.Festivals}
       pageTitle="Retune Festival — Art, Design and Technology"
     >

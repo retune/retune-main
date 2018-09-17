@@ -9,6 +9,7 @@ import Footer from '../Footer'
 import './index.css'
 
 const Layout = ({
+  breadcrumbs,
   className = '',
   children,
   data,
@@ -36,6 +37,7 @@ const Layout = ({
         />
         {wrapped && (
           <Masthead
+            breadcrumbs={breadcrumbs}
             siteTitle={data.site.siteMetadata.title}
             pageTitle={pageTitle}
           />

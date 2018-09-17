@@ -6,8 +6,16 @@ import times from 'lodash/times'
 import { Heading, Info } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
+import { aboutPath } from '../lib/urls'
 
 import styles from './about.module.css'
+
+const breadcrumbs = [
+  {
+    name: 'About',
+    to: aboutPath(),
+  },
+]
 
 const Section = ({ className = '', title, children, content = null }) => (
   <section className={classnames(styles.section, className)}>
@@ -34,7 +42,11 @@ const AboutPage = ({ data }) => {
   const region = data.about.values
 
   return (
-    <Layout className={styles.About} pageTitle={region.masthead}>
+    <Layout
+      breadcrumbs={breadcrumbs}
+      className={styles.About}
+      pageTitle={region.masthead}
+    >
       <Heading className={styles.heading} title={AboutRetune} />
       <Info className={styles.info}>{region.info}</Info>
 

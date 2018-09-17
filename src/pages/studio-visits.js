@@ -8,6 +8,7 @@ import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
 import StudioVisit from '../components/StudioVisit'
 
+import { studioVisitsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
@@ -25,9 +26,16 @@ const StudioVisitsPage = ({ data }) => {
   const events = splitEventsIntoPastAndFuture(
     mergeResultsIntoItems(data.studioVisits)
   )
+  const breadcrumbs = [
+    {
+      name: 'Studio Visits',
+      to: studioVisitsPath(),
+    },
+  ]
 
   return (
     <Layout
+      breadcrumbs={breadcrumbs}
       className={styles.StudioVisits}
       pageTitle="Retune Studio Visits — Ongoing Series of Insights and Exchange"
     >

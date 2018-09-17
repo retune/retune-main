@@ -16,15 +16,15 @@ import styles from './index.module.css'
 const sectionUrlForType = type => {
   switch (type) {
     case 'studio-visit':
-      return urls.studioVisitsPath()
+      return { name: 'Studio Visit', to: urls.studioVisitsPath() }
     case 'festival':
-      return urls.festivalsPath()
+      return { name: 'Festivals', to: urls.festivalsPath() }
     default:
       return null
   }
 }
 
-const ItemPage = ({ item, related = [] }) => {
+const ItemPage = ({ url, item, related = [] }) => {
   const date = item.startDate || item.publishedDate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
@@ -33,13 +33,26 @@ const ItemPage = ({ item, related = [] }) => {
     item.mainImages && item.mainImages.length > 0
       ? item.mainImages[0]
       : item.mainImage
+  const breadcrumbs = []
+
+  if (typeUrl) {
+    breadcrumbs.push(typeUrl)
+  }
+
+  breadcrumbs.push({
+    to: url,
+    name: item.title,
+  })
 
   return (
-    <Layout pageTitle="Retune — Creative Technology Laboratory">
+    <Layout
+      breadcrumbs={breadcrumbs}
+      pageTitle="Retune — Creative Technology Laboratory"
+    >
       <section className={styles.container}>
         <div className={styles.inner}>
           <div className={classnames(styles.type, 'mono', 'mql-s mqs-s')}>
-            {typeUrl ? <a href={typeUrl}>{typeLabel}</a> : typeLabel}
+            {typeUrl ? <a href={typeUrl.to}>{typeLabel}</a> : typeLabel}
           </div>
 
           <header className={styles.header}>

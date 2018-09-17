@@ -5,10 +5,15 @@ import classnames from 'classnames'
 
 import Circle from '../Circle'
 import Navigation from '../Navigation'
+import getPlatformSeparator from '../../lib/getPlatformSeparator'
 
 import styles from './index.module.css'
 
 class Masthead extends React.Component {
+  static defaultProps = {
+    breadcrumbs: [],
+  }
+
   state = {
     open: false,
   }
@@ -52,26 +57,43 @@ class Masthead extends React.Component {
     }
   }
 
+  renderSiteNameContent = () => (
+    <React.Fragment>
+      Retune{' '}
+      <span className={styles.tagline}> – Creative Technology Laboratory</span>
+    </React.Fragment>
+  )
+
+  renderBreadcrumbs = () => {
+    const { root, separator } = getPlatformSeparator()
+    const breadcrumbs = [
+      { name: 'Retune', to: '/' },
+      ...this.props.breadcrumbs,
+    ].map(({ to, name }, index, array) => {
+      const parts = [
+        <Link to={to} className={styles.site}>
+          {name}
+        </Link>,
+      ]
+
+      if (index < array.length - 1) {
+        parts.push(<span className={styles.sep}>{separator}</span>)
+      }
+
+      return parts
+    })
+
+    return [<span className={styles.sep}>{root}</span>, ...breadcrumbs]
+  }
+
   render() {
     const { pageTitle = '' } = this.props
     const { open } = this.state
 
-    const siteNameContent = (
-      <React.Fragment>
-        Retune{' '}
-        <span className={styles.tagline}>
-          {' '}
-          – Creative Technology Laboratory
-        </span>
-      </React.Fragment>
-    )
-
     const siteName = open ? (
-      <Link to="/" className={styles.site}>
-        {siteNameContent}
-      </Link>
+      <div className={styles.site}>{this.renderBreadcrumbs()}</div>
     ) : (
-      <span className={styles.site}>{siteNameContent}</span>
+      <span className={styles.site}>{this.renderSiteNameContent()}</span>
     )
 
     return (
@@ -80,19 +102,17 @@ class Masthead extends React.Component {
           styles.Masthead,
           open ? styles.isOpen : styles.isClosed
         )}
+        onClick={this.toggle}
         ref={this.elementRef}
       >
         <div className={styles.MastheadInner}>
-          <button className={styles.opener} onClick={this.toggle}>
+          <button className={styles.opener}>
             <Circle isOpen={open} />
           </button>
 
           {siteName}
 
-          <div className={styles.feature}>
-            {/*<Title text={pageTitle} />*/}
-            {pageTitle}
-          </div>
+          <div className={styles.feature}>{pageTitle}</div>
         </div>
 
         <Navigation open={open} />

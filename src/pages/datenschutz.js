@@ -6,6 +6,7 @@ import times from 'lodash/times'
 import { Heading, Info } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
+import { privacyPath } from '../lib/urls'
 
 import styles from './imprint.module.css'
 
@@ -24,9 +25,15 @@ const Section = ({
 
 const PrivacyPage = ({ data }) => {
   const region = data.imprint.values
+  const breadcrumbs = [
+    {
+      name: region.title,
+      to: privacyPath(),
+    },
+  ]
 
   return (
-    <Layout className={styles.Imprint}>
+    <Layout breadcrumbs={breadcrumbs} className={styles.Imprint}>
       <Heading className={styles.heading} title={region.title} />
 
       <Section title={region.title_de} gridArea="left">

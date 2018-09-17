@@ -8,6 +8,7 @@ import Markdown from '../components/Markdown'
 import PhotoGallery from '../components/PhotoGallery'
 import Vimeo from '../components/Vimeo'
 
+import { servicesPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './services.module.css'
@@ -58,9 +59,16 @@ const Title = (
 
 const ServicesPage = ({ data }) => {
   const services = mergeResultsIntoItems(data.services)
+  const breadcrumbs = [
+    {
+      name: 'Services',
+      to: servicesPath(),
+    },
+  ]
 
   return (
     <Layout
+      breadcrumbs={breadcrumbs}
       className={styles.Services}
       pageTitle="Retune Services — Full Range of Contemporary Solutions "
     >
