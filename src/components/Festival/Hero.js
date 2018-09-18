@@ -9,12 +9,11 @@ import Markdown from '../Markdown'
 import styles from './Hero.module.css'
 
 const FestivalHero = ({ event }) => (
-  <Collapsible
-    collapsible={false}
-    className={classnames(styles.Hero)}
-    heading={<span className={styles.title}>{event.title}</span>}
-  >
-    <p className={classnames(styles.subtitle, 'mql-xl')}>{event.subtitle}</p>
+  <div className={classnames(styles.Hero)}>
+    <div className={styles.titles}>
+      <h2 className={classnames('mql-xl', styles.title)}>{event.title}</h2>
+      <p className={classnames(styles.subtitle, 'mql-xl')}>{event.subtitle}</p>
+    </div>
     <div className={styles.image}>
       {event.mainImages && <Flipbook images={event.mainImages} />}
       {/*event.mainImages && <Image source={event.mainImages[0]} />*/}
@@ -28,7 +27,7 @@ const FestivalHero = ({ event }) => (
         -&gt; <a href={event.externalURL}>Go to festival site</a>
       </span>)
     </p>
-  </Collapsible>
+  </div>
 )
 
 export default FestivalHero

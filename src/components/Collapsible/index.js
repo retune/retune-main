@@ -43,7 +43,7 @@ class Collapsible extends React.Component {
     }[headingSize]
 
     const headingClasses = {
-      large: 'mql-xxl',
+      large: 'mql-xl',
       small: 'mql-m',
     }[headingSize]
 

@@ -1,15 +1,28 @@
 @import '../MediaQuery/index.css';
 
-.Hero .title,
-.Hero .subtitle,
 .Hero .image,
 .Hero .link {
   margin: 0 0 58px 0;
   text-align: center;
 }
 
-.title {
+.Hero .title,
+.Hero .subtitle {
+  margin: 0;
+  text-align: center;
+}
+
+.Hero {
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 4px solid #000;
+}
+
+.titles {
   padding-top: 42px;
+}
+
+.title {
   color: var(--retune-col-blue);
 }
 
