@@ -17,6 +17,7 @@
 
 .info {
   grid-area: right;
+  margin-bottom: 50px;
 }
 
 /*
