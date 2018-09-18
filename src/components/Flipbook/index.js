@@ -45,12 +45,9 @@ class Flipbook extends React.Component {
       index === this.state.current ? styles.isShown : styles.isHidden
 
     return (
-      <Image
-        key={index}
-        className={classnames(styles.Image, active)}
-        position={index === 0 ? 'relative' : 'absolute'}
-        source={image}
-      />
+      <div key={index} className={classnames(styles.Image, active)}>
+        <Image source={image} />
+      </div>
     )
   }
 

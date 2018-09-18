@@ -6,10 +6,12 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .Image {
-  transition: opacity 100ms ease-out;
+  /* transition: opacity 100ms ease-out; */
 }
 
 .Image.isShown {

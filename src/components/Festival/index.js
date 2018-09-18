@@ -2,11 +2,11 @@ import * as React from 'react'
 import classnames from 'classnames'
 
 import Collapsible from '../Collapsible'
+import Flipbook from '../Flipbook'
 import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 import Markdown from '../Markdown'
 import PhotoGallery from '../PhotoGallery'
-import Vimeo from '../Vimeo'
 
 import styles from './index.module.css'
 
@@ -64,7 +64,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
     heading={<span className={styles.title}>{event.title}</span>}
   >
     <div className={styles.image}>
-      {event.mainImages && <Image source={event.mainImages[0]} />}
+      {event.mainImages && <Flipbook images={event.mainImages} />}
     </div>
 
     <div className={classnames(styles.twoCol, styles.meta, 'mql-m')}>
