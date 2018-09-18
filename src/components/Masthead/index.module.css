@@ -20,6 +20,8 @@
 
   padding: 0;
 
+  padding-right: 64px;
+
   height: 100%;
 
   font-size: 25px;
@@ -43,11 +45,14 @@
 .isOpen a.site:visited {
   color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid #fff;
   padding-bottom: 3px;
 
   user-select: none;
   -moz-user-select: none;
+}
+
+.isOpen a.site:hover {
+  text-decoration: underline;
 }
 
 /* .MastheadInner:before {
@@ -99,7 +104,7 @@
 
 .sep {
   display: inline-block;
-  padding: 0 0.5rem;
+  /* padding: 0 0.5rem; */
 }
 
 @media (--large) {
