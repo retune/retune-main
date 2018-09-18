@@ -52,7 +52,7 @@
 }
 
 .ticket {
-  grid-area: content;
+  grid-area: social;
   padding-top: 24px;
   font-weight: normal;
 }
