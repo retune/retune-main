@@ -43,11 +43,11 @@ export default class Nowcast extends React.Component {
   render() {
     const { now } = this.state
     return now ? (
-      <React.Fragment>
+      <div className={styles.container}>
         {now.toFormat('LLL dd, yyyy, HH')}
         <span className={styles.sep}>:</span>
         {now.toFormat('mm')} (Berlin, Germany)
-      </React.Fragment>
+      </div>
     ) : null
   }
 }
