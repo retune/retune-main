@@ -65,9 +65,10 @@ class Masthead extends React.Component {
   )
 
   renderBreadcrumbs = () => {
-    const { root, separator } = getPlatformSeparator()
+    // const { root, separator } = getPlatformSeparator()
+    const separator = '/'
     const breadcrumbs = [
-      { name: 'Retune', to: '/' },
+      { name: 'https://retune.de', to: '/' },
       ...this.props.breadcrumbs,
     ].map(({ to, name }, index, array) => {
       const parts = [
@@ -83,7 +84,8 @@ class Masthead extends React.Component {
       return parts
     })
 
-    return [<span className={styles.sep}>{root}</span>, ...breadcrumbs]
+    // return [<span className={styles.sep}>{root}</span>, ...breadcrumbs]
+    return breadcrumbs
   }
 
   render() {
