@@ -4,9 +4,11 @@ import classnames from 'classnames'
 import times from 'lodash/times'
 
 import { Heading, Info } from '../components/Header'
+import Image from '../components/Image'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
 import { aboutPath } from '../lib/urls'
+import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './about.module.css'
 
@@ -19,14 +21,14 @@ const breadcrumbs = [
 
 const Section = ({ className = '', title, children, content = null }) => (
   <section className={classnames(styles.section, className)}>
-    <h2 className="mql-xl">{title}</h2>
+    <h2 className={classnames(styles.sectionHeading, 'mql-xl')}>{title}</h2>
     <div className="mql-m">{content || children}</div>
   </section>
 )
 
 const Member = ({ name, role, avatar = '' }) => (
   <div className={classnames(styles.Member, 'mql-s mono')}>
-    <img className={styles.avatar} src={avatar} />
+    <Image className={styles.avatar} source={avatar} />
     <span className={styles.name}>{name}</span>
     <span className={styles.role}>{role}</span>
   </div>
@@ -40,6 +42,7 @@ const AboutRetune = (
 
 const AboutPage = ({ data }) => {
   const region = data.about.values
+  const team = mergeResultsIntoItems(data.team)
 
   return (
     <Layout
@@ -69,15 +72,27 @@ const AboutPage = ({ data }) => {
       <Section title="Team" className={styles.team}>
         <div className={styles.teamList}>
           <ul className={styles.teamListInner}>
-            {times(10, num => (
-              <li key={num}>
+            {times(10, num => {
+              const member = team[0]
+              return (
+                <li key={num}>
+                  <Member
+                    name={member.name}
+                    role={member.role}
+                    avatar={member.image}
+                  />
+                </li>
+              )
+            })}
+            {/*team.map(member => (
+              <li key={member.id}>
                 <Member
-                  name={`Person ${num}`}
-                  role="Lorem Ipsium"
-                  avatar="http://placekitten.com/300/300"
+                  name={member.name}
+                  role={member.role}
+                  avatar={member.image}
                 />
               </li>
-            ))}
+            ))*/}
           </ul>
         </div>
       </Section>
@@ -101,6 +116,22 @@ export const query = graphql`
 
         section4Title
         section4Content
+      }
+    }
+
+    team: allPerson {
+      edges {
+        node {
+          id
+          name
+          role
+          image {
+            localFile {
+              publicURL
+              ...fluidImage
+            }
+          }
+        }
       }
     }
   }
