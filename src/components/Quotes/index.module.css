@@ -12,16 +12,11 @@
   flex-direction: column;
 
   margin: 0;
-  padding: 26px 19px 0 19px; /* .Dot provides bottom padding */
+  /*padding: 26px 19px 0 19px;*/ /* .Dot provides bottom padding */
+  padding: 5.5vw 4.5vw 0 4.5vw; /* .Dot provides bottom padding */
   color: #fff;
 
   font-style: normal;
-}
-
-@media (--large) {
-  .Quote {
-    padding: 70px 70px 0 70px; /* .Dot provides bottom padding */
-  }
 }
 
 .quote {
@@ -32,11 +27,13 @@
   margin: 0;
   padding: 0;
 
+  font-size: 5vw;
   line-height: 1.27;
 }
 
-@media (--large) {
+@media (min-width: 1300px) {
   .quote {
+    font-size: 65px;
     line-height: 1.15;
   }
 }
@@ -53,7 +50,8 @@
   order: 0;
 
   display: block;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  margin-bottom: 4.29vw;
 
   font-style: normal;
 }
@@ -62,14 +60,17 @@
   display: flex;
   justify-content: center;
 
-  padding-top: 32px;
-  padding-bottom: 32px;
+  /* padding-top: 32px;
+  padding-bottom: 32px; */
+
+  padding-top: 4.64vw;
+  padding-bottom: 4.64vw;
 }
 
 .DotGroup > * {
-  width: 10px;
-  height: 10px;
-  margin-right: 13px;
+  width: 1.14vw;
+  height: 1.14vw;
+  margin-right: 1.43vw;
   padding: 0;
 
   border-radius: 100%;
@@ -77,17 +78,33 @@
   background-color: #fff;
 }
 
-@media (--large) {
-  .DotGroup {
-    padding-bottom: 95px;
+@media (max-width: 877px) {
+  .DotGroup > * {
+    width: 10px;
+    height: 10px;
+    margin-right: 13px;
   }
+}
 
+@media (min-width: 1400px) {
   .DotGroup > * {
     width: 16px;
     height: 16px;
     margin-right: 20px;
   }
 }
+
+/* @media (--large) {
+  .DotGroup {
+    padding-bottom: 95px;
+  } 
+
+  .DotGroup > * {
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+  }
+} */
 
 .DotGroup > *:disabled {
   background-color: var(--retune-col-selected);

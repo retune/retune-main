@@ -1,23 +1,13 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {
-  CarouselProvider,
-  Dot,
-  DotGroup,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from 'pure-react-carousel'
+import { CarouselProvider, DotGroup, Slider, Slide } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
 import styles from './index.module.css'
 
 const Quote = ({ quote }) => (
   <div className={styles.Quote}>
-    <blockquote className={classnames(styles.quote, 'mql-xxl mqs-xl')}>
-      {quote.text}
-    </blockquote>
+    <blockquote className={classnames(styles.quote)}>{quote.text}</blockquote>
     <cite className={classnames(styles.citation, 'mql-m mqs-s')}>
       <span className={styles.name}>{quote.name}</span> &mdash;{' '}
       <span className={styles.position}>{quote.position}</span>
@@ -28,7 +18,7 @@ const Quote = ({ quote }) => (
 const Quotes = ({ quotes }) => (
   <CarouselProvider
     naturalSlideWidth={375}
-    naturalSlideHeight={293 - 32 - 10}
+    naturalSlideHeight={200 - 32 - 10}
     totalSlides={quotes.length}
   >
     <section className={styles.Quotes}>
