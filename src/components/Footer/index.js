@@ -2,6 +2,8 @@ import * as React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
 
+import Social from '../Social'
+
 import * as urls from '../../lib/urls'
 
 import styles from './index.module.css'
@@ -18,9 +20,15 @@ const Infos = () => (
     </div>
 
     <div className={styles.newsletter}>
-      <a className="link link-white" href={urls.newsletterPath()}>
-        👉 Get our Newsletter!
-      </a>
+      <div>
+        <a className="link link-white" href={urls.newsletterPath()}>
+          👉 Get our Newsletter!
+        </a>
+      </div>
+    </div>
+
+    <div className={styles.social}>
+      <Social theme="dark" />
     </div>
 
     <ul className={classnames(styles.links, 'mql-m mqs-s')}>
@@ -34,11 +42,6 @@ const Infos = () => (
           Datenschuz / Privacy
         </Link>
       </li>
-      {/*
-      <li>
-        <a href="">Contact</a>
-      </li>
-      */}
     </ul>
   </section>
 )

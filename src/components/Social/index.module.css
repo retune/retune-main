@@ -1,0 +1,11 @@
+.Social > * {
+  margin-right: 22px;
+}
+
+.Social a {
+  opacity: 0.85;
+}
+
+.Social a:hover {
+  opacity: 1;
+}

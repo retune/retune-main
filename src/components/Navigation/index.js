@@ -5,6 +5,8 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import * as urls from '../../lib/urls'
 import mergeResultsIntoItems from '../../lib/mergeResultsIntoItems'
 
+import Social from '../Social'
+
 import styles from './index.module.css'
 
 const NavigationLink = ({ children, to, colour = 'black' }) => (
@@ -109,6 +111,10 @@ const Navigation = ({ open }) => (
                   </NavigationLink>
                 </li>
               </ul>
+
+              <div className={styles.social}>
+                <Social />
+              </div>
             </div>
           </div>
 

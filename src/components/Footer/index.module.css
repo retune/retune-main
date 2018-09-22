@@ -29,9 +29,13 @@
   display: block;
 }
 
+.social {
+  margin-bottom: 16px;
+}
+
 .links {
   order: 10;
-  align-self: end;
+  align-self: start;
 
   list-style: none;
   margin: 0;
@@ -64,27 +68,38 @@
 }
 
 /* Grid layout */
-@media (--large) {
+@media (min-width: 800px) {
   .Footer {
     padding: 48px;
   }
 
   .Infos {
     display: grid;
-    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'company newsletter' 'links .';
+    grid-row-gap: 40px;
   }
 
   .company {
     display: block;
+    grid-area: company;
+  }
+
+  .social {
+    grid-area: newsletter;
+    margin-left: auto;
+    margin-bottom: 0;
   }
 
   .newsletter {
-    display: block;
-    justify-content: center;
+    margin: 0;
+    grid-area: newsletter;
+    margin-right: auto;
   }
 
   .links {
     order: 0;
+    grid-area: links;
   }
 }
