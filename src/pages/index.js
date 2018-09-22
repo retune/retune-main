@@ -31,6 +31,7 @@ const IndexPage = ({ data }) => {
     <Layout pageTitle={<NowCast />}>
       <Intro />
       <Latest
+        parentUrl="/"
         className={styles.latest}
         innerClassName={styles.latestInner}
         items={latest}

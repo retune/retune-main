@@ -23,6 +23,7 @@ const sectionUrlForType = type => {
 
 const Item = item => {
   const {
+    parentUrl,
     theme,
     id,
     type,
@@ -54,7 +55,7 @@ const Item = item => {
         )}
       </p>
 
-      <Link to={url}>
+      <Link to={url} state={{ backTo: parentUrl }}>
         <Image
           className={styles.image}
           source={image}

@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import classnames from 'classnames'
 
 import Circle from '../Circle'
+import Icon from '../Icon'
 import Navigation from '../Navigation'
 
 import styles from './index.module.css'
@@ -132,6 +133,12 @@ class Masthead extends React.Component {
           <div className={classnames(styles.feature, 'ellipsis', fontClasses)}>
             {pageTitle}
           </div>
+
+          {this.props.backTo && (
+            <Link to={this.props.backTo} className={styles.back}>
+              <Icon type="close" />
+            </Link>
+          )}
         </div>
 
         <Navigation open={open} />

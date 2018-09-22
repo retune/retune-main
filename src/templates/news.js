@@ -7,12 +7,13 @@ import { newsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
-const NewsPage = ({ data }) => {
+const NewsPage = ({ location, data }) => {
   console.log(data)
   const split =
     splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
   return (
     <ItemPage
+      backTo={location.state.backTo}
       url={newsPath({ id: data.post.id })}
       item={data.post}
       related={split.future}

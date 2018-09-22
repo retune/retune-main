@@ -29,6 +29,7 @@ class Layout extends React.Component {
 
   render() {
     const {
+      backTo = null,
       breadcrumbs,
       className = '',
       children,
@@ -55,6 +56,7 @@ class Layout extends React.Component {
             pageTitle={pageTitle}
             onOpen={this.onOpen}
             onClose={this.onClose}
+            backTo={backTo}
           />
         )}
         <div className={classnames(className, styles.content)}>{children}</div>

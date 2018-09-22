@@ -7,12 +7,13 @@ import { eventPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
-const EventPage = ({ data }) => {
+const EventPage = ({ location, data }) => {
   const split =
     splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
-  console.log('data', data)
+  console.log('data', data, location.state)
   return (
     <ItemPage
+      backTo={location.state.backTo}
       url={eventPath(data.event)}
       item={data.event}
       related={split.future}

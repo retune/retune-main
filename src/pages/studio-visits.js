@@ -51,7 +51,11 @@ const StudioVisitsPage = ({ data }) => {
       <section>
         <h2 className="mql-xxl">Upcoming</h2>
         {events.future && Array.isArray(events.future) ? (
-          <Latest theme="light" items={events.future} />
+          <Latest
+            parentUrl={studioVisitsPath()}
+            theme="light"
+            items={events.future}
+          />
         ) : (
           'No upcoming events'
         )}

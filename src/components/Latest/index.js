@@ -6,6 +6,7 @@ import Item from './Item'
 import styles from './index.module.css'
 
 const Latest = ({
+  parentUrl,
   theme = 'dark',
   items,
   className = '',
@@ -14,7 +15,7 @@ const Latest = ({
   <div className={classnames(styles.Latest, styles[theme], className)}>
     <div className={classnames(styles.Inner, innerClassName)}>
       {items.map(item => (
-        <Item key={item.id} theme={theme} {...item} />
+        <Item key={item.id} theme={theme} parentUrl={parentUrl} {...item} />
       ))}
     </div>
   </div>

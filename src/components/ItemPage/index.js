@@ -25,7 +25,7 @@ const sectionUrlForType = type => {
   }
 }
 
-const ItemPage = ({ url, item, related = [] }) => {
+const ItemPage = ({ backTo, url, item, related = [] }) => {
   const date = item.startDate || item.publishedDate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
@@ -49,6 +49,7 @@ const ItemPage = ({ url, item, related = [] }) => {
     <Layout
       breadcrumbs={breadcrumbs}
       pageTitle="Retune — Creative Technology Laboratory"
+      backTo={backTo}
     >
       <section className={styles.container}>
         <div className={styles.inner}>
@@ -103,6 +104,7 @@ const ItemPage = ({ url, item, related = [] }) => {
                 Other events
               </h3>
               <Latest
+                parentUrl={null}
                 theme="light"
                 items={related}
                 innerClassName={styles.relatedLatestInner}

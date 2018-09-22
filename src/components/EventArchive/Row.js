@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
+import { navigate } from 'gatsby'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
@@ -10,12 +11,11 @@ import styles from './index.module.css'
 
 const classes = cl => classnames(cl, 'mql-m mqs-s')
 
-// TODO: use gatsby link to avoid page refresh
 const Row = ({ event }) => {
   const url = eventPath(event)
 
   return (
-    <tr onClick={() => (window.location = url)}>
+    <tr onClick={() => navigate(url, { state: { backTo: '/' } })} role="link">
       <td className={classnames(styles.type, 'mql-m mqs-m serif')}>
         {event.title}
       </td>
