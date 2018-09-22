@@ -7,8 +7,12 @@ const path = require('path')
 const { eventPath, newsPath } = require('./src/lib/urls')
 
 const createItemPage = (templateName, createPage, createPath) => ({ node }) => {
+  const urlPath = createPath(node)
+
+  console.log('URL path', urlPath)
+
   createPage({
-    path: createPath({ id: node.id }),
+    path: urlPath,
     component: path.resolve(`./src/templates/${templateName}.js`),
     context: {
       // Data passed to context is available
@@ -28,6 +32,8 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               id
+              title
+              type
             }
           }
         }
@@ -36,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               id
+              title
             }
           }
         }

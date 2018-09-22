@@ -13,7 +13,7 @@ const EventPage = ({ data }) => {
   console.log('data', data)
   return (
     <ItemPage
-      url={eventPath({ id: data.event.id })}
+      url={eventPath(data.event)}
       item={data.event}
       related={split.future}
     />

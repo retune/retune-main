@@ -20,20 +20,22 @@ const sectionUrlForType = type => {
   }
 }
 
-const Item = ({
-  id,
-  type,
-  title,
-  subtitle,
-  publishedDate,
-  startDate,
-  ticketURL,
-  mainImage,
-  mainImages,
-}) => {
+const Item = item => {
+  const {
+    id,
+    type,
+    title,
+    subtitle,
+    publishedDate,
+    startDate,
+    ticketURL,
+    mainImage,
+    mainImages,
+  } = item
+
   const date = startDate || publishedDate
   const typeLabel = type ? <EventType type={type} /> : 'News'
-  const url = type ? urls.eventPath({ id }) : urls.newsPath({ id })
+  const url = type ? urls.eventPath(item) : urls.newsPath(item)
   const typeUrl = sectionUrlForType(type)
   const image = mainImages ? mainImages[0] : mainImage
 

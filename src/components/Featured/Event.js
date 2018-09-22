@@ -22,6 +22,7 @@ const sectionUrlForType = type => {
 const Event = ({ event }) => {
   const type = <EventType plural type={event.type} />
   const typeUrl = sectionUrlForType(event.type)
+  const url = urls.eventPath(event)
 
   return (
     <li className={styles.Event}>
@@ -31,7 +32,7 @@ const Event = ({ event }) => {
         {typeUrl ? <a href={typeUrl}>{type}</a> : typeUrl}
       </p>
 
-      <a href={urls.eventPath({ id: event.id })}>
+      <a href={url}>
         {event.mainImages && (
           <Image className={styles.image} source={event.mainImages[0]} />
         )}

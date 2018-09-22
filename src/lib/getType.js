@@ -1,3 +1,7 @@
 module.exports = function getType(item) {
-  return item.type ? 'event' : 'news'
+  if (item.type) {
+    return item.type
+  }
+
+  return 'news'
 }
