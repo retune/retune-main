@@ -55,7 +55,42 @@ a,
 a:link,
 a:hover,
 a:visited {
+  text-decoration: none;
   color: var(--retune-col-blue);
+}
+
+.links-within a,
+a.link {
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.mql-xxl .link,
+.mql-xl .link,
+.mql-m .link {
+  border-bottom-width: 2px;
+}
+
+.links-within a:hover,
+a:hover.link {
+  border-bottom-color: var(--retune-col-blue);
+}
+
+a.link.link-black {
+  color: #000;
+}
+
+a:hover.link.link-black {
+  border-bottom-color: #000;
+}
+
+a.link.link-white {
+  color: #fff;
+}
+
+a:hover.link.link-white {
+  border-bottom-color: #fff;
 }
 
 :root {

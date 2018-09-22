@@ -7,14 +7,20 @@ import mergeResultsIntoItems from '../../lib/mergeResultsIntoItems'
 
 import styles from './index.module.css'
 
-const NavigationLink = ({ children, to }) => (
-  <Link className={classnames(styles.NavigationLink)} to={to}>
+const NavigationLink = ({ children, to, colour = 'black' }) => (
+  <Link
+    className={classnames(styles.NavigationLink, 'link', `link-${colour}`)}
+    to={to}
+  >
     {children}
   </Link>
 )
 
-const ExternalLink = ({ children, to }) => (
-  <a className={classnames(styles.NavigationLink)} href={to}>
+const ExternalLink = ({ children, to, colour = 'black' }) => (
+  <a
+    className={classnames(styles.NavigationLink, 'link', `link-${colour}`)}
+    href={to}
+  >
     {children}
   </a>
 )
@@ -64,7 +70,7 @@ const Navigation = ({ open }) => (
 
             <div className={classnames(styles.section, styles.services)}>
               <h3 className={styles.header}>
-                <NavigationLink to={urls.servicesPath()}>
+                <NavigationLink colour="blue" to={urls.servicesPath()}>
                   Services
                 </NavigationLink>
               </h3>

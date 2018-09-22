@@ -88,6 +88,10 @@
   color: var(--retune-col-blue);
 }
 
+.link:hover .title span {
+  text-decoration: underline;
+}
+
 .title:after {
   content: ' -> ';
   color: #000;

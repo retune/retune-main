@@ -1,7 +1,16 @@
 import * as React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
+
+import * as urls from '../../lib/urls'
 
 import styles from './index.module.css'
+
+const Hyperlink = ({ children, to }) => (
+  <Link className="link link-white" to={to}>
+    {children}
+  </Link>
+)
 
 export default () => (
   <section className={classnames(styles.Intro, styles.isFullViewport)}>
@@ -11,7 +20,12 @@ export default () => (
     </p>
 
     <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
-      Festivals, Events and Art Production.<br />For clients and our community.
+      <Hyperlink to={urls.festivalsPath()}>Festivals</Hyperlink>,{' '}
+      <Hyperlink to={urls.studioVisitsPath()}>events</Hyperlink> and Art
+      Production.
+      <br />
+      For <Hyperlink to={urls.servicesPath()}>clients</Hyperlink> and our
+      community.
     </p>
   </section>
 )

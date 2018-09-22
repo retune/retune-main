@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
 
 import EventType from '../EventType'
 import Image from '../Image'
@@ -29,22 +30,30 @@ const Event = ({ event }) => {
       <p
         className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}
       >
-        {typeUrl ? <a href={typeUrl}>{type}</a> : typeUrl}
+        {typeUrl ? (
+          <Link className="link link-black" to={typeUrl}>
+            {type}
+          </Link>
+        ) : (
+          typeUrl
+        )}
       </p>
 
-      <a href={url}>
+      <Link className={styles.link} to={url}>
         {event.mainImages && (
           <Image className={styles.image} source={event.mainImages[0]} />
         )}
         <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
-          {event.title}
-          {isNully(event.subtitle) ? '' : ': '}
-          {event.subtitle}
+          <span>
+            {event.title}
+            {isNully(event.subtitle) ? '' : ': '}
+            {event.subtitle}
+          </span>
         </h4>
         <p className={classnames(styles.summary, 'mqs-m mql-m')}>
           {event.summary}
         </p>
-      </a>
+      </Link>
     </li>
   )
 }

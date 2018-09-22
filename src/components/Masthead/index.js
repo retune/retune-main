@@ -72,7 +72,7 @@ class Masthead extends React.Component {
       ...this.props.breadcrumbs,
     ].map(({ to, name }, index, array) => {
       const parts = [
-        <Link to={to} className={styles.site}>
+        <Link to={to} className={classnames(styles.site, 'link link-white')}>
           {name}
         </Link>,
       ]
@@ -84,7 +84,6 @@ class Masthead extends React.Component {
       return parts
     })
 
-    // return [<span className={styles.sep}>{root}</span>, ...breadcrumbs]
     return breadcrumbs
   }
 

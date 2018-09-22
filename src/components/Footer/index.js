@@ -11,27 +11,34 @@ const Infos = () => (
     <div className={styles.company}>
       <span>Retune</span>
       <span>
-        Creative Technology<br />Laboratory
+        Creative Technology
+        <br />
+        Laboratory
       </span>
     </div>
 
     <div className={styles.newsletter}>
-      <a href={urls.newsletterPath()}>👉 Get our Newsletter!</a>
+      <a className="link link-white" href={urls.newsletterPath()}>
+        👉 Get our Newsletter!
+      </a>
     </div>
 
     <ul className={classnames(styles.links, 'mql-m mqs-s')}>
       <li>
-        <Link to={urls.imprintPath()}>Imprint</Link>
+        <Link className="link link-white" to={urls.imprintPath()}>
+          Imprint
+        </Link>
       </li>
       <li>
-        <a href="">Legal Notice</a>
+        <Link className="link link-white" to={urls.privacyPath()}>
+          Datenschuz / Privacy
+        </Link>
       </li>
-      <li>
-        <Link to={urls.privacyPath()}>Datenschuz / Privacy</Link>
-      </li>
+      {/*
       <li>
         <a href="">Contact</a>
       </li>
+      */}
     </ul>
   </section>
 )

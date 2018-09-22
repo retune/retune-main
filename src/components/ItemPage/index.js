@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
@@ -52,7 +53,13 @@ const ItemPage = ({ url, item, related = [] }) => {
       <section className={styles.container}>
         <div className={styles.inner}>
           <div className={classnames(styles.type, 'mono', 'mql-s mqs-s')}>
-            {typeUrl ? <a href={typeUrl.to}>{typeLabel}</a> : typeLabel}
+            {typeUrl ? (
+              <Link to={typeUrl.to} className="link link-black">
+                {typeLabel}
+              </Link>
+            ) : (
+              typeLabel
+            )}
           </div>
 
           <header className={styles.header}>
@@ -79,7 +86,9 @@ const ItemPage = ({ url, item, related = [] }) => {
 
           {item.ticketURL && (
             <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
-              <a href={item.ticketURL}>Get ticket</a>
+              <a className="link" href={item.ticketURL}>
+                Get ticket
+              </a>
             </p>
           )}
 

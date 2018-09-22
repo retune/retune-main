@@ -62,6 +62,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
     className={classnames(styles.Festival)}
     contentClassName={classnames(styles.FestivalContent)}
     heading={<span className={styles.title}>{event.title}</span>}
+    iconSize="medium"
   >
     <div className={styles.image}>
       {event.mainImages && <Flipbook images={event.mainImages} />}
@@ -72,16 +73,16 @@ const Festival = ({ collapsible, event, isMain = true }) => (
         <div>{event.venue}</div>
         <div>{event.location}</div>
         <div>
-          <FormattedDate date={event.startDate} />&mdash;<FormattedDate
-            date={event.endDate}
-          />
+          <FormattedDate date={event.startDate} />
+          &mdash;
+          <FormattedDate date={event.endDate} />
         </div>
       </div>
 
       {event.externalURL ? (
         <div className={classnames(styles.link, 'mql-m')}>
           <span>
-            <a href={event.externalURL}>
+            <a className="link" href={event.externalURL}>
               {event.externalURL.replace(/^https?:\/\//, '')}
             </a>{' '}
             <span className="mono mql-xs">-&gt;</span>

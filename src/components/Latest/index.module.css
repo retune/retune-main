@@ -37,12 +37,6 @@
   border-color: var(--retune-col-blue);
 }
 
-.EventItem a:link,
-.EventItem a:visited,
-.EventItem a:hover {
-  text-decoration: none;
-}
-
 .dark .EventItem a:link,
 .dark .EventItem a:visited,
 .dark .EventItem a:hover {

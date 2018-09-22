@@ -40,36 +40,10 @@
   margin-left: 18px;
 }
 
-.isOpen a.site:link,
-.isOpen a.site:hover,
-.isOpen a.site:visited {
-  color: #fff;
-  text-decoration: none;
-  padding-bottom: 3px;
-
+.isOpen * {
   user-select: none;
   -moz-user-select: none;
 }
-
-.isOpen a.site:hover {
-  text-decoration: underline;
-}
-
-/* .MastheadInner:before {
-  content: ' ';
-
-  display: block;
-  width: 25px;
-  height: 25px;
-  margin-left: 18px;
-  margin-right: 22px;
-
-  flex-shrink: 0;
-
-  background-color: var(--retune-col-blue);
-  border: solid 2px var(--retune-col-blue);
-  border-radius: 100%;
-} */
 
 .Masthead.isOpen .MastheadInner {
   color: #fff;

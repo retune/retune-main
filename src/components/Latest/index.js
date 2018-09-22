@@ -13,7 +13,9 @@ const Latest = ({
 }) => (
   <div className={classnames(styles.Latest, styles[theme], className)}>
     <div className={classnames(styles.Inner, innerClassName)}>
-      {items.map(item => <Item key={item.id} {...item} />)}
+      {items.map(item => (
+        <Item key={item.id} theme={theme} {...item} />
+      ))}
     </div>
   </div>
 )

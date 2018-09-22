@@ -16,7 +16,6 @@ const FestivalHero = ({ event }) => (
     </div>
     <div className={styles.image}>
       {event.mainImages && <Flipbook images={event.mainImages} />}
-      {/*event.mainImages && <Image source={event.mainImages[0]} />*/}
     </div>
     <div className={classnames(styles.body, 'mql-s mono')}>
       <Markdown source={event.description} />
@@ -24,8 +23,12 @@ const FestivalHero = ({ event }) => (
     <p className={classnames(styles.link, 'mql-xl')}>
       ({' '}
       <span>
-        -&gt; <a href={event.externalURL}>Go to festival site</a>
-      </span>)
+        -&gt;{' '}
+        <a className="link" href={event.externalURL}>
+          Go to festival site
+        </a>
+      </span>
+      )
     </p>
   </div>
 )

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
@@ -22,6 +23,7 @@ const sectionUrlForType = type => {
 
 const Item = item => {
   const {
+    theme,
     id,
     type,
     title,
@@ -38,14 +40,21 @@ const Item = item => {
   const url = type ? urls.eventPath(item) : urls.newsPath(item)
   const typeUrl = sectionUrlForType(type)
   const image = mainImages ? mainImages[0] : mainImage
+  const linkClasses = theme === 'dark' ? 'link link-white' : 'link'
 
   return (
     <div className={classnames(styles.EventItem, 'mql-m mqs-m')}>
       <p className={classnames(styles.type, 'serif', 'mql-l mqs-m')}>
-        {typeUrl ? <a href={typeUrl}>{typeLabel}</a> : typeLabel}
+        {typeUrl ? (
+          <Link className={linkClasses} to={typeUrl}>
+            {typeLabel}
+          </Link>
+        ) : (
+          typeLabel
+        )}
       </p>
 
-      <a href={url}>
+      <Link to={url}>
         <Image
           className={styles.image}
           source={image}
@@ -61,10 +70,10 @@ const Item = item => {
         <time className={styles.date} dateTime={date}>
           <FormattedDate date={date} />
         </time>
-      </a>
+      </Link>
 
       {ticketURL ? (
-        <a className={styles.ticket} href={ticketURL}>
+        <a className={classnames(styles.ticket, linkClasses)} href={ticketURL}>
           Book ticket
         </a>
       ) : null}
