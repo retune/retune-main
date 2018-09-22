@@ -5,6 +5,7 @@
 
   overflow-y: hidden;
   overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
 }
 
 .Latest.dark {
