@@ -104,7 +104,8 @@ class Masthead extends React.Component {
   render() {
     const { pageTitle = '' } = this.props
     const { open } = this.state
-    const siteClasses = classnames(styles.site, 'ellipsis')
+    const fontClasses = 'mql-m mqs-xl'
+    const siteClasses = classnames(styles.site, 'ellipsis', fontClasses)
 
     const siteName = open ? (
       <div className={siteClasses}>{this.renderBreadcrumbs()}</div>
@@ -128,7 +129,7 @@ class Masthead extends React.Component {
 
           {siteName}
 
-          <div className={classnames(styles.feature, 'ellipsis')}>
+          <div className={classnames(styles.feature, 'ellipsis', fontClasses)}>
             {pageTitle}
           </div>
         </div>

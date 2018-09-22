@@ -1,20 +1,29 @@
+@import '../MediaQuery/index.css';
+
 .Circle {
   display: block;
   width: 30px;
   height: 30px;
 
+  flex-grow: 0;
   flex-shrink: 0;
 
   border: solid 2px var(--retune-col-blue);
   border-radius: 100%;
 
-  transition: background-color 300ms ease-in-out;
+  background-color: var(--retune-col-blue);
+}
+
+@media (--small) {
+  .Circle {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .isOpen {
-  background-color: #fff;
+  border-color: #fff;
 }
 
 .isClosed {
-  background-color: var(--retune-col-blue);
 }

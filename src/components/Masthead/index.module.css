@@ -20,12 +20,9 @@
   flex-shrink: 0;
 
   padding: 0;
-
   padding-right: 64px;
 
   height: 100%;
-
-  font-size: 25px;
 
   border: none;
   background: transparent;
@@ -39,6 +36,7 @@
   background: transparent;
   cursor: pointer;
   margin-left: 18px;
+  padding: 0 8px 0 0;
   outline: none;
 }
 
@@ -57,14 +55,14 @@
   border-color: #fff;
 }
 
-@media (--large) {
+/* @media (--large) {
   .MastheadInner:before {
     width: 30px;
     height: 30px;
     margin-left: 46px;
     margin-right: 22px;
   }
-}
+} */
 
 .site .tagline {
   display: none;

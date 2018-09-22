@@ -100,6 +100,12 @@ a:hover.link.link-white {
   --retune-masthead-h: 75px;
 }
 
+@media (--small) {
+  :root {
+    --retune-masthead-h: 55px;
+  }
+}
+
 /* Typography */
 .mqs-xl {
   font-size: 25px;
