@@ -5,7 +5,6 @@ import classnames from 'classnames'
 
 import Circle from '../Circle'
 import Navigation from '../Navigation'
-import getPlatformSeparator from '../../lib/getPlatformSeparator'
 
 import styles from './index.module.css'
 
@@ -65,14 +64,13 @@ class Masthead extends React.Component {
   )
 
   renderBreadcrumbs = () => {
-    // const { root, separator } = getPlatformSeparator()
     const separator = '/'
     const breadcrumbs = [
       { name: 'https://retune.de', to: '/' },
       ...this.props.breadcrumbs,
     ].map(({ to, name }, index, array) => {
       const parts = [
-        <Link to={to} className={classnames(styles.site, 'link link-white')}>
+        <Link to={to} className="link link-white">
           {name}
         </Link>,
       ]
@@ -90,11 +88,12 @@ class Masthead extends React.Component {
   render() {
     const { pageTitle = '' } = this.props
     const { open } = this.state
+    const siteClasses = classnames(styles.site, 'ellipsis')
 
     const siteName = open ? (
-      <div className={styles.site}>{this.renderBreadcrumbs()}</div>
+      <div className={siteClasses}>{this.renderBreadcrumbs()}</div>
     ) : (
-      <span className={styles.site}>{this.renderSiteNameContent()}</span>
+      <span className={siteClasses}>{this.renderSiteNameContent()}</span>
     )
 
     return (
@@ -113,7 +112,9 @@ class Masthead extends React.Component {
 
           {siteName}
 
-          <div className={styles.feature}>{pageTitle}</div>
+          <div className={classnames(styles.feature, 'ellipsis')}>
+            {pageTitle}
+          </div>
         </div>
 
         <Navigation open={open} />

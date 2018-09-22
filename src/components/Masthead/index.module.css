@@ -38,6 +38,7 @@
   background: transparent;
   cursor: pointer;
   margin-left: 18px;
+  outline: none;
 }
 
 .isOpen * {
@@ -78,10 +79,9 @@
 
 .sep {
   display: inline-block;
-  /* padding: 0 0.5rem; */
 }
 
-@media (--large) {
+@media (min-width: 560px) {
   .Masthead:not(.isOpen) .site {
     display: none;
   }
