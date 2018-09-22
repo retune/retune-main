@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
 import Icon from '../Icon'
-import Image from '../Image'
+import PhotoGallery from '../PhotoGallery'
 import Layout from '../Layout'
 import Latest from '../Latest'
 import Markdown from '../Markdown'
@@ -30,10 +30,10 @@ const ItemPage = ({ url, item, related = [] }) => {
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
   const typeUrl = sectionUrlForType(item.type)
-  const image =
+  const images =
     item.mainImages && item.mainImages.length > 0
-      ? item.mainImages[0]
-      : item.mainImage
+      ? item.mainImages
+      : [item.mainImage]
   const breadcrumbs = []
 
   if (typeUrl) {
@@ -74,11 +74,11 @@ const ItemPage = ({ url, item, related = [] }) => {
             </time>
           </header>
 
-          {image && (
+          {images && images.length > 0 ? (
             <div className={styles.image}>
-              <Image source={image} />
+              <PhotoGallery images={images} />
             </div>
-          )}
+          ) : null}
 
           <div className={classnames(styles.body, 'mql-m mqs-m')}>
             {body ? <Markdown source={body} /> : item.summary}
