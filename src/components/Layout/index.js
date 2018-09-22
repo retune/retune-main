@@ -2,32 +2,45 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import classnames from 'classnames'
 
 import Masthead from '../Masthead'
 import Footer from '../Footer'
 
 import './index.css'
+import styles from './index.module.css'
 
-const Layout = ({
-  breadcrumbs,
-  className = '',
-  children,
-  data,
-  pageTitle,
-  wrapped = true,
-}) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
+class Layout extends React.Component {
+  state = {
+    isNavOpen: false,
+  }
+
+  onOpen = () => {
+    this.setState({
+      isNavOpen: true,
+    })
+  }
+
+  onClose = () => {
+    this.setState({
+      isNavOpen: false,
+    })
+  }
+
+  render() {
+    const {
+      breadcrumbs,
+      className = '',
+      children,
+      data,
+      pageTitle,
+      wrapped = true,
+    } = this.props
+
+    const { isNavOpen } = this.state
+
+    return (
+      <div className={isNavOpen ? styles.navOpen : styles.navClosed}>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -40,17 +53,30 @@ const Layout = ({
             breadcrumbs={breadcrumbs}
             siteTitle={data.site.siteMetadata.title}
             pageTitle={pageTitle}
+            onOpen={this.onOpen}
+            onClose={this.onClose}
           />
         )}
-        <div className={className}>{children}</div>
+        <div className={classnames(className, styles.content)}>{children}</div>
         {wrapped && <Footer />}
-      </>
-    )}
+      </div>
+    )
+  }
+}
+
+const LayoutWithQuery = props => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => <Layout {...props} data={data} />}
   />
 )
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+export default LayoutWithQuery

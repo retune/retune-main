@@ -24,7 +24,7 @@ class Masthead extends React.Component {
       {
         open: false,
       },
-      this.removeCloseHandler
+      this.didClose
     )
   }
 
@@ -33,8 +33,24 @@ class Masthead extends React.Component {
       {
         open: true,
       },
-      this.addCloseHandler
+      this.didOpen
     )
+  }
+
+  didClose = () => {
+    this.removeCloseHandler()
+
+    if (this.props.onClose) {
+      this.props.onClose()
+    }
+  }
+
+  didOpen = () => {
+    this.addCloseHandler()
+
+    if (this.props.onOpen) {
+      this.props.onOpen()
+    }
   }
 
   toggle = () => {

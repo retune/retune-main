@@ -2,9 +2,11 @@
 
 .Navigation {
   position: absolute;
+  top: var(--retune-masthead-h);
   left: 0;
   right: 0;
-  top: var(--retune-masthead-h);
+
+  z-index: 10;
 
   background-color: var(--retune-col-grey);
 
@@ -16,6 +18,7 @@
 
 .isClosed {
   height: 0;
+  /* min-height: 0; */
 }
 
 .sections {

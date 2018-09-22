@@ -1,0 +1,11 @@
+@import '../MediaQuery/index.css';
+
+/*
+  Hide the page so that the nav is modal at
+  mobile screen sizes
+*/
+@media (--small) {
+  .navOpen .content {
+    display: none;
+  }
+}
