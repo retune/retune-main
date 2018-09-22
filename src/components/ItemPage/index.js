@@ -102,7 +102,11 @@ const ItemPage = ({ url, item, related = [] }) => {
               >
                 Other events
               </h3>
-              <Latest theme="light" items={related} />
+              <Latest
+                theme="light"
+                items={related}
+                innerClassName={styles.relatedLatestInner}
+              />
             </div>
           )}
         </div>

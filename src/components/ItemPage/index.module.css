@@ -1,5 +1,5 @@
 .inner {
-  margin: 40px 45px;
+  margin: 40px 0;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,6 +12,8 @@
   grid-area: type;
   align-self: center;
   justify-self: center;
+
+  margin-bottom: 16px;
 }
 
 .type a {
@@ -26,10 +28,12 @@
 .header {
   grid-area: meta;
   margin-bottom: 48px;
+  margin-left: 45px;
 }
 
 .image {
   grid-area: image;
+  margin-right: 45px;
 }
 
 .title,
@@ -44,6 +48,7 @@
 .body {
   grid-area: content;
   max-width: 647px;
+  margin-left: 45px;
 }
 
 .body {
@@ -55,17 +60,28 @@
   grid-area: social;
   padding-top: 24px;
   font-weight: normal;
+  margin-right: 45px;
+}
+
+.related:before {
+  content: '';
+  display: block;
+  grid-area: related;
+
+  margin: 32px 45px 32px 45px;
+  padding-bottom: 32px;
+  border-top: 3px solid #000;
 }
 
 .related {
   grid-area: related;
-
-  margin-top: 32px;
-  padding-top: 32px;
-  border-top: 3px solid #000;
 }
 
 .relatedHeading {
   margin-bottom: 32px;
   text-align: center;
+}
+
+.relatedLatestInner {
+  padding-left: 40px;
 }
