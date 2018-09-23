@@ -60,7 +60,7 @@ class Layout extends React.Component {
           />
         )}
         <div className={classnames(className, styles.content)}>{children}</div>
-        {wrapped && <Footer />}
+        {wrapped && <Footer className={styles.footer} />}
       </div>
     )
   }

@@ -46,8 +46,8 @@ const Infos = () => (
   </section>
 )
 
-const Footer = () => (
-  <footer className={styles.Footer}>
+const Footer = ({ className = '' }) => (
+  <footer className={classnames(styles.Footer, className)}>
     <Infos />
   </footer>
 )

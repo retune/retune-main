@@ -5,7 +5,8 @@
   mobile screen sizes
 */
 @media (--small) {
-  .navOpen .content {
+  .navOpen .content,
+  .navOpen .footer {
     display: none;
   }
 }
