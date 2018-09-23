@@ -2,7 +2,14 @@
 
 .StudioVisits {
   position: relative;
-  padding: 24px 16px;
+  padding: 24px 0;
+}
+
+.upcomingHeading,
+.upcomingLatestInner,
+.StudioVisits > *:not(.upcoming) {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /* Above .images */
@@ -46,7 +53,14 @@
 
 @media (--large) {
   .StudioVisits {
-    padding: 24px 50px;
+    padding: 24px 0;
+  }
+
+  .upcomingHeading,
+  .upcomingLatestInner,
+  .StudioVisits > *:not(.upcoming) {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
   .intro {

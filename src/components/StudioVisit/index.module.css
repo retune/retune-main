@@ -27,45 +27,53 @@
   width: 35vw;
 }
 
-@media (--large) {
-}
-
 /*
   Content within the collapsible
 */
 .content {
-  margin-top: 55px;
-  padding: 26px 30px 34px;
+  margin-top: 8px;
+  padding: 16px;
   background-color: #e6e6e6;
 }
 
 .content .facts {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .content .facts p {
   margin: 0;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'info images' 'link caption';
-  grid-column-gap: 50px;
-}
+@media (--large) {
+  .content {
+    margin-top: 25px;
+    padding: 26px 30px 34px;
+  }
 
-.info {
-  grid-area: info;
-}
+  .content .facts {
+    margin-bottom: 50px;
+  }
 
-.images {
-  grid-area: images;
-}
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'info images' 'link caption';
+    grid-column-gap: 50px;
+  }
 
-.link {
-  grid-area: link;
-}
+  .info {
+    grid-area: info;
+  }
 
-.caption {
-  grid-area: caption;
+  .images {
+    grid-area: images;
+  }
+
+  .link {
+    grid-area: link;
+  }
+
+  .caption {
+    grid-area: caption;
+  }
 }

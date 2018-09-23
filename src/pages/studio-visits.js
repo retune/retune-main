@@ -51,10 +51,13 @@ const StudioVisitsPage = ({ data }) => {
         </div>
       </div>
 
-      <section>
-        <h2 className="mql-xxl">Upcoming</h2>
+      <section className={styles.upcoming}>
+        <h2 className={classnames(styles.upcomingHeading, 'mql-xxl')}>
+          Upcoming
+        </h2>
         {events.future && Array.isArray(events.future) ? (
           <Latest
+            innerClassName={styles.upcomingLatestInner}
             parentUrl={studioVisitsPath()}
             theme="light"
             items={events.future}
