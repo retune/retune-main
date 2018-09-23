@@ -22,7 +22,7 @@ const DashedUnderlineHeading = ({ className, text }) => (
   </h3>
 )
 
-const Service = ({ className = '', service }) => {
+const Service = React.forwardRef(({ className = '', service }, ref) => {
   let video = null
 
   if (service.videoId) {
@@ -34,6 +34,7 @@ const Service = ({ className = '', service }) => {
   return (
     <section
       id={slugify(service)}
+      ref={ref}
       data-layout-id={service.layoutId || '1a'}
       className={classnames(styles.Service, className)}
     >
@@ -60,7 +61,7 @@ const Service = ({ className = '', service }) => {
       )}
     </section>
   )
-}
+})
 
 const Title = (
   <React.Fragment>
@@ -77,34 +78,102 @@ const infoContent = (
   </div>
 )
 
-const ServicesPage = ({ data }) => {
-  const services = mergeResultsIntoItems(data.services)
-  const breadcrumbs = [
-    {
-      name: 'Services',
-      to: servicesPath(),
-    },
-  ]
+class ServicesPage extends React.Component {
+  static scrollPauseTimeMs = 1500
 
-  return (
-    <Layout
-      breadcrumbs={breadcrumbs}
-      className={styles.Services}
-      pageTitle="Retune Services — Full Range of Contemporary Solutions "
-    >
-      <Header
-        className={styles.header}
-        heading={<Heading className={styles.heading} title={Title} />}
-        info={<Info>{infoContent}</Info>}
-      />
+  static prepareServices(props) {
+    return mergeResultsIntoItems(props.data.services)
+  }
 
-      <div className={styles.content}>
-        {services.map(service => (
-          <Service key={service.id} service={service} />
-        ))}
-      </div>
-    </Layout>
-  )
+  static getServiceHashes(services) {
+    return services.map(s => slugify(s))
+  }
+
+  static createHashRefs(hashes) {
+    const refs = {}
+    hashes.forEach(hash => {
+      refs[hash] = React.createRef()
+    })
+
+    return refs
+  }
+
+  constructor(props) {
+    super(props)
+
+    const services = ServicesPage.prepareServices(props)
+    const hashes = ServicesPage.getServiceHashes(services)
+
+    this.state = {
+      services,
+      hashes,
+      refs: ServicesPage.createHashRefs(hashes),
+    }
+  }
+
+  componentDidMount() {
+    this.scrollToHash()
+  }
+
+  /*
+    Prevents the browser's default scroll-to-anchor
+    behaviour so that the page intro is visible 
+    before smoothly scrolling to the correct service anchor
+  */
+  scrollToHash() {
+    const hashes = Object.keys(this.state.refs)
+    const targetHash = window.location.hash.replace('#', '')
+
+    if (hashes.includes(targetHash)) {
+      const ref = this.state.refs[targetHash]
+
+      const stopScroll = evt => {
+        window.scrollTo(0, 0)
+      }
+      window.addEventListener('scroll', stopScroll)
+      window.scrollTo(0, 0)
+
+      setTimeout(() => {
+        window.removeEventListener('scroll', stopScroll)
+
+        if (ref.current) {
+          const { top } = ref.current.getBoundingClientRect()
+          window.scrollTo({ top, behavior: 'smooth' })
+        }
+      }, ServicesPage.scrollPauseTimeMs)
+    }
+  }
+
+  render() {
+    const { services, refs } = this.state
+    const breadcrumbs = [
+      {
+        name: 'Services',
+        to: servicesPath(),
+      },
+    ]
+
+    return (
+      <Layout
+        breadcrumbs={breadcrumbs}
+        className={styles.Services}
+        pageTitle="Retune Services — Full Range of Contemporary Solutions "
+      >
+        <Header
+          className={styles.header}
+          heading={<Heading className={styles.heading} title={Title} />}
+          info={<Info>{infoContent}</Info>}
+        />
+
+        <div className={styles.content}>
+          {services.map(service => {
+            const ref = refs[slugify(service)]
+            return <Service key={service.id} ref={ref} service={service} />
+          })}
+        </div>
+      </Layout>
+    )
+  }
 }
 
 export const query = graphql`
