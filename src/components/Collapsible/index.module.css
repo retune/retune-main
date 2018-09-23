@@ -1,3 +1,5 @@
+@import '../MediaQuery/index.css';
+
 .Collapsible {
   border-top-style: solid;
 }
@@ -49,13 +51,20 @@
 }
 
 .title.largeHeading {
-  padding-top: 21px;
-  padding-bottom: 21px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .title.smallHeading {
   padding-top: 9px;
   padding-bottom: 9px;
+}
+
+@media (--large) {
+  .title.largeHeading {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
 }
 
 .isCollapsible .title {
@@ -64,6 +73,7 @@
 
 .disclosureArrow {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .isCollapsed .content {

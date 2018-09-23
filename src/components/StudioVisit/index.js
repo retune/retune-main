@@ -11,7 +11,7 @@ import styles from './index.module.css'
 
 const Heading = ({ event }) => (
   <span className={classnames(styles.heading, 'mql-xl')}>
-    <span className={classnames(styles.title, 'serif')}>{event.title}</span>{' '}
+    <span className={classnames(styles.title, 'serif')}>{event.title}</span>
     <span className={classnames(styles.subtitle)}>{event.subtitle}</span>
   </span>
 )

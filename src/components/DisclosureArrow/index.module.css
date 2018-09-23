@@ -1,9 +1,17 @@
+@import '../MediaQuery/index.css';
+
 .disclosureArrow {
   transition: transform 300ms ease-in-out;
 }
 
 .disclosureArrow.medium {
-  width: 35px;
+  width: 25px;
+}
+
+@media (--large) {
+  .disclosureArrow.medium {
+    width: 35px;
+  }
 }
 
 .isOpen {

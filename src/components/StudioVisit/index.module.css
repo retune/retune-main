@@ -1,15 +1,38 @@
+@import '../MediaQuery/index.css';
+
 .StudioVisit {
 }
 
+/*
+  Heading for the Collapsible row
+*/
 .heading {
   color: var(--retune-col-blue);
+  display: flex;
+}
+
+.title,
+.subtitle {
+  flex-grow: 0;
+  text-align: left;
+}
+
+.title {
+  flex-shrink: 0;
+  padding-right: 20px;
 }
 
 .title {
   display: inline-block;
-  margin-right: 72px;
+  width: 35vw;
 }
 
+@media (--large) {
+}
+
+/*
+  Content within the collapsible
+*/
 .content {
   margin-top: 55px;
   padding: 26px 30px 34px;
