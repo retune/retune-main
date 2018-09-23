@@ -13,9 +13,9 @@ const Vimeo = ({ id, width = '500', height = '281' }) => (
           height: '100%',
         }}
         frameborder="0"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
+        webkitallowFullScreen
+        mozallowFullScreen
+        allowFullScreen
       />
     </div>
     <script src="https://player.vimeo.com/api/player.js" />
