@@ -1,7 +1,7 @@
 @import '../components/MediaQuery/index.css';
 
 .About {
-  padding: 24px 50px;
+  padding: 24px 0;
 }
 
 .heading,
@@ -15,21 +15,15 @@
   padding-bottom: 30px;
 }
 
+.heading,
+.info,
+.section:not(.team) {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .sectionHeading {
   color: var(--retune-col-blue);
-}
-
-.team:before {
-  content: '';
-  display: block;
-  grid-area: border;
-  margin: 0 50px;
-
-  border-top: 1px solid var(--retune-col-blue);
-}
-
-.team {
-  border: none;
 }
 
 @media (--large) {
@@ -48,17 +42,19 @@
   }
 
   .heading {
-    margin-left: 50px;
+    grid-area: heading;
   }
 
   .info {
-    margin-right: 50px;
+    grid-area: info;
   }
 
+  .heading,
   .section:nth-child(odd):not(.team) {
     margin-left: 50px;
   }
 
+  .info,
   .section:nth-child(even):not(.team) {
     margin-right: 50px;
   }
@@ -70,19 +66,22 @@
   .section {
     padding-bottom: 85px;
   }
-
-  .team .sectionHeading {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
 }
 
-.heading {
-  grid-area: heading;
+/*
+  List of team members
+*/
+.team:before {
+  content: '';
+  display: block;
+  grid-area: border;
+  margin: 0 16px;
+
+  border-top: 1px solid var(--retune-col-blue);
 }
 
-.info {
-  grid-area: info;
+.team {
+  border: none;
 }
 
 .team {
@@ -94,7 +93,7 @@
 
 .teamList {
   width: 100%;
-  padding-left: 50px;
+  padding-left: 16px;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -111,6 +110,29 @@
   justify-content: flex-start;
 }
 
+.team .sectionHeading {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+@media (--large) {
+  .team:before {
+    margin: 0 50px;
+  }
+
+  .team .sectionHeading {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .teamList {
+    padding-left: 50px;
+  }
+}
+
+/*
+  Member item
+*/
 .Member {
   display: flex;
   flex-direction: column;

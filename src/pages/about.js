@@ -72,7 +72,7 @@ const AboutPage = ({ data }) => {
       <Section title="Team" className={styles.team}>
         <div className={styles.teamList}>
           <ul className={styles.teamListInner}>
-            {times(10, num => {
+            {/*times(10, num => {
               const member = team[0]
               return (
                 <li key={num}>
@@ -83,8 +83,8 @@ const AboutPage = ({ data }) => {
                   />
                 </li>
               )
-            })}
-            {/*team.map(member => (
+            })*/}
+            {team.map(member => (
               <li key={member.id}>
                 <Member
                   name={member.name}
@@ -92,7 +92,7 @@ const AboutPage = ({ data }) => {
                   avatar={member.image}
                 />
               </li>
-            ))*/}
+            ))}
           </ul>
         </div>
       </Section>
