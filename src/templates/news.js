@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import get from 'lodash/get'
 
 import ItemPage from '../components/ItemPage'
 
@@ -13,7 +14,7 @@ const NewsPage = ({ location, data }) => {
     splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
   return (
     <ItemPage
-      backTo={location.state.backTo}
+      backTo={get(location, 'state.backTo', null)}
       url={newsPath({ id: data.post.id })}
       item={data.post}
       related={split.future}
