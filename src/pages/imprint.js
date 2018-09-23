@@ -23,7 +23,7 @@ const Section = ({
 )
 
 const ImprintPage = ({ data }) => {
-  const region = data.imprint.values
+  const region = data.imprint
   const breadcrumbs = [
     {
       name: region.title,
@@ -32,7 +32,11 @@ const ImprintPage = ({ data }) => {
   ]
 
   return (
-    <Layout breadcrumbs={breadcrumbs} className={styles.Imprint}>
+    <Layout
+      breadcrumbs={breadcrumbs}
+      className={styles.Imprint}
+      pageTitle={region.mastheadTitle}
+    >
       <Heading className={styles.heading} title={region.title} />
       <div className={classnames(styles.info, 'mql-m mqs-s')}>
         <Markdown source={region.info} />
@@ -51,13 +55,12 @@ const ImprintPage = ({ data }) => {
 
 export const query = graphql`
   {
-    imprint: region(name: { eq: "imprint" }) {
-      values {
-        title
-        info
-        content_de
-        content_en
-      }
+    imprint: imprintPage {
+      mastheadTitle
+      title
+      info
+      content_de
+      content_en
     }
   }
 `

@@ -23,7 +23,7 @@ const Section = ({
 )
 
 const PrivacyPage = ({ data }) => {
-  const region = data.imprint.values
+  const region = data.privacy
   const breadcrumbs = [
     {
       name: region.title,
@@ -32,7 +32,11 @@ const PrivacyPage = ({ data }) => {
   ]
 
   return (
-    <Layout breadcrumbs={breadcrumbs} className={styles.Imprint}>
+    <Layout
+      breadcrumbs={breadcrumbs}
+      className={styles.Imprint}
+      pageTitle={region.mastheadTitle}
+    >
       <Heading className={styles.heading} title={region.title} />
 
       <Section title={region.title_de} gridArea="left">
@@ -47,13 +51,11 @@ const PrivacyPage = ({ data }) => {
 
 export const query = graphql`
   {
-    imprint: region(name: { eq: "privacy" }) {
-      values {
-        title
-        info
-        content_de
-        content_en
-      }
+    privacy: privacyPage {
+      mastheadTitle
+      title
+      content_de
+      content_en
     }
   }
 `

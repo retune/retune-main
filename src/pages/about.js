@@ -40,14 +40,14 @@ const AboutRetune = (
 )
 
 const AboutPage = ({ data }) => {
-  const region = data.about.values
+  const region = data.about
   const team = mergeResultsIntoItems(data.team)
 
   return (
     <Layout
       breadcrumbs={breadcrumbs}
       className={styles.About}
-      pageTitle={region.masthead}
+      pageTitle={region.mastheadTitle}
     >
       <Heading className={styles.heading} title={AboutRetune} />
       <Info className={styles.info}>{region.info}</Info>
@@ -89,21 +89,21 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   {
-    about: region(name: { eq: "about" }) {
-      values {
-        title
-        section1Title
-        section1Content
+    about: aboutPage {
+      mastheadTitle
+      info
 
-        section2Title
-        section2Content
+      section1Title
+      section1Content
 
-        section3Title
-        section3Content
+      section2Title
+      section2Content
 
-        section4Title
-        section4Content
-      }
+      section3Title
+      section3Content
+
+      section4Title
+      section4Content
     }
 
     team: allPerson {

@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    homepage: startpage {
+    homepage: startPage {
       showPromo
       promoURL
       featured {
