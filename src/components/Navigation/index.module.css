@@ -13,12 +13,18 @@
   overflow: hidden;
 }
 
+@media (--small) {
+  .Navigation {
+    min-height: calc(100vh - var(--retune-masthead-h));
+  }
+}
+
 .isOpen {
 }
 
 .isClosed {
   height: 0;
-  /* min-height: 0; */
+  min-height: 0;
 }
 
 .sections {
