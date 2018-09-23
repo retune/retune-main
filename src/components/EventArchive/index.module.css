@@ -66,6 +66,10 @@
   cursor: pointer;
 }
 
+.table tbody tr:hover td {
+  text-decoration: underline;
+}
+
 .table th,
 .table td {
   padding: 6px;
