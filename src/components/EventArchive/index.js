@@ -1,5 +1,4 @@
 import * as React from 'react'
-import classnames from 'classnames'
 
 import Header from '../Header'
 
@@ -14,7 +13,11 @@ const EventArchive = ({ events }) => (
 
     <table className={styles.table}>
       <TableHeader />
-      <tbody>{events.map(event => <Row key={event.id} event={event} />)}</tbody>
+      <tbody>
+        {events.map(event => (
+          <Row key={event.id} event={event} />
+        ))}
+      </tbody>
     </table>
   </section>
 )

@@ -21,7 +21,7 @@ const Image = ({ className = '', source, width, height, auto = false }) => {
   } else if (get(source, 'localFile.publicURL')) {
     image = (
       <div className={classes} style={style}>
-        <img src={get(source, 'localFile.publicURL')} />
+        <img src={get(source, 'localFile.publicURL')} alt="" />
       </div>
     )
   }

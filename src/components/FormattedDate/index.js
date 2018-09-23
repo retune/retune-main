@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { DateTime } from 'luxon'
 
 export const formatDate = date =>

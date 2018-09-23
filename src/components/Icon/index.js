@@ -8,8 +8,13 @@ const icons = {
   disclosureArrow,
 }
 
+const alts = {
+  close: 'Close',
+  disclosureArrow: 'Open',
+}
+
 const Icon = ({ className = '', type }) => (
-  <img className={className} src={icons[type]} />
+  <img className={className} src={icons[type]} alt={`${alts[type]} icon`} />
 )
 
 export default Icon

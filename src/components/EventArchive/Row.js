@@ -2,9 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import { navigate } from 'gatsby'
 
-import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
-import isNully from '../../lib/isNully'
 import { eventPath } from '../../lib/urls'
 
 import styles from './index.module.css'

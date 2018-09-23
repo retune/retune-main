@@ -13,6 +13,7 @@ import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './services.module.css'
 
+/*
 const DashedUnderlineHeading = ({ className, text }) => (
   <h3
     className={classnames(styles.DashedUnderlineHeading, className)}
@@ -21,6 +22,7 @@ const DashedUnderlineHeading = ({ className, text }) => (
     {text}
   </h3>
 )
+*/
 
 const Service = React.forwardRef(({ className = '', service }, ref) => {
   let video = null
@@ -34,6 +36,7 @@ const Service = React.forwardRef(({ className = '', service }, ref) => {
   return (
     <section
       id={slugify(service)}
+      tabIndex={-1}
       ref={ref}
       data-layout-id={service.layoutId || '1a'}
       className={classnames(styles.Service, className)}
@@ -121,6 +124,11 @@ class ServicesPage extends React.Component {
     before smoothly scrolling to the correct service anchor
   */
   scrollToHash() {
+    const mastheadHeight = parseInt(
+      window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--retune-masthead-h')
+    )
     const hashes = Object.keys(this.state.refs)
     const targetHash = window.location.hash.replace('#', '')
 
@@ -138,7 +146,9 @@ class ServicesPage extends React.Component {
 
         if (ref.current) {
           const { top } = ref.current.getBoundingClientRect()
-          window.scrollTo({ top, behavior: 'smooth' })
+          window.scrollTo({ top: top - mastheadHeight, behavior: 'smooth' })
+
+          ref.current.querySelector('h2').focus()
         }
       }, ServicesPage.scrollPauseTimeMs)
     }

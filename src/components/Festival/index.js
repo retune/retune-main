@@ -4,7 +4,6 @@ import classnames from 'classnames'
 import Collapsible from '../Collapsible'
 import Flipbook from '../Flipbook'
 import FormattedDate from '../FormattedDate'
-import Image from '../Image'
 import Markdown from '../Markdown'
 import PhotoGallery from '../PhotoGallery'
 
@@ -12,13 +11,14 @@ import styles from './index.module.css'
 
 const markdownRendererReplacements = {
   heading: props => (
+    // eslint-disable-next-line jsx-a11y/heading-has-content
     <h4
       {...props}
       className={classnames(styles.sectionContentHeading, 'sans')}
     />
   ),
-  list: props => {
-    const Component = props.ordered ? 'ol' : 'ul'
+  list: ({ ordered, tight, ...props }) => {
+    const Component = ordered ? 'ol' : 'ul'
 
     return (
       <Component {...props} className={classnames(styles.sectionContentList)} />

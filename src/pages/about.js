@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
-import times from 'lodash/times'
 
 import { Heading, Info } from '../components/Header'
 import Image from '../components/Image'
@@ -72,18 +71,6 @@ const AboutPage = ({ data }) => {
       <Section title="Team" className={styles.team}>
         <div className={styles.teamList}>
           <ul className={styles.teamListInner}>
-            {/*times(10, num => {
-              const member = team[0]
-              return (
-                <li key={num}>
-                  <Member
-                    name={member.name}
-                    role={member.role}
-                    avatar={member.image}
-                  />
-                </li>
-              )
-            })*/}
             {team.map(member => (
               <li key={member.id}>
                 <Member

@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
-import times from 'lodash/times'
 
-import { Heading, Info } from '../components/Header'
+import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
 import { privacyPath } from '../lib/urls'

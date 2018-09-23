@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
-import Icon from '../Icon'
 import PhotoGallery from '../PhotoGallery'
 import Layout from '../Layout'
 import Latest from '../Latest'

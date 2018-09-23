@@ -9,7 +9,7 @@ export default ({ colour = 'white' }) => (
   >
     <path
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke={colour}
       strokeLinecap="round"
       strokeLinejoin="round"

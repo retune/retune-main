@@ -3,7 +3,6 @@ import classnames from 'classnames'
 
 import Collapsible from '../Collapsible'
 import FormattedDate from '../FormattedDate'
-import Image from '../Image'
 import Markdown from '../Markdown'
 import PhotoGallery from '../PhotoGallery'
 

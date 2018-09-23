@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import get from 'lodash/get'
+import { Link } from 'gatsby'
 import classnames from 'classnames'
 
 import Circle from '../Circle'
@@ -87,13 +86,17 @@ class Masthead extends React.Component {
       ...this.props.breadcrumbs,
     ].map(({ to, name }, index, array) => {
       const parts = [
-        <Link to={to} className="link link-white">
+        <Link key={index} to={to} className="link link-white">
           {name}
         </Link>,
       ]
 
       if (index < array.length - 1) {
-        parts.push(<span className={styles.sep}>{separator}</span>)
+        parts.push(
+          <span key={`sep-${index}`} className={styles.sep}>
+            {separator}
+          </span>
+        )
       }
 
       return parts

@@ -1,8 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
 
-import Collapsible from '../Collapsible'
-import Image from '../Image'
 import Flipbook from '../Flipbook'
 import Markdown from '../Markdown'
 

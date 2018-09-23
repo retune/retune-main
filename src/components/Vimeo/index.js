@@ -4,6 +4,7 @@ const Vimeo = ({ id, width = '500', height = '281' }) => (
   <React.Fragment>
     <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
       <iframe
+        title="Video"
         src={`https://player.vimeo.com/video/${id}`}
         style={{
           position: 'absolute',
@@ -12,9 +13,9 @@ const Vimeo = ({ id, width = '500', height = '281' }) => (
           width: '100%',
           height: '100%',
         }}
-        frameborder="0"
-        webkitallowFullScreen
-        mozallowFullScreen
+        frameBorder="0"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
         allowFullScreen
       />
     </div>

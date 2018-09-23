@@ -12,10 +12,10 @@ const labelForEvenType = type => {
 }
 
 const EventType = ({ plural = false, type }) => (
-  <>
+  <React.Fragment>
     {labelForEvenType(type)}
     {plural ? 's' : ''}
-  </>
+  </React.Fragment>
 )
 
 export default EventType

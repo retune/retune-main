@@ -22,7 +22,10 @@ const Infos = () => (
     <div className={styles.newsletter}>
       <div>
         <a className="link link-white" href={urls.newsletterPath()}>
-          👉 Get our Newsletter!
+          <span role="img" aria-label="Backhand index-finger pointing right">
+            👉
+          </span>{' '}
+          Get our Newsletter!
         </a>
       </div>
     </div>

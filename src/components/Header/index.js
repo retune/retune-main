@@ -16,12 +16,12 @@ export const Heading = ({ level = '1', title, className = '' }) => {
 }
 
 export const Info = ({ className = '', children }) => (
-  <p className={classnames(styles.info, 'mql-m mqs-xl', className)}>
+  <div className={classnames(styles.info, 'mql-m mqs-xl', className)}>
     {children ||
       `Retune is a Berlin-based community platform at the intersection of Art,
     Design and Technology. We organize the biennial Retune Festival, Studio
     Visits and workshops.`}
-  </p>
+  </div>
 )
 
 const Header = ({ level = '1', heading, info, title, className = '' }) => {

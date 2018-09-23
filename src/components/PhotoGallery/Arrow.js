@@ -10,10 +10,10 @@ const Arrow = ({ className }) => (
   >
     <path
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke="#FFF"
-      stroke-linecap="square"
-      stroke-width="2"
+      strokeLinecap="square"
+      strokeWidth="2"
       d="M43.377 43.539L2.402 84.514l-.137.137-.274-.274.137-.137 40.975-40.975L2.128 2.289l-.137-.137.274-.274.137.137 41.112 41.113.137.137-.274.274z"
     />
   </svg>

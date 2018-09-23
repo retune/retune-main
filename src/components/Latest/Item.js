@@ -25,7 +25,6 @@ const Item = item => {
   const {
     parentUrl,
     theme,
-    id,
     type,
     title,
     subtitle,

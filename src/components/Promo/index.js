@@ -4,7 +4,7 @@ import image from '../../assets/promo.svg'
 import styles from './index.module.css'
 
 const Promo = ({ url }) => {
-  const content = <img src={image} />
+  const content = <img src={image} alt="" />
 
   return (
     <section className={styles.Promo}>
