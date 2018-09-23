@@ -9,11 +9,11 @@ export default ({ colour = 'white' }) => (
   >
     <g
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke={colour}
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       transform="translate(1 1)"
     >
       <rect width="25" height="25" rx="5" />

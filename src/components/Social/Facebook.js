@@ -11,9 +11,9 @@ export default ({ colour = 'white' }) => (
       fill="none"
       fill-rule="evenodd"
       stroke={colour}
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       d="M14 1h-3.545c-3.264 0-5.91 2.798-5.91 6.25V11H1v5h3.545v10h4.728V16h3.545L14 11H9.273V7.25c0-.69.529-1.25 1.182-1.25H14V1z"
     />
   </svg>
