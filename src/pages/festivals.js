@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
-import { Heading } from '../components/Header'
+import Header, { Heading, Info } from '../components/Header'
 import Festival from '../components/Festival'
 import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
@@ -37,8 +37,10 @@ const FestivalsPage = ({ data }) => {
       pageTitle="Retune Festival — Art, Design and Technology"
     >
       <div className={styles.intro}>
-        <Heading className={styles.heading} title={Title} />
-        <div className={classnames(styles.info, 'mql-m mqs-s')}>{info}</div>
+        <Header
+          heading={<Heading className={styles.heading} title={Title} />}
+          info={<Info>{info}</Info>}
+        />
 
         <div className={styles.images}>
           <PhotoGallery caption={false} images={images} />
@@ -47,7 +49,9 @@ const FestivalsPage = ({ data }) => {
 
       <div>
         <Hero event={latest} />
-        {rest.map(event => <Festival key={event.id} event={event} />)}
+        {rest.map(event => (
+          <Festival key={event.id} event={event} />
+        ))}
       </div>
 
       <div className={classnames(styles.outro, 'mql-m')}>

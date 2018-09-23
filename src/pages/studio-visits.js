@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
-import { Heading } from '../components/Header'
+import Header, { Heading, Info } from '../components/Header'
 import Latest from '../components/Latest'
 import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
@@ -40,8 +40,11 @@ const StudioVisitsPage = ({ data }) => {
       pageTitle="Retune Studio Visits — Ongoing Series of Insights and Exchange"
     >
       <div className={styles.intro}>
-        <Heading className={styles.heading} title={Title} />
-        <div className={classnames(styles.info, 'mql-m mqs-s')}>{info}</div>
+        <Header
+          className={styles.header}
+          heading={<Heading className={styles.heading} title={Title} />}
+          info={<Info>{info}</Info>}
+        />
 
         <div className={styles.images}>
           <PhotoGallery caption={false} images={images} />

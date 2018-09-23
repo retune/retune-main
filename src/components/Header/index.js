@@ -16,7 +16,7 @@ export const Heading = ({ level = '1', title, className = '' }) => {
 }
 
 export const Info = ({ className = '', children }) => (
-  <p className={classnames(styles.info, 'mql-m mqs-s', className)}>
+  <p className={classnames(styles.info, 'mql-m mqs-xl', className)}>
     {children ||
       `Retune is a Berlin-based community platform at the intersection of Art,
     Design and Technology. We organize the biennial Retune Festival, Studio
@@ -24,11 +24,11 @@ export const Info = ({ className = '', children }) => (
   </p>
 )
 
-const Header = ({ level = '1', title, className = '' }) => {
+const Header = ({ level = '1', heading, info, title, className = '' }) => {
   return (
     <div className={classnames(styles.meta, className)}>
-      <Heading level={level} title={title} />
-      <Info />
+      {heading ? heading : <Heading level={level} title={title} />}
+      {info ? info : <Info />}
     </div>
   )
 }

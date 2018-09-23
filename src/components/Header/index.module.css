@@ -2,7 +2,6 @@
 
 .meta {
   display: block;
-  margin-bottom: 35px;
 }
 
 .heading {
@@ -15,8 +14,6 @@
   .meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    margin-bottom: 91px;
   }
 
   .heading {

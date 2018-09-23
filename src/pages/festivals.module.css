@@ -1,23 +1,26 @@
 @import '../components/MediaQuery/index.css';
 
 .Festivals {
-  padding: 24px 50px;
+  padding: 24px 16px;
 }
 
 /* Page intro */
-.intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'left right' 'images images';
-}
+@media (--large) {
+  .Festivals {
+    padding: 24px 50px;
+  }
 
-.heading {
-  grid-area: left;
-}
+  .images {
+    grid-area: images;
+    margin-top: -60px;
+    margin-bottom: 50px;
+  }
 
-.info {
-  grid-area: right;
-  margin-bottom: 50px;
+  .outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+  }
 }
 
 /*
@@ -34,15 +37,9 @@
 
 .images {
   width: 100%;
-  margin-top: -60px;
-
-  grid-area: images;
+  margin-top: 16px;
 }
 
 .outro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
-
   margin-top: 116px;
 }
