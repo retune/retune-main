@@ -36,7 +36,6 @@ const Service = React.forwardRef(({ className = '', service }, ref) => {
   return (
     <section
       id={slugify(service)}
-      tabIndex={-1}
       ref={ref}
       data-layout-id={service.layoutId || '1a'}
       className={classnames(styles.Service, className)}
