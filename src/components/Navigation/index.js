@@ -79,7 +79,7 @@ const Navigation = ({ open }) => (
               <ul className={classnames(styles.links, 'list-reset')}>
                 {services.map(service => (
                   <li key={service.id}>
-                    <NavigationLink to={`${urls.servicesPath()}#${service.id}`}>
+                    <NavigationLink to={`${urls.servicesPath(service)}`}>
                       {service.name}
                     </NavigationLink>
                   </li>

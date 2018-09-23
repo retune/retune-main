@@ -8,7 +8,7 @@ import Markdown from '../components/Markdown'
 import PhotoGallery from '../components/PhotoGallery'
 import Vimeo from '../components/Vimeo'
 
-import { servicesPath } from '../lib/urls'
+import { servicesPath, slugify } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './services.module.css'
@@ -33,10 +33,11 @@ const Service = ({ className = '', service }) => {
 
   return (
     <section
+      id={slugify(service)}
       data-layout-id={service.layoutId || '1a'}
       className={classnames(styles.Service, className)}
     >
-      <h2 id={service.id} className={classnames(styles.name, 'mql-xxl mqs-xl')}>
+      <h2 className={classnames(styles.name, 'mql-xxl mqs-xl')}>
         {service.name}
       </h2>
 
