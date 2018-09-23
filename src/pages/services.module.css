@@ -1,63 +1,59 @@
 @import '../components/MediaQuery/index.css';
 
+/*
+
+Page layout
+*/
 .Services {
   padding-top: 30px;
-  padding-bottom: 314px;
   background-color: var(--retune-col-grey);
+}
+
+.header {
+  margin-bottom: 35px;
+}
+
+.heading .break {
+  display: block;
 }
 
 .heading,
 .info {
   color: var(--retune-col-blue);
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-.info {
-  padding-top: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .info p {
   margin: 0;
 }
 
-.Service {
-  padding: 24px 50px;
-  border-top: 4px solid #fff;
-}
-
 @media (--large) {
   .Services {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 54px;
-    grid-template-areas: 'heading info' '. .' '. .' 'content content';
-  }
-
-  .heading,
-  .info {
-    padding-bottom: 179px;
-  }
-
-  .heading .break {
-    display: block;
+    padding-bottom: 314px;
   }
 
   .section {
     padding-bottom: 85px;
   }
+
+  .header {
+    margin-bottom: 131px;
+  }
+
+  .heading,
+  .info {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
-.heading {
-  grid-area: heading;
-}
-
-.info {
-  grid-area: info;
-}
-
-.content {
-  grid-area: content;
+/*
+  Service layout
+*/
+.Service {
+  padding: 24px 50px;
+  border-top: 4px solid #fff;
 }
 
 @media (--large) {
@@ -66,6 +62,18 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 50px;
     grid-row-gap: 50px;
+  }
+
+  .Service .heading {
+    grid-area: heading;
+  }
+
+  .Service .info {
+    grid-area: info;
+  }
+
+  .Service .content {
+    grid-area: content;
   }
 
   [data-layout-id='1a'] {
@@ -137,6 +145,7 @@
 }
 
 .clients {
+  padding-top: 16px;
   text-align: center;
 }
 
@@ -148,6 +157,16 @@
   padding: 0;
 }
 
+.description,
+.clients,
+.video,
+.photoGallery {
+  padding-bottom: 16px;
+}
+
+/*
+  Dashed underline heading effects
+*/
 .DashedUnderlineHeading {
 }
 

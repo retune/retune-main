@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
 
-import { Heading } from '../components/Header'
+import Header, { Heading, Info } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
 import PhotoGallery from '../components/PhotoGallery'
@@ -36,11 +36,11 @@ const Service = ({ className = '', service }) => {
       data-layout-id={service.layoutId || '1a'}
       className={classnames(styles.Service, className)}
     >
-      <h2 id={service.id} className={classnames(styles.name, 'mql-xxl')}>
+      <h2 id={service.id} className={classnames(styles.name, 'mql-xxl mqs-xl')}>
         {service.name}
       </h2>
 
-      <div className={classnames(styles.description, 'mql-l serif')}>
+      <div className={classnames(styles.description, 'mql-l msq-m serif')}>
         <Markdown source={service.description} />
       </div>
 
@@ -53,11 +53,7 @@ const Service = ({ className = '', service }) => {
       {video && <div className={classnames(styles.video)}>{video}</div>}
 
       {service.clients && (
-        <div className={classnames(styles.clients, 'mql-s mono')}>
-          <DashedUnderlineHeading
-            className="mql-s"
-            text="Who we did this for"
-          />
+        <div className={classnames(styles.clients, 'mql-s mqs-m mono')}>
           <Markdown source={service.clients} />
         </div>
       )}
@@ -69,6 +65,15 @@ const Title = (
   <React.Fragment>
     <span className={styles.break}>Services</span> Case Studies
   </React.Fragment>
+)
+
+const infoContent = (
+  <div className={styles.info}>
+    <p>We love our clients.</p>
+    <p>Our clients love us.</p>
+    <p>Call us.</p>
+    <p>We‘ll do something together</p>
+  </div>
 )
 
 const ServicesPage = ({ data }) => {
@@ -86,13 +91,11 @@ const ServicesPage = ({ data }) => {
       className={styles.Services}
       pageTitle="Retune Services — Full Range of Contemporary Solutions "
     >
-      <Heading className={styles.heading} title={Title} />
-      <div className={classnames(styles.info, 'mql-m')}>
-        <p>We love our clients.</p>
-        <p>Our clients love us.</p>
-        <p>Call us.</p>
-        <p>We‘ll do something together</p>
-      </div>
+      <Header
+        className={styles.header}
+        heading={<Heading className={styles.heading} title={Title} />}
+        info={<Info>{infoContent}</Info>}
+      />
 
       <div className={styles.content}>
         {services.map(service => (
