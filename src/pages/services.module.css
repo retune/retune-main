@@ -84,11 +84,11 @@ Page layout
     grid-template-areas: 'heading heading heading heading' 'video video content content' 'photoGallery photoGallery photoGallery clients';
   }
 
-  [data-layout-id='2'] {
+  [data-layout-id='2a'] {
     grid-template-areas: 'heading heading heading heading' 'content photoGallery photoGallery photoGallery';
   }
 
-  [data-layout-id='2'] .video {
+  [data-layout-id='2a'] .video {
     display: none;
   }
 
