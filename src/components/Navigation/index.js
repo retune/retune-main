@@ -39,8 +39,12 @@ const Navigation = ({ open }) => (
                 name {
                   text
                 }
-                #description
-                #clients
+                description {
+                  text
+                }
+                clients {
+                  text
+                }
               }
             }
           }
@@ -84,7 +88,7 @@ const Navigation = ({ open }) => (
                 {services.map(service => (
                   <li key={service.id}>
                     <NavigationLink to={`${urls.servicesPath(service)}`}>
-                      {service.name.text}
+                      {service.name}
                     </NavigationLink>
                   </li>
                 ))}

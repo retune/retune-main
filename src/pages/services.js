@@ -27,17 +27,17 @@ const DashedUnderlineHeading = ({ className, text }) => (
 const Service = React.forwardRef(({ className = '', service }, ref) => {
   let video = null
 
-  if (service.videoId) {
-    video = <Vimeo id={service.videoId} />
-  } else if (service.videoEmbed) {
-    video = <Markdown source={service.videoEmbed} />
+  if (service.videoid) {
+    video = <Vimeo id={service.videoid} />
+  } else if (service.videoembed) {
+    video = <Markdown source={service.videoembed} />
   }
 
   return (
     <section
       id={slugify(service)}
       ref={ref}
-      data-layout-id={service.layoutId || '1a'}
+      data-layout-id={service.layoutid || '1a'}
       className={classnames(styles.Service, className)}
     >
       <h2 className={classnames(styles.name, 'mql-xxl mqs-xl')}>
@@ -48,9 +48,9 @@ const Service = React.forwardRef(({ className = '', service }, ref) => {
         <Markdown source={service.description} />
       </div>
 
-      <div className={classnames(styles.photoGallery)}>
-        {service.photoGallery && (
-          <PhotoGallery images={service.photoGallery} caption={false} />
+      <div className={classnames(styles.photogallery)}>
+        {service.photogallery && (
+          <PhotoGallery images={service.photogallery} caption={false} />
         )}
       </div>
 
@@ -187,23 +187,33 @@ class ServicesPage extends React.Component {
 
 export const query = graphql`
   {
-    services: allService {
+    services: allPrismicServices {
       edges {
         node {
           id
-          layoutId
-          name
-          description
-          clients
-          videoId
-          videoEmbed
-          photoGallery {
-            meta {
-              title
+          data {
+            layoutid
+            name {
+              text
             }
-            localFile {
-              publicURL
-              ...fluidImage
+            description {
+              text
+            }
+            # clients
+            # videoid
+            videoembed {
+              text
+            }
+            photogallery {
+              #   meta {
+              #     title
+              #   }
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
+              }
             }
           }
         }
