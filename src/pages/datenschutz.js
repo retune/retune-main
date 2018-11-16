@@ -30,7 +30,6 @@ const PrivacyPage = ({ data }) => {
     value => value.text || value
   )
 
-  console.log(region)
   const breadcrumbs = [
     {
       name: region.title,

@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
+import get from 'lodash/get'
+import mapValues from 'lodash/mapValues'
 
 import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
@@ -23,7 +25,10 @@ const Section = ({
 )
 
 const ImprintPage = ({ data }) => {
-  const region = data.imprint
+  const region = mapValues(
+    get(data.privacy, 'edges[0].node.data'),
+    value => value.text || value
+  )
   const breadcrumbs = [
     {
       name: region.title,
@@ -35,7 +40,7 @@ const ImprintPage = ({ data }) => {
     <Layout
       breadcrumbs={breadcrumbs}
       className={styles.Imprint}
-      pageTitle={region.mastheadTitle}
+      pageTitle={region.mastheadtitle}
     >
       <Heading className={styles.heading} title={region.title} />
       <div className={classnames(styles.info, 'mql-m mqs-s')}>
@@ -55,12 +60,31 @@ const ImprintPage = ({ data }) => {
 
 export const query = graphql`
   {
-    imprint: imprintPage {
-      mastheadTitle
-      title
-      info
-      content_de
-      content_en
+    privacy: allPrismicImprintpage {
+      edges {
+        node {
+          data {
+            mastheadtitle {
+              text
+            }
+            title {
+              text
+            }
+            title_de {
+              text
+            }
+            content_de {
+              text
+            }
+            title_en {
+              text
+            }
+            content_en {
+              text
+            }
+          }
+        }
+      }
     }
   }
 `
