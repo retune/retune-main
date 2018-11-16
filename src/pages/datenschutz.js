@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
+import get from 'lodash/get'
+import mapValues from 'lodash/mapValues'
 
 import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
@@ -23,7 +25,12 @@ const Section = ({
 )
 
 const PrivacyPage = ({ data }) => {
-  const region = data.privacy
+  const region = mapValues(
+    get(data.privacy, 'edges[0].node.data'),
+    value => value.text || value
+  )
+
+  console.log(region)
   const breadcrumbs = [
     {
       name: region.title,
@@ -35,7 +42,7 @@ const PrivacyPage = ({ data }) => {
     <Layout
       breadcrumbs={breadcrumbs}
       className={styles.Imprint}
-      pageTitle={region.mastheadTitle}
+      pageTitle={region.mastheadtitle}
     >
       <Heading className={styles.heading} title={region.title} />
 
@@ -51,11 +58,31 @@ const PrivacyPage = ({ data }) => {
 
 export const query = graphql`
   {
-    privacy: privacyPage {
-      mastheadTitle
-      title
-      content_de
-      content_en
+    privacy: allPrismicPrivacypage {
+      edges {
+        node {
+          data {
+            mastheadtitle {
+              text
+            }
+            title {
+              text
+            }
+            title_de {
+              text
+            }
+            content_de {
+              text
+            }
+            title_en {
+              text
+            }
+            content_en {
+              text
+            }
+          }
+        }
+      }
     }
   }
 `
