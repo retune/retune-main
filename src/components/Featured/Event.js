@@ -40,8 +40,8 @@ const Event = ({ event }) => {
       </p>
 
       <Link className={styles.link} to={url}>
-        {event.mainImages && (
-          <Image className={styles.image} source={event.mainImages[0]} />
+        {event.mainimages && (
+          <Image className={styles.image} source={event.mainimages[0]} />
         )}
         <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
           <span>

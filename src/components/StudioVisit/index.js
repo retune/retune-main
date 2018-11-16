@@ -43,11 +43,13 @@ const StudioVisit = ({ event }) => (
       </div>
 
       <p className={classnames(styles.link, 'mql-m sans')}>
-        <a href={event.externalURL}>Go to studio</a>
+        <a href={event.externalurl}>Go to studio</a>
       </p>
 
       <div className={classnames(styles.image, 'mono')}>
-        {event.photoGallery && <PhotoGallery images={event.photoGallery} />}
+        {event.photogallery && (
+          <PhotoGallery images={event.photogallery.map(({ image }) => image)} />
+        )}
       </div>
     </div>
   </Collapsible>

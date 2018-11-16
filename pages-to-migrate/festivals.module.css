@@ -1,0 +1,45 @@
+@import '../components/MediaQuery/index.css';
+
+.Festivals {
+  padding: 24px 16px;
+}
+
+/* Page intro */
+@media (--large) {
+  .Festivals {
+    padding: 24px 50px;
+  }
+
+  .images {
+    grid-area: images;
+    margin-top: -60px;
+    margin-bottom: 50px;
+  }
+
+  .outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+  }
+}
+
+/*
+  Above .images (PhotoGallery)
+*/
+.heading,
+.info {
+  z-index: 1;
+}
+
+.heading span {
+  display: block;
+}
+
+.images {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.outro {
+  margin-top: 116px;
+}

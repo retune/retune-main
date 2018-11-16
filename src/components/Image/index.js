@@ -9,7 +9,9 @@ import styles from './index.module.css'
 const Image = ({ className = '', source, width, height, auto = false }) => {
   const classes = classnames(styles.Image, className)
   const style = auto ? null : { width, height }
-  const gatsbyImage = get(source, 'localFile.childImageSharp', null)
+  const gatsbyImage =
+    get(source, 'localFile.childImageSharp', null) ||
+    get(source, 'image.localFile.childImageSharp', null)
 
   let image = null
 

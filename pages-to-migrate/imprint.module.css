@@ -1,0 +1,52 @@
+@import '../components/MediaQuery/index.css';
+
+.Imprint {
+  padding: 24px 50px;
+}
+
+.info {
+  padding-bottom: 80px;
+}
+
+.section {
+  padding-top: 40px;
+  border-top: 1px solid var(--retune-col-blue);
+}
+
+@media (--large) {
+  .Imprint {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 'heading heading info info' 'left left right right';
+  }
+
+  .heading {
+    grid-area: heading;
+  }
+
+  .info {
+    grid-area: info;
+    padding-bottom: 181px;
+  }
+
+  .left {
+    grid-area: left;
+    padding-right: 25px;
+  }
+
+  .right {
+    grid-area: right;
+    padding-left: 25px;
+  }
+
+  .section {
+    padding-top: 117px;
+    border-top: 1px solid var(--retune-col-blue);
+  }
+}
+
+.iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
