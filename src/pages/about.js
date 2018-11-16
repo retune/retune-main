@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
+import get from 'lodash/get'
+import mapValues from 'lodash/mapValues'
 
 import { Heading, Info } from '../components/Header'
 import Image from '../components/Image'
@@ -40,32 +42,35 @@ const AboutRetune = (
 )
 
 const AboutPage = ({ data }) => {
-  const region = data.about
-  const team = mergeResultsIntoItems(data.team)
+  const region = mapValues(
+    get(data.about, 'edges[0].node.data', {}),
+    value => value.text || value
+  )
+  const team = data.team ? mergeResultsIntoItems(data.team) : []
 
   return (
     <Layout
       breadcrumbs={breadcrumbs}
       className={styles.About}
-      pageTitle={region.mastheadTitle}
+      pageTitle={region.mastheadtitle}
     >
       <Heading className={styles.heading} title={AboutRetune} />
       <Info className={styles.info}>{region.info}</Info>
 
-      <Section title={region.section1Title}>
-        <Markdown source={region.section1Content} />
+      <Section title={region.section1title}>
+        <Markdown source={region.section1content} />
       </Section>
 
-      <Section title={region.section2Title}>
-        <Markdown source={region.section2Content} />
+      <Section title={region.section2title}>
+        <Markdown source={region.section2content} />
       </Section>
 
-      <Section title={region.section3Title}>
-        <Markdown source={region.section3Content} />
+      <Section title={region.section3title}>
+        <Markdown source={region.section3content} />
       </Section>
 
-      <Section title={region.section4Title}>
-        <Markdown source={region.section4Content} />
+      <Section title={region.section4title}>
+        <Markdown source={region.section4content} />
       </Section>
 
       <Section title="Team" className={styles.team}>
@@ -89,38 +94,65 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   {
-    about: aboutPage {
-      mastheadTitle
-      info
-
-      section1Title
-      section1Content
-
-      section2Title
-      section2Content
-
-      section3Title
-      section3Content
-
-      section4Title
-      section4Content
-    }
-
-    team: allPerson {
+    about: allPrismicAboutpage {
       edges {
         node {
-          id
-          name
-          role
-          image {
-            localFile {
-              publicURL
-              ...fluidImage
+          data {
+            mastheadtitle {
+              text
+            }
+
+            info {
+              text
+            }
+
+            section1title {
+              text
+            }
+            section1content {
+              text
+            }
+
+            section2title {
+              text
+            }
+            section2content {
+              text
+            }
+
+            section3title {
+              text
+            }
+            section3content {
+              text
+            }
+
+            section4title {
+              text
+            }
+            section4content {
+              text
             }
           }
         }
       }
     }
+
+    #team: allPerson {
+    #  edges {
+    #    node {
+    #      id
+    #      name
+    #      role
+    #      image {
+    #        localFile {
+    #          publicURL
+    #          ...fluidImage
+    #        }
+    #      }
+    #    }
+    #  }
+    #}
   }
 `
 
