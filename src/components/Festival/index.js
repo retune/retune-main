@@ -65,7 +65,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
     iconSize="medium"
   >
     <div className={styles.image}>
-      {event.mainImages && <Flipbook images={event.mainImages} />}
+      {event.mainimages && <Flipbook images={event.mainimages} />}
     </div>
 
     <div className={classnames(styles.twoCol, styles.meta, 'mql-m')}>
@@ -75,15 +75,15 @@ const Festival = ({ collapsible, event, isMain = true }) => (
         <div>
           <FormattedDate date={event.startdate} />
           &mdash;
-          <FormattedDate date={event.endDate} />
+          <FormattedDate date={event.enddate} />
         </div>
       </div>
 
-      {event.externalURL ? (
+      {event.externalurl ? (
         <div className={classnames(styles.link, 'mql-m')}>
           <span>
-            <a className="link" href={event.externalURL}>
-              {event.externalURL.replace(/^https?:\/\//, '')}
+            <a className="link" href={event.externalurl}>
+              {event.externalurl.replace(/^https?:\/\//, '')}
             </a>{' '}
             <span className="mono mql-xs">-&gt;</span>
           </span>
@@ -98,7 +98,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
           content={event.description}
           collapsible={false}
         >
-          {event.photoGallery && <PhotoGallery images={event.photoGallery} />}
+          {event.photogallery && <PhotoGallery images={event.photogallery} />}
         </Section>
       </div>
 

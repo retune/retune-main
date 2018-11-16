@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
+import get from 'lodash/get'
 
 import Header, { Heading, Info } from '../components/Header'
 import Festival from '../components/Festival'
@@ -20,8 +21,10 @@ const Title = (
 )
 
 const FestivalsPage = ({ data }) => {
-  const info = data.page.info
-  const images = data.page.images
+  const info = get(data.page, 'edges[0].node.data.info.text')
+  const images = get(data.page, 'edges[0].node.data.images').map(
+    ({ image }) => image
+  )
   const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
   const breadcrumbs = [
     {
@@ -73,57 +76,96 @@ const FestivalsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    page: festivalsPage {
-      info
-      images {
-        meta {
-          title
-        }
-        localFile {
-          publicURL
-          ...fluidImage
+    #page: festivalsPage {
+    #  info
+    #  images {
+    #    meta {
+    #      title
+    #    }
+    #    localFile {
+    #      publicURL
+    #      ...fluidImage
+    #    }
+    #  }
+    #}
+
+    page: allPrismicFestivalspage {
+      edges {
+        node {
+          id
+          data {
+            info {
+              text
+            }
+            images {
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
+              }
+            }
+          }
         }
       }
     }
 
-    festivals: allEvent(
-      filter: { type: { eq: "festival" } }
-      sort: { order: DESC, fields: [startdate] }
+    festivals: allPrismicEvents(
+      filter: { data: { type: { eq: "festival" } } }
+      sort: { order: DESC, fields: [data___startdate] }
     ) {
       edges {
         node {
           id
-          type
-          title
-          subtitle
-          summary
-          description
-          startdate
-          startTime
-          endDate
-          endTime
-          ticketURL
-          externalURL
-          mainImages {
-            localFile {
-              publicURL
-              ...fluidImage
+          data {
+            type
+            title {
+              text
             }
+            subtitle {
+              text
+            }
+            summary {
+              text
+            }
+            description {
+              text
+            }
+            startdate
+            #startTime
+            #endDate
+            #endTime
+            ticketurl {
+              url
+            }
+            externalurl {
+              url
+            }
+            mainimages {
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
+              }
+            }
+            photogallery {
+              #meta {
+              #  title
+              #}
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
+              }
+            }
+            #team
+            #speakers
+            #workshops
+            #venue
+            #location
           }
-          photoGallery {
-            meta {
-              title
-            }
-            localFile {
-              publicURL
-              ...fluidImage
-            }
-          }
-          team
-          speakers
-          workshops
-          venue
-          location
         }
       }
     }
