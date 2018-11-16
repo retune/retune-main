@@ -28,18 +28,21 @@ const Item = item => {
     type,
     title,
     subtitle,
-    publishedDate,
-    startDate,
-    ticketURL,
-    mainImage,
-    mainImages,
+    publisheddate,
+    startdate,
+    ticketurl,
+    mainimage,
+    mainimages,
   } = item
 
-  const date = startDate || publishedDate
+  const date = startdate || publisheddate
   const typeLabel = type ? <EventType type={type} /> : 'News'
   const url = type ? urls.eventPath(item) : urls.newsPath(item)
   const typeUrl = sectionUrlForType(type)
-  const image = mainImages ? mainImages[0] : mainImage
+  const image =
+    mainimages && mainimages[0]
+      ? mainimages[0].image
+      : mainimage && mainimage.image
   const linkClasses = theme === 'dark' ? 'link link-white' : 'link'
 
   return (
@@ -72,8 +75,8 @@ const Item = item => {
         </time>
       </Link>
 
-      {ticketURL ? (
-        <a className={classnames(styles.ticket, linkClasses)} href={ticketURL}>
+      {ticketurl ? (
+        <a className={classnames(styles.ticket, linkClasses)} href={ticketurl}>
           Book ticket
         </a>
       ) : null}

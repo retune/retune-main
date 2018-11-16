@@ -25,7 +25,7 @@ const sectionUrlForType = type => {
 }
 
 const ItemPage = ({ backTo, url, item, related = [] }) => {
-  const date = item.startDate || item.publishedDate
+  const date = item.startdate || item.publishedDate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
   const typeUrl = sectionUrlForType(item.type)
@@ -69,7 +69,7 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
               <br />
               {item.subtitle}
             </h1>
-            <time className={styles.startDate} dateTime={date}>
+            <time className={styles.startdate} dateTime={date}>
               <FormattedDate date={date} />
             </time>
           </header>

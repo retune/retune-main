@@ -27,7 +27,7 @@ const StudioVisit = ({ event }) => (
       <div className="mql-s mono">
         <div className={styles.facts}>
           <p>
-            Event Date: <FormattedDate date={event.startDate} />
+            Event Date: <FormattedDate date={event.startdate} />
           </p>
           {event.location && <p>Place: {event.location}</p>}
           {event.visitors && <p>Visitors: {event.visitors}</p>}

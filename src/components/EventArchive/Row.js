@@ -19,7 +19,7 @@ const Row = ({ event }) => {
       </td>
       <td className={classes(styles.title)}>{event.subtitle}</td>
       <td className={classes(styles.date)}>
-        <FormattedDate date={event.startDate} />
+        <FormattedDate date={event.startdate} />
       </td>
       <td className={classes(styles.link)}>
         <a href={url} className="mono no-wrap">

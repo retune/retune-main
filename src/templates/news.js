@@ -21,7 +21,7 @@ const NewsPage = ({ location, data }) => {
     />
   )
 }
-
+/*
 export const query = graphql`
   query($id: String!) {
     post(id: { eq: $id }) {
@@ -39,7 +39,7 @@ export const query = graphql`
       }
     }
 
-    events: allEvent(limit: 5, sort: { fields: [startDate], order: DESC }) {
+    events: allEvent(limit: 5, sort: { fields: [startdate], order: DESC }) {
       edges {
         node {
           id
@@ -47,7 +47,7 @@ export const query = graphql`
           title
           subtitle
           summary
-          startDate
+          startdate
           startTime
           endDate
           endTime
@@ -64,5 +64,5 @@ export const query = graphql`
     }
   }
 `
-
+*/
 export default NewsPage

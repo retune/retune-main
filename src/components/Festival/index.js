@@ -73,7 +73,7 @@ const Festival = ({ collapsible, event, isMain = true }) => (
         <div>{event.venue}</div>
         <div>{event.location}</div>
         <div>
-          <FormattedDate date={event.startDate} />
+          <FormattedDate date={event.startdate} />
           &mdash;
           <FormattedDate date={event.endDate} />
         </div>

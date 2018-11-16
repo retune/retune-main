@@ -9,8 +9,18 @@ const endOfDay = () => {
 }
 
 export default function splitEventsIntoPastAndFuture(events, now = endOfDay()) {
-  return groupBy(events, event => {
-    const date = new Date(event.startDate).valueOf()
+  const split = groupBy(events, event => {
+    const date = new Date(event.startdate).valueOf()
     return date > now ? 'future' : 'past'
   })
+
+  if (split.future == null) {
+    split.future = []
+  }
+
+  if (split.past == null) {
+    split.past = []
+  }
+
+  return split
 }

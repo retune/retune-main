@@ -1,7 +1,7 @@
 import sortBy from 'lodash/sortBy'
 
 function getSortField(item) {
-  return item.startDate || item.publishedDate
+  return item.startdate || item.publishedDate
 }
 
 export default function sortItems(items = []) {

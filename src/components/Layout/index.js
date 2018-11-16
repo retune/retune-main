@@ -68,7 +68,7 @@ class Layout extends React.Component {
 const LayoutWithQuery = props => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      {
         site {
           siteMetadata {
             title

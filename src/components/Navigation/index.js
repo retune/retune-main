@@ -31,13 +31,17 @@ const Navigation = ({ open }) => (
   <StaticQuery
     query={graphql`
       {
-        services: allService {
+        services: allPrismicServices {
           edges {
             node {
               id
-              name
-              description
-              clients
+              data {
+                name {
+                  text
+                }
+                #description
+                #clients
+              }
             }
           }
         }
@@ -80,7 +84,7 @@ const Navigation = ({ open }) => (
                 {services.map(service => (
                   <li key={service.id}>
                     <NavigationLink to={`${urls.servicesPath(service)}`}>
-                      {service.name}
+                      {service.name.text}
                     </NavigationLink>
                   </li>
                 ))}
