@@ -43,23 +43,25 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
 
-        # allPost {
-        #   edges {
-        #     node {
-        #       id
-        #       title
-        #     }
-        #   }
-        # }
+        posts: allPrismicPosts {
+          edges {
+            node {
+              id
+              data {
+                title {
+                  text
+                }
+              }
+            }
+          }
+        }
       }
     `).then(result => {
       const events = mergeResultsIntoItems(result.data.events)
-      // const news = result.data.allPost.edges
-
-      console.log(events)
+      const posts = mergeResultsIntoItems(result.data.posts)
 
       events.forEach(createItemPage('event', createPage, eventPath))
-      // news.forEach(createItemPage('news', createPage, newsPath))
+      posts.forEach(createItemPage('news', createPage, newsPath))
 
       resolve()
     })

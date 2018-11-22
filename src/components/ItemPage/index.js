@@ -25,14 +25,14 @@ const sectionUrlForType = type => {
 }
 
 const ItemPage = ({ backTo, url, item, related = [] }) => {
-  const date = item.startdate || item.publishedDate
+  const date = item.startdate || item.publisheddate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
   const typeUrl = sectionUrlForType(item.type)
   const images =
-    item.mainImages && item.mainImages.length > 0
-      ? item.mainImages
-      : [item.mainImage]
+    item.mainimages && item.mainimages.length > 0
+      ? item.mainimages
+      : [item.mainimage]
   const breadcrumbs = []
 
   if (typeUrl) {
@@ -84,9 +84,9 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
             {body ? <Markdown source={body} /> : item.summary}
           </div>
 
-          {item.ticketURL && (
+          {item.ticketurl && (
             <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
-              <a className="link" href={item.ticketURL}>
+              <a className="link" href={item.ticketurl}>
                 Get ticket
               </a>
             </p>

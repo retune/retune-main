@@ -5,58 +5,91 @@ import get from 'lodash/get'
 import ItemPage from '../components/ItemPage'
 
 import { newsPath } from '../lib/urls'
-import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import mergeResultsIntoItems, {
+  flattenNode,
+} from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
 const NewsPage = ({ location, data }) => {
   console.log(data)
+  const post = { ...data.post, ...flattenNode(data.post.data) }
   const split =
     splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
+
+  console.log('post', post)
+
   return (
     <ItemPage
       backTo={get(location, 'state.backTo', null)}
-      url={newsPath({ id: data.post.id })}
-      item={data.post}
+      url={newsPath(post)}
+      item={post}
       related={split.future}
     />
   )
 }
-/*
+
 export const query = graphql`
   query($id: String!) {
-    post(id: { eq: $id }) {
+    post: prismicPosts(id: { eq: $id }) {
       id
-      publishedDate
-      title
-      subtitle
-      summary
-      body
-      mainImage {
-        localFile {
-          publicURL
-          ...fluidImage
+      data {
+        publisheddate
+        title {
+          text
+        }
+        subtitle {
+          text
+        }
+        summary {
+          text
+        }
+        body {
+          text
+        }
+        mainimage {
+          localFile {
+            publicURL
+            ...fluidImage
+          }
         }
       }
     }
 
-    events: allEvent(limit: 5, sort: { fields: [startdate], order: DESC }) {
+    events: allPrismicEvents(
+      limit: 5
+      sort: { fields: [data___startdate], order: DESC }
+    ) {
       edges {
         node {
           id
-          type
-          title
-          subtitle
-          summary
-          startdate
-          startTime
-          endDate
-          endTime
-          ticketURL
-          externalURL
-          mainImages {
-            localFile {
-              publicURL
-              ...fluidImage
+          data {
+            type
+            title {
+              text
+            }
+            subtitle {
+              text
+            }
+            summary {
+              text
+            }
+            startdate
+            #starttime
+            #enddate
+            #endtime
+            ticketurl {
+              url
+            }
+            externalurl {
+              url
+            }
+            mainimages {
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
+              }
             }
           }
         }
@@ -64,5 +97,5 @@ export const query = graphql`
     }
   }
 `
-*/
+
 export default NewsPage

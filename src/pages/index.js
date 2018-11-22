@@ -30,9 +30,9 @@ const IndexPage = ({ data }) => {
     flattenNode(get(node, 'item.document[0].data', {}))
   )
   const quotes = mergeResultsIntoItems(data.quotes)
-  // const posts = mergeResultsIntoItems(data.posts)
-  // const latest = sortItems([...split.future, ...posts])
-  const latest = sortItems([...split.future])
+  const posts = mergeResultsIntoItems(data.posts)
+  const latest = sortItems([...split.future, ...posts])
+  // const latest = sortItems([...split.future])
 
   console.log('featuredEvents', featuredEvents)
 
@@ -125,6 +125,37 @@ export const query = graphql`
     #     }
     #   }
     # }
+
+    posts: allPrismicPosts(
+      sort: { fields: [data___publisheddate], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          data {
+            publisheddate
+            title {
+              text
+            }
+            subtitle {
+              text
+            }
+            summary {
+              text
+            }
+            body {
+              text
+            }
+            mainimage {
+              localFile {
+                publicURL
+                ...fluidImage
+              }
+            }
+          }
+        }
+      }
+    }
 
     events: allPrismicEvents(
       sort: { fields: [data___startdate], order: DESC }
