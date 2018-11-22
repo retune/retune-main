@@ -16,7 +16,7 @@ import Layout from '../components/Layout'
 import NowCast from '../components/NowCast'
 // import Promo from '../components/Promo'
 import Featured from '../components/Featured'
-// import Quotes from '../components/Quotes'
+import Quotes from '../components/Quotes'
 import EventArchive from '../components/EventArchive'
 
 import styles from './index.module.css'
@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
   const featuredEvents = data.page.edges[0].node.data.featured.map(node =>
     flattenNode(get(node, 'item.document[0].data', {}))
   )
-  // const quotes = mergeResultsIntoItems(data.quotes)
+  const quotes = mergeResultsIntoItems(data.quotes)
   // const posts = mergeResultsIntoItems(data.posts)
   // const latest = sortItems([...split.future, ...posts])
   const latest = sortItems([...split.future])
@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => {
       {/*
       {data.homepage.showPromo && <Promo url={data.homepage.promoURL} />}*/}
       <Featured events={featuredEvents} />
-      {/*<Quotes quotes={quotes} />*/}
+      <Quotes quotes={quotes} />
       <EventArchive events={split.past} />
     </Layout>
   )
@@ -160,6 +160,25 @@ export const query = graphql`
                   ...fluidImage
                 }
               }
+            }
+          }
+        }
+      }
+    }
+
+    quotes: allPrismicQuotes {
+      edges {
+        node {
+          id
+          data {
+            text {
+              text
+            }
+            name {
+              text
+            }
+            position {
+              text
             }
           }
         }
