@@ -66,7 +66,8 @@
   cursor: pointer;
 }
 
-.table tbody tr:hover td {
+.table tbody tr:hover td.type,
+.table tbody tr:hover td.title {
   text-decoration: underline;
 }
 
@@ -104,6 +105,7 @@
 
 .table .date {
   display: none;
+  font-variant-numeric: tabular-nums;
 }
 
 .table .link {
