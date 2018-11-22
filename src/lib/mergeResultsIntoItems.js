@@ -21,9 +21,9 @@ function getText(node) {
           return text
         })
         .join('\n\n')
-    } else if (node.text) {
+    } else if (node.hasOwnProperty('text')) {
       return node.text
-    } else if (node.url) {
+    } else if (node.hasOwnProperty('url')) {
       return node.url
     }
   }
