@@ -32,7 +32,6 @@ const IndexPage = ({ data }) => {
   const quotes = mergeResultsIntoItems(data.quotes)
   const posts = mergeResultsIntoItems(data.posts)
   const latest = sortItems([...split.future, ...posts])
-  // const latest = sortItems([...split.future])
 
   console.log('featuredEvents', featuredEvents)
 
