@@ -5,12 +5,12 @@
 }
 
 .disclosureArrow.medium {
-  width: 25px;
+  width: 20px;
 }
 
 @media (--large) {
   .disclosureArrow.medium {
-    width: 35px;
+    width: 28px;
   }
 }
 
