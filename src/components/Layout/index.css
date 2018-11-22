@@ -108,58 +108,70 @@ a:hover.link.link-white {
 
 /* Typography */
 .mqs-xl {
-  font-size: 25px;
+  /* font-size: 25px; */
+  font-size: 20px;
+
   line-height: 1.2;
 }
 
 .mqs-l {
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.mqs-m {
+  /* font-size: 18px; */
   font-size: 15px;
   line-height: 1.2;
 }
 
-.mqs-s {
+.mqs-m {
+  /* font-size: 15px; */
   font-size: 12px;
   line-height: 1.2;
 }
 
+.mqs-s {
+  /* font-size: 12px; */
+  font-size: 10px;
+  line-height: 1.2;
+}
+
 .mqs-xs {
-  font-size: 8px;
+  /* font-size: 8px; */
+  font-size: 7px;
   line-height: 1.2;
 }
 
 @media (--large) {
   .mql-xxl {
-    font-size: 65px;
+    /* font-size: 65px; */
+    font-size: 52px;
     line-height: 1.2;
   }
 
   .mql-xl {
-    font-size: 40px;
+    /* font-size: 40px; */
+    font-size: 32px;
     line-height: 1.2;
   }
 
   .mql-l {
-    font-size: 29px;
+    /* font-size: 29px; */
+    font-size: 23px;
     line-height: 1.2;
   }
 
   .mql-m {
-    font-size: 25px;
+    /* font-size: 25px; */
+    font-size: 20px;
     line-height: 1.2;
   }
 
   .mql-s {
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: 15px;
     line-height: 1.2;
   }
 
   .mql-xs {
-    font-size: 15px;
+    /* font-size: 15px; */
+    font-size: 12px;
     line-height: 1.2;
   }
 }
