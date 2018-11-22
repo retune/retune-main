@@ -41,10 +41,16 @@ export const query = graphql`
           text
         }
         summary {
-          text
+          raw {
+            type
+            text
+          }
         }
         description {
-          text
+          raw {
+            type
+            text
+          }
         }
         startdate
         ticketurl {
@@ -77,11 +83,14 @@ export const query = graphql`
               text
             }
             summary {
-              text
+              raw {
+                type
+                text
+              }
             }
             startdate
             #starttime
-            #enddate
+            enddate
             #endtime
             ticketurl {
               url

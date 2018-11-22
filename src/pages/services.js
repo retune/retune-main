@@ -197,7 +197,10 @@ export const query = graphql`
               text
             }
             description {
-              text
+              raw {
+                type
+                text
+              }
             }
             # clients
             # videoid

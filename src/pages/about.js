@@ -42,10 +42,7 @@ const AboutRetune = (
 )
 
 const AboutPage = ({ data }) => {
-  const region = mapValues(
-    get(data.about, 'edges[0].node.data', {}),
-    value => value.text || value
-  )
+  const region = mergeResultsIntoItems(data.about)[0]
   const team = data.team ? mergeResultsIntoItems(data.team) : []
 
   return (
@@ -103,35 +100,50 @@ export const query = graphql`
             }
 
             info {
-              text
+              raw {
+                type
+                text
+              }
             }
 
             section1title {
               text
             }
             section1content {
-              text
+              raw {
+                type
+                text
+              }
             }
 
             section2title {
               text
             }
             section2content {
-              text
+              raw {
+                type
+                text
+              }
             }
 
             section3title {
               text
             }
             section3content {
-              text
+              raw {
+                type
+                text
+              }
             }
 
             section4title {
               text
             }
             section4content {
-              text
+              raw {
+                type
+                text
+              }
             }
           }
         }

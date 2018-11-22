@@ -8,6 +8,7 @@ import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
 import { privacyPath } from '../lib/urls'
+import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './imprint.module.css'
 
@@ -25,10 +26,7 @@ const Section = ({
 )
 
 const PrivacyPage = ({ data }) => {
-  const region = mapValues(
-    get(data.privacy, 'edges[0].node.data'),
-    value => value.text || value
-  )
+  const region = mergeResultsIntoItems(data.privacy)[0]
 
   const breadcrumbs = [
     {
@@ -71,13 +69,19 @@ export const query = graphql`
               text
             }
             content_de {
-              text
+              raw {
+                type
+                text
+              }
             }
             title_en {
               text
             }
             content_en {
-              text
+              raw {
+                type
+                text
+              }
             }
           }
         }

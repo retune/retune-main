@@ -110,7 +110,10 @@ export const query = graphql`
           id
           data {
             info {
-              text
+              raw {
+                type
+                text
+              }
             }
             images {
               image {

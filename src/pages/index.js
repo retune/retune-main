@@ -143,7 +143,10 @@ export const query = graphql`
               text
             }
             body {
-              text
+              raw {
+                type
+                text
+              }
             }
             mainimage {
               localFile {
