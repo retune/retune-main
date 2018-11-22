@@ -174,8 +174,8 @@ export const query = graphql`
               text
             }
             startdate
+            enddate
             # startTime
-            # endDate
             # endTime
             ticketurl {
               url
