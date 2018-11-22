@@ -138,6 +138,30 @@ export const query = graphql`
       }
     }
 
+    team: allPrismicPeople {
+      edges {
+        node {
+          id
+          data {
+            name {
+              text
+            }
+
+            role {
+              text
+            }
+
+            image {
+              localFile {
+                publicURL
+                ...fluidImage
+              }
+            }
+          }
+        }
+      }
+    }
+
     #team: allPerson {
     #  edges {
     #    node {
