@@ -93,6 +93,13 @@
     padding: 13px;
     border-bottom: 1px solid var(--retune-col-blue);
   }
+
+  .table th:first-child,
+  .table th:last-child,
+  .table td:first-child,
+  .table td:last-child {
+    padding: 13px 0;
+  }
 }
 
 .table th.type {
