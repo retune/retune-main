@@ -15,15 +15,17 @@ module.exports = function(results) {
 
 function getText(node) {
   if (node) {
-    if (node.raw) {
-      return node.raw
-        .map(function({ type, text }) {
-          return text
-        })
-        .join('\n\n')
-    } else if (node.hasOwnProperty('text')) {
+    if (Object.prototype.hasOwnProperty.call(node, 'raw')) {
+      return node.raw && node.raw.length > 0
+        ? node.raw
+            .map(function({ type, text }) {
+              return `${text}\n\n`
+            })
+            .join('')
+        : null
+    } else if (Object.prototype.hasOwnProperty.call(node, 'text')) {
       return node.text
-    } else if (node.hasOwnProperty('url')) {
+    } else if (Object.prototype.hasOwnProperty.call(node, 'url')) {
       return node.url
     }
   }
