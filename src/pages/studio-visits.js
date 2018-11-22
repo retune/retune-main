@@ -152,10 +152,14 @@ export const query = graphql`
             }
             description {
               text
+              raw {
+                type
+                text
+              }
             }
             startdate
             #startTime
-            #endDate
+            enddate
             #endTime
             ticketurl {
               url

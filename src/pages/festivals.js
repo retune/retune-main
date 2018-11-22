@@ -160,11 +160,21 @@ export const query = graphql`
                 }
               }
             }
-            #team
-            #speakers
-            #workshops
-            #venue
-            #location
+            team {
+              text
+            }
+            speakers {
+              text
+            }
+            workshops {
+              text
+            }
+            venue {
+              text
+            }
+            location {
+              text
+            }
           }
         }
       }

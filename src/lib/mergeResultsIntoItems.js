@@ -1,4 +1,5 @@
 const mapValues = require('lodash/mapValues')
+const flatMap = require('lodash/flatMap')
 
 module.exports = function(results) {
   return results.edges.map(edge => {
@@ -14,7 +15,13 @@ module.exports = function(results) {
 
 function getText(node) {
   if (node) {
-    if (node.text) {
+    if (node.raw) {
+      return node.raw
+        .map(function({ type, text }) {
+          return text
+        })
+        .join('\n\n')
+    } else if (node.text) {
       return node.text
     } else if (node.url) {
       return node.url
