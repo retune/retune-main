@@ -56,13 +56,14 @@ const Section = ({
   )
 }
 
-const Festival = ({ collapsible, event, isMain = true }) => (
+const Festival = ({ collapsible, event, isOpen = false }) => (
   <Collapsible
     collapsible={collapsible}
     className={classnames(styles.Festival)}
     contentClassName={classnames(styles.FestivalContent)}
     heading={<span className={styles.title}>{event.title}</span>}
     iconSize="medium"
+    initiallyCollapsed={!isOpen}
   >
     <div className={styles.image}>
       {event.mainimages && <Flipbook images={event.mainimages} />}
@@ -74,8 +75,12 @@ const Festival = ({ collapsible, event, isMain = true }) => (
         <div>{event.location}</div>
         <div>
           <FormattedDate date={event.startdate} />
-          &mdash;
-          <FormattedDate date={event.enddate} />
+          {event.enddate && (
+            <>
+              &mdash;
+              <FormattedDate date={event.enddate} />
+            </>
+          )}
         </div>
       </div>
 

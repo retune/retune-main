@@ -11,6 +11,7 @@ import PhotoGallery from '../components/PhotoGallery'
 
 import { festivalsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
 import styles from './festivals.module.css'
 
@@ -21,17 +22,27 @@ const Title = (
 )
 
 const FestivalsPage = ({ data }) => {
+  console.log('--', data.festivals)
+
   const info = get(data.page, 'edges[0].node.data.info.text')
   const images = get(data.page, 'edges[0].node.data.images').map(
     ({ image }) => image
   )
-  const [latest, ...rest] = mergeResultsIntoItems(data.festivals)
+  const festivals = splitEventsIntoPastAndFuture(
+    mergeResultsIntoItems(data.festivals)
+  )
   const breadcrumbs = [
     {
       name: 'Festivals',
       to: festivalsPath(),
     },
   ]
+
+  const upcoming = festivals.future[0] ? (
+    <Hero event={festivals.future[0]} />
+  ) : null
+
+  const openFirstArchiveItem = upcoming == null
 
   return (
     <Layout
@@ -51,9 +62,13 @@ const FestivalsPage = ({ data }) => {
       </div>
 
       <div>
-        <Hero event={latest} />
-        {rest.map(event => (
-          <Festival key={event.id} event={event} />
+        {upcoming}
+        {festivals.past.map((event, index) => (
+          <Festival
+            key={event.id}
+            event={event}
+            isOpen={index === 0 && openFirstArchiveItem}
+          />
         ))}
       </div>
 
@@ -129,7 +144,10 @@ export const query = graphql`
               text
             }
             description {
-              text
+              raw {
+                type
+                text
+              }
             }
             startdate
             #startTime
@@ -161,13 +179,22 @@ export const query = graphql`
               }
             }
             team {
-              text
+              raw {
+                type
+                text
+              }
             }
             speakers {
-              text
+              raw {
+                type
+                text
+              }
             }
             workshops {
-              text
+              raw {
+                type
+                text
+              }
             }
             venue {
               text
