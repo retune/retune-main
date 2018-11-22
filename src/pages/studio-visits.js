@@ -33,6 +33,22 @@ const StudioVisitsPage = ({ data }) => {
     },
   ]
 
+  const hasUpcomingEvents = events.future && Array.isArray(events.future)
+
+  const upcoming = hasUpcomingEvents ? (
+    <section className={styles.upcoming}>
+      <h2 className={classnames(styles.upcomingHeading, 'mql-xxl')}>
+        Upcoming
+      </h2>
+      <Latest
+        innerClassName={styles.upcomingLatestInner}
+        parentUrl={studioVisitsPath()}
+        theme="light"
+        items={events.future}
+      />
+    </section>
+  ) : null
+
   return (
     <Layout
       breadcrumbs={breadcrumbs}
@@ -51,21 +67,7 @@ const StudioVisitsPage = ({ data }) => {
         </div>
       </div>
 
-      <section className={styles.upcoming}>
-        <h2 className={classnames(styles.upcomingHeading, 'mql-xxl')}>
-          Upcoming
-        </h2>
-        {events.future && Array.isArray(events.future) ? (
-          <Latest
-            innerClassName={styles.upcomingLatestInner}
-            parentUrl={studioVisitsPath()}
-            theme="light"
-            items={events.future}
-          />
-        ) : (
-          'No upcoming events'
-        )}
-      </section>
+      {upcoming}
 
       <section>
         <h2 className="mql-xxl">Review</h2>
