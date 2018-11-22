@@ -3,58 +3,65 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-// const path = require('path')
-// const { eventPath, newsPath } = require('./src/lib/urls')
+const path = require('path')
+const { eventPath, newsPath } = require('./src/lib/urls')
+const mergeResultsIntoItems = require('./src/lib/mergeResultsIntoItems')
 
-// const createItemPage = (templateName, createPage, createPath) => ({ node }) => {
-//   const urlPath = createPath(node)
+const createItemPage = (templateName, createPage, createPath) => node => {
+  const urlPath = createPath(node)
 
-//   console.log('URL path', urlPath)
+  console.log('URL path', urlPath)
 
-//   createPage({
-//     path: urlPath,
-//     component: path.resolve(`./src/templates/${templateName}.js`),
-//     context: {
-//       // Data passed to context is available
-//       // in page queries as GraphQL variables.
-//       id: node.id,
-//     },
-//   })
-// }
+  createPage({
+    path: urlPath,
+    component: path.resolve(`./src/templates/${templateName}.js`),
+    context: {
+      // Data passed to context is available
+      // in page queries as GraphQL variables.
+      id: node.id,
+    },
+  })
+}
 
-// exports.createPages = ({ graphql, actions }) => {
-//   const { createPage } = actions
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
-//   return new Promise((resolve, reject) => {
-//     graphql(`
-//       {
-//         allEvent {
-//           edges {
-//             node {
-//               id
-//               title
-//               type
-//             }
-//           }
-//         }
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        events: allPrismicEvents {
+          edges {
+            node {
+              id
+              data {
+                title {
+                  text
+                }
+                type
+              }
+            }
+          }
+        }
 
-//         allPost {
-//           edges {
-//             node {
-//               id
-//               title
-//             }
-//           }
-//         }
-//       }
-//     `).then(result => {
-//       const events = result.data.allEvent.edges
-//       const news = result.data.allPost.edges
+        # allPost {
+        #   edges {
+        #     node {
+        #       id
+        #       title
+        #     }
+        #   }
+        # }
+      }
+    `).then(result => {
+      const events = mergeResultsIntoItems(result.data.events)
+      // const news = result.data.allPost.edges
 
-//       events.forEach(createItemPage('event', createPage, eventPath))
-//       news.forEach(createItemPage('news', createPage, newsPath))
+      console.log(events)
 
-//       resolve()
-//     })
-//   })
-// }
+      events.forEach(createItemPage('event', createPage, eventPath))
+      // news.forEach(createItemPage('news', createPage, newsPath))
+
+      resolve()
+    })
+  })
+}
