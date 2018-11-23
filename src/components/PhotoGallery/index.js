@@ -42,4 +42,13 @@ const PhotoGallery = ({ caption = true, images }) => (
   </CarouselProvider>
 )
 
-export default PhotoGallery
+const PhotoGalleryWrapper = ({ caption = true, images }) =>
+  images && images.length > 1 ? (
+    <PhotoGallery caption={caption} images={images} />
+  ) : (
+    <div className={styles.container}>
+      <Image source={images[0]} />
+    </div>
+  )
+
+export default PhotoGalleryWrapper
