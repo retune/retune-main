@@ -8,22 +8,17 @@ import { newsPath } from '../lib/urls'
 import mergeResultsIntoItems, {
   flattenNode,
 } from '../lib/mergeResultsIntoItems'
-import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
 const NewsPage = ({ location, data }) => {
-  console.log(data)
   const post = { ...data.post, ...flattenNode(data.post.data) }
-  const split =
-    splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
-
-  console.log('post', post)
+  const related = mergeResultsIntoItems(data.events)
 
   return (
     <ItemPage
       backTo={get(location, 'state.backTo', null)}
       url={newsPath(post)}
       item={post}
-      related={split.future}
+      related={related}
     />
   )
 }

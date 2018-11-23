@@ -8,22 +8,17 @@ import { eventPath } from '../lib/urls'
 import mergeResultsIntoItems, {
   flattenNode,
 } from '../lib/mergeResultsIntoItems'
-import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
 const EventPage = ({ location, data }) => {
-  console.log('data', data, location.state)
   const event = { ...data.event, ...flattenNode(data.event.data) }
-  const split =
-    splitEventsIntoPastAndFuture(mergeResultsIntoItems(data.events)) || {}
-
-  console.log('event', event)
+  const related = mergeResultsIntoItems(data.events)
 
   return (
     <ItemPage
       backTo={get(location, 'state.backTo', null)}
       url={eventPath(event)}
       item={event}
-      related={split.future}
+      related={related}
     />
   )
 }
