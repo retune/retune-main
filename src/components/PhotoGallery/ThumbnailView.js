@@ -3,7 +3,6 @@ import classnames from 'classnames'
 
 import Image from '../Image'
 
-// import Arrow from './Arrow'
 import styles from './ThumbnailView.module.css'
 
 const ThumbnailViewer = ({
