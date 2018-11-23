@@ -17,8 +17,8 @@ import styles from './index.module.css'
 const PhotoGallery = ({ caption = true, images }) => (
   <CarouselProvider
     className={styles.container}
-    naturalSlideWidth={645}
-    naturalSlideHeight={357}
+    naturalSlideWidth={3}
+    naturalSlideHeight={2}
     totalSlides={images.length}
   >
     <section className={styles.PhotoGallery}>
