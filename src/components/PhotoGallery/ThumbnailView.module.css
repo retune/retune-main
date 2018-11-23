@@ -1,0 +1,33 @@
+.container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.item {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.7;
+}
+
+.item > button {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.item:hover,
+.item.isSelected {
+  opacity: 1;
+}
