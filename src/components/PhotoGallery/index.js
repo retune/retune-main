@@ -88,6 +88,7 @@ const PhotoGallery = ({
     className={styles.container}
     naturalSlideWidth={3}
     naturalSlideHeight={2}
+    dragEnabled={false}
     totalSlides={images.length}
     ref={providerRef}
   >
