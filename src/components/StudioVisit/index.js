@@ -15,13 +15,15 @@ const Heading = ({ event }) => (
   </span>
 )
 
-const StudioVisit = ({ event }) => (
+const StudioVisit = ({ event, collapsed, onToggle }) => (
   <Collapsible
     className={classnames(styles.StudioVisit)}
     iconSize="medium"
     heading={<Heading event={event} />}
     borderSize="small"
     borderColor="blue"
+    onToggle={onToggle}
+    collapsed={collapsed}
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div className="mql-s mono">

@@ -7,19 +7,44 @@ import HitArea from '../HitArea'
 
 import styles from './index.module.css'
 
+export { default as Group } from './Group'
+
 class Collapsible extends React.Component {
-  constructor({ initiallyCollapsed = true }) {
+  constructor({ initiallyCollapsed, collapsed = true, context }) {
     super()
 
+    let initialCollapsedState
+
+    if (initiallyCollapsed != null) {
+      initialCollapsedState = initiallyCollapsed
+    } else {
+      initialCollapsedState = collapsed
+    }
+
     this.state = {
-      collapsed: initiallyCollapsed,
+      collapsed: initialCollapsedState,
     }
   }
 
   toggle = () => {
+    const willCollapse = !this.state.collapsed
+
     this.setState({
-      collapsed: !this.state.collapsed,
+      collapsed: willCollapse,
     })
+
+    if (typeof this.props.onToggle === 'function') {
+      this.props.onToggle(willCollapse)
+    }
+  }
+
+  componentDidUpdate({ collapsed }) {
+    console.log('componentDidUpdate', this.props.collapsed, collapsed)
+    if (this.props.collapsed !== collapsed) {
+      this.setState({
+        collapsed: this.props.collapsed,
+      })
+    }
   }
 
   render() {

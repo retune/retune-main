@@ -8,6 +8,7 @@ import Latest from '../components/Latest'
 import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
 import StudioVisit from '../components/StudioVisit'
+import { Group } from '../components/Collapsible'
 
 import { studioVisitsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -52,6 +53,26 @@ const StudioVisitsPage = ({ data }) => {
     </section>
   ) : null
 
+  const hasPastEvents = events.past && Array.isArray(events.past)
+
+  const archive = hasPastEvents ? (
+    <Group>
+      {({ onToggle, currentlyOpen }) => {
+        console.log('currentlyOpen', currentlyOpen)
+        return events.past.map(event => (
+          <StudioVisit
+            key={event.id}
+            event={event}
+            collapsed={currentlyOpen !== event.id}
+            onToggle={isCollapsed => onToggle(event.id, isCollapsed)}
+          />
+        ))
+      }}
+    </Group>
+  ) : (
+    'No past events'
+  )
+
   return (
     <Layout
       breadcrumbs={breadcrumbs}
@@ -74,11 +95,7 @@ const StudioVisitsPage = ({ data }) => {
 
       <section>
         <h2 className="mql-xxl">Review</h2>
-        {events.past && Array.isArray(events.past)
-          ? events.past.map(event => (
-              <StudioVisit key={event.id} event={event} />
-            ))
-          : 'No past events'}
+        {archive}
       </section>
 
       <div className={classnames(styles.outro, 'mql-m')}>

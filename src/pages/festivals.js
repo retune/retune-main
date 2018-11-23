@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import get from 'lodash/get'
 
 import Header, { Heading, Info } from '../components/Header'
+import { Group } from '../components/Collapsible'
 import Festival from '../components/Festival'
 import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
@@ -43,6 +44,21 @@ const FestivalsPage = ({ data }) => {
   ) : null
 
   const openFirstArchiveItem = upcoming == null
+  const defaultItem = openFirstArchiveItem ? festivals.past[0].id : undefined
+  const archive = (
+    <Group>
+      {({ onToggle, currentlyOpen = defaultItem }) =>
+        festivals.past.map((event, index) => (
+          <Festival
+            key={event.id}
+            event={event}
+            isOpen={currentlyOpen === event.id}
+            onToggle={isOpen => onToggle(event.id, isOpen)}
+          />
+        ))
+      }
+    </Group>
+  )
 
   return (
     <Layout
@@ -63,13 +79,7 @@ const FestivalsPage = ({ data }) => {
 
       <div>
         {upcoming}
-        {festivals.past.map((event, index) => (
-          <Festival
-            key={event.id}
-            event={event}
-            isOpen={index === 0 && openFirstArchiveItem}
-          />
-        ))}
+        {archive}
       </div>
 
       <div className={classnames(styles.outro, 'mql-m')}>

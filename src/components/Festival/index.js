@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classnames from 'classnames'
 
-import Collapsible from '../Collapsible'
+import Collapsible, { Group } from '../Collapsible'
 import Flipbook from '../Flipbook'
 import FormattedDate from '../FormattedDate'
 import Markdown from '../Markdown'
@@ -31,23 +31,29 @@ const Section = ({
   children,
   content,
   collapsible = true,
-  initiallyCollapsed = undefined,
+  //initiallyCollapsed = undefined,
+  onToggle,
+  currentlyOpen,
 }) => {
   if (content == null) {
     return null
   }
 
+  const isNowCollapsed = currentlyOpen !== title
+
   return (
     <Collapsible
       collapsible={collapsible}
       contentClassName={classnames(styles.sectionContent, 'mql-xs mono')}
-      initiallyCollapsed={initiallyCollapsed}
+      //initiallyCollapsed={initiallyCollapsed}
       heading={title}
       iconType="circle"
       borderSize="small"
       borderColor="blue"
       headingSize="small"
       headingHeight={48}
+      onToggle={isCollapsed => onToggle(title, isCollapsed)}
+      collapsed={isNowCollapsed}
     >
       {/* All headings should be mapped to h4 */}
       <Markdown source={content} renderers={markdownRendererReplacements} />
@@ -56,14 +62,16 @@ const Section = ({
   )
 }
 
-const Festival = ({ collapsible, event, isOpen = false }) => (
+const Festival = ({ collapsible, event, isOpen = false, onToggle }) => (
   <Collapsible
     collapsible={collapsible}
     className={classnames(styles.Festival)}
     contentClassName={classnames(styles.FestivalContent)}
     heading={<span className={styles.title}>{event.title}</span>}
     iconSize="medium"
-    initiallyCollapsed={!isOpen}
+    collapsed={!isOpen}
+    //initiallyCollapsed={!isOpen}
+    onToggle={onToggle}
   >
     <div className={styles.image}>
       {event.mainimages && <Flipbook images={event.mainimages} />}
@@ -97,26 +105,51 @@ const Festival = ({ collapsible, event, isOpen = false }) => (
     </div>
 
     <div className={styles.twoCol}>
-      <div>
-        <Section
-          title="Information"
-          content={event.description}
-          collapsible={false}
-        >
-          {event.photogallery && <PhotoGallery images={event.photogallery} />}
-        </Section>
-      </div>
+      <Group>
+        {({ onToggle, currentlyOpen = 'Speakers' }) => (
+          <React.Fragment>
+            <div>
+              <Section
+                title="Information"
+                content={event.description}
+                collapsible={false}
+              >
+                {event.photogallery && (
+                  <PhotoGallery images={event.photogallery} />
+                )}
+              </Section>
+            </div>
 
-      <div>
-        <Section
-          title="Speakers"
-          content={event.speakers}
-          initiallyCollapsed={false}
-        />
-        <Section title="Workshops" content={event.workshops} />
-        <Section title="Team" content={event.team} />
-        <Section title="Credits" content={event.credits} />
-      </div>
+            <div>
+              <Section
+                title="Speakers"
+                content={event.speakers}
+                //initiallyCollapsed={false}
+                onToggle={onToggle}
+                currentlyOpen={currentlyOpen}
+              />
+              <Section
+                title="Workshops"
+                content={event.workshops}
+                onToggle={onToggle}
+                currentlyOpen={currentlyOpen}
+              />
+              <Section
+                title="Team"
+                content={event.team}
+                onToggle={onToggle}
+                currentlyOpen={currentlyOpen}
+              />
+              <Section
+                title="Credits"
+                content={event.credits}
+                onToggle={onToggle}
+                currentlyOpen={currentlyOpen}
+              />
+            </div>
+          </React.Fragment>
+        )}
+      </Group>
     </div>
   </Collapsible>
 )
