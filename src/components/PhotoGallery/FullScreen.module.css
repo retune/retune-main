@@ -1,0 +1,29 @@
+.modal {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  height: 50vw;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+
+  z-index: 100;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+
+  z-index: 5;
+}

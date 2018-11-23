@@ -1,11 +1,12 @@
 import * as React from 'react'
 
+import FullScreen from './FullScreen'
 import PhotoGallery from './PhotoGallery'
 
 class StatefulPhotoGallery extends React.Component {
   carouselProviderRef = React.createRef()
 
-  state = { thumbnailCurrentSlide: null }
+  state = { thumbnailCurrentSlide: null, isFullScreen: false }
 
   componentDidMount() {
     this.withStore(store => {
@@ -52,14 +53,25 @@ class StatefulPhotoGallery extends React.Component {
     })
   }
 
+  toggleFullScreen = () => {
+    this.setState({
+      isFullScreen: !this.state.isFullScreen,
+    })
+  }
+
   render() {
+    const Wrapper = this.state.isFullScreen ? FullScreen : React.Fragment
+
     return (
-      <PhotoGallery
-        {...this.props}
-        onThumbnailSelected={this.setCurrentSlide}
-        currentThumbnailIndex={this.state.thumbnailCurrentSlide}
-        providerRef={this.carouselProviderRef}
-      />
+      <Wrapper onRequestClose={this.toggleFullScreen}>
+        <PhotoGallery
+          {...this.props}
+          onThumbnailSelected={this.setCurrentSlide}
+          onFullScreenSelected={this.toggleFullScreen}
+          currentThumbnailIndex={this.state.thumbnailCurrentSlide}
+          providerRef={this.carouselProviderRef}
+        />
+      </Wrapper>
     )
   }
 }

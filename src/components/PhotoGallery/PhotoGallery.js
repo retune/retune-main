@@ -19,6 +19,7 @@ const PhotoGallery = ({
   caption = true,
   currentThumbnailIndex,
   onThumbnailSelected,
+  onFullScreenSelected,
   images,
   providerRef,
 }) => (
@@ -30,7 +31,7 @@ const PhotoGallery = ({
     totalSlides={images.length}
     ref={providerRef}
   >
-    <section className={styles.PhotoGallery}>
+    <section className={classnames(styles.PhotoGallery)}>
       <ButtonBack className={classnames(styles.button, styles.ButtonBack)}>
         <Arrow className={styles.rotate} />
       </ButtonBack>
@@ -49,6 +50,7 @@ const PhotoGallery = ({
     </section>
 
     {caption && <p>Photo Gallery ({images.length} images)</p>}
+    <button onClick={onFullScreenSelected}>Full screen</button>
     <ThumbnailView
       images={images}
       currentSelectionIndex={currentThumbnailIndex}
