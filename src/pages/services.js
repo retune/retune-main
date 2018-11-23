@@ -202,7 +202,12 @@ export const query = graphql`
                 text
               }
             }
-            # clients
+            clients {
+              raw {
+                type
+                text
+              }
+            }
             # videoid
             videoembed {
               text
