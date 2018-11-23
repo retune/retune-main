@@ -48,7 +48,7 @@ const Service = React.forwardRef(({ className = '', service }, ref) => {
         <Markdown source={service.description} />
       </div>
 
-      <div className={classnames(styles.photogallery)}>
+      <div className={classnames(styles.photoGallery)}>
         {service.photogallery && (
           <PhotoGallery images={service.photogallery} caption={false} />
         )}
