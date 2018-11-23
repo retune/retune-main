@@ -88,7 +88,8 @@ Page layout
     grid-template-areas: 'heading heading heading heading' 'content photoGallery photoGallery photoGallery';
   }
 
-  [data-layout-id='2a'] .video {
+  [data-layout-id='2a'] .video,
+  [data-layout-id='2a'] .clients {
     display: none;
   }
 
