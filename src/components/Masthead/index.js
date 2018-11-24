@@ -1,12 +1,18 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
+import pose from 'react-pose'
 
 import Circle from '../Circle'
 import Icon from '../Icon'
 import Navigation from '../Navigation'
 
 import styles from './index.module.css'
+
+const Inner = pose.div({
+  open: { backgroundColor: '#000096' },
+  closed: { backgroundColor: '#e6e6e6' },
+})
 
 class Masthead extends React.Component {
   static defaultProps = {
@@ -126,7 +132,7 @@ class Masthead extends React.Component {
         onClick={this.toggle}
         ref={this.elementRef}
       >
-        <div className={styles.MastheadInner}>
+        <Inner className={styles.MastheadInner} pose={open ? 'open' : 'closed'}>
           <button className={styles.opener}>
             <Circle isOpen={open} />
           </button>
@@ -142,7 +148,7 @@ class Masthead extends React.Component {
               <Icon type="close" />
             </Link>
           )}
-        </div>
+        </Inner>
 
         <Navigation open={open} />
       </header>
