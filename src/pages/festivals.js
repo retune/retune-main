@@ -23,8 +23,6 @@ const Title = (
 )
 
 const FestivalsPage = ({ data }) => {
-  console.log('--', data.festivals)
-
   const info = get(data.page, 'edges[0].node.data.info.text')
   const images = get(data.page, 'edges[0].node.data.images').map(
     ({ image }) => image

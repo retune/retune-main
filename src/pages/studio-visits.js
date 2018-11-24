@@ -58,7 +58,6 @@ const StudioVisitsPage = ({ data }) => {
   const archive = hasPastEvents ? (
     <Group>
       {({ onToggle, currentlyOpen }) => {
-        console.log('currentlyOpen', currentlyOpen)
         return events.past.map(event => (
           <StudioVisit
             key={event.id}

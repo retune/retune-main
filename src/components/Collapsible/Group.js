@@ -6,7 +6,6 @@ class Group extends React.Component {
   render() {
     return this.props.children({
       onToggle: (id, isCollapsed) => {
-        console.log(id, isCollapsed)
         if (!isCollapsed) {
           this.setState({ currentlyOpen: id })
         }
