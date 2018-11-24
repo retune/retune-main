@@ -23,6 +23,8 @@ export const FormattedInterval = ({ start, end }) => {
   } else if (!sameDay) {
     return `${s.toFormat('dd')}—${e.toFormat('dd.LL.yyyy')}`
   }
+
+  return null
 }
 
 export default FormattedDate
