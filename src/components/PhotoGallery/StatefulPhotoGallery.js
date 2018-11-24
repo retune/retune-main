@@ -60,18 +60,20 @@ class StatefulPhotoGallery extends React.Component {
   }
 
   render() {
-    const Wrapper = this.state.isFullScreen ? FullScreen : React.Fragment
+    const gallery = (
+      <PhotoGallery
+        {...this.props}
+        onThumbnailSelected={this.setCurrentSlide}
+        onFullScreenSelected={this.toggleFullScreen}
+        currentThumbnailIndex={this.state.thumbnailCurrentSlide}
+        providerRef={this.carouselProviderRef}
+      />
+    )
 
-    return (
-      <Wrapper onRequestClose={this.toggleFullScreen}>
-        <PhotoGallery
-          {...this.props}
-          onThumbnailSelected={this.setCurrentSlide}
-          onFullScreenSelected={this.toggleFullScreen}
-          currentThumbnailIndex={this.state.thumbnailCurrentSlide}
-          providerRef={this.carouselProviderRef}
-        />
-      </Wrapper>
+    return this.state.isFullScreen ? (
+      <FullScreen onRequestClose={this.toggleFullScreen}>{gallery}</FullScreen>
+    ) : (
+      gallery
     )
   }
 }
