@@ -21,14 +21,22 @@ import EventArchive from '../components/EventArchive'
 
 import styles from './index.module.css'
 
+const getFeaturedEvents = data => {
+  const featured = get(data, 'page.edges[0].node.data.featured', null)
+  if (featured != null && Array.isArray(featured) && featured.length > 0) {
+    return featured.map(node => {
+      const item = get(node, 'item.document[0]', {})
+      return { ...item, ...flattenNode(item.data) }
+    })
+  }
+
+  return null
+}
+
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
   const split = splitEventsIntoPastAndFuture(events)
-  // const featuredIds = map(data.homepage.featured, 'id')
-  // const featuredEvents = findEventsByIds(events, featuredIds)
-  const featuredEvents = data.page.edges[0].node.data.featured.map(node =>
-    flattenNode(get(node, 'item.document[0].data', {}))
-  )
+  const featuredEvents = getFeaturedEvents(data)
   const quotes = mergeResultsIntoItems(data.quotes)
   const posts = mergeResultsIntoItems(data.posts)
   const latest = sortItems([...split.future, ...posts])
