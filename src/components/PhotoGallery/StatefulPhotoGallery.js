@@ -2,56 +2,10 @@ import * as React from 'react'
 
 import FullScreen from './FullScreen'
 import PhotoGallery from './PhotoGallery'
+import { WithStore } from 'pure-react-carousel'
 
 class StatefulPhotoGallery extends React.Component {
-  carouselProviderRef = React.createRef()
-
-  state = { thumbnailCurrentSlide: null, isFullScreen: false }
-
-  componentDidMount() {
-    this.withStore(store => {
-      store.subscribe(this.storeDidChange)
-      this.storeDidChange()
-    })
-  }
-
-  componentWillUnmount() {
-    this.withStore(store => {
-      store.unsubscribe(this.storeDidChange)
-    })
-  }
-
-  // Executes a function only if the carousel store
-  // exists
-  withStore = fn => {
-    const store = this.getCarouselStore()
-
-    if (store) {
-      fn(store)
-    }
-  }
-
-  getCarouselStore = () => {
-    if (this.carouselProviderRef.current) {
-      return this.carouselProviderRef.current.getStore()
-    }
-  }
-
-  storeDidChange = () => {
-    this.withStore(store => {
-      this.setState({
-        thumbnailCurrentSlide: store.state.currentSlide,
-      })
-    })
-  }
-
-  setCurrentSlide = index => {
-    this.withStore(store => {
-      store.setStoreState({
-        currentSlide: index,
-      })
-    })
-  }
+  state = { isFullScreen: false }
 
   toggleFullScreen = () => {
     this.setState({
@@ -59,14 +13,18 @@ class StatefulPhotoGallery extends React.Component {
     })
   }
 
+  changeSlide = index => {
+    this.props.carouselStore.setStoreState({ currentSlide: index })
+  }
+
   render() {
     const gallery = (
       <PhotoGallery
         {...this.props}
-        onThumbnailSelected={this.setCurrentSlide}
+        currentIndex={this.props.currentSlide}
+        onChangeSlide={this.changeSlide}
         onFullScreenSelected={this.toggleFullScreen}
-        currentThumbnailIndex={this.state.thumbnailCurrentSlide}
-        providerRef={this.carouselProviderRef}
+        isFullScreen={this.state.isFullScreen}
       />
     )
 
@@ -78,4 +36,6 @@ class StatefulPhotoGallery extends React.Component {
   }
 }
 
-export default StatefulPhotoGallery
+export default WithStore(StatefulPhotoGallery, ({ currentSlide }) => ({
+  currentSlide,
+}))

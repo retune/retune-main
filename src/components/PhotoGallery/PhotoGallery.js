@@ -1,14 +1,10 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from 'pure-react-carousel'
+import { Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
+import Expand from '../Icon/Expand'
+import HitArea from '../HitArea'
 import Image from '../Image'
 
 import Arrow from './Arrow'
@@ -17,20 +13,14 @@ import styles from './index.module.css'
 
 const PhotoGallery = ({
   caption = true,
-  currentThumbnailIndex,
-  onThumbnailSelected,
+  currentIndex,
+  onChangeSlide,
   onFullScreenSelected,
+  isFullScreen,
   images,
   providerRef,
 }) => (
-  <CarouselProvider
-    className={styles.container}
-    naturalSlideWidth={3}
-    naturalSlideHeight={2}
-    dragEnabled={false}
-    totalSlides={images.length}
-    ref={providerRef}
-  >
+  <div className={styles.container}>
     <section className={classnames(styles.PhotoGallery)}>
       <ButtonBack className={classnames(styles.button, styles.ButtonBack)}>
         <Arrow className={styles.rotate} />
@@ -47,16 +37,24 @@ const PhotoGallery = ({
       <ButtonNext className={classnames(styles.button, styles.ButtonNext)}>
         <Arrow />
       </ButtonNext>
+
+      {!isFullScreen && (
+        <HitArea
+          className={classnames(styles.button, styles.ButtonExpand)}
+          onClick={onFullScreenSelected}
+        >
+          <Expand col="white" />
+        </HitArea>
+      )}
     </section>
 
     {caption && <p>Photo Gallery ({images.length} images)</p>}
-    <button onClick={onFullScreenSelected}>Full screen</button>
     <ThumbnailView
       images={images}
-      currentSelectionIndex={currentThumbnailIndex}
-      onThumbnailSelected={onThumbnailSelected}
+      currentSelectionIndex={currentIndex}
+      onThumbnailSelected={onChangeSlide}
     />
-  </CarouselProvider>
+  </div>
 )
 
 export default PhotoGallery
