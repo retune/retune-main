@@ -27,16 +27,20 @@ const ExternalLink = ({ children, to, colour = 'black' }) => (
   </a>
 )
 
-const isSmallBreakpoint = () => window.matchMedia('(min-width: 400px)').matches
+const isSmallBreakpoint = () => {
+  const result = window.matchMedia('(max-width: 400px)').matches
+  console.log('isSmallBreakpoint:', result)
+  return result
+}
 
 const Nav = posed.nav({
   open: {
     height: 'auto',
-    'min-height': () => (isSmallBreakpoint() ? '100vh' : 'auto'),
+    'min-height': () => (isSmallBreakpoint() ? '100vh' : undefined),
   },
   closed: {
     height: 0,
-    'min-height': () => (isSmallBreakpoint() ? '0vh' : 'auto'),
+    'min-height': () => (isSmallBreakpoint() ? '0vh' : undefined),
   },
 })
 
