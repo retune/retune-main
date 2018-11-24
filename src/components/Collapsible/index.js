@@ -39,7 +39,6 @@ class Collapsible extends React.Component {
   }
 
   componentDidUpdate({ collapsed }) {
-    console.log('componentDidUpdate', this.props.collapsed, collapsed)
     if (this.props.collapsed !== collapsed) {
       this.setState({
         collapsed: this.props.collapsed,
