@@ -7,11 +7,10 @@ const FormattedDate = ({ date, time }) => formatDate(date)
 export const FormattedInterval = ({ start, end }) => {
   const s = DateTime.fromISO(start)
   const e = DateTime.fromISO(end)
-  const interval = Interval.fromDateTimes(s, e)
 
-  const sameDay = interval.hasSame('day')
-  const sameMonth = interval.hasSame('month')
-  const sameYear = interval.hasSame('year')
+  const sameDay = s.hasSame(e, 'day')
+  const sameMonth = s.hasSame(e, 'month')
+  const sameYear = s.hasSame(e, 'year')
 
   // 12.11.2018 - 13.11.2018 = 12—13.11.2018
   // 12.11.2018 - 13.12.2018 = 12.11—13.12.2018
