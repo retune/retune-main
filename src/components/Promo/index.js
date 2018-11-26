@@ -1,10 +1,11 @@
 import * as React from 'react'
 
-import image from '../../assets/promo.svg'
+import Image from '../Image'
+
 import styles from './index.module.css'
 
-const Promo = ({ url }) => {
-  const content = <img src={image} alt="" />
+const Promo = ({ url, image }) => {
+  const content = <Image source={image} alt="" />
 
   return (
     <section className={styles.Promo}>

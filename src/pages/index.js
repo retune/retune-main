@@ -14,7 +14,7 @@ import Intro from '../components/Intro'
 import Latest from '../components/Latest'
 import Layout from '../components/Layout'
 import NowCast from '../components/NowCast'
-// import Promo from '../components/Promo'
+import Promo from '../components/Promo'
 import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
 import EventArchive from '../components/EventArchive'
@@ -41,6 +41,10 @@ const IndexPage = ({ data }) => {
   const posts = mergeResultsIntoItems(data.posts)
   const latest = sortItems([...split.future, ...posts])
 
+  const showPromo = get(data, 'page.edges[0].node.data.showpromo') === 'yes'
+  const promoURL = get(data, 'page.edges[0].node.data.promourl', null)
+  const promoImage = get(data, 'page.edges[0].node.data.promo', null)
+
   console.log('featuredEvents', featuredEvents)
 
   return (
@@ -52,8 +56,9 @@ const IndexPage = ({ data }) => {
         innerClassName={styles.latestInner}
         items={latest}
       />
-      {/*
-      {data.homepage.showPromo && <Promo url={data.homepage.promoURL} />}*/}
+      {showPromo &&
+        promoURL &&
+        promoImage && <Promo url={promoURL} image={promoImage} />}
       <Featured events={featuredEvents} />
       <Quotes quotes={quotes} />
       <EventArchive events={split.past} />
@@ -76,6 +81,15 @@ export const query = graphql`
         node {
           id
           data {
+            showpromo
+            promourl
+            promo {
+              localFile {
+                publicURL
+                ...fluidImage
+              }
+            }
+
             featured {
               item {
                 document {
