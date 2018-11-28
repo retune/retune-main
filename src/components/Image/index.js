@@ -34,12 +34,13 @@ const Image = ({ className = '', source, width, height, auto = false }) => {
 export const fluidImageFragment = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid {
-        base64
-        aspectRatio
-        src
-        srcSet
-        sizes
+      fluid(maxWidth: 1400, quality: 100) {
+        ...GatsbyImageSharpFluid
+        #base64
+        #aspectRatio
+        #src
+        #srcSet
+        #sizes
       }
     }
   }
