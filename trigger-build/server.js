@@ -30,7 +30,7 @@ const triggerTravisBuild = () => {
 
   const body = {
     request: {
-      branch: 'master',
+      branch: process.env.BRANCH || 'master',
     },
   }
 
