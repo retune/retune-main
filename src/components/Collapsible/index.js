@@ -26,6 +26,8 @@ class Collapsible extends React.Component {
     }
   }
 
+  headingRef = React.createRef()
+
   toggle = () => {
     const willCollapse = !this.state.collapsed
 
@@ -38,11 +40,43 @@ class Collapsible extends React.Component {
     }
   }
 
+  scrollIntoView = () => {
+    const el = this.headingRef.current
+    if (el == null) {
+      return
+    }
+
+    const mastheadHeight = parseInt(
+      window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--retune-masthead-h')
+    )
+
+    const rect = el.getBoundingClientRect()
+    console.log('rect: ', rect)
+    const isOffscreen = rect.top < 0
+
+    if (isOffscreen) {
+      const top = window.scrollY - Math.abs(rect.top) - mastheadHeight
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
   componentDidUpdate({ collapsed }) {
-    if (this.props.collapsed !== collapsed) {
-      this.setState({
-        collapsed: this.props.collapsed,
-      })
+    const didChange = this.props.collapsed !== collapsed
+    const didOpen = !this.props.collapsed
+
+    if (didChange) {
+      this.setState(
+        {
+          collapsed: this.props.collapsed,
+        },
+        () => {
+          if (didOpen) {
+            this.scrollIntoView()
+          }
+        }
+      )
     }
   }
 
@@ -88,6 +122,7 @@ class Collapsible extends React.Component {
 
     const header = (
       <Heading
+        ref={this.headingRef}
         className={classnames(
           styles.title,
           styles[`${headingSize}Heading`],
