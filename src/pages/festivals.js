@@ -9,6 +9,7 @@ import Festival from '../components/Festival'
 import Hero from '../components/Festival/Hero'
 import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
+import Video from '../components/Video'
 
 import { festivalsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -70,8 +71,11 @@ const FestivalsPage = ({ data }) => {
           info={<Info>{info}</Info>}
         />
 
-        <div className={styles.images}>
+        {/*<div className={styles.images}>
           <PhotoGallery caption={false} images={images} />
+          </div>*/}
+        <div className={styles.video}>
+          <Video />
         </div>
       </div>
 

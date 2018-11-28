@@ -9,6 +9,7 @@ import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
 import StudioVisit from '../components/StudioVisit'
 import { Group } from '../components/Collapsible'
+import Video from '../components/Video'
 
 import { studioVisitsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -37,7 +38,8 @@ const StudioVisitsPage = ({ data }) => {
     },
   ]
 
-  const hasUpcomingEvents = events.future && Array.isArray(events.future)
+  const hasUpcomingEvents =
+    events.future && Array.isArray(events.future) && events.future.length > 0
 
   const upcoming = hasUpcomingEvents ? (
     <section className={styles.upcoming}>
@@ -85,8 +87,8 @@ const StudioVisitsPage = ({ data }) => {
           info={<Info>{info}</Info>}
         />
 
-        <div className={styles.images}>
-          <PhotoGallery caption={false} images={images} />
+        <div className={styles.video}>
+          <Video />
         </div>
       </div>
 
