@@ -25,6 +25,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
+    "react-intersection-observer": "^6.3.0",
     "react-markdown": "^4.0.3",
     "react-modal": "^3.6.1",
     "react-pose": "^4.0.2",

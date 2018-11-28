@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { InView } from 'react-intersection-observer'
 
 import styles from './index.module.css'
 
@@ -7,10 +8,26 @@ const video = 'https://retune.uber.space/video.mp4'
 class Video extends React.Component {
   videoRef = React.createRef()
 
-  toggle = () => {
+  componentDidMount() {
+    document.addEventListener('visibilitychange', this.visibilityDidChange)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('visibilitychange', this.visibilityDidChange)
+  }
+
+  visibilityDidChange = evt => {
+    if (document.hidden) {
+      this.toggle(false)
+    } else {
+      this.toggle(true)
+    }
+  }
+
+  toggle = play => {
     const video = this.videoRef.current
     if (video) {
-      if (video.paused) {
+      if (play && video.paused) {
         video.play()
       } else {
         video.pause()
@@ -20,17 +37,21 @@ class Video extends React.Component {
 
   render() {
     return (
-      <div className={styles.container} onClick={this.toggle}>
-        <video
-          ref={this.videoRef}
-          src={video}
-          autoPlay
-          loop
-          muted
-          preload="none"
-          playsInline
-        />
-      </div>
+      <InView onChange={this.toggle}>
+        {({ inView, ref }) => (
+          <div ref={ref} className={styles.container}>
+            <video
+              ref={this.videoRef}
+              src={video}
+              autoPlay
+              loop
+              muted
+              preload="none"
+              playsInline
+            />
+          </div>
+        )}
+      </InView>
     )
   }
 }
