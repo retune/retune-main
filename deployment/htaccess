@@ -1,5 +1,7 @@
 RewriteEngine  on
 
+RewriteRule ^trigger/(.*) http://localhost:12345/$1 [P]
+
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule (.*) /site/$1 [PT]
 
