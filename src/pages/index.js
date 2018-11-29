@@ -170,10 +170,12 @@ export const query = graphql`
                 text
               }
             }
-            mainimage {
-              localFile {
-                publicURL
-                ...fluidImage
+            mainimages {
+              image {
+                localFile {
+                  publicURL
+                  ...fluidImage
+                }
               }
             }
           }

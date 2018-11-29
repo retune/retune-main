@@ -41,10 +41,12 @@ export const query = graphql`
         body {
           text
         }
-        mainimage {
-          localFile {
-            publicURL
-            ...fluidImage
+        mainimages {
+          image {
+            localFile {
+              publicURL
+              ...fluidImage
+            }
           }
         }
       }
