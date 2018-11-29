@@ -73,7 +73,10 @@ class Masthead extends React.Component {
 
   handleClick = evt => {
     // Do not close if clicking on navigation itself
-    if (!this.elementRef.current.contains(evt.target)) {
+    if (
+      this.elementRef.current &&
+      !this.elementRef.current.contains(evt.target)
+    ) {
       this.close()
     }
   }
