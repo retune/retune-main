@@ -17,13 +17,13 @@
 
 @media (--small) {
   .Intro {
-    padding: 18px 18px 106px 18px;
+    padding: 18px 18px 28px 18px;
   }
 }
 
 @media (--large) {
   .Intro {
-    padding: 28px 50px 66px 50px;
+    padding: 28px 50px 38px 50px;
   }
 }
 

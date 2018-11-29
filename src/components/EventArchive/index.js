@@ -9,7 +9,7 @@ import styles from './index.module.css'
 
 const EventArchive = ({ events }) => (
   <section className={styles.EventArchive}>
-    <Header level="2" title="Archive" />
+    <Header className={styles.meta} level="2" title="Archive" />
 
     <table className={styles.table}>
       <TableHeader />

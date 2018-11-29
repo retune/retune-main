@@ -7,7 +7,7 @@
 
 @media (--large) {
   .EventArchive {
-    padding: 100px 48px 48px 48px;
+    padding: 58px 48px 108px 48px;
   }
 }
 
@@ -27,7 +27,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    margin-bottom: 91px;
+    margin-bottom: 60px;
   }
 
   .heading {
@@ -81,7 +81,7 @@
 
 @media (--large) {
   .table th {
-    height: 72px;
+    height: 62px;
   }
 
   .table td {

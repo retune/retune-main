@@ -102,6 +102,10 @@
   margin: 0;
 }
 
+.EventItem a:hover > .title {
+  text-decoration: underline;
+}
+
 @media (--large) {
   .type:before {
     width: 30px;
