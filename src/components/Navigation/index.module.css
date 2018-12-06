@@ -13,6 +13,11 @@
   overflow: hidden;
 }
 
+/* Initial closed state */
+.Navigation.isClosed {
+  height: 0;
+}
+
 @media (--small) {
   .Navigation {
     min-height: calc(100vh - var(--retune-masthead-h));
