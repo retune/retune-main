@@ -17,6 +17,7 @@ const Quote = ({ quote }) => (
 
 const Quotes = ({ quotes }) => (
   <CarouselProvider
+    isPlaying
     naturalSlideWidth={375}
     naturalSlideHeight={200 - 32 - 10}
     totalSlides={quotes.length}
