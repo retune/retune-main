@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import pose from 'react-pose'
 
 import Circle from '../Circle'
+import HitArea from '../HitArea'
 import Icon from '../Icon'
 import Navigation from '../Navigation'
 
@@ -147,9 +148,11 @@ class Masthead extends React.Component {
           </div>
 
           {this.props.backTo && (
-            <Link to={this.props.backTo} className={styles.back}>
-              <Icon type="close" />
-            </Link>
+            <div className={styles.back}>
+              <HitArea onClick={() => window.history.back()}>
+                <Icon type="close" />
+              </HitArea>
+            </div>
           )}
         </Inner>
 
