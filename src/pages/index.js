@@ -45,13 +45,15 @@ const IndexPage = ({ data }) => {
   const promoURL = get(data, 'page.edges[0].node.data.promourl', null)
   const promoImage = get(data, 'page.edges[0].node.data.promo', null)
 
+  const pageLocation = '/'
+
   console.log('featuredEvents', featuredEvents)
 
   return (
     <Layout pageTitle={<NowCast />}>
       <Intro />
       <Latest
-        parentUrl="/"
+        parentUrl={pageLocation}
         className={styles.latest}
         innerClassName={styles.latestInner}
         items={latest}
@@ -59,7 +61,7 @@ const IndexPage = ({ data }) => {
       {showPromo &&
         promoURL &&
         promoImage && <Promo url={promoURL} image={promoImage} />}
-      <Featured events={featuredEvents} />
+      <Featured events={featuredEvents} parentUrl={pageLocation} />
       <Quotes quotes={quotes} />
       <EventArchive events={split.past} />
     </Layout>

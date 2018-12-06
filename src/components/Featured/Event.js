@@ -20,7 +20,7 @@ const sectionUrlForType = type => {
   }
 }
 
-const Event = ({ event }) => {
+const Event = ({ event, parentUrl }) => {
   const type = <EventType plural type={event.type} />
   const typeUrl = sectionUrlForType(event.type)
   const url = urls.eventPath(event)
@@ -39,7 +39,7 @@ const Event = ({ event }) => {
         )}
       </p>
 
-      <Link className={styles.link} to={url}>
+      <Link className={styles.link} to={url} state={{ backTo: parentUrl }}>
         {event.mainimages && (
           <Image className={styles.image} source={event.mainimages[0]} />
         )}
