@@ -31,7 +31,7 @@ const Section = ({
   children,
   content,
   collapsible = true,
-  //initiallyCollapsed = undefined,
+  initiallyCollapsed = undefined,
   onToggle,
   currentlyOpen,
 }) => {
@@ -39,21 +39,21 @@ const Section = ({
     return null
   }
 
-  const isNowCollapsed = currentlyOpen !== title
+  // const isNowCollapsed = currentlyOpen !== title
 
   return (
     <Collapsible
       collapsible={collapsible}
       contentClassName={classnames(styles.sectionContent, 'mql-xs mono')}
-      //initiallyCollapsed={initiallyCollapsed}
+      initiallyCollapsed={initiallyCollapsed}
       heading={title}
       iconType="circle"
       borderSize="small"
       borderColor="blue"
       headingSize="small"
       headingHeight={48}
-      onToggle={isCollapsed => onToggle(title, isCollapsed)}
-      collapsed={isNowCollapsed}
+      //onToggle={isCollapsed => onToggle(title, isCollapsed)}
+      //collapsed={isNowCollapsed}
     >
       {/* All headings should be mapped to h4 */}
       <Markdown source={content} renderers={markdownRendererReplacements} />
@@ -124,7 +124,7 @@ const Festival = ({ collapsible, event, isOpen = false, onToggle }) => (
               <Section
                 title="Speakers"
                 content={event.speakers}
-                //initiallyCollapsed={false}
+                initiallyCollapsed={false}
                 onToggle={onToggle}
                 currentlyOpen={currentlyOpen}
               />

@@ -22,8 +22,8 @@ const StudioVisit = ({ event, collapsed, onToggle }) => (
     heading={<Heading event={event} />}
     borderSize="small"
     borderColor="blue"
-    onToggle={onToggle}
-    collapsed={collapsed}
+    //onToggle={onToggle}
+    //collapsed={collapsed}
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div className="mql-s mono">
