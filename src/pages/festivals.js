@@ -46,16 +46,18 @@ const FestivalsPage = ({ data }) => {
   const defaultItem = openFirstArchiveItem ? festivals.past[0].id : undefined
   const archive = (
     <Group>
-      {({ onToggle, currentlyOpen = defaultItem }) =>
-        festivals.past.map((event, index) => (
-          <Festival
-            key={event.id}
-            event={event}
-            //isOpen={currentlyOpen === event.id}
-            //onToggle={isOpen => onToggle(event.id, isOpen)}
-          />
-        ))
-      }
+      {({ onToggle, currentlyOpen = defaultItem }) => (
+        <div className={styles.Archive}>
+          {festivals.past.map((event, index) => (
+            <Festival
+              key={event.id}
+              event={event}
+              //isOpen={currentlyOpen === event.id}
+              //onToggle={isOpen => onToggle(event.id, isOpen)}
+            />
+          ))}
+        </div>
+      )}
     </Group>
   )
 

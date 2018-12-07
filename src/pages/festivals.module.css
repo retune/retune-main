@@ -61,6 +61,10 @@
     color: #fff;
   }
 
+  .Archive {
+    margin-top: 50px;
+  }
+
   .outro {
     display: grid;
     grid-template-columns: 1fr 1fr;
