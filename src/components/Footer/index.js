@@ -9,7 +9,7 @@ import * as urls from '../../lib/urls'
 import styles from './index.module.css'
 
 const Infos = () => (
-  <section className={styles.Infos}>
+  <section className={classnames(styles.Infos, 'mql-m mqs-s')}>
     <div className={styles.company}>
       <span>Retune</span>
       <span>
@@ -34,7 +34,7 @@ const Infos = () => (
       <Social theme="dark" />
     </div>
 
-    <ul className={classnames(styles.links, 'mql-m mqs-s')}>
+    <ul className={classnames(styles.links)}>
       <li>
         <Link className="link link-white" to={urls.imprintPath()}>
           Imprint
