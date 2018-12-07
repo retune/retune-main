@@ -28,6 +28,10 @@
   opacity: 1;
 }
 
+.PhotoGallery * {
+  outline: none;
+}
+
 .ButtonBack {
   grid-area: left;
   grid-row: 1;
@@ -55,4 +59,13 @@
   grid-column-start: left;
   grid-column-end: right;
   grid-row: 1;
+}
+
+.Slide {
+  height: 100%;
+}
+
+/* inherit the slide height 👆 */
+.Image {
+  height: inherit;
 }

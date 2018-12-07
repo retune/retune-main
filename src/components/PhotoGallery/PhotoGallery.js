@@ -28,8 +28,12 @@ const PhotoGallery = ({
 
       <Slider className={styles.Slider}>
         {images.map((image, index) => (
-          <Slide key={index} index={index}>
-            <Image source={image} />
+          <Slide key={index} index={index} className={styles.Slide}>
+            <Image
+              source={image}
+              imgStyle={{ objectFit: 'contain' }}
+              className={styles.Image}
+            />
           </Slide>
         ))}
       </Slider>

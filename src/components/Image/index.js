@@ -6,7 +6,14 @@ import { graphql } from 'gatsby'
 
 import styles from './index.module.css'
 
-const Image = ({ className = '', source, width, height, auto = false }) => {
+const Image = ({
+  className = '',
+  source,
+  width,
+  height,
+  auto = false,
+  ...rest
+}) => {
   const classes = classnames(styles.Image, className)
   const style = auto ? null : { width, height }
   const gatsbyImage =
@@ -17,13 +24,13 @@ const Image = ({ className = '', source, width, height, auto = false }) => {
 
   // Using gatsby's image processing
   if (gatsbyImage && gatsbyImage.fixed) {
-    image = <Img className={classes} fixed={gatsbyImage.fixed} />
+    image = <Img {...rest} className={classes} fixed={gatsbyImage.fixed} />
   } else if (gatsbyImage && gatsbyImage.fluid) {
-    image = <Img className={classes} fluid={gatsbyImage.fluid} />
+    image = <Img {...rest} className={classes} fluid={gatsbyImage.fluid} />
   } else if (get(source, 'localFile.publicURL')) {
     image = (
       <div className={classes} style={style}>
-        <img src={get(source, 'localFile.publicURL')} alt="" />
+        <img src={get(source, 'localFile.publicURL')} alt="" {...rest} />
       </div>
     )
   }
