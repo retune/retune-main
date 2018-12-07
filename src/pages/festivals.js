@@ -67,6 +67,7 @@ const FestivalsPage = ({ data }) => {
     >
       <div className={styles.intro}>
         <Header
+          className={styles.header}
           heading={<Heading className={styles.heading} title={Title} />}
           info={<Info>{info}</Info>}
         />

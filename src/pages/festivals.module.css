@@ -1,45 +1,70 @@
 @import '../components/MediaQuery/index.css';
 
-.Festivals {
-  padding: 24px 16px;
+.StudioVisits {
+  position: relative;
+  padding: 24px 0;
 }
 
-/* Page intro */
-@media (--large) {
-  .Festivals {
-    padding: 24px 50px;
-  }
-
-  .images {
-    grid-area: images;
-    margin-top: -60px;
-    margin-bottom: 50px;
-  }
-
-  .outro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;
-  }
+.StudioVisits > :not(.intro) {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-/*
-  Above .images (PhotoGallery)
-*/
-.heading,
-.info {
+/* Above .images */
+.header {
   z-index: 1;
+}
+
+@media (--small) {
+  .header {
+    margin-bottom: 16px;
+  }
 }
 
 .heading span {
   display: block;
 }
 
-.images {
-  width: 100%;
-  margin-top: 16px;
+.video {
+  position: relative;
+  z-index: -1;
 }
 
-.outro {
-  margin-top: 116px;
+@media (--large) {
+  .Festivals {
+    padding: 0;
+  }
+
+  .intro .header {
+    padding-top: 24px;
+  }
+
+  .upcomingHeading,
+  .upcomingLatestInner,
+  .Festivals > :not(.upcoming, .intro),
+  .intro .header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-areas: row;
+  }
+
+  .intro > * {
+    grid-area: row;
+  }
+
+  .intro {
+    color: #fff;
+  }
+
+  .outro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    margin-top: 116px;
+  }
 }
