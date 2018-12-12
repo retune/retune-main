@@ -1,6 +1,9 @@
-import PrismicRichText, { Elements } from 'prismic-richtext'
-import { Link as LinkHelper } from 'prismic-helpers'
-import escapeHtml from 'escape-html'
+const PrismicRichText = require('prismic-richtext')
+const { Link } = require('prismic-helpers')
+const escapeHtml = require('escape-html')
+
+const Elements = PrismicRichText.Elements
+const LinkHelper = Link
 
 function serialize(linkResolver, type, element, content, children) {
   switch (type) {
@@ -111,7 +114,7 @@ function serializeSpan(content) {
   // return content ? escapeHtml(content).replace(/\n/g, '<br />') : ''
 }
 
-export default {
+module.exports = {
   asText(structuredText, joinString) {
     return PrismicRichText.asText(structuredText, joinString)
   },
