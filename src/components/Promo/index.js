@@ -10,7 +10,9 @@ const Promo = ({ url, image }) => {
 
   return (
     <section className={styles.Promo}>
-      <h2 className={classnames('mql-m', styles.heading)}>Latest</h2>
+      <h2 className={classnames('mqs-s mql-xs mono', styles.heading)}>
+        Latest
+      </h2>
       {url != null ? <a href={url}>{content}</a> : content}
     </section>
   )
