@@ -3,6 +3,12 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import classnames from 'classnames'
 
+/*
+  Imports the Courier Prime typeface
+  Available via font-family: 'Courier Prime'
+*/
+import 'typeface-courier-prime'
+
 import Masthead from '../Masthead'
 import Footer from '../Footer'
 

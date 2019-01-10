@@ -44,7 +44,7 @@ h6 {
 .mono,
 .mono-before:before,
 .mono-after:after {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
 }
 
 * {
