@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 
 import Image from '../Image'
 
@@ -9,6 +10,7 @@ const Promo = ({ url, image }) => {
 
   return (
     <section className={styles.Promo}>
+      <h2 className={classnames('mql-m', styles.heading)}>Latest</h2>
       {url != null ? <a href={url}>{content}</a> : content}
     </section>
   )
