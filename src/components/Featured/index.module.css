@@ -12,10 +12,6 @@
   .Featured {
     margin: 0 50px;
   }
-
-  .heading {
-    margin-bottom: 27px;
-  }
 }
 
 .list {
@@ -39,12 +35,13 @@
 
 @media (min-width: 750px) {
   .Event {
-    padding: 17px 0 67px 0;
+    padding: 0 0 67px 0;
   }
 
   .Event:not(:first-child) {
     width: calc(50% - 50px);
     margin: 0 50px 0 0;
+    padding-top: 17px;
 
     border-top: 3px solid #000;
   }
