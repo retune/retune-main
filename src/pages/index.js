@@ -47,8 +47,6 @@ const IndexPage = ({ data }) => {
 
   const pageLocation = '/'
 
-  console.log('featuredEvents', featuredEvents)
-
   return (
     <Layout pageTitle={<NowCast />}>
       <Intro />
