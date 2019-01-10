@@ -61,6 +61,8 @@
   margin: 0;
   padding-bottom: 7px;
   text-align: center;
+
+  transform: translateX(-27px);
 }
 
 .type > a {
