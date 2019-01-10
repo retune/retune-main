@@ -5,7 +5,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 30px;
   grid-column-gap: 50px;
-  grid-template-areas: 'type type' 'meta social' 'content image' 'related related';
+  grid-template-areas: 'type type' 'meta extra' 'body extra' 'related related';
 }
 
 .type {
@@ -31,11 +31,6 @@
   margin-left: 45px;
 }
 
-.image {
-  grid-area: image;
-  margin-right: 45px;
-}
-
 .title,
 .startdate {
   margin: 0;
@@ -46,7 +41,7 @@
 }
 
 .body {
-  grid-area: content;
+  grid-area: body;
   max-width: 647px;
   margin-left: 45px;
 }
@@ -56,11 +51,13 @@
   margin-bottom: 20px;
 }
 
-.ticket {
-  grid-area: social;
-  padding-top: 24px;
-  font-weight: normal;
+.extra {
+  grid-area: extra;
   margin-right: 45px;
+}
+
+.ticket {
+  font-weight: normal;
 }
 
 .related:before {

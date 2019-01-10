@@ -74,23 +74,25 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
             </time>
           </header>
 
-          {images && images.length > 0 ? (
-            <div className={styles.image}>
-              <PhotoGallery images={images} />
-            </div>
-          ) : null}
+          <div className={styles.extra}>
+            {item.ticketurl && (
+              <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
+                <a className="link" href={item.ticketurl}>
+                  Get ticket
+                </a>
+              </p>
+            )}
+
+            {images && images.length > 0 ? (
+              <div className={styles.image}>
+                <PhotoGallery images={images} />
+              </div>
+            ) : null}
+          </div>
 
           <div className={classnames(styles.body, 'mql-m mqs-m')}>
             {body ? <Markdown source={body} /> : item.summary}
           </div>
-
-          {item.ticketurl && (
-            <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
-              <a className="link" href={item.ticketurl}>
-                Get ticket
-              </a>
-            </p>
-          )}
 
           {related && (
             <div className={styles.related}>
