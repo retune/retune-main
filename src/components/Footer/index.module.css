@@ -77,8 +77,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'company newsletter' 'links .';
-    grid-row-gap: 40px;
+    grid-template-areas: 'company newsletter' 'company links';
+    grid-row-gap: 0;
   }
 
   .company {

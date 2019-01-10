@@ -34,7 +34,7 @@ const Infos = () => (
       <Social theme="dark" />
     </div>
 
-    <ul className={classnames(styles.links)}>
+    <ul className={classnames(styles.links, 'mql-s mqs-s')}>
       <li>
         <Link className="link link-white" to={urls.imprintPath()}>
           Imprint
