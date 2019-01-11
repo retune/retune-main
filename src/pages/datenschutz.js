@@ -1,11 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import classnames from 'classnames'
 
-import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
-import Markdown from '../components/Markdown'
-import Section from '../components/SmallprintSection'
+import SmallprintPage from '../components/SmallprintPage'
 
 import { privacyPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
@@ -28,14 +25,14 @@ const PrivacyPage = ({ data }) => {
       className={styles.Imprint}
       pageTitle={region.mastheadtitle}
     >
-      <Heading className={styles.heading} title={region.title} />
-
-      <Section title={region.title_de} gridArea="left">
-        <Markdown source={region.content_de} />
-      </Section>
-      <Section title={region.title_en} gridArea="right">
-        <Markdown source={region.content_en} />
-      </Section>
+      <SmallprintPage
+        title={region.title}
+        info={null}
+        deTitle={region.title_de}
+        deContent={region.content_de}
+        enTitle={region.title_en}
+        enContent={region.content_en}
+      />
     </Layout>
   )
 }
