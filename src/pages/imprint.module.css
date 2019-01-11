@@ -8,11 +8,6 @@
   padding-bottom: 80px;
 }
 
-.section {
-  padding-top: 40px;
-  border-top: 1px solid var(--retune-col-blue);
-}
-
 @media (--large) {
   .Imprint {
     display: grid;
@@ -27,21 +22,6 @@
   .info {
     grid-area: info;
     padding-bottom: 181px;
-  }
-
-  .left {
-    grid-area: left;
-    padding-right: 25px;
-  }
-
-  .right {
-    grid-area: right;
-    padding-left: 25px;
-  }
-
-  .section {
-    padding-top: 117px;
-    border-top: 1px solid var(--retune-col-blue);
   }
 }
 

@@ -1,29 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import classnames from 'classnames'
-import get from 'lodash/get'
-import mapValues from 'lodash/mapValues'
 
 import { Heading } from '../components/Header'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
+import Section from '../components/SmallprintSection'
+
 import { privacyPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 
 import styles from './imprint.module.css'
-
-const Section = ({
-  className = '',
-  title,
-  children,
-  content = null,
-  gridArea = '',
-}) => (
-  <section className={classnames(styles.section, className, styles[gridArea])}>
-    <h2 className="mql-xl">{title}</h2>
-    <div className={classnames('mql-xs')}>{content || children}</div>
-  </section>
-)
 
 const PrivacyPage = ({ data }) => {
   const region = mergeResultsIntoItems(data.privacy)[0]

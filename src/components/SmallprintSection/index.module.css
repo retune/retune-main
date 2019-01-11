@@ -1,0 +1,28 @@
+@import '../MediaQuery/index.css';
+
+.section {
+  padding-top: 40px;
+  border-top: 1px solid var(--retune-col-blue);
+}
+
+/* All rendered CMS content should be the same size */
+.sectionContent * {
+  font-size: inherit;
+}
+
+@media (--large) {
+  .section {
+    padding-top: 117px;
+    border-top: 1px solid var(--retune-col-blue);
+  }
+
+  .left {
+    grid-area: left;
+    padding-right: 25px;
+  }
+
+  .right {
+    grid-area: right;
+    padding-left: 25px;
+  }
+}
