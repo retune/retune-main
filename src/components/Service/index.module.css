@@ -4,7 +4,9 @@
   Service layout
 */
 .Service {
-  padding: 24px 50px;
+  margin: 0 59px;
+  padding: 24px 0;
+
   border-top: 4px solid #fff;
 }
 
