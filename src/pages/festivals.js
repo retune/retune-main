@@ -52,7 +52,7 @@ const FestivalsPage = ({ data }) => {
             <Festival
               key={event.id}
               event={event}
-              //isOpen={currentlyOpen === event.id}
+              isOpen={currentlyOpen === event.id}
               //onToggle={isOpen => onToggle(event.id, isOpen)}
             />
           ))}
