@@ -20,24 +20,29 @@ const sectionUrlForType = type => {
   }
 }
 
-const Event = ({ event, parentUrl }) => {
+const TypeLink = ({ event }) => {
   const type = <EventType plural type={event.type} />
   const typeUrl = sectionUrlForType(event.type)
+
+  return (
+    <p className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}>
+      {typeUrl ? (
+        <Link className="link link-black" to={typeUrl}>
+          {type}
+        </Link>
+      ) : (
+        typeUrl
+      )}
+    </p>
+  )
+}
+
+const Event = ({ event, parentUrl }) => {
   const url = urls.eventPath(event)
 
   return (
     <li className={styles.Event}>
-      <p
-        className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}
-      >
-        {typeUrl ? (
-          <Link className="link link-black" to={typeUrl}>
-            {type}
-          </Link>
-        ) : (
-          typeUrl
-        )}
-      </p>
+      <TypeLink event={event} />
 
       <Link className={styles.link} to={url} state={{ backTo: parentUrl }}>
         {event.mainimages && (
