@@ -23,7 +23,8 @@ const Title = (
   </React.Fragment>
 )
 
-const StudioVisitsPage = ({ data }) => {
+const StudioVisitsPage = ({ data, pageContext }) => {
+  const selectedId = pageContext.id
   const info = get(data, 'page.edges[0].node.data.info.text')
   const images = get(data, 'page.edges[0].node.data.images', []).map(
     ({ image }) => image
@@ -39,7 +40,7 @@ const StudioVisitsPage = ({ data }) => {
   ]
 
   const hasUpcomingEvents =
-    events.future && Array.isArray(events.future) && events.future.length > 0
+    Array.isArray(events.future) && events.future.length > 0
 
   const upcoming = hasUpcomingEvents ? (
     <section className={styles.upcoming}>
@@ -59,15 +60,23 @@ const StudioVisitsPage = ({ data }) => {
 
   const archive = hasPastEvents ? (
     <Group>
-      {({ onToggle, currentlyOpen }) => {
-        return events.past.map(event => (
-          <StudioVisit
-            key={event.id}
-            event={event}
-            collapsed={currentlyOpen !== event.id}
-            onToggle={isCollapsed => onToggle(event.id, isCollapsed)}
-          />
-        ))
+      {({ onToggle, currentlyOpen = selectedId }) => {
+        return events.past.map(event => {
+          console.log(
+            `SV: currentlyOpen: ${currentlyOpen}, ${
+              event.id
+            }, collapsed: ${currentlyOpen !== event.id}, title: ${event.title}`
+          )
+
+          return (
+            <StudioVisit
+              key={event.id}
+              event={event}
+              collapsed={currentlyOpen !== event.id}
+              onToggle={isCollapsed => onToggle(event.id, isCollapsed)}
+            />
+          )
+        })
       }}
     </Group>
   ) : (

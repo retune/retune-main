@@ -3,6 +3,7 @@
 */
 const slug = require('slug')
 const getType = require('./getType')
+const isEventInPastOrFuture = require('./isEventInPastOrFuture')
 
 slug.defaults.mode = 'rfc3986' // Lowercases URLs
 

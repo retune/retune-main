@@ -6,15 +6,28 @@
 const path = require('path')
 const { eventPath, newsPath } = require('./src/lib/urls')
 const mergeResultsIntoItems = require('./src/lib/mergeResultsIntoItems')
+const isEventInPastOrFuture = require('./src/lib/isEventInPastOrFuture')
 
-const createItemPage = (templateName, createPage, createPath) => node => {
+const Templates = {
+  event: `./src/templates/event.js`,
+  news: `./src/templates/news.js`,
+  festival: `./src/pages/festivals.js`,
+  studioVisit: `./src/pages/studio-visits.js`,
+}
+
+const createItemPage = (templatePath, createPage, createPath, node) => {
   const urlPath = createPath(node)
+  const componentPath = path.resolve(templatePath)
 
-  console.log('URL path', urlPath)
+  console.log(`CREATE: ${urlPath} -> ${componentPath}`)
+
+  if (!componentPath) {
+    return
+  }
 
   createPage({
     path: urlPath,
-    component: path.resolve(`./src/templates/${templateName}.js`),
+    component: componentPath,
     context: {
       // Data passed to context is available
       // in page queries as GraphQL variables.
@@ -34,6 +47,8 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               id
               data {
+                startdate
+                enddate
                 title {
                   text
                 }
@@ -60,8 +75,23 @@ exports.createPages = ({ graphql, actions }) => {
       const events = mergeResultsIntoItems(result.data.events)
       const posts = mergeResultsIntoItems(result.data.posts)
 
-      events.forEach(createItemPage('event', createPage, eventPath))
-      posts.forEach(createItemPage('news', createPage, newsPath))
+      events.forEach(event => {
+        let templatePath
+
+        if (isEventInPastOrFuture(event) === 'future') {
+          templatePath = Templates.event
+        } else if (event.type === 'studio-visit') {
+          templatePath = Templates.studioVisit
+        } else if (event.type === 'festival') {
+          templatePath = Templates.festival
+        }
+
+        createItemPage(templatePath, createPage, eventPath, event)
+      })
+
+      posts.forEach(post =>
+        createItemPage(Templates.news, createPage, newsPath, post)
+      )
 
       resolve()
     })

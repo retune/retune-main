@@ -23,7 +23,8 @@ const Title = (
   </React.Fragment>
 )
 
-const FestivalsPage = ({ data }) => {
+const FestivalsPage = ({ data, pageContext }) => {
+  const selectedId = pageContext.id
   const info = get(data.page, 'edges[0].node.data.info.text')
   const images = get(data.page, 'edges[0].node.data.images').map(
     ({ image }) => image
@@ -43,7 +44,14 @@ const FestivalsPage = ({ data }) => {
   ) : null
 
   const openFirstArchiveItem = upcoming == null
-  const defaultItem = openFirstArchiveItem ? festivals.past[0].id : undefined
+  let defaultItem
+
+  if (selectedId != null) {
+    defaultItem = selectedId
+  } else if (openFirstArchiveItem) {
+    defaultItem = festivals.past[0].id
+  }
+
   const archive = (
     <Group>
       {({ onToggle, currentlyOpen = defaultItem }) => (
