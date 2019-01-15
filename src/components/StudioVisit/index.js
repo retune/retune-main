@@ -15,7 +15,12 @@ const Heading = ({ event }) => (
   </span>
 )
 
-const StudioVisit = ({ event, collapsed, onToggle }) => (
+const StudioVisit = ({
+  event,
+  collapsed,
+  onToggle,
+  scrollIntoViewOnMount = false,
+}) => (
   <Collapsible
     className={classnames(styles.StudioVisit)}
     iconSize="medium"
@@ -24,6 +29,7 @@ const StudioVisit = ({ event, collapsed, onToggle }) => (
     borderColor="blue"
     //onToggle={onToggle}
     collapsed={collapsed}
+    scrollIntoViewOnMount={scrollIntoViewOnMount}
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div className="mql-s mono">

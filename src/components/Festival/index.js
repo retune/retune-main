@@ -62,7 +62,13 @@ const Section = ({
   )
 }
 
-const Festival = ({ collapsible, event, isOpen = false, onToggle }) => (
+const Festival = ({
+  collapsible,
+  event,
+  isOpen = false,
+  onToggle,
+  scrollIntoViewOnMount = false,
+}) => (
   <Collapsible
     collapsible={collapsible}
     className={classnames(styles.Festival)}
@@ -72,6 +78,7 @@ const Festival = ({ collapsible, event, isOpen = false, onToggle }) => (
     collapsed={!isOpen}
     //initiallyCollapsed={!isOpen}
     onToggle={onToggle}
+    scrollIntoViewOnMount={scrollIntoViewOnMount}
   >
     <div className={styles.image}>
       {event.mainimages && <Flipbook images={event.mainimages} />}

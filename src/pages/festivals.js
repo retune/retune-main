@@ -54,11 +54,14 @@ const FestivalsPage = ({ data, pageContext }) => {
 
   const archive = (
     <Group>
-      {({ onToggle, currentlyOpen = defaultItem }) => (
+      {({ onToggle, currentlyOpen = defaultItem, initialRender }) => (
         <div className={styles.Archive}>
           {festivals.past.map((event, index) => (
             <Festival
               key={event.id}
+              scrollIntoViewOnMount={
+                initialRender && event.id === currentlyOpen
+              }
               event={event}
               isOpen={currentlyOpen === event.id}
               //onToggle={isOpen => onToggle(event.id, isOpen)}

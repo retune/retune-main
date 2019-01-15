@@ -26,6 +26,12 @@ class Collapsible extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.scrollIntoViewOnMount === true) {
+      this.scrollIntoView()
+    }
+  }
+
   headingRef = React.createRef()
 
   toggle = () => {
@@ -53,12 +59,14 @@ class Collapsible extends React.Component {
     )
 
     const rect = el.getBoundingClientRect()
-    console.log('rect: ', rect)
-    const isOffscreen = rect.top < 0
+    const isOffscreen =
+      rect.top < 0 || rect.top > document.documentElement.clientHeight
 
     if (isOffscreen) {
-      const top = window.scrollY - Math.abs(rect.top) - mastheadHeight
-      window.scrollTo({ top, behavior: 'smooth' })
+      const top = Math.abs(rect.top) - mastheadHeight
+      setTimeout(function() {
+        window.scrollTo({ top, behavior: 'smooth' })
+      }, 300)
     }
   }
 

@@ -60,20 +60,17 @@ const StudioVisitsPage = ({ data, pageContext }) => {
 
   const archive = hasPastEvents ? (
     <Group>
-      {({ onToggle, currentlyOpen = selectedId }) => {
+      {({ onToggle, currentlyOpen = selectedId, initialRender }) => {
         return events.past.map(event => {
-          console.log(
-            `SV: currentlyOpen: ${currentlyOpen}, ${
-              event.id
-            }, collapsed: ${currentlyOpen !== event.id}, title: ${event.title}`
-          )
-
           return (
             <StudioVisit
               key={event.id}
               event={event}
               collapsed={currentlyOpen !== event.id}
               onToggle={isCollapsed => onToggle(event.id, isCollapsed)}
+              scrollIntoViewOnMount={
+                initialRender && event.id === currentlyOpen
+              }
             />
           )
         })
