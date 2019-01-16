@@ -22,7 +22,8 @@
 }
 
 .isOpen {
-  border-color: #fff;
+  border-color: var(--retune-col-blue);
+  background-color: #fff;
 }
 
 .isClosed {
