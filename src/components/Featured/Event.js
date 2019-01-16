@@ -44,12 +44,16 @@ const Event = ({ event, parentUrl }) => {
     <li className={styles.Event}>
       <TypeLink event={event} />
 
-      <Link className={styles.link} to={url} state={{ backTo: parentUrl }}>
+      <Link
+        className={classnames(styles.link, 'link-hit-area')}
+        to={url}
+        state={{ backTo: parentUrl }}
+      >
         {event.mainimages && (
           <Image className={styles.image} source={event.mainimages[0]} />
         )}
         <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
-          <span>
+          <span className="link">
             {event.title}
             {isNully(event.subtitle) ? '' : ': '}
             {event.subtitle}

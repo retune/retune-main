@@ -55,14 +55,9 @@
   border-color: #fff;
 }
 
-/* @media (--large) {
-  .MastheadInner:before {
-    width: 30px;
-    height: 30px;
-    margin-left: 46px;
-    margin-right: 22px;
-  }
-} */
+.site > * {
+  display: inline-block;
+}
 
 .site .tagline {
   display: none;

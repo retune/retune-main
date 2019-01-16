@@ -60,8 +60,7 @@ a:visited {
 }
 
 .links-within a,
-a.link {
-  display: inline-block;
+.link {
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
 }
@@ -73,23 +72,24 @@ a.link {
 }
 
 .links-within a:hover,
-a:hover.link {
+.link-hit-area:hover .link,
+:hover.link {
   border-bottom-color: var(--retune-col-blue);
 }
 
-a.link.link-black {
+.link.link-black {
   color: #000;
 }
 
-a:hover.link.link-black {
+:hover.link.link-black {
   border-bottom-color: #000;
 }
 
-a.link.link-white {
+.link.link-white {
   color: #fff;
 }
 
-a:hover.link.link-white {
+:hover.link.link-white {
   border-bottom-color: #fff;
 }
 
