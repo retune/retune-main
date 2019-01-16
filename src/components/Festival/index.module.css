@@ -18,6 +18,8 @@
 }
 
 .sectionContentHeading {
+  text-decoration: underline;
+  text-indent: 1.5rem;
 }
 
 .sectionContentList {
