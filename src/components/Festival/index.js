@@ -12,16 +12,22 @@ import styles from './index.module.css'
 const markdownRendererReplacements = {
   heading: props => (
     // eslint-disable-next-line jsx-a11y/heading-has-content
-    <h4
-      {...props}
-      className={classnames(styles.sectionContentHeading, 'sans')}
-    />
+    <h4 {...props} className={classnames(styles.sectionContentHeading)} />
   ),
   list: ({ ordered, tight, ...props }) => {
     const Component = ordered ? 'ol' : 'ul'
 
     return (
       <Component {...props} className={classnames(styles.sectionContentList)} />
+    )
+  },
+  html: props => {
+    const isVideo = /iframe.*src=.*vimeo.com.*/.test(props.value)
+    return (
+      <div
+        className={isVideo ? 'video' : null}
+        dangerouslySetInnerHTML={{ __html: props.value }}
+      />
     )
   },
 }
