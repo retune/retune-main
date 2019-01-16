@@ -114,10 +114,18 @@ a:hover.link.link-white {
   line-height: 1.2;
 }
 
+.serif.mqs-xl {
+  font-size: 21px;
+}
+
 .mqs-l {
   /* font-size: 18px; */
   font-size: 15px;
   line-height: 1.2;
+}
+
+.serif.mqs-l {
+  font-size: 16px;
 }
 
 .mqs-m {
@@ -126,16 +134,28 @@ a:hover.link.link-white {
   line-height: 1.2;
 }
 
+.serif.mqs-m {
+  font-size: 13px;
+}
+
 .mqs-s {
   /* font-size: 12px; */
   font-size: 10px;
   line-height: 1.2;
 }
 
+.serif.mqs-s {
+  font-size: 11px;
+}
+
 .mqs-xs {
   /* font-size: 8px; */
   font-size: 7px;
   line-height: 1.2;
+}
+
+.serif.mqs-xs {
+  font-size: 8px;
 }
 
 @media (--large) {
@@ -145,10 +165,18 @@ a:hover.link.link-white {
     line-height: 1.2;
   }
 
+  .serif.mql-xxl {
+    font-size: 53px;
+  }
+
   .mql-xl {
     /* font-size: 40px; */
     font-size: 32px;
     line-height: 1.2;
+  }
+
+  .serif.mql-xl {
+    font-size: 33px;
   }
 
   .mql-l {
@@ -157,10 +185,18 @@ a:hover.link.link-white {
     line-height: 1.2;
   }
 
+  .serif.mql-l {
+    font-size: 24px;
+  }
+
   .mql-m {
     /* font-size: 25px; */
     font-size: 20px;
     line-height: 1.2;
+  }
+
+  .serif.mql-m {
+    font-size: 21px;
   }
 
   .mql-s {
@@ -169,10 +205,18 @@ a:hover.link.link-white {
     line-height: 1.2;
   }
 
+  .serif.mql-s {
+    font-size: 16px;
+  }
+
   .mql-xs {
     /* font-size: 15px; */
     font-size: 15px;
     line-height: 1.2;
+  }
+
+  .serif.mql-xs {
+    font-size: 16px;
   }
 }
 
