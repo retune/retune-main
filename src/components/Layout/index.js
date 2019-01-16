@@ -45,10 +45,12 @@ class Layout extends React.Component {
 
     const { isNavOpen } = this.state
 
+    const siteTitle = data.site.siteMetadata.title
+
     return (
       <div className={isNavOpen ? styles.navOpen : styles.navClosed}>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={typeof pageTitle === 'string' ? pageTitle : siteTitle}
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
@@ -57,7 +59,7 @@ class Layout extends React.Component {
         {wrapped && (
           <Masthead
             breadcrumbs={breadcrumbs}
-            siteTitle={data.site.siteMetadata.title}
+            siteTitle={siteTitle}
             pageTitle={pageTitle}
             onOpen={this.onOpen}
             onClose={this.onClose}
