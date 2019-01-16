@@ -32,27 +32,31 @@ const StudioVisit = ({
     scrollIntoViewOnMount={scrollIntoViewOnMount}
   >
     <div className={classnames(styles.content, styles.grid)}>
-      <div className="mql-s mono">
-        <div className={styles.facts}>
-          <p>
-            Event Date: <FormattedDate date={event.startdate} />
-          </p>
-          {event.location && <p>Place: {event.location}</p>}
-          {event.visitors && <p>Visitors: {event.visitors}</p>}
+      <div>
+        <div className="mql-s mono">
+          <div className={styles.facts}>
+            <p>
+              Event Date: <FormattedDate date={event.startdate} />
+            </p>
+            {event.location && <p>Place: {event.location}</p>}
+            {event.visitors && <p>Visitors: {event.visitors}</p>}
+          </div>
+
+          {event.description == null ? (
+            <p className={classnames(styles.summary)}>{event.summary}</p>
+          ) : (
+            <div className={classnames(styles.body)}>
+              <Markdown source={event.description} />
+            </div>
+          )}
         </div>
 
-        {event.description == null ? (
-          <p className={classnames(styles.summary)}>{event.summary}</p>
-        ) : (
-          <div className={classnames(styles.body)}>
-            <Markdown source={event.description} />
-          </div>
-        )}
+        <p className={classnames(styles.link, 'mql-m sans')}>
+          <a className="link" href={event.externalurl}>
+            Go to studio
+          </a>
+        </p>
       </div>
-
-      <p className={classnames(styles.link, 'mql-m sans')}>
-        <a href={event.externalurl}>Go to studio</a>
-      </p>
 
       <div className={classnames(styles.image, 'mono')}>
         {event.photogallery && (

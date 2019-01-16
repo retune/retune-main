@@ -78,10 +78,6 @@
     grid-area: images;
   }
 
-  .link {
-    grid-area: link;
-  }
-
   .caption {
     grid-area: caption;
   }
