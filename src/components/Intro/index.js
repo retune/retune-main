@@ -2,6 +2,8 @@ import * as React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
 
+import Artwork from '../Artwork'
+
 import * as urls from '../../lib/urls'
 
 import styles from './index.module.css'
@@ -14,6 +16,9 @@ const Hyperlink = ({ children, to }) => (
 
 export default () => (
   <section className={classnames(styles.Intro, styles.isFullViewport)}>
+    <div className={classnames(styles.Artwork)}>
+      <Artwork />
+    </div>
     <h1 className={classnames(styles.title, 'mql-xxl mqs-xl')}>Retune</h1>
     <p className={classnames(styles.subtitle, 'mql-xxl mqs-xl')}>
       Creative Technology <span className={styles.break}>Laboratory</span>

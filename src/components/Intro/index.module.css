@@ -4,15 +4,17 @@
   display: flex;
   flex-direction: column;
 
-  background: linear-gradient(
-    to bottom left,
-    #76cbc3,
-    #ba7be4,
-    #24d7c0,
-    #24d7c0
-  );
+  position: relative;
+}
 
-  /* background: linear-gradient(to bottom left, #9f826b, #ffa682, #c9d1cb); */
+.Intro .Artwork {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: -1;
 }
 
 @media (--small) {

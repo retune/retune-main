@@ -1,0 +1,12 @@
+.Artwork {
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom left,
+    #76cbc3,
+    #ba7be4,
+    #24d7c0,
+    #24d7c0
+  );
+}
