@@ -15,6 +15,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-source-prismic": "^2.1.0",
     "gatsby-transformer-sharp": "^2.1.8",
+    "granim": "^2.0.0",
     "intersection-observer": "^0.5.1",
     "luxon": "^1.8.0",
     "node-fetch": "^2.3.0",
