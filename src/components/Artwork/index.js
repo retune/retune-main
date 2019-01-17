@@ -30,7 +30,13 @@ class Artwork extends React.Component {
       name: 'granim',
       isPausedWhenNotInView: true,
       opacity: [1, 1],
-      direction: 'top-bottom',
+      direction: 'custom',
+      customDirection: {
+        x0: '50%',
+        y0: '0%',
+        x1: '50%',
+        y1: '100%',
+      },
       defaultStateName: 'horizontal',
       states: {
         horizontal: {
@@ -49,10 +55,31 @@ class Artwork extends React.Component {
         },
       },
     })
+
+    window.i = this.instance
+
+    // window.addEventListener('deviceorientation', this.handleOrientation, true)
+    // window.addEventListener('mousemove', this.handleMove, true)
   }
 
   componentWillUnmount() {
     this.instance.destroy()
+    // window.removeEventListener('deviceorientation', this.handleOrientation)
+    // window.removeEventListener('mousemove', this.handleMove, true)
+  }
+
+  handleMove = event => {
+    console.log('move', event)
+  }
+
+  handleOrientation = event => {
+    console.log(event.alpha)
+    this.customDirection = {
+      x0: '0',
+      y0: '0',
+      x1: '100%',
+      y1: '100%',
+    }
   }
 
   pause = () => {
