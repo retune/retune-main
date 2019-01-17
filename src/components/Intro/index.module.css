@@ -7,24 +7,25 @@
   position: relative;
 }
 
-.Intro .Artwork {
+.IntroContent {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
 
-  z-index: -1;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (--small) {
-  .Intro {
+  .IntroContent {
     padding: 18px 18px 28px 18px;
   }
 }
 
 @media (--large) {
-  .Intro {
+  .IntroContent {
     padding: 28px 50px 38px 50px;
   }
 }

@@ -16,21 +16,22 @@ const Hyperlink = ({ children, to }) => (
 
 export default () => (
   <section className={classnames(styles.Intro, styles.isFullViewport)}>
-    <div className={classnames(styles.Artwork)}>
-      <Artwork />
-    </div>
-    <h1 className={classnames(styles.title, 'mql-xxl mqs-xl')}>Retune</h1>
-    <p className={classnames(styles.subtitle, 'mql-xxl mqs-xl')}>
-      Creative Technology <span className={styles.break}>Laboratory</span>
-    </p>
+    <Artwork>
+      <div className={classnames(styles.IntroContent)}>
+        <h1 className={classnames(styles.title, 'mql-xxl mqs-xl')}>Retune</h1>
+        <p className={classnames(styles.subtitle, 'mql-xxl mqs-xl')}>
+          Creative Technology <span className={styles.break}>Laboratory</span>
+        </p>
 
-    <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
-      <Hyperlink to={urls.festivalsPath()}>Festivals</Hyperlink>,{' '}
-      <Hyperlink to={urls.studioVisitsPath()}>events</Hyperlink> and Art
-      Production.
-      <br />
-      For <Hyperlink to={urls.servicesPath()}>clients</Hyperlink> and our
-      community.
-    </p>
+        <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
+          <Hyperlink to={urls.festivalsPath()}>Festivals</Hyperlink>,{' '}
+          <Hyperlink to={urls.studioVisitsPath()}>events</Hyperlink> and Art
+          Production.
+          <br />
+          For <Hyperlink to={urls.servicesPath()}>clients</Hyperlink> and our
+          community.
+        </p>
+      </div>
+    </Artwork>
   </section>
 )
