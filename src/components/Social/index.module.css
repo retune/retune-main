@@ -1,3 +1,5 @@
+@import '../MediaQuery/index.css';
+
 .Social > * {
   margin-right: 22px;
 }
@@ -8,4 +10,15 @@
 
 .Social a:hover {
   opacity: 1;
+}
+
+@media (--small) {
+  .Social a {
+    display: inline-block;
+    transform: scale(0.7);
+  }
+
+  .Social > * {
+    margin-right: 7px;
+  }
 }
