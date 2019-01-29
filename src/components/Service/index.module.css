@@ -4,7 +4,7 @@
   Service layout
 */
 .Service {
-  margin: 0 59px;
+  margin: 0 18px;
   padding: 24px 0;
 
   border-top: 4px solid #fff;
@@ -16,6 +16,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 50px;
     grid-row-gap: 50px;
+
+    margin: 0 59px;
   }
 
   .Service .heading {
