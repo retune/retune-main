@@ -62,7 +62,7 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
             )}
           </div>
 
-          <header className={styles.header}>
+          <header className={classnames(styles.header, 'mql-l')}>
             <h1 className={styles.title}>
               {item.title}
               {item.subtitle ? ': ' : ''}
