@@ -28,8 +28,12 @@ const ExternalLink = ({ children, to, colour = 'black' }) => (
 )
 
 const isSmallBreakpoint = () => {
-  const result = window.matchMedia('(max-width: 400px)').matches
-  console.log('isSmallBreakpoint:', result)
+  let result = true
+
+  if ('matchMedia' in window) {
+    result = window.matchMedia('(max-width: 400px)').matches
+  }
+
   return result
 }
 
@@ -117,13 +121,13 @@ class Navigation extends React.Component {
           </div>
         </div>
 
-        <p className={classnames('mono mql-xs mqs-xs', styles.legal)}>
+        <p className={classnames('mono mql-xs mqs-s', styles.legal)}>
           Retune Creative Technology GmbH, Glogauer Str. 21, 10999 Berlin —
           webmaster@retune.de
         </p>
 
         <div className={styles.mobileInfo}>
-          <ul className={classnames('list-reset mql-s')}>
+          <ul className={classnames('list-reset mqs-m')}>
             <li>
               <NavigationLink to={urls.imprintPath()}>Imprint</NavigationLink>
             </li>
