@@ -20,7 +20,7 @@
   flex-shrink: 0;
 
   padding: 0;
-  padding-right: 64px;
+  padding-right: 18px;
 
   height: 100%;
 
@@ -53,6 +53,10 @@
 .Masthead.isOpen .MastheadInner:before {
   background-color: #fff;
   border-color: #fff;
+}
+
+.back {
+  margin-left: auto;
 }
 
 .site > * {
@@ -88,9 +92,20 @@
     margin: auto;
   }
 
+  .back {
+    margin: 0;
+  }
+
   .Masthead:not(.isOpen) .feature {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* Aligns to inner content of a single page... should work out 
+    a consistent alignment if this is required */
+  /* .MastheadInner {
+    padding-left: 30px;
+    padding-right: 48px;
+  } */
 }
