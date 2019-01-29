@@ -19,7 +19,7 @@ const Infos = () => (
       </span>
     </div>
 
-    <div className={styles.newsletter}>
+    <div className={classnames(styles.newsletter, 'mql-m mqs-m')}>
       <div>
         <a className="link link-white" href={urls.newsletterPath()}>
           <span role="img" aria-label="Backhand index-finger pointing right">
