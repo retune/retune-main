@@ -27,20 +27,20 @@
 }
 
 .Collapsible.smallBorder {
-  border-top-width: 2px;
+  border-top-width: 1px;
 }
 
 .Collapsible.smallBorder:last-child {
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
 }
 
 @media (--large) {
   .Collapsible.smallBorder {
-    border-top-width: 1px;
+    border-top-width: 2px;
   }
 
   .Collapsible.smallBorder:last-child {
-    border-bottom-width: 1px;
+    border-bottom-width: 2px;
   }
 }
 
