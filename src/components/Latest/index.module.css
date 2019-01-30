@@ -21,7 +21,7 @@
 }
 
 .EventItem {
-  width: 350px;
+  width: 179px;
 
   padding: 0 23px;
 
@@ -111,6 +111,10 @@
     width: 30px;
     height: 30px;
     margin-right: 20px;
+  }
+
+  .EventItem {
+    width: 350px;
   }
 
   .image {
