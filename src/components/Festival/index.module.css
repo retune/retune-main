@@ -27,6 +27,8 @@
 }
 
 .meta {
+  padding: 16px 0;
+
   color: var(--retune-col-blue);
 }
 
