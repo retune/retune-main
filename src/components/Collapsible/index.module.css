@@ -9,11 +9,21 @@
 }
 
 .Collapsible.largeBorder {
-  border-top-width: 4px;
+  border-top-width: 3px;
 }
 
 .Collapsible.largeBorder:last-child {
-  border-bottom-width: 4px;
+  border-bottom-width: 3px;
+}
+
+@media (--large) {
+  .Collapsible.largeBorder {
+    border-top-width: 4px;
+  }
+
+  .Collapsible.largeBorder:last-child {
+    border-bottom-width: 4px;
+  }
 }
 
 .Collapsible.smallBorder {
@@ -22,6 +32,16 @@
 
 .Collapsible.smallBorder:last-child {
   border-bottom-width: 2px;
+}
+
+@media (--large) {
+  .Collapsible.smallBorder {
+    border-top-width: 1px;
+  }
+
+  .Collapsible.smallBorder:last-child {
+    border-bottom-width: 1px;
+  }
 }
 
 .Collapsible.blueBorder {
