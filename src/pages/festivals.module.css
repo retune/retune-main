@@ -1,11 +1,11 @@
 @import '../components/MediaQuery/index.css';
 
-.StudioVisits {
+.Festivals {
   position: relative;
   padding: 24px 0;
 }
 
-.StudioVisits > :not(.intro) {
+.Festivals {
   padding-left: 16px;
   padding-right: 16px;
 }

@@ -5,7 +5,7 @@
   padding: 24px 0;
 }
 
-.StudioVisits > :not(.intro) {
+.StudioVisits {
   padding-left: 16px;
   padding-right: 16px;
 }
