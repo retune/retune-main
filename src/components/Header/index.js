@@ -16,7 +16,7 @@ export const Heading = ({ level = '1', title, className = '' }) => {
 }
 
 export const Info = ({ className = '', children }) => (
-  <div className={classnames(styles.info, 'mql-m mqs-xl', className)}>
+  <div className={classnames(styles.info, 'mql-m mqs-l', className)}>
     {children ||
       `Retune is a Berlin-based community platform at the intersection of Art,
     Design and Technology. We organize the biennial Retune Festival, Studio

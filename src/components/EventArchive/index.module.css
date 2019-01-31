@@ -71,6 +71,10 @@
   text-decoration: underline;
 }
 
+.table tbody td.type {
+  white-space: nowrap;
+}
+
 .table th,
 .table td {
   padding: 6px;
