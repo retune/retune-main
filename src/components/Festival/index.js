@@ -50,7 +50,7 @@ const Section = ({
   return (
     <Collapsible
       collapsible={collapsible}
-      contentClassName={classnames(styles.sectionContent, 'mql-xs mono')}
+      contentClassName={classnames(styles.sectionContent, 'mql-xs mqs-m mono')}
       initiallyCollapsed={initiallyCollapsed}
       heading={title}
       iconType="circle"

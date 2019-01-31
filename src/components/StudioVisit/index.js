@@ -33,7 +33,7 @@ const StudioVisit = ({
   >
     <div className={classnames(styles.content, styles.grid)}>
       <div>
-        <div className="mql-s mono">
+        <div className="mql-s mqs-m mono">
           <div className={styles.facts}>
             <p>
               Event Date: <FormattedDate date={event.startdate} />
@@ -51,7 +51,7 @@ const StudioVisit = ({
           )}
         </div>
 
-        <p className={classnames(styles.link, 'mql-m sans')}>
+        <p className={classnames(styles.link, 'mql-m mqs-m sans')}>
           <a className="link" href={event.externalurl}>
             Go to studio
           </a>
