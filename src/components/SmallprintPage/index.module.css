@@ -22,7 +22,7 @@
 
   .info {
     grid-area: info;
-    padding-bottom: 181px;
+    padding-bottom: 118px;
   }
 }
 
@@ -36,7 +36,7 @@
   Section layout
 */
 .section {
-  padding-top: 40px;
+  padding-top: 20px;
   border-top: 1px solid var(--retune-col-blue);
 }
 
@@ -47,7 +47,7 @@
 
 @media (--large) {
   .section {
-    padding-top: 117px;
+    /* padding-top: 117px; */
     border-top: 1px solid var(--retune-col-blue);
   }
 
