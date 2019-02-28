@@ -18,6 +18,8 @@
   .Circle {
     width: 18px;
     height: 18px;
+
+    border-width: 1px;
   }
 }
 
