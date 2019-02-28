@@ -1,3 +1,5 @@
+@import '../MediaQuery/index.css';
+
 .Artwork {
   position: absolute;
   top: 0;
@@ -17,6 +19,8 @@
   top: 30px;
   right: 0;
 
+  font-size: 12px;
+
   display: flex;
 
   color: #fff;
@@ -25,6 +29,12 @@
   transform: translateX(97%) rotate(90deg);
 
   z-index: 100;
+}
+
+@media (--small) {
+  .info {
+    font-size: 8px;
+  }
 }
 
 .toggleState {
