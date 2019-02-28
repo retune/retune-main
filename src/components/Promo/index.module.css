@@ -6,7 +6,13 @@
   padding: 0;
   padding-bottom: 25px;
 
-  border-bottom: 3px solid black;
+  border-bottom: 2px solid black;
+}
+
+@media (--small) {
+  .Promo {
+    border-bottom-width: 1px;
+  }
 }
 
 .heading {
