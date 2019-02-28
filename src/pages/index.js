@@ -183,7 +183,9 @@ export const query = graphql`
       }
     }
 
-    events: allPrismicEvents(sort: { fields: [data___startdate], order: ASC }) {
+    events: allPrismicEvents(
+      sort: { fields: [data___startdate], order: DESC }
+    ) {
       edges {
         node {
           id
