@@ -1,7 +1,7 @@
 @import '../MediaQuery/index.css';
 
 .EventArchive {
-  padding: 30px 19px 19px 19px;
+  padding: 30px 19px 60px 19px;
   background-color: rgba(175, 229, 221, 0.14);
 }
 
@@ -84,6 +84,7 @@
   color: var(--retune-col-blue);
 }
 
+th.title,
 td.title {
   padding-left: 6px;
 }

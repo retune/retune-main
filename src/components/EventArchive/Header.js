@@ -5,7 +5,7 @@ import styles from './index.module.css'
 
 const Header = () => (
   <thead>
-    <tr className={classnames('mql-m mqs-s')}>
+    <tr className={classnames('mql-m mqs-m')}>
       <th className={styles.type}>Type</th>
       <th className={styles.title}>Title</th>
       <th className={styles.date}>Date</th>
