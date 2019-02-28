@@ -148,7 +148,7 @@ export const query = graphql`
     # }
 
     posts: allPrismicPosts(
-      sort: { fields: [data___publisheddate], order: DESC }
+      sort: { fields: [data___publisheddate], order: ASC }
     ) {
       edges {
         node {
@@ -183,9 +183,7 @@ export const query = graphql`
       }
     }
 
-    events: allPrismicEvents(
-      sort: { fields: [data___startdate], order: DESC }
-    ) {
+    events: allPrismicEvents(sort: { fields: [data___startdate], order: ASC }) {
       edges {
         node {
           id
