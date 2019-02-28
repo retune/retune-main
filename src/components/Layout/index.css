@@ -97,13 +97,7 @@ a:visited {
   --retune-col-blue: #000096;
   --retune-col-selected: #4a90e2;
   --retune-col-grey: #e6e6e6;
-  --retune-masthead-h: 75px;
-}
-
-@media (--small) {
-  :root {
-    --retune-masthead-h: 55px;
-  }
+  --retune-masthead-h: 50px;
 }
 
 /* Typography */

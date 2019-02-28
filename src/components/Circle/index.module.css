@@ -2,8 +2,8 @@
 
 .Circle {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 
   flex-grow: 0;
   flex-shrink: 0;
@@ -16,8 +16,8 @@
 
 @media (--small) {
   .Circle {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
   }
 }
 

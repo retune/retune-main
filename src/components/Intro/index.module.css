@@ -41,7 +41,7 @@
 }
 
 .isFullViewport {
-  min-height: calc(80vh - var(--retune-masthead-h));
+  min-height: calc(85vh - var(--retune-masthead-h));
   width: 100vw;
 }
 
