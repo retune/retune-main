@@ -62,14 +62,17 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
             )}
           </div>
 
-          <header className={classnames(styles.header, 'mql-l')}>
-            <h1 className={styles.title}>
-              {item.title}
-              {item.subtitle ? ': ' : ''}
-              <br />
-              {item.subtitle}
-            </h1>
-            <time className={styles.startdate} dateTime={date}>
+          <header className={classnames(styles.header)}>
+            <h1 className={classnames(styles.title, 'mql-xl')}>{item.title}</h1>
+            {item.subtitle && (
+              <h2 className={classnames(styles.subtitle, 'mql-xl')}>
+                {item.subtitle}
+              </h2>
+            )}
+            <time
+              className={classnames(styles.startdate, 'mql-xl')}
+              dateTime={date}
+            >
               <FormattedDate date={date} />
             </time>
           </header>

@@ -86,7 +86,7 @@
 
 .light .type:before {
   border-color: var(--retune-col-blue);
-  background-color: var(--retune-col-blue);
+  background-color: #fff;
 }
 
 .image {
