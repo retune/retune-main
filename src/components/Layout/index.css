@@ -10,6 +10,7 @@
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
+  font-variant-numeric: tabular-nums;
 }
 
 body {
@@ -125,7 +126,8 @@ a:visited {
 .mqs-m {
   /* font-size: 15px; */
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 14px;
+  /* line-height: 1.2; */
 }
 
 .serif.mqs-m {

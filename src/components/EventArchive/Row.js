@@ -7,7 +7,7 @@ import { eventPath } from '../../lib/urls'
 
 import styles from './index.module.css'
 
-const classes = cl => classnames(cl, 'mql-m mqs-s')
+const classes = cl => classnames(cl, 'mql-m mqs-m')
 
 const Row = ({ event }) => {
   const url = eventPath(event)

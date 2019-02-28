@@ -71,16 +71,21 @@
   text-decoration: underline;
 }
 
-.table tbody td.type {
+/* .table tbody td.type {
   white-space: nowrap;
-}
+} */
 
 .table th,
 .table td {
-  padding: 6px;
+  padding: 6px 0 6px 0;
   vertical-align: top;
 
+  border-bottom: 1px solid var(--retune-col-blue);
   color: var(--retune-col-blue);
+}
+
+td.title {
+  padding-left: 6px;
 }
 
 @media (--large) {
@@ -107,7 +112,7 @@
 }
 
 .table th.type {
-  /* width: 43%; */
+  width: 30%;
 }
 
 .table th.title {

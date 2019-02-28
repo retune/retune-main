@@ -16,11 +16,11 @@ export const FormattedInterval = ({ start, end }) => {
   // 12.11.2018 - 13.12.2018 = 12.11—13.12.2018
   // 12.11.2018 - 01.05.2019 = 12.11.2018—01.05.2019
   if (!sameYear) {
-    return `${s.toFormat('dd.LL.yyyy')}—${e.toFormat('dd.LL.yyyy')}`
+    return `${s.toFormat('dd. LL. yyyy')} – ${e.toFormat('dd. LL. yyyy')}`
   } else if (!sameMonth) {
-    return `${s.toFormat('dd.LL')}—${e.toFormat('dd.LL.yyyy')}`
+    return `${s.toFormat('dd. LL')} – ${e.toFormat('dd. LL. yyyy')}`
   } else if (!sameDay) {
-    return `${s.toFormat('dd')}—${e.toFormat('dd.LL.yyyy')}`
+    return `${s.toFormat('dd')} – ${e.toFormat('dd. LL. yyyy')}`
   }
 
   return null
