@@ -44,7 +44,7 @@ const Infos = () => (
       </li>
       <li>
         <Link className="link link-white" to={urls.privacyPath()}>
-          Datenschuz / Privacy
+          Datenschutz / Privacy
         </Link>
       </li>
     </ul>
