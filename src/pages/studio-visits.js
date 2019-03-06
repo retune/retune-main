@@ -113,12 +113,11 @@ const StudioVisitsPage = ({ data, pageContext }) => {
         </p>
 
         <p>
-          For more info and updates sign up for our <a href="http://eepurl.com/oAiGz">newsletter</a>, join us on
-	        <a href="https://retune-community.slack.com">Slack</a>, and follow us on 
-          <a href="https://twitter.com/retuneberlin">Twitter</a>, 
-          <a href="http://instagram.com/retuneberlin">Instagram</a>, 
-          Facebook<a href="https://www.facebook.com/retuneberlin">Facebook</a> and 
-          <a href="https://www.flickr.com/photos/retuneconference/">Flickr</a>.
+          For more info and updates sign up for our <a href="http://eepurl.com/oAiGz">newsletter</a>, join us on <a href="https://retune-community.slack.com">Slack</a>, 
+and follow us on <a href="https://twitter.com/retuneberlin"> Twitter</a>, 
+          <a href="http://instagram.com/retuneberlin"> Instagram</a>, 
+          <a href="https://www.facebook.com/retuneberlin"> Facebook</a> and 
+          <a href="https://www.flickr.com/photos/retuneconference/"> Flickr</a>.
         </p>
       </div>
     </Layout>
