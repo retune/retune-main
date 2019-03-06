@@ -11,12 +11,14 @@ import styles from './index.module.css'
 const Infos = () => (
   <section className={classnames(styles.Infos, 'mql-m mqs-s')}>
     <div className={styles.company}>
+      <a className="link link-white" href={urls.aboutPath()}>
       <span>Retune</span>
       <span>
         Creative Technology
         <br />
-        Laboratory
+        GmbH
       </span>
+      </a>
     </div>
 
     <div className={classnames(styles.newsletter, 'mql-m mqs-m')}>
@@ -42,7 +44,7 @@ const Infos = () => (
       </li>
       <li>
         <Link className="link link-white" to={urls.privacyPath()}>
-          Datenschuz / Privacy
+          Datenschutz / Privacy
         </Link>
       </li>
     </ul>

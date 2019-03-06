@@ -25,7 +25,7 @@
   display: none;
 }
 
-.company > * {
+.company > a > * {
   display: block;
 }
 
