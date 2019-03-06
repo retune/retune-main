@@ -28,7 +28,7 @@
   transform-origin: top left;
   transform: translateX(97%) rotate(90deg);
 
-  z-index: 100;
+  z-index: 90;
 }
 
 @media (--small) {
