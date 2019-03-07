@@ -101,6 +101,14 @@
   color: #000;
 }
 
+.Event:first-child .image {
+  /*
+    Images are forced to have a 3:2 aspect ratio
+    with the overflow being cropped
+  */
+  padding-top: calc(100% / (2.2 / 1));
+}
+
 .image {
   margin: 0 0 16px 0;
   /*
