@@ -68,6 +68,16 @@ a:visited {
 .link {
   padding-bottom: 0;
   border-bottom: 1px solid transparent;
+
+  /*
+    Experimental
+    See: https://css-tricks.com/styling-underlines-web/#article-header-id-5
+
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 1em;
+  background-repeat: repeat-x;
+  background-size: auto 2px;
+  */
 }
 
 .mql-xxl .link,
