@@ -9,39 +9,19 @@
 }
 
 .Collapsible.largeBorder {
-  border-top-width: 1px;
+  border-top-width: var(--retune-border-width);
 }
 
 .Collapsible.largeBorder:last-child {
-  border-bottom-width: 1px;
-}
-
-@media (--large) {
-  .Collapsible.largeBorder {
-    border-top-width: 2px;
-  }
-
-  .Collapsible.largeBorder:last-child {
-    border-bottom-width: 2px;
-  }
+  border-bottom-width: var(--retune-border-width);
 }
 
 .Collapsible.smallBorder {
-  border-top-width: 1px;
+  border-top-width: var(--retune-border-width);
 }
 
 .Collapsible.smallBorder:last-child {
-  border-bottom-width: 1px;
-}
-
-@media (--large) {
-  .Collapsible.smallBorder {
-    border-top-width: 2px;
-  }
-
-  .Collapsible.smallBorder:last-child {
-    border-bottom-width: 2px;
-  }
+  border-bottom-width: var(--retune-border-width);
 }
 
 .Collapsible.blueBorder {

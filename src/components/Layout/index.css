@@ -112,11 +112,21 @@ a:visited {
   border-bottom-color: #fff;
 }
 
+/*
+  Variables
+*/
 :root {
   --retune-col-blue: #000096;
   --retune-col-selected: #4a90e2;
   --retune-col-grey: #e6e6e6;
   --retune-masthead-h: 50px;
+  --retune-border-width: 1px;
+}
+
+@media (--large) {
+  :root {
+    --retune-border-width: 2px;
+  }
 }
 
 /* Typography */

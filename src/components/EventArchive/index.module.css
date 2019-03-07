@@ -80,6 +80,7 @@
   padding: 6px 0 6px 0;
   vertical-align: top;
 
+  /* These borders are always 1px across breakpoints */
   border-bottom: 1px solid var(--retune-col-blue);
   color: var(--retune-col-blue);
 }
@@ -101,7 +102,6 @@ td.title {
   .table th,
   .table td {
     padding: 13px;
-    border-bottom: 1px solid var(--retune-col-blue);
   }
 
   .table th:first-child,

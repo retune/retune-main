@@ -8,7 +8,7 @@
   flex-grow: 0;
   flex-shrink: 0;
 
-  border: solid 2px var(--retune-col-blue);
+  border: solid var(--retune-border-width) var(--retune-col-blue);
   border-radius: 100%;
 
   background-color: var(--retune-col-blue);
@@ -18,13 +18,10 @@
   .Circle {
     width: 18px;
     height: 18px;
-
-    border-width: 1px;
   }
 }
 
 .isOpen {
-  border-color: var(--retune-col-blue);
   background-color: #fff;
 }
 

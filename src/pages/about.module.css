@@ -10,7 +10,7 @@
 }
 
 .section {
-  border-top: 1px solid var(--retune-col-blue);
+  border-top: var(--retune-border-width) solid var(--retune-col-blue);
   padding-bottom: 30px;
 }
 
@@ -76,7 +76,7 @@
   grid-area: border;
   margin: 0 16px;
 
-  border-top: 1px solid var(--retune-col-blue);
+  border-top: var(--retune-border-width) solid var(--retune-col-blue);
 }
 
 .team {

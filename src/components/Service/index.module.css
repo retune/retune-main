@@ -7,7 +7,7 @@
   margin: 0 18px;
   padding: 24px 0;
 
-  border-top: 4px solid #fff;
+  border-top: var(--retune-border-width) solid #fff;
 }
 
 @media (--large) {
