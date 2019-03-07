@@ -53,6 +53,9 @@ h6 {
   box-sizing: border-box;
 }
 
+/*
+  Links
+*/
 a,
 a:link,
 a:hover,
@@ -63,13 +66,17 @@ a:visited {
 
 .links-within a,
 .link {
-  padding-bottom: 2px;
+  padding-bottom: 0;
   border-bottom: 1px solid transparent;
 }
 
 .mql-xxl .link,
+.mql-xxl .links-within,
 .mql-xl .link,
-.mql-m .link {
+.mql-xl .links-within,
+.mql-l .link,
+.mql-l .links-within {
+  padding-bottom: 1px;
   border-bottom-width: 2px;
 }
 
