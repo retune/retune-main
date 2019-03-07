@@ -5,7 +5,7 @@
   background-color: rgba(175, 229, 221, 0.14);
 }
 
-@media (--large) {
+@media (min-width: 700px) {
   .EventArchive {
     padding: 58px 48px 108px 48px;
   }
@@ -22,7 +22,7 @@
   margin: 0 auto 14px 0;
 }
 
-@media (--large) {
+@media (min-width: 700px) {
   .meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -44,7 +44,7 @@
   border-collapse: collapse;
 }
 
-@media (--large) {
+@media (min-width: 700px) {
   .table {
     table-layout: fixed;
   }
@@ -89,7 +89,7 @@ td.title {
   padding-left: 6px;
 }
 
-@media (--large) {
+@media (min-width: 700px) {
   .table th {
     height: 62px;
   }
@@ -129,7 +129,7 @@ td.title {
   display: none;
 }
 
-@media (--large) {
+@media (min-width: 700px) {
   .table th.type {
     width: 25%;
   }
