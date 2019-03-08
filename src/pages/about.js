@@ -9,7 +9,9 @@ import Image from '../components/Image'
 import Layout from '../components/Layout'
 import Markdown from '../components/Markdown'
 import { aboutPath } from '../lib/urls'
-import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
+import mergeResultsIntoItems, {
+  flattenNode,
+} from '../lib/mergeResultsIntoItems'
 
 import styles from './about.module.css'
 
@@ -41,9 +43,17 @@ const AboutRetune = (
   </React.Fragment>
 )
 
+const extractTeamMembers = function(teamList = []) {
+  return teamList.map(function(item) {
+    const id = get(item, 'member.document[0].id')
+    const data = get(item, 'member.document[0].data', {})
+    return { id, ...flattenNode(data) }
+  })
+}
+
 const AboutPage = ({ data }) => {
   const region = mergeResultsIntoItems(data.about)[0]
-  const team = data.team ? mergeResultsIntoItems(data.team) : []
+  const team = extractTeamMembers(region.team)
 
   return (
     <Layout
@@ -145,50 +155,36 @@ export const query = graphql`
                 text
               }
             }
-          }
-        }
-      }
-    }
 
-    team: allPrismicPeople {
-      edges {
-        node {
-          id
-          data {
-            name {
-              text
-            }
+            # List of team members
+            team {
+              member {
+                document {
+                  id
 
-            role {
-              text
-            }
+                  data {
+                    name {
+                      text
+                    }
 
-            image {
-              localFile {
-                publicURL
-                ...fluidImage
+                    role {
+                      text
+                    }
+
+                    image {
+                      localFile {
+                        publicURL
+                        ...fluidImage
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         }
       }
     }
-
-    #team: allPerson {
-    #  edges {
-    #    node {
-    #      id
-    #      name
-    #      role
-    #      image {
-    #        localFile {
-    #          publicURL
-    #          ...fluidImage
-    #        }
-    #      }
-    #    }
-    #  }
-    #}
   }
 `
 
