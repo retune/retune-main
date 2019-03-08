@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Retune',
+    url: 'https://retune.de',
+    keywords: '',
     twitter: 'https://twitter.com/retuneberlin/',
     facebook: 'https://www.facebook.com/retuneberlin/',
     instagram: 'https://www.instagram.com/retuneberlin/',

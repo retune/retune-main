@@ -48,7 +48,10 @@ const IndexPage = ({ data }) => {
   const pageLocation = '/'
 
   return (
-    <Layout pageTitle={<NowCast />}>
+    <Layout
+      pageTitle={<NowCast />}
+      pageDescription="Creative Technology Laboratory"
+    >
       <Intro />
       <Latest
         parentUrl={pageLocation}

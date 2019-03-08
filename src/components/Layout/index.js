@@ -9,6 +9,8 @@ import classnames from 'classnames'
 */
 import 'typeface-courier-prime'
 
+import config from '../../../gatsby-config'
+
 import Masthead from '../Masthead'
 import Footer from '../Footer'
 
@@ -39,23 +41,46 @@ class Layout extends React.Component {
       className = '',
       children,
       data,
+      pageDescription = null,
       pageTitle,
       wrapped = true,
     } = this.props
 
     const { isNavOpen } = this.state
 
-    const siteTitle = data.site.siteMetadata.title
+    const siteMetadata = data.site.siteMetadata
+    const siteTitle = siteMetadata.title
+    const title = typeof pageTitle === 'string' ? pageTitle : siteTitle
+
+    const url = siteMetadata.url
+    const description = pageDescription
 
     return (
       <div className={isNavOpen ? styles.navOpen : styles.navClosed}>
         <Helmet
-          title={typeof pageTitle === 'string' ? pageTitle : siteTitle}
+          title={title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
+            description && {
+              name: 'description',
+              content: description,
+            },
+            { name: 'keywords', content: siteMetadata.keywords },
+
+            // OpenGraph
+            { property: 'og:url', content: url },
+            description && { property: 'og:description', content: description },
+
+            // Twitter
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:creator', content: siteMetadata.twitter },
+            { name: 'twitter:title', content: title },
+            description && {
+              name: 'twitter:description',
+              content: description,
+            },
+          ].filter(o => o != null)}
         />
+
         {wrapped && (
           <Masthead
             breadcrumbs={breadcrumbs}
@@ -80,6 +105,9 @@ const LayoutWithQuery = props => (
         site {
           siteMetadata {
             title
+            url
+            keywords
+            twitter
           }
         }
       }
