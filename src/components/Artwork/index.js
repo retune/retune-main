@@ -32,34 +32,44 @@ class Artwork extends React.Component {
       opacity: [1, 1],
       direction: 'custom',
       customDirection: {
-        x0: '50%',
-        y0: '0%',
-        x1: '50%',
-        y1: '100%',
+        x0: '0px',
+        y0: '0px',
+        x1: "100%",
+        y1: "50%",
       },
-      defaultStateName: 'horizontal',
       states: {
-        horizontal: {
+        "default-state": {
           gradients: [
-            [
-              { color: '#000096', pos: 0.07 },
-              { color: '#00FCC9', pos: 0.52 },
-              { color: '#000597', pos: 1 },
-            ],
-            [
-              { color: '#000096', pos: 0.07 + 0.1 },
-              { color: '#00FCC9', pos: 0.52 + 0.1 },
-              { color: '#000597', pos: 1 },
-            ],
-          ],
-        },
+              [
+                { color: '#72c7be', pos: 0 },
+                { color: '#c900f0', pos: .25 },
+                { color: '#0073ef',  pos: .5 },
+                { color: '#00e1c3', pos: .75 }
+              ], [
+                { color: '#72c7be', pos: 0 },
+                { color: '#c900f0', pos: .5 },
+                { color: '#0073ef',  pos: .75 },
+                { color: '#00e1c3', pos: 1 }
+              ], [
+                { color: '#72c7be', pos: .5 },
+                { color: '#c900f0', pos: .6 },
+                { color: '#0073ef',  pos: .9 },
+                { color: '#00e1c3', pos: 1 }
+              ], [
+                { color: '#72c7be', pos: 1 },
+                { color: '#c900f0', pos: .8 },
+                { color: '#0073ef',  pos: .5 },
+                { color: '#00e1c3', pos: 0 }
+              ],   
+          ]
+      }
       },
     })
 
     window.i = this.instance
 
     // window.addEventListener('deviceorientation', this.handleOrientation, true)
-    // window.addEventListener('mousemove', this.handleMove, true)
+    //window.addEventListener('mousemove', this.handleMove, true)
   }
 
   componentWillUnmount() {
@@ -69,7 +79,7 @@ class Artwork extends React.Component {
   }
 
   handleMove = event => {
-    console.log('move', event)
+    //console.log('move', /event.view.innerWidth);
   }
 
   handleOrientation = event => {
