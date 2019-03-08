@@ -48,6 +48,7 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
     <Layout
       breadcrumbs={breadcrumbs}
       pageTitle="Retune — Creative Technology Laboratory"
+      pageDescription={item.summary}
       backTo={backTo}
     >
       <section className={styles.container}>
