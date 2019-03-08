@@ -3,7 +3,7 @@ import { InView } from 'react-intersection-observer'
 
 import styles from './index.module.css'
 
-const video = 'https://retune.uber.space/video.mp4'
+//const video = 'https://retune.uber.space/video.mp4'
 
 class Video extends React.Component {
   videoRef = React.createRef()
@@ -42,13 +42,13 @@ class Video extends React.Component {
           <div ref={ref} className={styles.container}>
             <video
               ref={this.videoRef}
-              src={video}
+              src={this.props.videoURL}
               autoPlay
               loop
               muted
               preload="none"
               playsInline
-            />
+            />  
           </div>
         )}
       </InView>

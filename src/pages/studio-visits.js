@@ -94,7 +94,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
         />
 
         <div className={styles.video}>
-          <Video />
+          <Video videoURL='https://retune.uber.space/studio-visits-bg.mp4' />
         </div>
       </div>
 

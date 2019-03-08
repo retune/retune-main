@@ -89,7 +89,7 @@ const FestivalsPage = ({ data, pageContext }) => {
           <PhotoGallery caption={false} images={images} />
           </div>*/}
         <div className={styles.video}>
-          <Video />
+          <Video videoURL='https://retune.uber.space/festivals-bg.mp4' />
         </div>
       </div>
 
