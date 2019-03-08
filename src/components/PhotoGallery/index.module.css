@@ -65,6 +65,15 @@
   height: 100%;
 }
 
+.Caption {
+  padding-top: 16px;
+  padding-bottom: 0;
+}
+
+.ThumbnailView {
+  padding-top: 16px;
+}
+
 /* inherit the slide height 👆 */
 .Image {
   height: inherit;

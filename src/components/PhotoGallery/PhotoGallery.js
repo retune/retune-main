@@ -52,12 +52,17 @@ const PhotoGallery = ({
       )}
     </section>
 
-    {caption && <p>Photo Gallery ({images.length} images)</p>}
-    <ThumbnailView
-      images={images}
-      currentSelectionIndex={currentIndex}
-      onThumbnailSelected={onChangeSlide}
-    />
+    {caption && (
+      <p className={styles.Caption}>Photo Gallery ({images.length} images)</p>
+    )}
+
+    <div className={styles.ThumbnailView}>
+      <ThumbnailView
+        images={images}
+        currentSelectionIndex={currentIndex}
+        onThumbnailSelected={onChangeSlide}
+      />
+    </div>
   </div>
 )
 
