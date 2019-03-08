@@ -149,6 +149,7 @@ export const query = graphql`
 
     posts: allPrismicPosts(
       sort: { fields: [data___publisheddate], order: ASC }
+      filter: { data: { startpage: { eq: "Yes" } } }
     ) {
       edges {
         node {
