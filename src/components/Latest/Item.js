@@ -35,7 +35,7 @@ const Item = item => {
     mainimages,
   } = item
 
-  const date = startdate || publisheddate
+  const date = startdate
   const typeLabel = type ? <EventType type={type} /> : 'News'
   const url = type ? urls.eventPath(item) : urls.newsPath(item)
   const typeUrl = sectionUrlForType(type)
@@ -70,9 +70,11 @@ const Item = item => {
           {title}
         </h2>
         <p className={classnames(styles.subtitle, 'ellipsis')}>{subtitle}</p>
-        <time className={styles.date} dateTime={date}>
-          <FormattedDate date={date} />
-        </time>
+        {date && (
+          <time className={styles.date} dateTime={date}>
+            <FormattedDate date={date} />
+          </time>
+        )}
       </Link>
 
       {ticketurl ? (
