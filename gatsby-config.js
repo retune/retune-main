@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Retune',
+    twitter: 'https://twitter.com/retuneberlin/',
+    facebook: 'https://www.facebook.com/retuneberlin/',
+    instagram: 'https://www.instagram.com/retuneberlin/',
   },
   plugins: [
     'gatsby-transformer-sharp',

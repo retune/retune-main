@@ -4,21 +4,24 @@ import Facebook from './Facebook'
 import Instagram from './Instagram'
 import Twitter from './Twitter'
 
+import config from '../../../gatsby-config'
+
 import styles from './index.module.css'
 
 const Social = ({ theme = 'light' }) => {
   const colour = theme === 'light' ? 'black' : 'white'
+  const { twitter, facebook, instagram } = config.siteMetadata
   return (
     <div className={styles.Social}>
-      <a href="https://www.facebook.com/retuneberlin/">
+      <a href={twitter}>
         <Twitter colour={colour} />
       </a>
 
-      <a href="https://www.instagram.com/retuneberlin/">
+      <a href={facebook}>
         <Facebook colour={colour} />
       </a>
 
-      <a href="https://www.instagram.com/retuneberlin/">
+      <a href={instagram}>
         <Instagram colour={colour} />
       </a>
     </div>
