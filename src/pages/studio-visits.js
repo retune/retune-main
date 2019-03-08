@@ -14,6 +14,7 @@ import Video from '../components/Video'
 import { studioVisitsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
+import sortItems from '../lib/sortItems'
 
 import styles from './studio-visits.module.css'
 
@@ -51,7 +52,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
         innerClassName={styles.upcomingLatestInner}
         parentUrl={studioVisitsPath()}
         theme="light"
-        items={events.future}
+        items={sortItems(events.future)}
       />
     </section>
   ) : null
@@ -107,16 +108,18 @@ const StudioVisitsPage = ({ data, pageContext }) => {
 
       <div className={classnames(styles.outro, 'mql-m')}>
         <p>
-          Are you interested in participating with your studio? 
-            Or do you have a suggestion for a studio visit that needs to happen? 
-            Feel free to contact us: hey /at/ retune.de
+          Are you interested in participating with your studio? Or do you have a
+          suggestion for a studio visit that needs to happen? Feel free to
+          contact us: hey /at/ retune.de
         </p>
 
         <p>
-          For more info and updates sign up for our <a href="http://eepurl.com/oAiGz">newsletter</a>, join us on <a href="https://retune-community.slack.com">Slack</a>, 
-and follow us on <a href="https://twitter.com/retuneberlin"> Twitter</a>, 
-          <a href="http://instagram.com/retuneberlin"> Instagram</a>, 
-          <a href="https://www.facebook.com/retuneberlin"> Facebook</a> and 
+          For more info and updates sign up for our{' '}
+          <a href="http://eepurl.com/oAiGz">newsletter</a>, join us on{' '}
+          <a href="https://retune-community.slack.com">Slack</a>, and follow us
+          on <a href="https://twitter.com/retuneberlin"> Twitter</a>,
+          <a href="http://instagram.com/retuneberlin"> Instagram</a>,
+          <a href="https://www.facebook.com/retuneberlin"> Facebook</a> and
           <a href="https://www.flickr.com/photos/retuneconference/"> Flickr</a>.
         </p>
       </div>

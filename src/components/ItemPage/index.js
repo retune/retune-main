@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
+import first from 'lodash/first'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
@@ -10,6 +11,8 @@ import Latest from '../Latest'
 import Markdown from '../Markdown'
 
 import urls from '../../lib/urls'
+import splitEventsIntoPastAndFuture from '../../lib/splitEventsIntoPastAndFuture'
+import sortItems from '../../lib/sortItems'
 
 import styles from './index.module.css'
 
@@ -33,6 +36,10 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
     item.mainimages && item.mainimages.length > 0
       ? item.mainimages
       : [item.mainimage]
+  const firstImage = first(images)
+  const events = splitEventsIntoPastAndFuture(related)
+  const futureEvents = sortItems(events.future)
+
   const breadcrumbs = []
 
   if (typeUrl) {
@@ -48,6 +55,9 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
     <Layout
       breadcrumbs={breadcrumbs}
       pageTitle="Retune — Creative Technology Laboratory"
+      pageDescription={item.summary}
+      pageImage={firstImage}
+      pagePath={url}
       backTo={backTo}
     >
       <section className={styles.container}>
@@ -110,7 +120,7 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
               <Latest
                 parentUrl={null}
                 theme="light"
-                items={related}
+                items={futureEvents}
                 innerClassName={styles.relatedLatestInner}
               />
             </div>
