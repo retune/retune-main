@@ -22,11 +22,9 @@ const ThumbnailViewer = ({
         )}
       >
         <button onClick={() => onThumbnailSelected(index)}>
-          <Image
-            className={styles.Image}
-            source={image}
-            imgStyle={{ objectFit: 'contain' }}
-          />
+          <div className={styles.Image}>
+            <Image source={image} imgStyle={{ objectFit: 'contain' }} />
+          </div>
         </button>
       </li>
     ))}
