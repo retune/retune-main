@@ -14,7 +14,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.13",
     "gatsby-source-filesystem": "^2.0.8",
-    "gatsby-source-prismic": "^2.1.0",
+    "gatsby-source-prismic": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.8",
     "granim": "^2.0.0",
     "intersection-observer": "^0.5.1",
