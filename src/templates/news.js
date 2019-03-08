@@ -29,6 +29,7 @@ export const query = graphql`
       id
       data {
         publisheddate
+        sortdate
         title {
           text
         }
