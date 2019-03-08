@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
+import first from 'lodash/first'
 
 import EventType from '../EventType'
 import FormattedDate from '../FormattedDate'
@@ -33,6 +34,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
     item.mainimages && item.mainimages.length > 0
       ? item.mainimages
       : [item.mainimage]
+  const firstImage = first(images)
+
   const breadcrumbs = []
 
   if (typeUrl) {
@@ -49,6 +52,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
       breadcrumbs={breadcrumbs}
       pageTitle="Retune — Creative Technology Laboratory"
       pageDescription={item.summary}
+      pageImage={firstImage}
+      pagePath={url}
       backTo={backTo}
     >
       <section className={styles.container}>

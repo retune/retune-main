@@ -13,6 +13,7 @@ import config from '../../../gatsby-config'
 
 import Masthead from '../Masthead'
 import Footer from '../Footer'
+import { extractImageUrl } from '../Image'
 
 import './index.css'
 import styles from './index.module.css'
@@ -43,6 +44,8 @@ class Layout extends React.Component {
       data,
       pageDescription = null,
       pageTitle,
+      pageImage,
+      pagePath = '',
       wrapped = true,
     } = this.props
 
@@ -52,8 +55,12 @@ class Layout extends React.Component {
     const siteTitle = siteMetadata.title
     const title = typeof pageTitle === 'string' ? pageTitle : siteTitle
 
-    const url = siteMetadata.url
+    const url = siteMetadata.url + pagePath
     const description = pageDescription
+    const imageUrlNoDomain = extractImageUrl(pageImage)
+    const imageUrl = imageUrlNoDomain
+      ? `${siteMetadata.url}${imageUrlNoDomain}`
+      : null
 
     return (
       <div className={isNavOpen ? styles.navOpen : styles.navClosed}>
@@ -69,6 +76,7 @@ class Layout extends React.Component {
             // OpenGraph
             { property: 'og:url', content: url },
             description && { property: 'og:description', content: description },
+            imageUrl && { property: 'og:image', content: imageUrl },
 
             // Twitter
             { name: 'twitter:card', content: 'summary_large_image' },
@@ -78,6 +86,7 @@ class Layout extends React.Component {
               name: 'twitter:description',
               content: description,
             },
+            imageUrl && { name: 'twitter:image', content: imageUrl },
           ].filter(o => o != null)}
         />
 

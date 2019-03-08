@@ -6,6 +6,20 @@ import { graphql } from 'gatsby'
 
 import styles from './index.module.css'
 
+export const extractImageUrl = function(source) {
+  const gatsbyImage =
+    get(source, 'localFile.childImageSharp', null) ||
+    get(source, 'image.localFile.childImageSharp', null)
+
+  if (gatsbyImage && gatsbyImage.fixed) {
+    return gatsbyImage.fixed.src
+  } else if (gatsbyImage && gatsbyImage.fluid) {
+    return gatsbyImage.fluid.src
+  } else if (get(source, 'localFile.publicURL')) {
+    return get(source, 'localFile.publicURL')
+  }
+}
+
 const Image = ({
   className = '',
   source,
