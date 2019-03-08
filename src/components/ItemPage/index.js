@@ -11,6 +11,8 @@ import Latest from '../Latest'
 import Markdown from '../Markdown'
 
 import urls from '../../lib/urls'
+import splitEventsIntoPastAndFuture from '../../lib/splitEventsIntoPastAndFuture'
+import sortItems from '../../lib/sortItems'
 
 import styles from './index.module.css'
 
@@ -35,6 +37,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
       ? item.mainimages
       : [item.mainimage]
   const firstImage = first(images)
+  const events = splitEventsIntoPastAndFuture(related)
+  const futureEvents = sortItems(events.future)
 
   const breadcrumbs = []
 
@@ -116,7 +120,7 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
               <Latest
                 parentUrl={null}
                 theme="light"
-                items={related}
+                items={futureEvents}
                 innerClassName={styles.relatedLatestInner}
               />
             </div>

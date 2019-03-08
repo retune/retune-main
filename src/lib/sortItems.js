@@ -5,5 +5,5 @@ function getSortField(item) {
 }
 
 export default function sortItems(items = []) {
-  return sortBy(items, getSortField).reverse()
+  return sortBy(items, getSortField)
 }

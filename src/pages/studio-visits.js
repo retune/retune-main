@@ -14,6 +14,7 @@ import Video from '../components/Video'
 import { studioVisitsPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
+import sortItems from '../lib/sortItems'
 
 import styles from './studio-visits.module.css'
 
@@ -51,7 +52,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
         innerClassName={styles.upcomingLatestInner}
         parentUrl={studioVisitsPath()}
         theme="light"
-        items={events.future}
+        items={sortItems(events.future)}
       />
     </section>
   ) : null
