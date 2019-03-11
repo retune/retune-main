@@ -169,12 +169,6 @@ export const query = graphql`
             summary {
               text
             }
-            body {
-              raw {
-                type
-                text
-              }
-            }
             mainimages {
               image {
                 localFile {

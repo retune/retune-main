@@ -128,5 +128,7 @@ module.exports = {
       .join('')
   },
 
+  markdownSerializer: serialize,
+
   Elements: Elements,
 }

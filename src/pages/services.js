@@ -142,16 +142,10 @@ export const query = graphql`
               text
             }
             description {
-              raw {
-                type
-                text
-              }
+              html
             }
             clients {
-              raw {
-                type
-                text
-              }
+              html
             }
             # videoid
             videoembed {

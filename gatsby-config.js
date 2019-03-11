@@ -1,3 +1,5 @@
+const { markdownSerializer } = require('./src/lib/prismicToMarkdown')
+
 module.exports = {
   siteMetadata: {
     title: 'Retune',
@@ -84,6 +86,26 @@ module.exports = {
         // ) => {
         //   // Your HTML serializer
         // },
+        //
+        // Uses the raw -> HTML serialisation hook to convert the raw prismic
+        // text fields to a markdown string. This is useful so we can have more
+        // control over the output of the text
+        htmlSerializer: ({ node, key, value }) => (
+          type,
+          element,
+          content,
+          children
+        ) => {
+          const result = markdownSerializer(
+            null /* linkResolver */,
+            type,
+            element,
+            content,
+            children
+          )
+
+          return result
+        },
 
         // Set a default language when fetching documents. The default value is
         // '*' which will fetch all languages.

@@ -136,10 +136,7 @@ export const query = graphql`
           id
           data {
             info {
-              raw {
-                type
-                text
-              }
+              html
             }
             images {
               image {
@@ -173,10 +170,7 @@ export const query = graphql`
               text
             }
             description {
-              raw {
-                type
-                text
-              }
+              html
             }
             startdate
             #startTime
@@ -197,9 +191,6 @@ export const query = graphql`
               }
             }
             photogallery {
-              #meta {
-              #  title
-              #}
               image {
                 localFile {
                   publicURL
@@ -208,22 +199,13 @@ export const query = graphql`
               }
             }
             team {
-              raw {
-                type
-                text
-              }
+              html
             }
             speakers {
-              raw {
-                type
-                text
-              }
+              html
             }
             workshops {
-              raw {
-                type
-                text
-              }
+              html
             }
             venue {
               text

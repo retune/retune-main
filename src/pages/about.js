@@ -110,50 +110,35 @@ export const query = graphql`
             }
 
             info {
-              raw {
-                type
-                text
-              }
+              html
             }
 
             section1title {
               text
             }
             section1content {
-              raw {
-                type
-                text
-              }
+              html
             }
 
             section2title {
               text
             }
             section2content {
-              raw {
-                type
-                text
-              }
+              html
             }
 
             section3title {
               text
             }
             section3content {
-              raw {
-                type
-                text
-              }
+              html
             }
 
             section4title {
               text
             }
             section4content {
-              raw {
-                type
-                text
-              }
+              html
             }
 
             # List of team members

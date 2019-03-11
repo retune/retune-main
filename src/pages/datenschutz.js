@@ -53,19 +53,13 @@ export const query = graphql`
               text
             }
             content_de {
-              raw {
-                type
-                text
-              }
+              html
             }
             title_en {
               text
             }
             content_en {
-              raw {
-                type
-                text
-              }
+              html
             }
           }
         }

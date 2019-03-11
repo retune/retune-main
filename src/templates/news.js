@@ -69,10 +69,7 @@ export const query = graphql`
               text
             }
             summary {
-              raw {
-                type
-                text
-              }
+              html
             }
             startdate
             #starttime

@@ -16,20 +16,12 @@ module.exports = function(results) {
 
 function getText(node) {
   if (node) {
-    if (Object.prototype.hasOwnProperty.call(node, 'raw')) {
-      const markdown =
+    if (Object.prototype.hasOwnProperty.call(node, 'html')) {
+      return node.html
+    } else if (Object.prototype.hasOwnProperty.call(node, 'raw')) {
+      const content =
         node.raw && node.raw.length > 0 ? asMarkdown(node.raw) : null
-
-      // console.log('markdown:', markdown)
-
-      return markdown
-      // return node.raw && node.raw.length > 0
-      //   ? node.raw
-      //       .map(function({ type, text }) {
-      //         return `${text}\n\n`
-      //       })
-      //       .join('')
-      //   : null
+      return content
     } else if (Object.prototype.hasOwnProperty.call(node, 'text')) {
       return node.text
     } else if (Object.prototype.hasOwnProperty.call(node, 'url')) {

@@ -36,16 +36,10 @@ export const query = graphql`
           text
         }
         summary {
-          raw {
-            type
-            text
-          }
+          html
         }
         description {
-          raw {
-            type
-            text
-          }
+          html
         }
         startdate
         ticketurl {
@@ -78,10 +72,7 @@ export const query = graphql`
               text
             }
             summary {
-              raw {
-                type
-                text
-              }
+              html
             }
             startdate
             #starttime

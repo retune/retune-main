@@ -182,10 +182,7 @@ export const query = graphql`
               text
             }
             description {
-              raw {
-                type
-                text
-              }
+              html
             }
             startdate
             #startTime
