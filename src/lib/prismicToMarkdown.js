@@ -20,7 +20,7 @@ function serialize(linkResolver, type, element, content, children) {
     case Elements.heading6:
       return serializeStandardTag('###### ', '', element, children)
     case Elements.paragraph:
-      return serializeStandardTag('', '\n', element, children)
+      return serializeStandardTag('', '\n\n', element, children)
     // case Elements.preformatted:
     //   return serializePreFormatted(element)
     case Elements.strong:
