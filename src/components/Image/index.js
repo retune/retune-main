@@ -26,21 +26,40 @@ const Image = ({
   width,
   height,
   auto = false,
+  aspectRatio = null,
   ...rest
 }) => {
   const classes = classnames(styles.Image, className)
-  const style = auto ? null : { width, height }
   const gatsbyImage =
     get(source, 'localFile.childImageSharp', null) ||
     get(source, 'image.localFile.childImageSharp', null)
+
+  const style = auto ? {} : { width, height }
+  if (aspectRatio != null) {
+    style['--aspect-ratio'] = aspectRatio
+  }
 
   let image = null
 
   // Using gatsby's image processing
   if (gatsbyImage && gatsbyImage.fixed) {
-    image = <Img {...rest} className={classes} fixed={gatsbyImage.fixed} />
+    image = (
+      <Img
+        {...rest}
+        className={classes}
+        style={style}
+        fixed={gatsbyImage.fixed}
+      />
+    )
   } else if (gatsbyImage && gatsbyImage.fluid) {
-    image = <Img {...rest} className={classes} fluid={gatsbyImage.fluid} />
+    image = (
+      <Img
+        {...rest}
+        className={classes}
+        style={style}
+        fluid={gatsbyImage.fluid}
+      />
+    )
   } else if (get(source, 'localFile.publicURL')) {
     image = (
       <div className={classes} style={style}>
