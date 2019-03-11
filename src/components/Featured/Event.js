@@ -37,7 +37,7 @@ const TypeLink = ({ event }) => {
   )
 }
 
-const Event = ({ event, parentUrl }) => {
+const Event = ({ event, parentUrl, aspectRatio }) => {
   const url = urls.eventPath(event)
 
   return (
@@ -50,7 +50,11 @@ const Event = ({ event, parentUrl }) => {
         state={{ backTo: parentUrl }}
       >
         {event.mainimages && (
-          <Image className={styles.image} source={event.mainimages[0]} />
+          <Image
+            className={styles.image}
+            source={event.mainimages[0]}
+            aspectRatio={aspectRatio}
+          />
         )}
         <h4 className={classnames(styles.title, 'mono-after', 'mqs-l mql-m')}>
           <span className="link">
