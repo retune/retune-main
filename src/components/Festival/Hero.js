@@ -17,7 +17,9 @@ const FestivalHero = ({ event }) => (
       </p>
     </div>
     <div className={styles.images}>
-      {event.mainimages && <Flipbook images={event.mainimages} />}
+      {event.mainimages && (
+        <Flipbook images={event.mainimages} aspectRatio="16/9" />
+      )}
     </div>
     <div className={classnames(styles.body, 'mql-s mqs-m mono')}>
       <Markdown source={event.description} />

@@ -87,7 +87,9 @@ const Festival = ({
     scrollIntoViewOnMount={scrollIntoViewOnMount}
   >
     <div className={styles.image}>
-      {event.mainimages && <Flipbook images={event.mainimages} />}
+      {event.mainimages && (
+        <Flipbook images={event.mainimages} aspectRatio="16/9" />
+      )}
     </div>
 
     <div className={classnames(styles.twoCol, styles.meta, 'mql-m')}>

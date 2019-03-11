@@ -46,7 +46,7 @@ class Flipbook extends React.Component {
 
     return (
       <div key={index} className={classnames(styles.Image, active)}>
-        <Image source={image} />
+        <Image source={image} aspectRatio={this.props.aspectRatio} />
       </div>
     )
   }
