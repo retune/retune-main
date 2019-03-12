@@ -6,23 +6,13 @@ import EventType from '../EventType'
 import Image from '../Image'
 import isNully from '../../lib/isNully'
 import urls from '../../lib/urls'
+import { urlPathForEventType } from '../../lib/getType'
 
 import styles from './index.module.css'
 
-const sectionUrlForType = type => {
-  switch (type) {
-    case 'studio-visit':
-      return urls.studioVisitsPath()
-    case 'festival':
-      return urls.festivalsPath()
-    default:
-      return null
-  }
-}
-
 const TypeLink = ({ event }) => {
   const type = <EventType plural type={event.type} />
-  const typeUrl = sectionUrlForType(event.type)
+  const typeUrl = urlPathForEventType(event.type)
 
   return (
     <p className={classnames(styles.type, 'mono mono-before', 'mqs-s mql-xs')}>

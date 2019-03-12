@@ -10,28 +10,28 @@ import Layout from '../Layout'
 import Latest from '../Latest'
 import Markdown from '../Markdown'
 
-import urls from '../../lib/urls'
 import splitEventsIntoPastAndFuture from '../../lib/splitEventsIntoPastAndFuture'
 import sortItems from '../../lib/sortItems'
+import { urlPathForEventType, labelForEventType } from '../../lib/getType'
 
 import styles from './index.module.css'
 
-const sectionUrlForType = type => {
-  switch (type) {
-    case 'studio-visit':
-      return { name: 'Studio Visit', to: urls.studioVisitsPath() }
-    case 'festival':
-      return { name: 'Festivals', to: urls.festivalsPath() }
-    default:
-      return null
+const sectionBreadcrumbForType = type => {
+  const to = urlPathForEventType(type)
+  const name = labelForEventType(type)
+
+  if (to && name) {
+    return { name, to }
   }
+
+  return null
 }
 
 const ItemPage = ({ backTo, url, item, related = [] }) => {
   const date = item.startdate || item.publisheddate
   const body = item.description || item.body
   const typeLabel = item.type ? <EventType type={item.type} /> : 'News'
-  const typeUrl = sectionUrlForType(item.type)
+  const type = sectionBreadcrumbForType(item.type)
   const images =
     item.mainimages && item.mainimages.length > 0
       ? item.mainimages
@@ -43,8 +43,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
 
   const breadcrumbs = []
 
-  if (typeUrl) {
-    breadcrumbs.push(typeUrl)
+  if (type) {
+    breadcrumbs.push(type)
   }
 
   breadcrumbs.push({
@@ -64,8 +64,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
       <section className={styles.container}>
         <div className={styles.inner}>
           <div className={classnames(styles.type, 'mono', 'mql-s mqs-s')}>
-            {typeUrl ? (
-              <Link to={typeUrl.to} className="link link-black">
+            {type ? (
+              <Link to={type.to} className="link link-black">
                 {typeLabel}
               </Link>
             ) : (

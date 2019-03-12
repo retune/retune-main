@@ -11,7 +11,7 @@ import Layout from '../components/Layout'
 import PhotoGallery from '../components/PhotoGallery'
 import Video from '../components/Video'
 
-import { festivalsPath } from '../lib/urls'
+import { eventPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 
@@ -35,7 +35,7 @@ const FestivalsPage = ({ data, pageContext }) => {
   const breadcrumbs = [
     {
       name: 'Festivals',
-      to: festivalsPath(),
+      to: eventPath({ type: 'festival' }),
     },
   ]
 
@@ -89,7 +89,7 @@ const FestivalsPage = ({ data, pageContext }) => {
           <PhotoGallery caption={false} images={images} />
           </div>*/}
         <div className={styles.video}>
-          <Video videoURL='https://retune.uber.space/festivals-bg.mp4' />
+          <Video videoURL="https://retune.uber.space/festivals-bg.mp4" />
         </div>
       </div>
 

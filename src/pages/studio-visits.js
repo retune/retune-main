@@ -11,7 +11,7 @@ import StudioVisit from '../components/StudioVisit'
 import { Group } from '../components/Collapsible'
 import Video from '../components/Video'
 
-import { studioVisitsPath } from '../lib/urls'
+import { eventPath } from '../lib/urls'
 import mergeResultsIntoItems from '../lib/mergeResultsIntoItems'
 import splitEventsIntoPastAndFuture from '../lib/splitEventsIntoPastAndFuture'
 import sortItems from '../lib/sortItems'
@@ -33,10 +33,11 @@ const StudioVisitsPage = ({ data, pageContext }) => {
   const events = splitEventsIntoPastAndFuture(
     mergeResultsIntoItems(data.studioVisits)
   )
+  const parentUrl = eventPath({ type: 'studio-visit' })
   const breadcrumbs = [
     {
       name: 'Studio Visits',
-      to: studioVisitsPath(),
+      to: parentUrl,
     },
   ]
 
@@ -50,7 +51,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
       </h2>
       <Latest
         innerClassName={styles.upcomingLatestInner}
-        parentUrl={studioVisitsPath()}
+        parentUrl={parentUrl}
         theme="light"
         items={sortItems(events.future)}
       />
@@ -95,7 +96,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
         />
 
         <div className={styles.video}>
-          <Video videoURL='https://retune.uber.space/studio-visits-bg.mp4' />
+          <Video videoURL="https://retune.uber.space/studio-visits-bg.mp4" />
         </div>
       </div>
 

@@ -7,13 +7,10 @@ const path = require('path')
 const { eventPath, newsPath } = require('./src/lib/urls')
 const mergeResultsIntoItems = require('./src/lib/mergeResultsIntoItems')
 const isEventInPastOrFuture = require('./src/lib/isEventInPastOrFuture')
+const { templateNameForEventType } = require('./src/lib/getType')
 
-const Templates = {
-  event: `./src/templates/event.js`,
-  news: `./src/templates/news.js`,
-  festival: `./src/pages/festivals.js`,
-  studioVisit: `./src/pages/studio-visits.js`,
-}
+const template = type => `./src/templates/${type}.js`
+const page = type => `./src/pages/${type}.js`
 
 const createItemPage = (templatePath, createPage, createPath, node) => {
   const urlPath = createPath(node)
@@ -79,18 +76,16 @@ exports.createPages = ({ graphql, actions }) => {
         let templatePath
 
         if (isEventInPastOrFuture(event) === 'future') {
-          templatePath = Templates.event
-        } else if (event.type === 'studio-visit') {
-          templatePath = Templates.studioVisit
-        } else if (event.type === 'festival') {
-          templatePath = Templates.festival
+          templatePath = template('event')
+        } else {
+          templatePath = page(templateNameForEventType(event.type))
         }
 
         createItemPage(templatePath, createPage, eventPath, event)
       })
 
       posts.forEach(post =>
-        createItemPage(Templates.news, createPage, newsPath, post)
+        createItemPage(template('news'), createPage, newsPath, post)
       )
 
       resolve()

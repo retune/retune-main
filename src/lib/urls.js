@@ -3,7 +3,8 @@
 */
 const slug = require('slug')
 const getType = require('./getType')
-const isEventInPastOrFuture = require('./isEventInPastOrFuture')
+
+const urlPathForEventType = getType.urlPathForEventType
 
 slug.defaults.mode = 'rfc3986' // Lowercases URLs
 
@@ -34,9 +35,6 @@ const maybeToSlugUrl = item => {
 module.exports.slugify = slugify
 
 module.exports.aboutPath = () => '/about/'
-module.exports.festivalsPath = event => `/festivals/${maybeToSlugUrl(event)}`
-module.exports.studioVisitsPath = event =>
-  `/studio-visits/${maybeToSlugUrl(event)}`
 module.exports.servicesPath = service => {
   const anchor = slugify(service)
   if (!!anchor) {
@@ -49,16 +47,11 @@ module.exports.newsPath = item => `/news/${maybeToSlugUrl(item)}`
 module.exports.imprintPath = () => '/imprint/'
 module.exports.privacyPath = () => '/datenschutz/'
 module.exports.newsletterPath = () => 'http://eepurl.com/b3QkdX'
+
 module.exports.eventPath = event => {
   if (event.type) {
-    switch (getType(event)) {
-      case 'festival':
-        return module.exports.festivalsPath(event)
-      case 'studio-visit':
-        return module.exports.studioVisitsPath(event)
-      default:
-        throw new Error(`Unknown event type: ${event.type} (id: ${event.id})`)
-    }
+    const urlPath = urlPathForEventType(event.type)
+    return `${urlPath}${maybeToSlugUrl(event)}`
   }
 
   throw new Error(`Not an event object`)

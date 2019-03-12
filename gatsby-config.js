@@ -9,6 +9,18 @@ module.exports = {
     twitter: 'https://twitter.com/retuneberlin/',
     facebook: 'https://www.facebook.com/retuneberlin/',
     instagram: 'https://www.instagram.com/retuneberlin/',
+    eventTypes: {
+      festival: {
+        label: 'Festival',
+        plural: 'Festivals',
+        urlPath: 'festivals',
+      },
+      'studio-visit': {
+        label: 'Studio Visit',
+        plural: 'Studio Visits',
+        urlPath: 'studio-visits',
+      },
+    },
   },
   plugins: [
     'gatsby-transformer-sharp',

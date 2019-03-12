@@ -7,19 +7,9 @@ import FormattedDate from '../FormattedDate'
 import Image from '../Image'
 
 import urls from '../../lib/urls'
+import { urlPathForEventType } from '../../lib/getType'
 
 import styles from './index.module.css'
-
-const sectionUrlForType = type => {
-  switch (type) {
-    case 'studio-visit':
-      return urls.studioVisitsPath()
-    case 'festival':
-      return urls.festivalsPath()
-    default:
-      return null
-  }
-}
 
 const Item = item => {
   const {
@@ -38,7 +28,7 @@ const Item = item => {
   const date = startdate
   const typeLabel = type ? <EventType type={type} /> : 'News'
   const url = type ? urls.eventPath(item) : urls.newsPath(item)
-  const typeUrl = sectionUrlForType(type)
+  const typeUrl = urlPathForEventType(type)
   const image =
     mainimages && mainimages[0]
       ? mainimages[0].image

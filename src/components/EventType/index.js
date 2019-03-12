@@ -1,21 +1,9 @@
 import * as React from 'react'
 
-const labelForEvenType = type => {
-  switch (type) {
-    case 'studio-visit':
-      return 'Studio Visit'
-    case 'festival':
-      return 'Festival'
-    default:
-      return 'Event'
-  }
-}
+import { labelForEventType } from '../../lib/getType'
 
 const EventType = ({ plural = false, type }) => (
-  <React.Fragment>
-    {labelForEvenType(type)}
-    {plural ? 's' : ''}
-  </React.Fragment>
+  <React.Fragment>{labelForEventType(type, plural)}</React.Fragment>
 )
 
 export default EventType

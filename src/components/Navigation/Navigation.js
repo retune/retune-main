@@ -65,12 +65,12 @@ class Navigation extends React.Component {
             <h3 className={styles.header}>Events</h3>
             <ul className={classnames(styles.links, 'list-reset')}>
               <li>
-                <NavigationLink to={urls.festivalsPath()}>
+                <NavigationLink to={urls.eventPath({ type: 'festival' })}>
                   Retune Festival
                 </NavigationLink>
               </li>
               <li>
-                <NavigationLink to={urls.studioVisitsPath()}>
+                <NavigationLink to={urls.eventPath({ type: 'studio-visit' })}>
                   Studio Visits
                 </NavigationLink>
               </li>

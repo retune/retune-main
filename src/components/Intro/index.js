@@ -24,9 +24,14 @@ export default () => (
         </p>
 
         <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
-          <Hyperlink to={urls.festivalsPath()}>Festivals</Hyperlink>,{' '}
-          <Hyperlink to={urls.studioVisitsPath()}>events</Hyperlink> and Art
-          Production.
+          <Hyperlink to={urls.eventPath({ type: 'festival' })}>
+            Festivals
+          </Hyperlink>
+          ,{' '}
+          <Hyperlink to={urls.eventPath({ type: 'studio-visit' })}>
+            events
+          </Hyperlink>{' '}
+          and Art Production.
           <br />
           For <Hyperlink to={urls.servicesPath()}>clients</Hyperlink> and our
           community.
