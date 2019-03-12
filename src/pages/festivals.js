@@ -117,19 +117,6 @@ const FestivalsPage = ({ data, pageContext }) => {
 
 export const query = graphql`
   {
-    #page: festivalsPage {
-    #  info
-    #  images {
-    #    meta {
-    #      title
-    #    }
-    #    localFile {
-    #      publicURL
-    #      ...fluidImage
-    #    }
-    #  }
-    #}
-
     page: allPrismicFestivalspage {
       edges {
         node {
@@ -173,9 +160,6 @@ export const query = graphql`
               html
             }
             startdate
-            #startTime
-            #endDate
-            #endTime
             ticketurl {
               url
             }
