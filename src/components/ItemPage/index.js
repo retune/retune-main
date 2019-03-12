@@ -37,7 +37,8 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
       ? item.mainimages
       : [item.mainimage]
   const firstImage = first(images)
-  const events = splitEventsIntoPastAndFuture(related)
+  const relatedExcludingSelf = related.filter(e => e.id !== item.id)
+  const events = splitEventsIntoPastAndFuture(relatedExcludingSelf)
   const futureEvents = sortItems(events.future)
 
   const breadcrumbs = []
