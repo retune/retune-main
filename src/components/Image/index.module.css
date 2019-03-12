@@ -1,6 +1,0 @@
-@supports (--custom: property) {
-  [style*='--aspect-ratio'] {
-    padding-bottom: calc(100% / (var(--aspect-ratio)));
-    height: 0;
-  }
-}

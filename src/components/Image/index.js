@@ -36,7 +36,8 @@ const Image = ({
 
   const style = auto ? {} : { width, height }
   if (aspectRatio != null) {
-    style['--aspect-ratio'] = aspectRatio
+    style['paddingTop'] = `calc(100% / (${aspectRatio}))`
+    style['height'] = `0`
   }
 
   let image = null
