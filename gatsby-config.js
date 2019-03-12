@@ -20,6 +20,11 @@ module.exports = {
         plural: 'Studio Visits',
         urlPath: 'studio-visits',
       },
+      'digital-arts-lab': {
+        label: 'Digital Arts Lab',
+        plural: 'Digital Arts Labs',
+        urlPath: 'digital-arts-lab',
+      },
     },
   },
   plugins: [

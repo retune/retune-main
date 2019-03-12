@@ -74,6 +74,13 @@ class Navigation extends React.Component {
                   Studio Visits
                 </NavigationLink>
               </li>
+              <li>
+                <NavigationLink
+                  to={urls.eventPath({ type: 'digital-arts-lab' })}
+                >
+                  Digital Arts Lab
+                </NavigationLink>
+              </li>
             </ul>
           </div>
 
