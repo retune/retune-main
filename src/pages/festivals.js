@@ -100,15 +100,18 @@ const FestivalsPage = ({ data, pageContext }) => {
 
       <div className={classnames(styles.outro, 'mql-m')}>
         <p>
-          You wanna participate and be part of the next Retune Studio Visits. Or
-          you have suggestion for the next Studio we have to visits. Feel free
-          to contact us at any time for any problems and related tasks: hey /at/
-          retune.de
+          Are you interested in becoming a Retune Festival partner or collaborator? Feel free to
+          contact us: hey /at/ retune.de
         </p>
 
         <p>
-          For more info and updates sign up for our newsletter, join us on
-          Slack, and follow us on Twitter, Instagram, Facebook and Flickr.
+          For more info and updates sign up for our{' '}
+          <a href="http://eepurl.com/oAiGz">newsletter</a>, join us on{' '}
+          <a href="https://retune-community.slack.com">Slack</a>, and follow us
+          on <a href="https://twitter.com/retuneberlin"> Twitter</a>,
+          <a href="http://instagram.com/retuneberlin"> Instagram</a>,
+          <a href="https://www.facebook.com/retuneberlin"> Facebook</a> and
+          <a href="https://www.flickr.com/photos/retuneconference/"> Flickr</a>.
         </p>
       </div>
     </Layout>
