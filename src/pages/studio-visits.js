@@ -71,7 +71,7 @@ const StudioVisitsPage = ({ data, pageContext }) => {
               collapsed={currentlyOpen !== event.id}
               onToggle={isCollapsed => onToggle(event.id, isCollapsed)}
               scrollIntoViewOnMount={
-                initialRender && event.id === currentlyOpen
+                initialRender && selectedId && event.id === currentlyOpen
               }
             />
           )

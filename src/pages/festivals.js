@@ -60,7 +60,7 @@ const FestivalsPage = ({ data, pageContext }) => {
             <Festival
               key={event.id}
               scrollIntoViewOnMount={
-                initialRender && event.id === currentlyOpen
+                initialRender && selectedId && event.id === currentlyOpen
               }
               event={event}
               isOpen={currentlyOpen === event.id}
