@@ -72,4 +72,4 @@ The template should be customised to fit the new event type. At a minimum:
 
 ## 4. Add the event type to the site navigation
 
-In [`./src/components/Navigation/Navigation.js`]().
+In [`../src/components/Navigation/Navigation.js`]().
