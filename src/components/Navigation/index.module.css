@@ -19,7 +19,7 @@
 }
 
 @media (--small) {
-  .Navigation {
+  .Navigation:not(.isClosed) {
     min-height: calc(100vh - var(--retune-masthead-h));
   }
 }
