@@ -47,6 +47,10 @@ class Collapsible extends React.Component {
   }
 
   scrollIntoView = () => {
+    window.setTimeout(this._scrollIntoView, 300)
+  }
+
+  _scrollIntoView = () => {
     const el = this.headingRef.current
     if (el == null) {
       return
@@ -59,15 +63,9 @@ class Collapsible extends React.Component {
     )
 
     const rect = el.getBoundingClientRect()
-    const isOffscreen =
-      rect.top < 0 || rect.top > document.documentElement.clientHeight
+    const top = Math.abs(rect.top) - mastheadHeight
 
-    if (isOffscreen) {
-      const top = Math.abs(rect.top) - mastheadHeight
-      setTimeout(function() {
-        window.scrollTo({ top, behavior: 'smooth' })
-      }, 300)
-    }
+    window.scrollTo({ top, behavior: 'smooth' })
   }
 
   componentDidUpdate({ collapsed }) {
