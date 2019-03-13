@@ -110,21 +110,13 @@ const FestivalsPage = ({ data, pageContext }) => {
 
 export const query = graphql`
   {
-    page: allPrismicFestivalspage {
+    page: allPrismicDigitalartslabpage {
       edges {
         node {
           id
           data {
             info {
               html
-            }
-            images {
-              image {
-                localFile {
-                  publicURL
-                  ...fluidImage
-                }
-              }
             }
           }
         }
