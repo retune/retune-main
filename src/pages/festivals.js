@@ -25,7 +25,7 @@ const Title = (
 
 const FestivalsPage = ({ data, pageContext }) => {
   const selectedId = pageContext.id
-  const info = get(data.page, 'edges[0].node.data.info.text')
+  const info = get(data.page, 'edges[0].node.data.info.html')
   const images = get(data.page, 'edges[0].node.data.images').map(
     ({ image }) => image
   )

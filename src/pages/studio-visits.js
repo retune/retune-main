@@ -26,7 +26,7 @@ const Title = (
 
 const StudioVisitsPage = ({ data, pageContext }) => {
   const selectedId = pageContext.id
-  const info = get(data, 'page.edges[0].node.data.info.text')
+  const info = get(data, 'page.edges[0].node.data.info.html')
   const images = get(data, 'page.edges[0].node.data.images', []).map(
     ({ image }) => image
   )
@@ -149,7 +149,7 @@ export const query = graphql`
           id
           data {
             info {
-              text
+              html
             }
             images {
               image {
