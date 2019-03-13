@@ -41,7 +41,8 @@
 }
 
 .isFullViewport {
-  min-height: calc(85vh - var(--retune-masthead-h));
+  min-height: 400px; /* Avoids intro content overlapping vertically */
+  height: calc(85vh - var(--retune-masthead-h));
   width: 100vw;
 }
 
