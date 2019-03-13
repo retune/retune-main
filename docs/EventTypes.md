@@ -9,6 +9,12 @@ Adding a new type involves:
 3. Create an aggregation page for the new event type
 4. Add the event type to the site navigation
 
+If the aggregation page requires seperate info, then also:
+
+5. Create page-specific info template in Prismic CMS
+6. Populate template with content
+7. Fetch data for page in aggregation page
+
 ## 1. Adding the new `type id` to the `Event` template in the Prismic CMS
 
 1. Visit [the Prismic event configuration](https://retune-main.prismic.io/masks/events.json/)
@@ -73,3 +79,46 @@ The template should be customised to fit the new event type. At a minimum:
 ## 4. Add the event type to the site navigation
 
 In [`../src/components/Navigation/Navigation.js`]().
+
+## 5. Create page-specific info template in Prismic CMS
+
+1. [Visit Custom Type list in Prismic CMS](https://retune-main.prismic.io/masks/)
+2. Press "Create new" button
+3. Select "Single Type"
+4. Enter a type name (camelCase the ID plus "Page" e.g. `digitalArtsLabPage`)
+5. "Create new custom type"
+6. Drag "Rich Text" field into "Main"
+7. Field name: `info`
+8. API ID: `info`
+9. Click "Unselect All" above HTML tag buttons
+10. Select "p" tag button
+11. Click "OK"
+12. "Save" custom type
+
+## 6. Populate template with content
+
+1. [Visit the Prismic content page](https://retune-main.prismic.io/documents/working/)
+2. Select the custom type you created in the list e.g. `digitalArtsLabPage`
+3. Enter the content
+4. Save
+5. Publish
+6. Publish now
+
+## 7. Fetch data for page in aggregation page
+
+Tweak the GraphQL on the page to fetch the data. The ID of the page will have a capital first letter and the rest will be lowercase 🙃 e.g. `digitalArtsLabPage` will become `Digitalartslabpage`:
+
+```
+page: allPrismicDigitalartslabpage {
+  edges {
+    node {
+      id
+      data {
+        info {
+          html
+        }
+      }
+    }
+  }
+}
+```
