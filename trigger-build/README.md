@@ -1,6 +1,6 @@
 # Trigger Build Service
 
-Listens on a port for [Cockpit CMS webhooks](https://getcockpit.com/documentation/api/webhooks).
+Listens on a port for [Prismic CMS webhooks](https://intercom.help/prismicio/webhooks/webhooks).
 
 Runs with [supervisord on uberspace](https://manual.uberspace.de/en/daemons-supervisord.html).
 
@@ -15,7 +15,3 @@ Runs with [supervisord on uberspace](https://manual.uberspace.de/en/daemons-supe
 
 Run: `supervisorctl status`
 Logs are in ~/log/supervisor.log
-
-## Available webhooks
-
-See here: https://github.com/agentejo/cockpit/issues/661
