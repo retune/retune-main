@@ -62,12 +62,6 @@
   text-align: center;
 }
 
-@media (--large) {
-  .type {
-    transform: translateX(-27px);
-  }
-}
-
 .type > a {
   color: #000;
 }
