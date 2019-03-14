@@ -49,6 +49,10 @@ h6 {
   font-family: 'Courier Prime', 'Courier New', Courier, monospace;
 }
 
+.mono li {
+  line-height: 1.5;
+}
+
 * {
   box-sizing: border-box;
 }
