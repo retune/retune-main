@@ -18,6 +18,8 @@ import { extractImageUrl } from '../Image'
 import './index.css'
 import styles from './index.module.css'
 
+import favicon from 'https://retune.de/favicon.png'
+
 class Layout extends React.Component {
   state = {
     isNavOpen: false,
@@ -88,6 +90,9 @@ class Layout extends React.Component {
             },
             imageUrl && { name: 'twitter:image', content: imageUrl },
           ].filter(o => o != null)}
+          link={[
+            { rel: 'icon', type: 'image/png', href: `${favicon}` }
+          ]}
         />
 
         {wrapped && (
