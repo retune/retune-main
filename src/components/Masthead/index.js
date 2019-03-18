@@ -25,6 +25,7 @@ class Masthead extends React.Component {
   }
 
   elementRef = React.createRef()
+  closeButtonRef = React.createRef()
 
   close = evt => {
     this.setState(
@@ -60,8 +61,15 @@ class Masthead extends React.Component {
     }
   }
 
-  toggle = () => {
-    this.state.open ? this.close() : this.open()
+  toggle = evt => {
+    // Do not toggle if clicking on close icon
+    const isClickWithinCloseButton =
+      this.closeButtonRef.current &&
+      this.closeButtonRef.current.contains(evt.target)
+
+    if (!isClickWithinCloseButton) {
+      this.state.open ? this.close() : this.open()
+    }
   }
 
   addCloseHandler = () => {
@@ -148,7 +156,7 @@ class Masthead extends React.Component {
           </div>
 
           {this.props.backTo && (
-            <div className={styles.back}>
+            <div className={styles.back} ref={this.closeButtonRef}>
               <HitArea onClick={() => window.history.back()}>
                 <Icon type="close" />
               </HitArea>
