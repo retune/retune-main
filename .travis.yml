@@ -5,8 +5,8 @@ addons:
   ssh_known_hosts: 'borrelly.uberspace.de'
 cache:
   npm: true
-  directories:
-    - .cache
+#  directories:
+#    - .cache
 before_install:
   - openssl aes-256-cbc -K $encrypted_985f5e5b0f2b_key -iv $encrypted_985f5e5b0f2b_iv
     -in deployment/deploy-key.enc -out /tmp/deploy-key -d
