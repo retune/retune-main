@@ -18,7 +18,7 @@ import { extractImageUrl } from '../Image'
 import './index.css'
 import styles from './index.module.css'
 
-import favicon from './favicon.png'
+import favicon from 'favicon.png'
 
 class Layout extends React.Component {
   state = {
