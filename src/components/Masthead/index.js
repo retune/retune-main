@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import classnames from 'classnames'
 import pose from 'react-pose'
 
@@ -149,7 +149,7 @@ class Masthead extends React.Component {
 
           {this.props.backTo && (
             <div className={styles.back}>
-              <HitArea onClick={() => window.history.back()}>
+              <HitArea onClick={() => navigate(this.props.backTo)}>
                 <Icon type="close" />
               </HitArea>
             </div>
