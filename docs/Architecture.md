@@ -60,6 +60,13 @@ Future Events display in the same modal-style layout as News items.
 
 The page templates use [React Components](https://reactjs.org/docs/components-and-props.html) to split the page into self-contained chunks. Some components are reused in many pages e.g. [`../src/components/Collapsible`]() and others are only used in one page e.g. [`../src/components/Intro`]().
 
+## Managing page head
+
+To add things to the page `<head>`, try the following:
+
+1. See if there's a [gatsby plugin](https://www.gatsbyjs.org/plugins/) that will do this for you. For example, the matomo scripts are managed by [`gatsby-plugin-matomo`](https://www.gatsbyjs.org/packages/gatsby-plugin-matomo/)
+2. [Use Helmet](https://www.gatsbyjs.org/docs/add-page-metadata/#using-react-helmet-and-gatsby-plugin-react-helmet) to add the tags from a Component or a Page. The plugins are already loaded and ready to be used. See [`../src/components/Layout`](../src/components/Layout) for an example.
+
 ## CSS and typography
 
 ### Global text styles
