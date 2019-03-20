@@ -95,13 +95,15 @@ function serializeEmbed(element) {
 }
 
 function serializeHyperlink(linkResolver, element, children) {
-  const target = element.data.target
-    ? `target="${element.data.target}" rel="noopener"`
-    : ''
-  return `<a ${target} href="${LinkHelper.url(
-    element.data,
-    linkResolver
-  )}">${children.join('')}</a>`
+  return `[${children.join('')}](${element.data.url})`
+
+  // const target = element.data.target
+  //   ? `target="${element.data.target}" rel="noopener"`
+  //   : ''
+  // return `<a ${target} href="${LinkHelper.url(
+  //   element.data,
+  //   linkResolver
+  // )}">${children.join('')}</a>`
 }
 
 function serializeLabel(element, children) {
