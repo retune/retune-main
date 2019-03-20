@@ -29,7 +29,7 @@ const FestivalHero = ({ event }) => (
       <span>
         -&gt;{' '}
         <a className="link" href={event.externalurl}>
-          Go to festival site
+          Go to website
         </a>
       </span>
       )
