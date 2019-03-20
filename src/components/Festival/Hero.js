@@ -28,7 +28,7 @@ const FestivalHero = ({ event }) => (
       ({' '}
       <span>
         -&gt;{' '}
-        <a className="link" href={event.externalURL}>
+        <a className="link" href={event.externalurl}>
           Go to festival site
         </a>
       </span>
