@@ -40,7 +40,7 @@ export const query = graphql`
           text
         }
         body {
-          text
+          html
         }
         mainimages {
           image {
