@@ -1,9 +1,12 @@
 const mapValues = require('lodash/mapValues')
+const get = require('lodash/get')
 
 const asMarkdown = require('./prismicToMarkdown').asMarkdown
 
 module.exports = function(results) {
-  return results.edges.map(edge => {
+  const edges = get(results, 'edges', [])
+
+  return edges.map(edge => {
     let node = edge.node
 
     if (node.data) {
