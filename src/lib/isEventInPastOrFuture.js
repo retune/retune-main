@@ -8,5 +8,7 @@ const endOfDay = () => {
 
 module.exports = (event, now = endOfDay()) => {
   const date = new Date(event.startdate).valueOf()
-  return date >= now ? 'future' : 'past'
+  var yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  return date > yesterday ? 'future' : 'past'
 }
