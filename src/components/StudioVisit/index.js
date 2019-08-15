@@ -53,7 +53,7 @@ const StudioVisit = ({
 
         <p className={classnames(styles.link, 'mql-m mqs-m sans')}>
           <a className="link" href={event.externalurl}>
-            Go to studio
+            => studio's website
           </a>
         </p>
       </div>

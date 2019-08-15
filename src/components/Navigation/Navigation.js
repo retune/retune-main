@@ -62,7 +62,7 @@ class Navigation extends React.Component {
       >
         <div className={classnames(styles.sections, 'mql-m mqs-xl')}>
           <div className={classnames(styles.section, styles.events)}>
-            <h3 className={styles.header}>Events</h3>
+            <h3 className={styles.header}>Event Series</h3>
             <ul className={classnames(styles.links, 'list-reset')}>
               <li>
                 <NavigationLink to={urls.eventPath({ type: 'festival' })}>
@@ -130,7 +130,7 @@ class Navigation extends React.Component {
 
         <p className={classnames('mono mql-xs mqs-s', styles.legal)}>
           Retune Creative Technology GmbH, Glogauer Str. 21, 10999 Berlin —
-          webmaster@retune.de
+          hey@retune.de
         </p>
 
         <div className={styles.mobileInfo}>

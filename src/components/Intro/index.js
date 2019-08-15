@@ -20,21 +20,18 @@ export default () => (
       <div className={classnames(styles.IntroContent, styles.isFullViewport)}>
         <h1 className={classnames(styles.title, 'mql-xxl mqs-xl')}>Retune</h1>
         <p className={classnames(styles.subtitle, 'mql-xxl mqs-xl')}>
-          Creative Technology <span className={styles.break}>Laboratory</span>
+          Creative Technology <span className={styles.break}>Platform</span>
         </p>
 
         <p className={classnames(styles.info, 'mql-xl mqs-xl')}>
           <Hyperlink to={urls.eventPath({ type: 'festival' })}>
-            Festivals
+            festivals
           </Hyperlink>
           ,{' '}
           <Hyperlink to={urls.eventPath({ type: 'studio-visit' })}>
-            events
+            studio visits,
           </Hyperlink>{' '}
-          and Art Production.
-          <br />
-          For <Hyperlink to={urls.servicesPath()}>clients</Hyperlink> and our
-          community.
+          workshops, and more.
         </p>
       </div>
     </Artwork>
