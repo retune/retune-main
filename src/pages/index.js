@@ -18,25 +18,35 @@ import Promo from '../components/Promo'
 import Featured from '../components/Featured'
 import Quotes from '../components/Quotes'
 import EventArchive from '../components/EventArchive'
+import WhatWeDo from '../components/WhatWeDo'
 
 import styles from './index.module.css'
 
-const getFeaturedEvents = data => {
-  const featured = get(data, 'page.edges[0].node.data.featured', null)
-  if (featured != null && Array.isArray(featured) && featured.length > 0) {
-    return featured.map(node => {
-      const item = get(node, 'item.document[0]', {})
-      return { ...item, ...flattenNode(item.data) }
-    })
-  }
+// const getFeaturedEvents = data => {
+//   const featured = get(data, 'page.edges[0].node.data.featured', null)
+//   if (featured != null && Array.isArray(featured) && featured.length > 0) {
+//     return featured.map(node => {
+//       const item = get(node, 'item.document[0]', {})
+//       return { ...item, ...flattenNode(item.data) }
+//     })
+//   }
+//   return null
+// }
 
+const getWhatWeDo = data => {
+  const featured = get(data, 'page.edges[0].node.data.body', null) 
+
+  if (featured != null && Array.isArray(featured) && featured.length > 0) {
+    return (featured)
+  }
   return null
 }
 
 const IndexPage = ({ data }) => {
   const events = mergeResultsIntoItems(data.events)
   const split = splitEventsIntoPastAndFuture(events)
-  const featuredEvents = getFeaturedEvents(data)
+  // const featuredEvents = getFeaturedEvents(data)
+  const whatWeDo = getWhatWeDo(data)
   const quotes = mergeResultsIntoItems(data.quotes)
   const posts = mergeResultsIntoItems(data.posts)
   const latest = sortItems([...split.future, ...posts])
@@ -50,7 +60,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout
       pageTitle={<NowCast />}
-      pageDescription="Creative Technology Laboratory"
+      pageDescription="Creative Technology Platform"
     >
       <Intro />
       <Latest
@@ -62,7 +72,7 @@ const IndexPage = ({ data }) => {
       {showPromo &&
         promoURL &&
         promoImage && <Promo url={promoURL} image={promoImage} />}
-      <Featured events={featuredEvents} parentUrl={pageLocation} />
+      <WhatWeDo items={whatWeDo} parentUrl={pageLocation} />
       <Quotes quotes={quotes} />
       <EventArchive events={split.past} />
     </Layout>
@@ -84,6 +94,25 @@ export const query = graphql`
         node {
           id
           data {
+            body {
+              primary {
+                description {
+                  text
+                }
+                image {
+                  localFile {
+                    publicURL
+                    ...fluidImage
+                  }
+                }
+                link {
+                  url
+                }
+                title {
+                  text
+                }
+              }
+            }
             showpromo
             promourl
             promo {

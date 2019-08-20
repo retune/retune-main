@@ -1,0 +1,101 @@
+@import '../MediaQuery/index.css';
+
+.Featured {
+  margin: 0 18px;
+}
+
+.heading {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+@media (--large) {
+  .Featured {
+    margin: 0 50px;
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 750px) {
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+  }
+
+  /* Stretch first Event across full-width */
+  .list > .Event:first-child {
+    grid-column-start: span 2;
+  }
+
+  /*
+    The first row's summary content should end in line with
+    the subsequent Event's grid gap i.e. 50% - half gap (50px / 2)
+  */
+  .list > .Event:first-child .summary {
+    max-width: calc(50% - 25px);
+  }
+}
+
+/*
+  Event
+*/
+.Event {
+  width: 100%;
+
+  margin-right: 0;
+  padding: 0 0 40px 0;
+  border-top: none;
+}
+
+.Event * {
+  text-decoration: none;
+}
+
+.type {
+  margin: 0;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.type > a {
+  color: #000;
+}
+
+.type:before {
+  content: '-> ';
+  font-weight: normal;
+}
+
+@media (min-width: 750px) {
+  .type {
+    padding-bottom: 18px;
+  }
+}
+
+.title {
+  margin: 0;
+  padding-bottom: 7px;
+
+  color: var(--retune-col-blue);
+}
+
+.title:after {
+  content: ' -> ';
+  color: #000;
+  font-weight: normal;
+}
+
+.summary {
+  margin: 0;
+  color: #000;
+}
+
+.image {
+  margin: 0 0 16px 0;
+}
