@@ -29,6 +29,10 @@
   margin: 0;
 }
 
+.subtitle { 
+  margin-bottom: 10px;
+}
+
 .related:before {
   content: '';
   display: block;

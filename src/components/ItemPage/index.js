@@ -80,12 +80,27 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
                 {item.subtitle}
               </h2>
             )}
-            <time
-              className={classnames(styles.startdate, 'mql-xl')}
+
+            
+            {type ? (
+              // if this is an event, show the date big
+              <time
+              className={classnames(styles.startdate, 'mql-l')}
               dateTime={date}
-            >
-              <FormattedDate date={date} />
+              >
+                <FormattedDate date={date} />
+              </time>
+            ) : (
+              // if this is a news item, show the date smaller
+              <time
+              className={classnames(styles.startdate, 'mono mql-s')}
+              dateTime={date}
+              >
+                Posted: <FormattedDate date={date} />
             </time>
+            )}
+            
+              
           </header>
 
           <div className={styles.extra}>
