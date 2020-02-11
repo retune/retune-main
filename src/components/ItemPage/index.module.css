@@ -47,6 +47,15 @@
   margin-bottom: 20px;
 }
 
+tito-button button {
+  width: 100%;
+  background-color: var(--retune-col-blue);
+  color: white;
+  border: 0;
+  font-size: 20px;
+  padding: 10px;
+}
+
 @media (--large) {
   .inner {
     margin: 40px 0;

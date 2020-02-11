@@ -139,7 +139,7 @@ export const query = graphql`
                     }
                     startdate
                     ticketurl {
-                      url
+                      text
                     }
                     externalurl {
                       url
@@ -233,7 +233,7 @@ export const query = graphql`
             # startTime
             # endTime
             ticketurl {
-              url
+              text
             }
             externalurl {
               url

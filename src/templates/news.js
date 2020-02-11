@@ -76,7 +76,7 @@ export const query = graphql`
             #enddate
             #endtime
             ticketurl {
-              url
+              text
             }
             externalurl {
               url

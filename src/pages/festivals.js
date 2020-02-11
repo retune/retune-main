@@ -164,7 +164,7 @@ export const query = graphql`
             }
             startdate
             ticketurl {
-              url
+              text
             }
             externalurl {
               url

@@ -43,7 +43,7 @@ export const query = graphql`
         }
         startdate
         ticketurl {
-          url
+          text
         }
         mainimages {
           image {
@@ -79,7 +79,7 @@ export const query = graphql`
             enddate
             #endtime
             ticketurl {
-              url
+              text
             }
             externalurl {
               url
