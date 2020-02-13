@@ -52,9 +52,9 @@ const PhotoGallery = ({
       )}
     </section>
 
-    {caption && (
+    {/* {caption && (
       <p className={styles.Caption}>Photo Gallery ({images.length} images)</p>
-    )}
+    )} */}
 
     <div className={styles.ThumbnailView}>
       <ThumbnailView
