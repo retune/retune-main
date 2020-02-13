@@ -67,11 +67,11 @@ const Item = item => {
         )}
       </Link>
 
-      {ticketurl ? (
+      {/* {ticketurl ? (
         <a className={classnames(styles.ticket, linkClasses)} href={ticketurl}>
           Book ticket
         </a>
-      ) : null}
+      ) : null} */}
     </div>
   )
 }

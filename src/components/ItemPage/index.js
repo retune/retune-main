@@ -105,15 +105,15 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
           </header>
 
           <div className={styles.extra}>
-            {item.ticketurl && (  
+            {/* {item.ticketurl && (  
               <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
                 {
-                /* <a className="link" href={item.ticketurl}>
-                  Get ticket
-                </a> */}
+                  <a className="link" href={item.ticketurl}>
+                    Get ticket
+                  </a> 
+                }
               </p>
-            )}
-
+            )} */}
             {images && images.length > 0 ? (
               <div className={styles.image}>
                 <PhotoGallery images={images} />
