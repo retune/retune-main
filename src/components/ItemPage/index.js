@@ -114,16 +114,14 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
                 }
               </p>
             )} */}
+            
             {images && images.length > 0 ? (
               <div className={styles.image}>
                 <PhotoGallery images={images} />
               </div>
             ) : null}
-          </div>
 
-          <div className={classnames(styles.body, 'mql-m mqs-m')}>
-            {body ? <Markdown source={body} /> : item.summary}
-            
+
             {item.ticketurl && (  
               
               <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
@@ -135,6 +133,12 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
                 }
               </p>
             )}
+          </div>
+
+          <div className={classnames(styles.body, 'mql-m mqs-m')}>
+            
+
+            {body ? <Markdown source={body} /> : item.summary}
           </div>
 
           {related && (
