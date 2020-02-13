@@ -100,6 +100,17 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
                 Posted: <FormattedDate date={date} />
             </time>
             )}
+
+            {item.ticketurl && (    
+              <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
+                <Helmet>
+                  <script src="https://js.tito.io/v1" async></script>
+                </Helmet>
+                {
+                  <tito-button event={item.ticketurl} className={styles.tito}>Sign up!</tito-button>
+                }
+              </p>
+            )}
             
               
           </header>
@@ -120,24 +131,9 @@ const ItemPage = ({ backTo, url, item, related = [] }) => {
                 <PhotoGallery images={images} />
               </div>
             ) : null}
-
-
-            {item.ticketurl && (  
-              
-              <p className={classnames(styles.ticket, 'mql-m mqs-m')}>
-                <Helmet>
-                  <script src="https://js.tito.io/v1" async></script>
-                </Helmet>
-                {
-                  <tito-button event={item.ticketurl} className={styles.tito}>Sign up!</tito-button>
-                }
-              </p>
-            )}
           </div>
 
           <div className={classnames(styles.body, 'mql-m mqs-m')}>
-            
-
             {body ? <Markdown source={body} /> : item.summary}
           </div>
 
