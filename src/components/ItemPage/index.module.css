@@ -54,6 +54,17 @@ tito-button button {
   border: 0;
   font-size: 20px;
   padding: 10px;
+  margin-top: 1em;
+}
+
+h4 {
+  text-decoration: underline;
+  margin-bottom: 1em;
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 @media (--large) {
