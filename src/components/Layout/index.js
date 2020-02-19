@@ -93,18 +93,7 @@ class Layout extends React.Component {
           link={[
             { rel: 'icon', type: 'image/png', href: `${favicon}` }
           ]}
-        >
-            {/* Include Scripts for marking the preview work */}
-            <script>
-            {`
-              window.prismic = 
-                endpoint: 'https://retune-main.cdn.prismic.io/api/v2'
-              ;
-              `}
-            </script>
-            <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
-          </Helmet>
-
+        />
         {wrapped && (
           <Masthead
             breadcrumbs={breadcrumbs}
