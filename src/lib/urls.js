@@ -46,7 +46,7 @@ module.exports.servicesPath = service => {
 module.exports.newsPath = item => `/news/${maybeToSlugUrl(item)}`
 module.exports.imprintPath = () => '/imprint/'
 module.exports.privacyPath = () => '/datenschutz/'
-module.exports.newsletterPath = () => 'http://eepurl.com/b3QkdX'
+module.exports.newsletterPath = () => 'https://landing.mailerlite.com/webforms/landing/w2u7m2'
 
 module.exports.eventPath = event => {
   if (event.type) {
