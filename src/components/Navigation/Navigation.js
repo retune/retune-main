@@ -107,7 +107,7 @@ class Navigation extends React.Component {
             </h3>
             <ul className={classnames(styles.links, 'list-reset')}>
               <li>
-                <a href="https://community.retune.de">→ Community Forum</a>
+                <a href="https://community.retune.de" style="color: black;">&nearr; Community Forum</a>
               </li>
               <li>
                 <NavigationLink to={urls.aboutPath()}>About</NavigationLink>
