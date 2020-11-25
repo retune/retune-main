@@ -93,7 +93,9 @@ class Layout extends React.Component {
           link={[
             { rel: 'icon', type: 'image/png', href: `${favicon}` }
           ]}
-        />
+        >
+          <script async defer data-domain="retune.de" src="https://plausible.io/js/plausible.js"></script>
+          </Helmet>
         {wrapped && (
           <Masthead
             breadcrumbs={breadcrumbs}

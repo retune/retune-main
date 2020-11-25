@@ -33,18 +33,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
     // Analytics config for matomo (aka piwik)
-    {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: '6',
-        matomoUrl: '//piwik.retune.de',
-        siteUrl: '//retune.de',
-        // Set to `true` to send analytics in development mode
-        // This should usually be left as `false` so analytics
-        // is only sent in production
-        dev: false,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-matomo',
+    //   options: {
+    //     siteId: '6',
+    //     matomoUrl: '//piwik.retune.de',
+    //     siteUrl: '//retune.de',
+    //     // Set to `true` to send analytics in development mode
+    //     // This should usually be left as `false` so analytics
+    //     // is only sent in production
+    //     dev: false,
+    //   },
+    // },
     {
       // We need filesystem source plugin to add publicURL function to File nodes
       resolve: 'gatsby-source-filesystem',
