@@ -18,7 +18,7 @@
     "granim": "^2.0.0",
     "intersection-observer": "^0.5.1",
     "luxon": "^1.8.0",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.1.1",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-custom-media": "^7.0.7",
     "postcss-import": "^12.0.1",
